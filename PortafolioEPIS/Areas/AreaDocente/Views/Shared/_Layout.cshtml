@@ -1,4 +1,9 @@
-﻿
+﻿@{
+    List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
+    List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
+    List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +46,7 @@
                             <img class="rounded-circle" src="~/assets/img/user.jpg" width="24" alt="Admin">
                             <span class="status online"></span>
                         </span>
-                        <span>Administrador</span>
+                        <span>Docente</span>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Mi Prefil</a>
@@ -61,19 +66,42 @@
                 </div>
             </div>
         </div>
+        @{ int a = 0;
+            int c = 0;
+            int p = 0;}
+        @foreach (var doc in docente)
+        { a++; }
+        @foreach (var pl in plan)
+        { p++; }
+        @foreach (var ca in carga)
+        { c++; }
+
+
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li class="menu-title">Principal</li>
                         <li class="active">
-                            <a href="~/Inicio/Index"><i class="fa fa-dashboard"></i> <span>Inicio</span></a>
+                            <a href="~/AreaDocente/Boasboard/Index"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="~/PlanEstudio/Index"><i class="fa fa-book"></i> <span>Mi Perfil</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                            <a href="~/AreaDocente/MiCargaAcademica/Index"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">@c</span></a>
                         </li>
                         <li>
-                            <a href="~/CargaAcademica/Index"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+
+                            <a href="~/AreaDocente/MiPerfil/Index"><i class="fa fa-user"></i> <span>Mi Perfil</span> <span class="badge badge-pill bg-primary float-right">@a</span></a>
+                        </li>
+
+                        <li class="menu-title">Informes</li>
+                        <li>
+                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                        </li>
+                        <li>
+                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Portafolio</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                        </li>
+                        <li>
+                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Final</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
                         </li>
                     </ul>
                 </div>
@@ -81,7 +109,7 @@
         </div>
         <div class="page-wrapper">
             <div class="content">
-                
+                @RenderBody()
             </div>
         </div>
     </div>

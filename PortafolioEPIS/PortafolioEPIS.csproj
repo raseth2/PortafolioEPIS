@@ -819,10 +819,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Docente\Controllers\DetalleCargaAcademicaController.cs" />
-    <Compile Include="Areas\Docente\Controllers\DocenteController.cs" />
-    <Compile Include="Areas\Docente\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Docente\DocenteAreaRegistration.cs" />
+    <Compile Include="Areas\AreaDocente\AreaDocenteAreaRegistration.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\MiCargaAcademicaController.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\MiPerfilController.cs" />
     <Compile Include="Controllers\CargaAcademicaController.cs" />
     <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
@@ -838,13 +838,13 @@
     <Compile Include="Controllers\Informes\PortafolioU3Controller.cs" />
     <Compile Include="Controllers\Informes\PruebaEntradaController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
-    <Compile Include="Controllers\LayoutDocente\VistaDocenteController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
     <Compile Include="Controllers\Mantenimiento\ProfesionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SeccionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SemestreController.cs" />
     <Compile Include="Controllers\PlanEstudioController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Filters\Filters.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -990,12 +990,12 @@
     <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.ttf" />
     <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.woff" />
     <Content Include="assets\PortalWeb\vendors\themify\fonts\themifyd41d.eot" />
-    <Content Include="Areas\Docente\Views\web.config" />
-    <Content Include="Areas\Docente\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Docente\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Docente\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Docente\Views\DetalleCargaAcademica\Index.cshtml" />
-    <Content Include="Areas\Docente\Views\Docente\Index.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\web.config" />
+    <Content Include="Areas\AreaDocente\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\Index.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MiPerfil\Index.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\Dashboard\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1047,10 +1047,9 @@
     <Content Include="Views\Docente\VistaInformeFinal.cshtml" />
     <Content Include="Views\InformeFinal\AgregarCapacidadCurso.cshtml" />
     <Content Include="Views\InformeFinal\ListarCapacidadCurso.cshtml" />
-    <Content Include="Views\VistaDocente\LayoutDocente.cshtml" />
-    <Content Include="Views\VistaDocente\MiPerfil.cshtml" />
-    <Content Include="Views\VistaDocente\MiCargaAcademica.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Agregar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1060,7 +1059,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Docente\Models\" />
+    <Folder Include="Areas\AreaDocente\Models\" />
     <Folder Include="assets\PortalWeb\images\main-slider\" />
     <Folder Include="Reports\" />
   </ItemGroup>

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace PortafolioEPIS.Areas.Docente.Controllers
+namespace PortafolioEPIS.Areas.AreaDocente.Controllers
 {
-    public class HomeController : Controller
+    public class MiCargaAcademicaController : Controller
     {
-        // GET: Docente/Home
+        // GET: AreaDocente/MiCargaAcademica
         public ActionResult Index()
         {
             return View();

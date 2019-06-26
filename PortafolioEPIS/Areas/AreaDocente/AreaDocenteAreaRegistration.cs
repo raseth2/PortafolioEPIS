@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace PortafolioEPIS.Areas.Docente
+namespace PortafolioEPIS.Areas.AreaDocente
 {
-    public class DocenteAreaRegistration : AreaRegistration 
+    public class AreaDocenteAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Docente";
+                return "AreaDocente";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Docente_default",
-                "Docente/{controller}/{action}/{id}",
+                "AreaDocente_default",
+                "AreaDocente/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }
