@@ -1051,6 +1051,7 @@
     <Content Include="Views\VistaDocente\MiPerfil.cshtml" />
     <Content Include="Views\VistaDocente\MiCargaAcademica.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\PruebaEntrada\IndexLista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1061,6 +1062,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AreaDocente\Models\" />
+    <Folder Include="Areas\Docente\Models\" />
     <Folder Include="assets\PortalWeb\images\main-slider\" />
     <Folder Include="Reports\" />
   </ItemGroup>

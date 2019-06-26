@@ -1,9 +1,17 @@
-﻿@{ 
+﻿@{
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
     List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
 }
-   
+
+
+@{
+
+    string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
+
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +39,7 @@
 
 </head>
 <body>
+
     <div class="main-wrapper">
         <div class="header">
             <div class="header-left">

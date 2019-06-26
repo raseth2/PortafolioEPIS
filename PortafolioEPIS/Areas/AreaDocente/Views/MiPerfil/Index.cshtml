@@ -1,4 +1,11 @@
-﻿<div class="row">
+﻿
+@{
+
+    string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
+
+}
+<div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Mi Perfil </h4>
     </div>
@@ -7,13 +14,16 @@
     </div>
 
 </div>
+<label>@usuario.Codigo_Docente</label>
+<label>@usuario.Nombre_Usuario</label>
+<label>@usuario.Tbl_Docente.Nombres_Docente</label>
 <div class="card-box profile-header">
     <div class="row">
         <div class="col-md-12">
             <div class="profile-view">
                 <div class="profile-img-wrap">
                     <div class="profile-img">
-                        <a href="#"><img class="avatar" src="~/Imagen/" alt=""></a>
+                        <a href="#"><img class="avatar" src="~/Imagen/@usuario.Tbl_Docente.Foto_Docente" alt=""></a>
                     </div>
                 </div>
                 <div class="profile-basic">
@@ -28,9 +38,15 @@
 
                                 </small>
                                 <div class="staff-id"></div>
-                                <div class="staff-id">Correo : <a href="#"></a></div>
-                                <div class="staff-id">Celular : <a href="#"></a></div>
-                                <div class="staff-id">Tel. Fijo : <a href="#"></a></div>
+                                <ul class="personal-info">
+                                    <li>
+                                        <span class="title">Sexo:</span>
+                                        <span class="text">@usuario.Tbl_Docente.Sexo_Docente</span>
+                                    </li>
+                                    </ul>
+                                    <div class="staff-id">Correo : @usuario.Tbl_Docente.Correo_Docente<a href="#"></a></div>
+                                    <div class="staff-id">Celular :@usuario.Tbl_Docente.TelefonoCelular_Docente<a href="#"></a></div>
+                                    <div class="staff-id">Tel. Fijo :@usuario.Tbl_Docente.TelefonoFijo_Docente <a href="#"></a></div>
 
                             </div>
                         </div>
@@ -38,28 +54,28 @@
                             <ul class="personal-info">
                                 <li>
                                     <span class="title">Sexo:</span>
-                                    <span class="text">Masculino</span>
+                                    <span class="text">@usuario.Tbl_Docente.Sexo_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Estado Civil:</span>
-                                    <span class="text"></span>
+                                    <span class="text">@usuario.Tbl_Docente.EstadoCivil_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Fecha Nacimiento:</span>
-                                    <span class="text"></span>
+                                    <span class="text">@usuario.Tbl_Docente.FechaNac_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Direccion Actual:</span>
-                                    <span class="text"></span>
+                                    <span class="text">@usuario.Tbl_Docente.DireccionActual_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Direccion Ref.:</span>
-                                    <span class="text"></span>
+                                    <span class="text">@usuario.Tbl_Docente.DireccionReferencia_Docente</span>
                                 </li>
                                 <li>
                                     <span class="title">Estado:</span>
 
-                                    <span class="text">Activo</span>
+                                    <span class="text">@usuario.Tbl_Docente.Estado_Docente</span>
 
                                 </li>
 

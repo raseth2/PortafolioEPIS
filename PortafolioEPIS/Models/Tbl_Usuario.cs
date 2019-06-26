@@ -63,7 +63,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objUsuario = db.Tbl_Usuario.Include("Docente")
+                    objUsuario = db.Tbl_Usuario.Include("Tbl_Docente")
                         .Where(x => x.Codigo_Usuario == id)
                         .SingleOrDefault();
                 }
