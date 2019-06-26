@@ -1,0 +1,103 @@
+﻿@model PortafolioEPIS.Models.Tbl_Usuario
+@{
+    List<PortafolioEPIS.Models.Tbl_Docente> objDocente = ViewBag.Tbl_Docente;
+    ViewBag.Title = "Agregar";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">Agregar / Editar Usuario</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <h4 class="card-title">Información de Usuario</h4>
+            @using (Html.BeginForm("Guardar", "Usuario", FormMethod.Post, new { id = "needs-validation", @novalidate = "novalidate" }))
+            {
+                @Html.HiddenFor(x => x.Codigo_Usuario)
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        @Html.Label("Docente")
+                        <select name="Codigo_Docente" class="form-control" id="validationCustom01" required="required">
+                            <option value=""> - Seleccione -</option>
+                            @foreach (var e in objDocente)
+                            {
+                                if (e.Estado_Docente == true)
+                                {
+                                    <option @(Model.Codigo_Docente.Equals(e.Codigo_Docente) ? "selected" : "") value="@e.Codigo_Docente">@e.Nombres_Docente @e.Apellidos_Docente</option>
+                                }
+                            }
+                        </select>
+                        <div class="invalid-feedback">
+                            Seleccionar Docente
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-md-6">
+                        @Html.Label("Usuario")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Nombre_Usuario, new { @class = "form-control", id = "validationCustom02", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingrese nombre de Usuario
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        @Html.Label("Contraseña")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Password_Usuario, new { @class = "form-control", Type = "Password", id = "validationCustom03", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingrese Contraseña
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        @Html.Label("Estado")
+                        <div class="form-group">
+                            @Html.RadioButtonFor(x => x.Estado_Usuario, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                            @Html.RadioButtonFor(x => x.Estado_Usuario, false) Inactivo
+                        </div>
+                    </div>
+                </div><div class="row clearfix">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-sm-8 col-9 text-left">
+                                    <div class="form-check form-check-inline">
+                                        <a href="~/Usuario/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            var form = document.getElementById('needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>

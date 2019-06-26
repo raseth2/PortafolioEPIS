@@ -1,4 +1,10 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
+    @{ 
+        PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
+
+
+    }
+
 
 <div class="row">
     <div class="col-sm-8 col-9">
@@ -8,7 +14,10 @@
 </div>
 
 <div class="profile-tabs">
+    @Html.Label(Convert.ToString(usuario.Tbl_Docente.Codigo_Docente))
 
+    @Html.Label(Convert.ToString(usuario.Tbl_Docente.Nombres_Docente))
+    @Html.Label(Convert.ToString(usuario.Nombre_Usuario))
     <div class="tab-pane show active" id="about-cont">
         <div class="row">
             <div class="col-md-12">
