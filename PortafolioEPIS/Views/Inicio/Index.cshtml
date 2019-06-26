@@ -2,20 +2,178 @@
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
     List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
-    //List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
+    List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
+    List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = new PortafolioEPIS.Models.Tbl_Portafolio().Listar();
+    List<PortafolioEPIS.Models.Tbl_InformeFinal> informe = new PortafolioEPIS.Models.Tbl_InformeFinal().Listar();
 }
+
 @{ int d = 0;
     int c = 0;
     int p = 0;
-    int i = 0;}
+    int i = 0;
+    int porta = 0;
+    int info = 0;
+    int porta1 = 0;
+    int cantPruebaG = 0, cantPruebaE = 0, cantPruebaR = 0, cantPruebaA = 0;
+    int cantInformeG = 0, cantInformeE = 0, cantInformeR = 0, cantInformeA = 0;
+    int cantActivos = 0, cantInactivos = 0, cantHombres = 0, cantMujeres = 0;
+    int cantGuardados = 0, cantEnviado = 0, cantRechazado = 0, cantAceptado = 0;
+    int cantGuardados2 = 0, cantEnviado2 = 0, cantRechazado2 = 0, cantAceptado2 = 0;
+    int cantGuardados3 = 0, cantEnviado3 = 0, cantRechazado3 = 0, cantAceptado3 = 0;
+    int cantAprobados = 0, cantDesaprobados = 0, cantRetirados = 0, cantAbandono = 0;
+}
+
 @foreach (var doc in docente)
 { d++; }
 @foreach (var pl in plan)
 { p++; }
 @foreach (var ca in carga)
 { c++; }
-@*@foreach (var pr in prueba)
-{ i++; }*@
+@foreach (var pr in prueba)
+{ i++; }
+@foreach (var es in portafolio)
+{ porta++; }
+@foreach (var es in informe)
+{ info++; }
+
+@foreach (var s in docente)
+{
+    if (s.Estado_Docente.Equals(true))
+    {
+        cantActivos++;
+    }
+    else
+    {
+        cantInactivos++;
+    }
+    if (s.Sexo_Docente.Equals(true))
+    {
+        cantHombres++;
+    }
+    else
+    {
+        cantMujeres++;
+    }
+}
+
+@foreach (var prue in prueba)
+{
+    if (prue.Estado_PruebaEntrada == "G")
+    {
+        cantPruebaG++;
+    }
+    else if (prue.Estado_PruebaEntrada == "E")
+    {
+        cantPruebaE++;
+    }
+    else if (prue.Estado_PruebaEntrada == "A")
+    {
+        cantPruebaA++;
+    }
+    else if (prue.Estado_PruebaEntrada == "R")
+    {
+        cantPruebaR++;
+    }
+}
+
+
+@foreach (var infof in informe)
+{
+    if (infof.Estado_InformeFinal == "G")
+    {
+        cantInformeG++;
+    }
+    else if (infof.Estado_InformeFinal == "E")
+    {
+        cantInformeE++;
+    }
+    else if (infof.Estado_InformeFinal == "A")
+    {
+        cantInformeA++;
+    }
+    else if (infof.Estado_InformeFinal == "R")
+    {
+        cantInformeR++;
+    }
+}
+
+@foreach (var por in portafolio)
+{
+    if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "G")
+    {
+        cantGuardados++;
+    }
+    else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "E")
+    {
+        cantEnviado++;
+    }
+    else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "A")
+    {
+        cantAceptado++;
+    }
+
+    else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "R")
+    {
+        cantRechazado++;
+    }
+    if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "G")
+    {
+        cantGuardados2++;
+    }
+    else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "E")
+    {
+        cantEnviado2++;
+    }
+    else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "A")
+    {
+        cantAceptado2++;
+    }
+
+    else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "R")
+    {
+        cantRechazado2++;
+    }
+    if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "G")
+    {
+        cantGuardados3++;
+    }
+    else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "E")
+    {
+        cantEnviado3++;
+    }
+    else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "A")
+    {
+        cantAceptado3++;
+    }
+
+    else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "R")
+    {
+        cantRechazado3++;
+    }
+
+}
+
+@foreach (var infof in informe)
+{
+    if (infof.Codigo_DetalleCargaAcademica == 1)
+    {
+        cantInformeG++;
+    }
+    else if (infof.Estado_InformeFinal == "E")
+    {
+        cantInformeE++;
+    }
+    else if (infof.Estado_InformeFinal == "A")
+    {
+        cantInformeA++;
+    }
+    else if (infof.Estado_InformeFinal == "R")
+    {
+        cantInformeR++;
+    }
+}
+
+
 <div class="row">
     <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
         <div class="dash-widget">
@@ -49,20 +207,495 @@
             <span class="dash-widget-bg4"><i class="fa fa-print " aria-hidden="true"></i></span>
             <div class="dash-widget-info text-right">
                 <h3>@i</h3>
-                <span class="widget-title4">Informes <i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="widget-title4">Prueba Entrada <i class="fa fa-check" aria-hidden="true"></i></span>
             </div>
+        </div>
+    </div>
+
+    @*<div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="dash-widget">
+                <span class="dash-widget-bg4"><i class="fa fa-print " aria-hidden="true"></i></span>
+                <div class="dash-widget-info text-right">
+                    <h3>@porta</h3>
+                    <span class="widget-title4">Portafolio <i class="fa fa-check" aria-hidden="true"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="dash-widget">
+                <span class="dash-widget-bg4"><i class="fa fa-print " aria-hidden="true"></i></span>
+                <div class="dash-widget-info text-right">
+                    <h3>@info</h3>
+                    <span class="widget-title4">Informe Final <i class="fa fa-check" aria-hidden="true"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="dash-widget">
+                <span class="dash-widget-bg4"><i class="fa fa-print " aria-hidden="true"></i></span>
+                <div class="dash-widget-info text-right">
+                    <h3>@i</h3>
+                    <span class="widget-title4">Informes4 <i class="fa fa-check" aria-hidden="true"></i></span>
+                </div>
+            </div>
+        </div>*@
+</div>
+
+<!--bienvenida-->
+<div class="card">
+    <div class="card-body">
+        <img src="~/Imagen/fondo Portafoliov2.png" class="img-fluid" alt="Responsive image" />
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="col-md-4">
+        <div class="card-box">
+            <h4 class="card-title">Estado Informe Unidad I</h4>
+            <div id="container2"></div>
+            <script type="text/javascript">
+            Highcharts.chart('container2', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Portafolio Unidad I'
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Cantidad total'
+                    }
+
+                },
+                legend: {
+                    enabled: false
+                },
+                ooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                }, plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: true,
+                        },
+                        showInLegend: true,
+                    }
+                },
+
+                series: [
+                    {
+                        name: "Estado",
+                        colorByPoint: true,
+                        data: [
+                            {
+                                name: 'Guardado',
+                                color: '#ED7D31',
+                                y: @cantGuardados,
+
+                            },
+                            {
+                                name: 'Enviado',
+                                color: '#009EFB',
+                                y: @cantEnviado,
+
+                            },
+                            {
+                                name: 'Aceptado',
+                                color: '#55CE63',
+                                y: @cantAceptado,
+
+                            },
+                            {
+                                name: 'Rechazado',
+                                color: '#FF0000',
+                                y: @cantRechazado,
+
+                            },
+                        ]
+                    }
+                ]
+            });
+            </script>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card-box">
+            <h4 class="card-title">Estado Informe Unidad II</h4>
+            <div id="container3"></div>
+            <script type="text/javascript">
+            Highcharts.chart('container3', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Portafolio Unidad II'
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Cantidad total'
+                    }
+
+                },
+                legend: {
+                    enabled: false
+                },
+                ooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                }, plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: true,
+                        },
+                        showInLegend: true,
+                    }
+                },
+
+                series: [
+                    {
+                        name: "Estado",
+                        colorByPoint: true,
+                        data: [
+                            {
+                                name: 'Guardado',
+                                color: '#ED7D31',
+                                y: @cantGuardados2,
+
+                            },
+                            {
+                                name: 'Enviado',
+                                color: '#009EFB',
+                                y: @cantEnviado2,
+
+                            },
+                            {
+                                name: 'Aceptado',
+                                color: '#55CE63',
+                                y: @cantAceptado2,
+
+                            },
+                            {
+                                name: 'Rechazado',
+                                color: '#FF0000',
+                                y: @cantRechazado2,
+
+                            },
+                        ]
+                    }
+                ]
+            });
+            </script>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card-box">
+            <h4 class="card-title">Estado Informe Unidad III</h4>
+            <div id="container4"></div>
+            <script type="text/javascript">
+            Highcharts.chart('container4', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Portafolio Unidad III'
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Cantidad total'
+                    }
+
+                },
+                legend: {
+                    enabled: false
+                },
+                ooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                }, plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: true,
+                        },
+                        showInLegend: true,
+                    }
+                },
+
+                series: [
+                    {
+                        name: "Estado",
+                        colorByPoint: true,
+                        data: [
+                            {
+                                name: 'Guardado',
+                                color: '#ED7D31',
+                                y: @cantGuardados3,
+
+                            },
+                            {
+                                name: 'Enviado',
+                                color: '#009EFB',
+                                y: @cantEnviado3,
+
+                            },
+                            {
+                                name: 'Aceptado',
+                                color: '#55CE63',
+                                y: @cantAceptado3,
+
+                            },
+                            {
+                                name: 'Rechazado',
+                                color: '#FF0000',
+                                y: @cantRechazado3,
+
+                            },
+                        ]
+                    }
+                ]
+            });
+            </script>
         </div>
     </div>
 </div>
 
-<!--bienvenida-->
-<div class="card">    
-    <div class="card-body">
-        <img src="~/Imagen/fondo Portafoliov2.png" class="img-fluid" alt="Responsive image" />
+<div class="row clearfix">
+    <div class="col-md-6">
+        <div class="card-box">
+            <h4 class="card-title">Estado Informe Prueba de Entrada</h4>
+            <div id="container5"></div>
+            <script type="text/javascript">
+            Highcharts.chart('container5', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Portafolio Unidad III'
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Cantidad total'
+                    }
+
+                },
+                legend: {
+                    enabled: false
+                },
+                ooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                }, plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: true,
+                        },
+                        showInLegend: true,
+                    }
+                },
+
+                series: [
+                    {
+                        name: "Estado",
+                        colorByPoint: true,
+                        data: [
+                            {
+                                name: 'Guardado',
+                                color: '#ED7D31',
+                                y: @cantPruebaG,
+
+                            },
+                            {
+                                name: 'Enviado',
+                                color: '#009EFB',
+                                y: @cantPruebaE,
+
+                            },
+                            {
+                                name: 'Aceptado',
+                                color: '#55CE63',
+                                y: @cantPruebaA,
+
+                            },
+                            {
+                                name: 'Rechazado',
+                                color: '#FF0000',
+                                y: @cantPruebaR,
+
+                            },
+                        ]
+                    }
+                ]
+            });
+            </script>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card-box">
+            <h4 class="card-title">Estado Informe Informe Final</h4>
+            <div id="container6"></div>
+            <script type="text/javascript">
+            Highcharts.chart('container6', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Informe Final'
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Cantidad total'
+                    }
+
+                },
+                legend: {
+                    enabled: false
+                },
+                ooltip: {
+                    headerFormat: '<b>{point.x}</b><br/>',
+                    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                }, plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: true,
+                        },
+                        showInLegend: true,
+                    }
+                },
+
+                series: [
+                    {
+                        name: "Estado",
+                        colorByPoint: true,
+                        data: [
+                            {
+                                name: 'Guardado',
+                                color: '#ED7D31',
+                                y: @cantInformeG,
+
+                            },
+                            {
+                                name: 'Enviado',
+                                color: '#009EFB',
+                                y: @cantInformeE,
+
+                            },
+                            {
+                                name: 'Aceptado',
+                                color: '#55CE63',
+                                y: @cantInformeA,
+
+                            },
+                            {
+                                name: 'Rechazado',
+                                color: '#FF0000',
+                                y: @cantInformeR,
+
+                            },
+                        ]
+                    }
+                ]
+            });
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="col-md-6">
+        <div class="card-box">
+            <h4 class="card-title">Docente EPIS</h4>
+            <div id="container"></div>
+            <script type="text/javascript">
+        Highcharts.chart('container', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Total Docentes'
+            },
+            //tooltip: {
+            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            //},
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        //enabled: true,
+                        format: '<b>{point.name}:{point.y}</b>',
+                        //style: {
+                        //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        //}
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Docente Epis',
+                colorByPoint: true,
+                data: [{
+                    name: 'Hombres',
+                    color: '#FF0000',
+                    y: @cantHombres,
+
+                }, {
+                    name: 'Mujeres',
+                    color: '#FFC000',
+                    y: @cantMujeres,
+
+                    },
+                 {
+                    name: 'Activos',
+                     color: '#55CE63',
+                    y: @cantActivos,
+
+                    },
+                  {
+                    name: 'Inactivos',
+                      color: '#981C95',
+                    y: @cantInactivos,
+
+                    },
+                    {
+                    name: 'Total Docentes',
+                    color: '#00B0F0',
+                    y: @d,
+                }]
+                }]
+             });
+            </script>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card-box">
+            <h4 class="card-title">Estudiante EPIS</h4>
+
+        </div>
     </div>
 </div>
 
 <footer>
     <p>Aplicación Web Portafolio EPIS <strong>2019-I</strong> - ©2019 Universidad Privada de Tacna</p>
 </footer>
-
