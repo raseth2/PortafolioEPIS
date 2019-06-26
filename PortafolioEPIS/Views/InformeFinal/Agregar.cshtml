@@ -1,0 +1,769 @@
+﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
+
+@{
+    List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
+    List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = ViewBag.Portafolio;
+    List<PortafolioEPIS.Models.Tbl_Observaciones> ListarInformeFinal = ViewBag.ListarInformeFinal;
+    List<PortafolioEPIS.Models.Tbl_CapacidadesCurso> CapacidadesCurso = ViewBag.CapacidadesCurso;
+    int idpruebas = 0;
+    int codigoportafolio = 0;
+
+    ///tabla portafolio
+    int retirados = 0;
+    int abandonos = 0;
+    int aprobados = 0;
+    //tabla informefinal
+    int detallecarga = 0;
+    int porcentajesilabo = 0;
+    int practicascalificadas = 0;
+    int laboratoriosrealizados = 0;
+    int trabajosrealizados = 0;
+    int codigoportafo = 0;
+    int estudiantesmatriculados = 0;
+    int estudiantesretiro = 0;
+    int estudiantesabandono = 0;
+    int estudiantesasisten = 0;
+    int estudiantesaprobados = 0;
+    int estudiantesdesaprobados = 0;
+    int notamasalta = 0;
+    int notapromedio = 0;
+    int notamasbaja = 0;
+
+
+
+
+
+}
+<div class="row">
+    <div class="col-sm-7 col-6">
+        <h4 class="page-title">Informe Final </h4>
+    </div>
+</div>
+
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">1. Datos Generales</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">2. Graficos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">3. Capacidades del Curso</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">4. Observaciones</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">INFORMACION DE CURSO</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-4">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Codigo:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Asignatura:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-2">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Sección:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Seccion.Nombre_Seccion">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Ciclo:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Horas:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Créditos:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Tipo Curso:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">DATOS DOCENTE</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-4">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Codigo:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Codigo_Docenteepis">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Nombre:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Nombres_Docente @Model.Tbl_Docente.Apellidos_Docente">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-8">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Email:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.Correo_Docente">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-focus">
+                                    <label class="focus-label">Celular:</label>
+                                    <input type="text" style="background:#ffffff" readonly class="form-control floating" value="@Model.Tbl_Docente.TelefonoCelular_Docente">
+                                </div>
+                            </div>
+                        </div>
+                        @foreach (var p in prueba)
+                        {
+                            if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                            {
+
+
+                                idpruebas = p.Codigo_InformeFinal;
+                                detallecarga = p.Codigo_DetalleCargaAcademica;
+                                porcentajesilabo = Convert.ToInt32(p.PorcentajeSilabo_InformeFinal);
+                                practicascalificadas = Convert.ToInt32(p.PracticasCalificadas_InformeFinal);
+                                laboratoriosrealizados = Convert.ToInt32(p.LaboratoriosRealizados_InformeFinal);
+                                trabajosrealizados = Convert.ToInt32(p.TrabajosRealizados_InformeFinal);
+                                //codigoportafo = p.Codigo_Portafolio;
+                                estudiantesmatriculados = Convert.ToInt32(p.EstudiantesMatriculados_InformeFinal);
+                                estudiantesretiro = Convert.ToInt32(p.EstudiantesRetiro_InformeFinal);
+                                estudiantesabandono = Convert.ToInt32(p.EstudiantesAbandono_InformeFinal);
+                                estudiantesasisten = Convert.ToInt32(p.EstudiantesAsisten_InformeFinal);
+                                estudiantesaprobados = Convert.ToInt32(p.EstudiantesAprobados_InformeFinal);
+                                estudiantesdesaprobados = Convert.ToInt32(p.EstudiantesDesaprobados_InformeFinal);
+                                notamasalta = Convert.ToInt32(p.NotaAlta_InformeFinal);
+                                notapromedio = Convert.ToInt32(p.NotaPromedio_InformeFinal);
+                                notamasbaja = Convert.ToInt32(p.NotaBaja_InformeFinal);
+
+
+                            }
+                        }
+
+                        @foreach (var y in portafolio)
+                        {
+                            if (y.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                            {
+                                codigoportafolio = y.Codigo_Portafolio;
+                                retirados = retirados + Convert.ToInt32(y.Retirados_Portafolio);
+                                abandonos = abandonos + Convert.ToInt32(y.Abandono_Portafolio);
+                                abandonos = abandonos + Convert.ToInt32(y.Abandono_Portafolio);
+
+
+                            }
+                        }
+                       
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">RESUMEN DEL CURSO</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+
+                        @*Form*@
+                        @if (idpruebas == 0)
+                        {
+                            <div class="table-responsive">
+
+
+                                <form method="post" action="" id="evaluados" name="calculadora">
+                                    <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Item</th>
+                                                <th class="text-center">Cantidad</th>
+                                                <th class="text-center">Porcentaje</th>
+                                            </tr>
+                                        </thead>
+
+
+                                        <!-- Modal / Ventana / Overlay en HTML -->
+
+
+                                        <tbody>
+                                            <tr>
+
+                                                <td>1</td>
+                                                <td>Porcentaje de cumplimiento del sílabo</td>
+                                                <td><input type="text" name="porcentajesilabo" id="porcentajesilabo" class="form-control text-center"></td>
+                                                <td class="text-center">80%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Practicas calificada realizadas</td>
+                                                <td><input type="text" name="practicasrealizadas" id="practicasrealizadas" class="form-control text-center"></td>
+                                                <td class="text-center">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Experiencias de laboratorio realizadas</td>
+                                                <td><input type="text" name="experienciaslaboratorio" id="experienciaslaboratorio" class="form-control text-center"></td>
+                                                <td class="text-center">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Proyectos y/o trabajos de realizados</td>
+                                                <td><input type="text" name="proyectosrealizados" id="proyectosrealizados" class="form-control text-center"></td>
+                                                <td class="text-center">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Estudiantes Matriculados</td>
+                                                <td><input type="text" name="matriculados" id="matriculados" readonly class="form-control text-center" value="@Model.Matriculados_DetalleCargaAcademica"></td>
+                                                <td class="text-center">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Estudiantes con retiro</td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center" value="@retirados"></td>
+                                                <td class="text-center">6.7%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>Estudiantes en abandono</td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center" value="@abandonos"></td>
+                                                <td class="text-center">10%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>Estudiantes que asisten</td>
+                                                <td><input type="text" onKeyUp="calaprobados()"  name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="30"></td>
+                                                <td class="text-center">83.3%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>Estudiantes Aprobados</td>
+                                                <td><input type="text" onKeyUp="calaprobados()"  name="estudiantesaprobados" id="estudiantesaprobados" class="form-control text-center"></td>
+                                                <td class="text-center">50%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>Estudiantes Desaprobados</td>
+                                                <td><input type="text" name="estudiantesdesaprobados" id="estudiantesdesaprobados" readonly class="form-control text-center" value="0"></td>
+                                                <td class="text-center">33.3%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>Nota final mas alta</td>
+                                                <td><input type="text" name="notamasalta" id="notamasalta" class="form-control text-center"></td>
+                                                <td class="text-center"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>Nota final promedio</td>
+                                                <td><input type="text" name="notapromedio" id="notapromedio" class="form-control text-center"></td>
+                                                <td class="text-center"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td>Nota final mas baja</td>
+                                                <td><input type="text" name="notamasbaja" id="notamasbaja" class="form-control text-center"></td>
+                                                <td class="text-center"></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </form>
+                            </div>
+
+
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button onclick="form1()" class="btn btn-primary btn-rounded" style='width:150px; height:35px' type="submit"><i class="fa fa-refresh"></i> Actualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        else
+
+                        {
+                            <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
+                            <div class="table-responsive">
+                                <form method="post" action="" id="evaluados" name="calculadora">
+                                    <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
+
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Item</th>
+                                                <th class="text-center">Cantidad</th>
+                                                <th class="text-center">Porcentaje</th>
+                                            </tr>
+                                        </thead>
+
+
+                                        <!-- Modal / Ventana / Overlay en HTML -->
+
+
+                                        <tbody>
+                                            <tr>
+
+                                                <td>1</td>
+                                                <td>Porcentaje de cumplimiento del sílabo</td>
+                                                <td><input type="text" name="porcentajesilabo" id="porcentajesilabo" class="form-control text-center" value="@porcentajesilabo"></td>
+                                                <td class="text-center">80%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Practicas calificada realizadas</td>
+                                                <td><input type="text" name="practicasrealizadas" id="practicasrealizadas" class="form-control text-center" value="@practicascalificadas"></td>
+                                                <td class="text-center">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Experiencias de laboratorio realizadas</td>
+                                                <td><input type="text" name="experienciaslaboratorio" id="experienciaslaboratorio" class="form-control text-center" value="@laboratoriosrealizados"></td>
+                                                <td class="text-center">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Proyectos y/o trabajos de realizados</td>
+                                                <td><input type="text" name="proyectosrealizados" id="proyectosrealizados" class="form-control text-center" value="@trabajosrealizados"></td>
+                                                <td class="text-center">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Estudiantes Matriculados</td>
+                                                <td><input type="text" name="matriculados" id="matriculados" readonly class="form-control text-center" value="@Model.Matriculados_DetalleCargaAcademica"></td>
+                                                <td class="text-center">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Estudiantes con retiro</td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center" value="@estudiantesretiro"></td>
+                                                <td class="text-center">6.7%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td>Estudiantes en abandono</td>
+                                                <td><input type="text" onKeyUp="Suma()" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center" value="@estudiantesabandono"></td>
+                                                <td class="text-center">10%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td>Estudiantes que asisten</td>
+                                                <td><input type="text" onKeyUp="calaprobados()" name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="@estudiantesasisten"></td>
+                                                <td class="text-center">83.3%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td>Estudiantes Aprobados</td>
+                                                <td><input type="text"  onKeyUp="calaprobados()"  name="estudiantesaprobados" id="estudiantesaprobados" class="form-control text-center" value="@estudiantesaprobados"></td>
+                                                <td class="text-center">50%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>Estudiantes Desaprobados</td>
+                                                <td><input type="text" name="estudiantesdesaprobados" id="estudiantesdesaprobados" readonly class="form-control text-center" value="@estudiantesdesaprobados"></td>
+                                                <td class="text-center">33.3%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td>Nota final mas alta</td>
+                                                <td><input type="text" name="notamasalta" id="notamasalta" class="form-control text-center" value="@notamasalta"></td>
+                                                <td class="text-center"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td>Nota final promedio</td>
+                                                <td><input type="text" name="notapromedio" id="notapromedio" class="form-control text-center" value="@notapromedio"></td>
+                                                <td class="text-center"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td>Nota final mas baja</td>
+                                                <td><input type="text" name="notamasbaja" id="notamasbaja" class="form-control text-center" value="@notamasbaja"></td>
+                                                <td class="text-center"></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </form>
+                            </div>
+
+
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button onclick="form1()" class="btn btn-primary btn-rounded" style='width:150px; height:35px' type="submit"><i class="fa fa-refresh"></i> Actualizar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <script>
+                            //Función que realiza la suma
+                            function Suma() {
+                                var ingreso1 = document.calculadora.estudiantesabandono.value;
+                                var ingreso2 = document.calculadora.estudiantesretiro.value;
+                                var ingreso3 = document.calculadora.matriculados.value;
+                                try {
+                                    //Calculamos el número escrito:
+                                    ingreso1 = (isNaN(parseInt(ingreso1))) ? 0 : parseInt(ingreso1);
+                                    ingreso2 = (isNaN(parseInt(ingreso2))) ? 0 : parseInt(ingreso2);
+                                    document.calculadora.estudiantesasistentes.value = ingreso3-(ingreso1 + ingreso2);
+                                }
+                                //Si se produce un error no hacemos nada
+                                catch (e) { }
+                            }
+                            function calaprobados() {
+                                var estaprobados = document.calculadora.estudiantesaprobados.value;
+                                var estasistentes = document.calculadora.estudiantesasistentes.value;
+                                try {
+                                    estaprobados = (isNaN(parseInt(estaprobados))) ? 0 : parseInt(estaprobados);
+                                    estasistentes = (isNaN(parseInt(estasistentes))) ? 0 : parseInt(estasistentes);
+                                    document.calculadora.estudiantesdesaprobados.value = estasistentes - estaprobados;
+                                }
+                                catch (e) { }
+
+                            }
+                        </script>
+
+
+                      
+
+                        <script>
+                            var form1 = function () {
+
+                                var idprueba = document.getElementById("idprueba").value;
+                                var psilabo = document.getElementById("porcentajesilabo").value;
+                                var prarealizadas = document.getElementById("practicasrealizadas").value;
+                                var elaboratorio = document.getElementById("experienciaslaboratorio").value;
+                                var prorealizados = document.getElementById("proyectosrealizados").value;
+                                var matriculados = document.getElementById("matriculados").value;
+                                var estretiro= document.getElementById("estudiantesretiro").value;
+                                var estabandono = document.getElementById("estudiantesabandono").value;
+                                var estasistentes= document.getElementById("estudiantesasistentes").value;
+                                var estaprobados = document.getElementById("estudiantesaprobados").value;
+                                var estdesaprobados = document.getElementById("estudiantesdesaprobados").value;
+                                var notaalta = document.getElementById("notamasalta").value;
+                                var notapromedio = document.getElementById("notapromedio").value;
+                                var notabaja = document.getElementById("notamasbaja").value;
+                                var stado = "G";
+
+                                //alert(idprueba + "\n" + psilabo);
+
+                                window.location.href = '@Url.Content("~/InformeFinal/Guardar1/")' + "?idprueba=" + idprueba + "&psilabo=" + psilabo + "&prarealizadas=" + prarealizadas + "&elaboratorio=" + elaboratorio + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&estado=" + stado + "&prorealizados=" + prorealizados + "&matriculados=" + matriculados + "&estretiro=" + estretiro + "&estabandono=" + estabandono + "&estasistentes=" + estasistentes + "&estaprobados=" + estaprobados + "&estdesaprobados=" + estdesaprobados + "&notaalta=" + notaalta + "&notapromedio=" + notapromedio + "&notabaja=" + notabaja;
+                            }
+                        </script>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 1 : ASISTENCIA DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <div id="container" style="width: 450px; height: 400px; margin: 0 auto"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container', {
+                                        chart: {
+                                            type: 'column'
+                                        },
+                                        title: {
+                                            text: 'Estudiantes'
+                                        },
+                                        xAxis: {
+                                            type: 'category'
+                                        },
+                                        yAxis: {
+                                            title: {
+                                                text: 'Total de Estudiantes del Curso'
+                                            }
+
+                                        },
+                                        legend: {
+                                            enabled: false
+                                        },
+                                        ooltip: {
+                                            headerFormat: '<b>{point.x}</b><br/>',
+                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                        }, plotOptions: {
+                                            column: {
+                                                stacking: 'normal',
+                                                dataLabels: {
+                                                    enabled: true,
+                                                }
+                                            }
+                                        },
+
+                                        series: [
+                                            {
+                                                name: "Estudiantes",
+                                                colorByPoint: true,
+                                                data: [
+                                                    {
+                                                        name: 'Matriculados',
+                                                        color: '#ED7D31',
+                                                        y: @estudiantesmatriculados,
+
+                                                    },
+                                                    {
+                                                        name: 'Asisten',
+                                                        color: '#009EFB',
+                                                        y: @estudiantesasisten,
+
+                                                    },
+                                                ]
+                                            }
+                                        ]
+                                    });
+                                </script>
+                            </div>
+                        </div>
+
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 2 : SITUACIÓN GENERAL DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <div id="container2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+                                    <script type="text/javascript">
+                                        Highcharts.chart('container2', {
+                                            chart: {
+
+                                                type: 'pie'
+                                            },
+                                            title: {
+                                                text: 'Situacion General'
+                                            },
+                                            tooltip: {
+                                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                            },
+                                            plotOptions: {
+                                                pie: {
+                                                    allowPointSelect: true,
+                                                    cursor: 'pointer',
+                                                    dataLabels: {
+                                                        enabled: true,
+                                                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                                    }
+                                                    , showInLegend: true
+                                                }
+
+                                            },
+                                            series: [{
+                                                name: 'Situacion',
+                                                data: [{
+                                                    name: 'Aprobados',
+                                                    color: '#00B0F0',
+                                                    y:@estudiantesaprobados,
+                                                },
+                                                {
+                                                    name: 'Desaprobados',
+                                                    color: '#FF0000',
+                                                    y:@estudiantesdesaprobados,
+                                                }, {
+                                                    name: 'Retirados',
+                                                    color: '#FFC000',
+                                                    y: @estudiantesretiro,
+                                                }, {
+                                                    name: 'Abandono',
+                                                    color: '#767171',
+                                                    y: @estudiantesabandono,
+                                                }],
+                                            }]
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 3 : RENDIMIENTO DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <div id="container3" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+                                <script type="text/javascript">
+                                    Highcharts.chart('container3', {
+                                        chart: {
+                                            type: 'bar'
+                                        },
+                                        title: {
+                                            text: 'Rendimiento'
+                                        },
+                                        xAxis: {
+                                            categories: ['Porcentaje']
+                                        },
+                                        yAxis: {
+                                            min: 0,
+                                            title: {
+                                                text: 'Rendimiento'
+                                            }
+                                        },
+                                        legend: {
+                                            reversed: true
+                                        },
+                                        tooltip: {
+                                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                        },
+                                        plotOptions: {
+                                            series:
+                                            {
+                                                stacking: 'normal',
+                                                dataLabels: {
+                                                    cursor: 'pointer',
+                                                    format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                                                    enabled: true,
+                                                    filter: {
+                                                        property: 'percentage',
+                                                        operator: '>',
+                                                        value: 2
+                                                    },
+                                                }
+                                            }
+                                        },
+                                        series: [{
+                                            name: 'Aprobados',
+                                            color: '#00B0F0',
+                                            data: [@estudiantesaprobados]
+                                        },
+                                        {
+                                            name: 'Desaprobados',
+                                            color: '#FF0000',
+                                            data: [@estudiantesdesaprobados]
+                                        }]
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">LOGROS DE CAPACIDADES DEL CURSO</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-sm-12 col-12 text-right m-b-20">
+                                <div class="form-check form-check-inline">
+                                    <!-- Botón en HTML (lanza el modal en Bootstrap) -->
+                                    <a href="#victorModal" role="button" class="btn btn-primary btn-rounded float-right" data-toggle="modal"><i class="fa fa-plus"></i> Nuevo Registro</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal / Ventana / Overlay en HTML -->
+                        <div id="victorModal" class="modal fade">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Capacidad del Curso</h4>
+                                    </div>
+
+                                    @{Html.RenderAction("AgregarCapacidadCurso", "InformeFinal", new { idInformeFinal = idpruebas, idPruebaDoc = Model.Tbl_Docente.Codigo_Docente }); }
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+                            @{Html.RenderAction("ListarCapacidadCurso", "InformeFinal", new { idInformeFinal = idpruebas, idPruebaDoc = Model.Tbl_Docente.Codigo_Docente }); }
+                            
+                       
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-box">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">OBSERVACIONES</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                        @* @{Html.RenderAction("AgregarObservaciones", "InformeFinal", new { id1 = 0 }); }*@
+                        @{Html.RenderAction("AgregarObservaciones", "InformeFinal", new { idInformeFinal = idpruebas, idPruebaDoc = Model.Tbl_Docente.Codigo_Docente }); }
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

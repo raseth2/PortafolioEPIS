@@ -1,0 +1,186 @@
+﻿@model PortafolioEPIS.Models.Tbl_DetallePlanEstudio
+@{
+    //PortafolioEPIS.Models.Tbl_PlanEstudio ObjPlan = ViewBag.Tbl_CargaAcademica_id;
+    PortafolioEPIS.Models.Tbl_PlanEstudio objPlanEstudio1 = ViewBag.Tbl_PlanEstudio_id;
+    List<PortafolioEPIS.Models.Tbl_PlanEstudio> objPlanEstudio = ViewBag.Tbl_PlanEstudio;
+    ViewBag.Title = "Agregar";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">Agregar Detalle Plan de Estudio</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <h4 class="card-title">Información de Curso</h4>
+            @using (Html.BeginForm("Guardar", "DetallePlanEstudio", FormMethod.Post, new { id = "needs-validation", @novalidate = "novalidate" }))
+            {
+                @Html.HiddenFor(x => x.Codigo_DetallePlanEstudio)
+                <div class="row clearfix">
+                    <div class="col-md-3">
+                        @Html.Label("Plan de Estudio")
+                        <div class="form-group">
+                            <select name="Codigo_PlanEstudio" class="form-control">
+                                @if (objPlanEstudio1 != null)
+                                {
+                                    <option @objPlanEstudio1.Codigo_PlanEstudio Selected value="@objPlanEstudio1.Codigo_PlanEstudio">@objPlanEstudio1.Nombre_PlanEstudio</option>
+                                }
+                                else
+                                {
+                                    <option @Model.Codigo_PlanEstudio Selected value="@Model.Codigo_PlanEstudio">@Model.Tbl_PlanEstudio.Nombre_PlanEstudio</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.Label("Código Curso")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.CodigoCurso_DetallePlanEstudio, new { @class = "form-control", id = "validationCustom01", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingresa Código Curso
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        @Html.Label("Asignatura")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Asignatura_DetallePlanEstudio, new { @class = "form-control", id = "validationCustom02", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingresa Asignatura
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-3">
+                        @Html.Label("Horas Teóricas")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.HorasTeoricas_DetallePlanEstudio, new { @class = "form-control", id = "validationCustom03", required = "required", pattern = "[1-9]{1,3}" })
+                            <div class="invalid-feedback">
+                                Ingresa Cantidad
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.Label("Horas Prácticas")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.HorasPracticas_DetallePlanEstudio, new { @class = "form-control", id = "validationCustom04", required = "required", pattern = "[1-9]{1,3}" })
+                            <div class="invalid-feedback">
+                                Ingresa Cantidad
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.Label("Total Horas")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.TotalHoras_DetallePlanEstudio, new { @class = "form-control", id = "validationCustom05", required = "required", pattern = "[1-9]{1,3}" })
+                            <div class="invalid-feedback">
+                                Ingresa Cantidad
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        @Html.Label("Créditos")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.TotalCreditos_DetallePlanEstudio, new { @class = "form-control", id = "validationCustom06", required = "required", pattern = "[1-9]{1,3}" })
+                            <div class="invalid-feedback">
+                                Ingresa Cantidad
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-4">
+                        @Html.Label("Pre-Requisito")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.PreRequisito_DetallePlanEstudio, new { @class = "form-control", id = "validationCustom07", required = "required" })
+                            <div class="invalid-feedback">
+                                Ingresa Pre-Requisito
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("Ciclo")
+                        <div class="form-group">
+                            <select name="Ciclo_DetallePlanEstudio" class="form-control" id="validationCustom08" required="required">
+                                <option @(Model.Ciclo_DetallePlanEstudio == "" ? "Selected" : "") value="">- Seleccionar -</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "I" ? "Selected" : "") value="I">I</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "II" ? "Selected" : "") value="II">II</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "III" ? "Selected" : "") value="III">III</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "IV" ? "Selected" : "") value="IV">IV</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "V" ? "Selected" : "") value="V">V</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "VI" ? "Selected" : "") value="VI">VI</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "VII" ? "Selected" : "") value="VII">VII</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "VIII" ? "Selected" : "") value="VIII">VIII</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "IX" ? "Selected" : "") value="IX">IX</option>
+                                <option @(Model.Ciclo_DetallePlanEstudio == "X" ? "Selected" : "") value="X">X</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Selecciona un Ciclo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        @Html.Label("Tipo")
+                        <div class="form-group">
+                            <select name="TipoCurso_DetallePlanEstudio" class="form-control" id="validationCustom09" required="required">
+                                <option @(Model.TipoCurso_DetallePlanEstudio == "" ? "Selected" : "") value="">- Seleccionar -</option>
+                                <option @(Model.TipoCurso_DetallePlanEstudio == "Obligatorio" ? "Selected" : "") value="Obligatorio">Obligatorio</option>
+                                <option @(Model.TipoCurso_DetallePlanEstudio == "Electivo" ? "Selected" : "") value="Electivo">Electivo</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Selecciona un Tipo
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        @Html.Label("Estado")
+                        <div class="form-group">
+                            @Html.RadioButtonFor(x => x.Estado_DetallePlanEstudio, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                            @Html.RadioButtonFor(x => x.Estado_DetallePlanEstudio, false) Inactivo
+                        </div>
+                    </div>
+                </div>                
+                <input type="text" name="idguardar" value="@objPlanEstudio1.Codigo_PlanEstudio" hidden />
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-sm-8 col-9 text-left">
+                                    <div class="form-check form-check-inline">
+                                        <a href="~/DetallePlanEstudio/Index/@objPlanEstudio1.Codigo_PlanEstudio" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            var form = document.getElementById('needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>
