@@ -617,7 +617,14 @@
     <Content Include="assets\js\ui\sortable-nestable.js" />
     <Content Include="assets\js\ui\sweetalert.js" />
     <Content Include="assets\Login\docente.png" />
+    <Content Include="assets\Login\estilo_login.css" />
+    <Content Include="assets\Login\ini.js" />
+    <Content Include="assets\Login\jquery.form.js" />
+    <Content Include="assets\Login\jquery.js" />
+    <Content Include="assets\Login\jquery.validate.min.js" />
+    <Content Include="assets\Login\jquery.validate.unobtrusive.min.js" />
     <Content Include="assets\Login\login.css" />
+    <Content Include="assets\Login\login.js" />
     <Content Include="assets\plugins\light-gallery\css\lightgallery.min.css" />
     <Content Include="assets\plugins\light-gallery\fonts\lgd641.svg" />
     <Content Include="assets\plugins\light-gallery\img\loading.gif" />
@@ -833,10 +840,14 @@
     <Compile Include="Controllers\Mantenimiento\SeccionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SemestreController.cs" />
     <Compile Include="Controllers\PlanEstudioController.cs" />
+    <Compile Include="Filters\Filters.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HashHelper.cs" />
     <Compile Include="Models\Modelo_Portafolio.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Models\SessionHelper.cs" />
     <Compile Include="Models\Tbl_CapacidadesCurso.cs" />
     <Compile Include="Models\Tbl_CargaAcademica.cs" />
     <Compile Include="Models\Tbl_CargoDocente.cs" />
