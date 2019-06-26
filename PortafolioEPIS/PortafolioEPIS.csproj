@@ -779,6 +779,7 @@
     <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.svg" />
     <Content Include="assets\PortalWeb\vendors\themify\themify-icons.css" />
     <Content Include="assets\Validaciones\bootstrap-validate.js" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\Captura.PNG" />
     <Content Include="Imagen\docente1.jpg" />
@@ -818,6 +819,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Docente\Controllers\DetalleCargaAcademicaController.cs" />
+    <Compile Include="Areas\Docente\Controllers\DocenteController.cs" />
+    <Compile Include="Areas\Docente\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Docente\DocenteAreaRegistration.cs" />
     <Compile Include="Controllers\CargaAcademicaController.cs" />
     <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
@@ -985,6 +990,12 @@
     <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.ttf" />
     <Content Include="assets\PortalWeb\vendors\themify\fonts\themify9f24.woff" />
     <Content Include="assets\PortalWeb\vendors\themify\fonts\themifyd41d.eot" />
+    <Content Include="Areas\Docente\Views\web.config" />
+    <Content Include="Areas\Docente\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Docente\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Docente\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Docente\Views\DetalleCargaAcademica\Index.cshtml" />
+    <Content Include="Areas\Docente\Views\Docente\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1049,6 +1060,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Docente\Models\" />
     <Folder Include="assets\PortalWeb\images\main-slider\" />
     <Folder Include="Reports\" />
   </ItemGroup>
