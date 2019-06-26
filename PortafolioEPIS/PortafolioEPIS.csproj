@@ -1050,6 +1050,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Agregar.cshtml" />
+    <Content Include="Views\PruebaEntrada\ListaPDFPruebaEntrada.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
