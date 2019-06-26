@@ -27,12 +27,26 @@ namespace PortafolioEPIS.Controllers
 
         //    return Json(rm);
         //}
-        public ActionResult Validar(string Usuario, string Password)
+
+        
+        public ActionResult Validar(string Usuario, string Password,int cargo)
         {
-            var rm = usuario.ValidarLogin(Usuario, Password);
+            var rm = usuario.ValidarLogin(Usuario, Password,cargo);
             if (rm.response)
             {
-                rm.href = Url.Content("~/Inicio");
+                if(cargo==1)
+                {
+                    rm.href = Url.Content("~/Inicio");
+                }
+                if(cargo==2)
+                {
+                    rm.href = Url.Content("~/Inicio");
+                }
+                if(cargo==3)
+                {
+                    rm.href = Url.Content("~/AreaDocente/Miperfil");
+                }
+                
             }
             else
             {
