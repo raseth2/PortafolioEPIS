@@ -19,7 +19,7 @@ namespace PortafolioEPIS.Filters
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
                 {
                     controller = "Login",
-                    action = "Index"
+                    action = "IngresoSistema"
                 }));
             }
         }

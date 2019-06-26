@@ -17,15 +17,29 @@ namespace PortafolioEPIS.Controllers
         {
             return View();
         }
-        public JsonResult Validar(string Usuario, string Password)
+        //public JsonResult Validar(string Usuario, string Password)
+        //{
+        //    var rm = usuario.ValidarLogin(Usuario, Password);
+        //    if (rm.response)
+        //    {
+        //        rm.href = Url.Content("/Home");
+        //    }
+
+        //    return Json(rm);
+        //}
+        public ActionResult Validar(string Usuario, string Password)
         {
             var rm = usuario.ValidarLogin(Usuario, Password);
             if (rm.response)
             {
-                rm.href = Url.Content("/Home");
+                rm.href = Url.Content("~/Inicio");
+            }
+            else
+            {
+                rm.href = Url.Content("~/Login/IngresoSistema");
             }
 
-            return Json(rm);
+            return Redirect(rm.href);
         }
 
         public ActionResult Logout()
