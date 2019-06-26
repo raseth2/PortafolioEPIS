@@ -13,6 +13,8 @@ namespace PortafolioEPIS.Controllers.Informes
 
     public class PruebaEntradaController : Controller
     {
+        private Tbl_ConocimientoHabilidad ObjConocimientoHabilidad = new Tbl_ConocimientoHabilidad();
+        private Tbl_MedidasCorrectivas ObjMedidadasCorrectivas = new Tbl_MedidasCorrectivas();
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
         private Tbl_PruebaEntrada objPruebaEntrada = new Tbl_PruebaEntrada();
         private Tbl_PlanEstudio objPlanEstudio = new Tbl_PlanEstudio();
@@ -114,13 +116,16 @@ namespace PortafolioEPIS.Controllers.Informes
         //parte guimer PDF
 
         // Metodo para Imprimir PDF Docente
-        public ActionResult ListaPDFPruebaEntrada()
+        public ActionResult ListaPDFPruebaEntrada(int id)
         {
-            return View(objPruebaEntrada.Listar());
+            ViewBag.prueba = objPruebaEntrada.Listar();
+            ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
+            ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
+            return View(objDetalleCargaAcademica.Obtener(id));
         }
-        public ActionResult ExportaAPDF()
+        public ActionResult ExportaAPDF(int id)
         {
-            return new ActionAsPdf("Agregar");
+            return new ActionAsPdf("ListaPDFPruebaEntrada/" + id);
         }
     }
 }

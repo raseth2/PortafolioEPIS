@@ -17,6 +17,7 @@ namespace PortafolioEPIS.Controllers.Informes
             ViewBag.IdDetalleCargaAcademica = id2;
 
             ViewBag.ListaTbl_MedidasCorrectivas = objlistaMedidasCorrectivas.Listar();
+
             return View(objlistaMedidasCorrectivas.Obtener(id1));
         }
         public ActionResult Guardar(Tbl_MedidasCorrectivas objMedidasCorrectivas,int IdDetalleCargaAcademica)

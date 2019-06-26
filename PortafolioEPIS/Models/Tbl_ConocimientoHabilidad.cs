@@ -66,7 +66,25 @@ namespace PortafolioEPIS.Models
             }
             return objConocimientoHabilidad;
         }
-
+        //Metodo Obtener
+        public Tbl_ConocimientoHabilidad Obtener2(int id)//retorna solo un objeto
+        {
+            var objConocimientoHabilidad = new Tbl_ConocimientoHabilidad();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objConocimientoHabilidad = db.Tbl_ConocimientoHabilidad.Include("Tbl_PruebaEntrada")
+                                    .Where(x => x.Codigo_PruebaEntrada == id)
+                                    .SingleOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return objConocimientoHabilidad;
+        }
         //Metodo Guardar
 
         public void Guardar()

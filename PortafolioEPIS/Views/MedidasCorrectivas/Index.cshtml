@@ -14,24 +14,24 @@
             @Html.HiddenFor(x => x.Codigo_MedidasCorrectivas)
 <div class="row clearfix">
 
-   
+
     <div class="col-md-6">
         <div class="checkbox">
             <label>
                 @Html.CheckBoxFor(x => x.Medida1_MedidasCorrectivas) 1. Repaso en horas de clase
-               
+
             </label>
-          
+
         </div>
         <div class="checkbox">
             <label>
-               
+
                 @Html.CheckBoxFor(x => x.Medida2_MedidasCorrectivas) 2. Repaso con horas adicionales de clase
             </label>
         </div>
         <div class="checkbox">
             <label>
-              
+
                 @Html.CheckBoxFor(x => x.Medida3_MedidasCorrectivas)  3. Ejercicios propuestos para resolver en casa
             </label>
         </div>
@@ -40,18 +40,18 @@
         <div class="checkbox">
             <label>
                 @Html.CheckBoxFor(x => x.Medida4_MedidasCorrectivas) 4. Entrega de material de repaso
-               
+
             </label>
         </div>
         <div class="checkbox">
             <label>
-               
+
                 @Html.CheckBoxFor(x => x.Medida5_MedidasCorrectivas) 5. Recomendacion de bibliografia
             </label>
         </div>
         <div class="checkbox">
             <label>
-                 
+
                 @Html.CheckBoxFor(x => x.Medida6_MedidasCorrectivas)6. Otros(Detalle en la descripcion)
             </label>
         </div>
@@ -63,7 +63,7 @@
             <label>Describa otras medidas correctivas y/o recomendaciones</label>
             <div class="form-group">
                 @Html.TextAreaFor(x => x.Medida7_MedidasCorrectivas, new { @class = "form-control", @placeholder = "Escriba aquí", @rows = "3", @cols = "5" })
-                
+
             </div>
         </div>
     </div>
