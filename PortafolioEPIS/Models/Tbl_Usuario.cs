@@ -45,7 +45,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objUsuario = db.Tbl_Usuario.Include("Docente").ToList();
+                    objUsuario = db.Tbl_Usuario.Include("Tbl_Docente").ToList();
                 }
             }
             catch (Exception ex)
@@ -63,9 +63,9 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    objUsuario = db.Tbl_Usuario.Include("Docente")
-                        .Where(x => x.Codigo_Usuario == id)
-                        .SingleOrDefault();
+                    objUsuario = db.Tbl_Usuario.Include("Tbl_Docente")
+                                    .Where(x => x.Codigo_Usuario == id)
+                                    .SingleOrDefault();
                 }
             }
             catch (Exception ex)
@@ -76,22 +76,21 @@ namespace PortafolioEPIS.Models
         }
 
         //Metodo guardar
-        public void Guardar()//retorna solo un objeto
+        public void Guardar()
         {
-
             try
             {
                 using (var db = new Modelo_Portafolio())
                 {
+
                     if (this.Codigo_Usuario > 0)
                     {
-                        //si existe un valor mayor a 0 es porque existe un registro
+                        //si existe un valor mayor que cero es por que existe el registro
                         db.Entry(this).State = EntityState.Modified;
-
                     }
                     else
                     {
-                        //si no existe registro graba(nuevo registro)
+                        //no existe el registro lo graba (Nuevo)
                         db.Entry(this).State = EntityState.Added;
 
                     }
@@ -102,7 +101,6 @@ namespace PortafolioEPIS.Models
             {
                 throw;
             }
-
         }
 
         //metodo Eliminar

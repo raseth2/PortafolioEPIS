@@ -838,13 +838,13 @@
     <Compile Include="Controllers\Informes\PortafolioU3Controller.cs" />
     <Compile Include="Controllers\Informes\PruebaEntradaController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
-    <Compile Include="Controllers\LayoutDocente\VistaDocenteController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Mantenimiento\CargoController.cs" />
     <Compile Include="Controllers\Mantenimiento\ProfesionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SeccionController.cs" />
     <Compile Include="Controllers\Mantenimiento\SemestreController.cs" />
     <Compile Include="Controllers\PlanEstudioController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Filters\Filters.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1047,10 +1047,9 @@
     <Content Include="Views\Docente\VistaInformeFinal.cshtml" />
     <Content Include="Views\InformeFinal\AgregarCapacidadCurso.cshtml" />
     <Content Include="Views\InformeFinal\ListarCapacidadCurso.cshtml" />
-    <Content Include="Views\VistaDocente\LayoutDocente.cshtml" />
-    <Content Include="Views\VistaDocente\MiPerfil.cshtml" />
-    <Content Include="Views\VistaDocente\MiCargaAcademica.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Agregar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
