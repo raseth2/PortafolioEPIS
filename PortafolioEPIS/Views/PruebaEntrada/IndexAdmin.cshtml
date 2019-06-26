@@ -33,7 +33,7 @@
                     </thead>
                     <tbody>
                         @{ int num = 0;}
-                        @foreach (var p in Model)
+                        @foreach (var p in Model.OrderByDescending(p => p.Codigo_CargaAcademica))
                         {
                             num = num + 1;
                             <tr>
