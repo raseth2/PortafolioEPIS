@@ -862,6 +862,7 @@
     <Content Include="Views\VistaDocente\LayoutDocente.cshtml" />
     <Content Include="Views\VistaDocente\MiPerfil.cshtml" />
     <Content Include="Views\VistaDocente\MiCargaAcademica.cshtml" />
+    <Content Include="Views\PruebaEntrada\IndexLista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
