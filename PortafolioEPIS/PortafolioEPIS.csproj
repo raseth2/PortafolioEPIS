@@ -788,8 +788,11 @@
     <Content Include="Imagen\docente10.png" />
     <Content Include="Imagen\docente11.jpg" />
     <Content Include="Imagen\docente11.png" />
+    <Content Include="Imagen\docente12.jpg" />
     <Content Include="Imagen\docente12.png" />
+    <Content Include="Imagen\docente13.jpg" />
     <Content Include="Imagen\docente13.png" />
+    <Content Include="Imagen\docente14.jpg" />
     <Content Include="Imagen\docente15.jpg" />
     <Content Include="Imagen\docente16.jpg" />
     <Content Include="Imagen\docente17.jpg" />
@@ -804,9 +807,13 @@
     <Content Include="Imagen\docente25.jpg" />
     <Content Include="Imagen\docente26.jpg" />
     <Content Include="Imagen\docente28.jpg" />
+    <Content Include="Imagen\docente3.jpg" />
     <Content Include="Imagen\docente30.jpg" />
+    <Content Include="Imagen\docente31.jpg" />
     <Content Include="Imagen\docente4.jpg" />
     <Content Include="Imagen\docente5.jpg" />
+    <Content Include="Imagen\docente6.jpg" />
+    <Content Include="Imagen\docente7.jpg" />
     <Content Include="Imagen\docente8.jpg" />
     <Content Include="Imagen\docente9.jpg" />
     <Content Include="Imagen\fondo Portafolio.png" />
@@ -822,8 +829,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AreaDocente\AreaDocenteAreaRegistration.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\LoginDocentesController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\MiCargaAcademicaController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\MiPerfilController.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\PruebaEntradaController.cs" />
     <Compile Include="Controllers\CargaAcademicaController.cs" />
     <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
@@ -997,6 +1006,11 @@
     <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\Index.cshtml" />
     <Content Include="Areas\AreaDocente\Views\MiPerfil\Index.cshtml" />
     <Content Include="Areas\AreaDocente\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VerCursosDocente.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VerDocente.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaInformeFinal.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaPortafolioU.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaPruebaEntrada.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1065,6 +1079,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AreaDocente\Models\" />
+    <Folder Include="Areas\AreaDocente\Views\DocentePruebaEntrada\" />
+    <Folder Include="Areas\AreaDocente\Views\LoginDocentes\" />
     <Folder Include="assets\PortalWeb\images\main-slider\" />
     <Folder Include="Reports\" />
   </ItemGroup>
