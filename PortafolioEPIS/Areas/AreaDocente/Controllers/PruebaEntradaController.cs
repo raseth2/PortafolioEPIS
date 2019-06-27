@@ -1,0 +1,117 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using PortafolioEPIS.Models;
+using Rotativa;
+
+namespace PortafolioEPIS.Areas.AreaDocente.Controllers
+{
+    public class PruebaEntradaController : Controller
+    {
+
+        private Tbl_ConocimientoHabilidad ObjConocimientoHabilidad = new Tbl_ConocimientoHabilidad();
+        private Tbl_MedidasCorrectivas ObjMedidadasCorrectivas = new Tbl_MedidasCorrectivas();
+        private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
+        private Tbl_PruebaEntrada objPruebaEntrada = new Tbl_PruebaEntrada();
+        private Tbl_PlanEstudio objPlanEstudio = new Tbl_PlanEstudio();
+        private Tbl_Docente objDocente = new Tbl_Docente();
+        private Tbl_Seccion objSeccion = new Tbl_Seccion();
+        private Tbl_DetallePlanEstudio objDetallePlanEstudio = new Tbl_DetallePlanEstudio();
+        private Tbl_Semestre objSemestre = new Tbl_Semestre();
+        private Tbl_CargaAcademica objCargaAcademica = new Tbl_CargaAcademica();
+        private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
+
+        // GET: AreaDocente/PruebaEntrada
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult IndexLista(int id = 0)
+        {
+            ViewBag.id = id;
+            ViewBag.prueba = objPruebaEntrada.Listar();
+            return View(objDetalleCargaAcademica.Listar());
+        }
+
+        public ActionResult GuardarEstado(Tbl_PruebaEntrada objPruebaEntrada, int id = 0, int codigodetalle = 0, int evaluados = 0, string estado = null, int iddocente = 0)
+        {
+
+
+
+            objPruebaEntrada.Estado_PruebaEntrada = estado;
+            objPruebaEntrada.Codigo_PruebaEntrada = id;
+            objPruebaEntrada.Codigo_DetalleCargaAcademica = codigodetalle;
+            objPruebaEntrada.Evaluados_PruebaEntrada = evaluados;
+            objPruebaEntrada.Fecha_PruebaEntrada = DateTime.Now;
+            objPruebaEntrada.Guardar();
+
+            return Redirect("~/AreaDocente/MiCargaAcademica/VerDocente/" + iddocente);
+
+        }
+
+        public ActionResult Guardar(Tbl_PruebaEntrada objPruebaEntrada, int evaluados, int codigo, string estado, int idprueba)
+        {
+
+            objPruebaEntrada.Codigo_PruebaEntrada = idprueba;
+            objPruebaEntrada.Codigo_DetalleCargaAcademica = codigo;
+            objPruebaEntrada.Evaluados_PruebaEntrada = evaluados;
+            objPruebaEntrada.Fecha_PruebaEntrada = DateTime.Now;
+            objPruebaEntrada.Estado_PruebaEntrada = estado;
+            objPruebaEntrada.Guardar();
+            return Redirect("~/AreaDocente/PruebaEntrada/Agregar/" + codigo);
+
+            //}
+            //else
+            //{
+            //    return View("~/Views/PruebaEntrada/Agregar.cshtml");
+            //}
+
+        }
+
+ 
+
+
+
+
+        //Action Eliminar
+
+        public ActionResult Eliminar(int id)
+        {
+            objPruebaEntrada.Codigo_PruebaEntrada = id;
+            objPruebaEntrada.Eliminar();
+            return Redirect("~/CargaAcademica");
+        }
+        //public ActionResult Agregar(int id = 0)
+        //{
+        //    ViewBag.Tbl_Semestre = objSemestre.Listar();
+
+        //    return View(id == 0 ? new Tbl_PruebaEntrada()//Agregar un nuevo objeto
+        //       : objPruebaEntrada.Obtener(id));
+        //}
+        // Accion Agregar
+        public ActionResult Agregar(int id)
+        {
+            ViewBag.prueba = objPruebaEntrada.Listar();
+            return View(objDetalleCargaAcademica.Obtener(id));
+        }
+
+
+        //parte guimer PDF
+
+        // Metodo para Imprimir PDF Docente
+        public ActionResult ListaPDFPruebaEntrada(int id)
+        {
+            ViewBag.prueba = objPruebaEntrada.Listar();
+            ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
+            ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
+            return View(objDetalleCargaAcademica.Obtener(id));
+        }
+        public ActionResult ExportaAPDF(int id)
+        {
+            return new ActionAsPdf("ListaPDFPruebaEntrada/" + id);
+        }
+    }
+}

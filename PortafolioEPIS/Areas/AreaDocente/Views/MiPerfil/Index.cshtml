@@ -5,6 +5,7 @@
     PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
 
 }
+
 <div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Mi Perfil </h4>
@@ -38,13 +39,23 @@
                                 <div class="staff-id"></div>
                                 <ul class="personal-info">
                                     <li>
-                                        <span class="title">Sexo:</span>
-                                        <span class="text">@usuario.Tbl_Docente.Sexo_Docente</span>
+                                        <span class="title">Correo:</span>
+                                        <span class="text">@usuario.Tbl_Docente.Correo_Docente</span>
+
                                     </li>
-                                    </ul>
-                                    <div class="staff-id">Correo : @usuario.Tbl_Docente.Correo_Docente<a href="#"></a></div>
-                                    <div class="staff-id">Celular :@usuario.Tbl_Docente.TelefonoCelular_Docente<a href="#"></a></div>
-                                    <div class="staff-id">Tel. Fijo :@usuario.Tbl_Docente.TelefonoFijo_Docente <a href="#"></a></div>
+                                    <li>
+                                        <span class="title">Telefono Celular:</span>
+                                        <span class="text">@usuario.Tbl_Docente.TelefonoCelular_Docente</span>
+
+                                    </li>
+                                    <br />
+                                    <li>
+                                        <span class="title">Telefono Fijo :</span>
+                                        <span class="text">@usuario.Tbl_Docente.TelefonoFijo_Docente</span>
+
+                                    </li>
+                                </ul>
+                              
 
                             </div>
                         </div>
@@ -52,7 +63,14 @@
                             <ul class="personal-info">
                                 <li>
                                     <span class="title">Sexo:</span>
-                                    <span class="text">@usuario.Tbl_Docente.Sexo_Docente</span>
+                                    @if (usuario.Tbl_Docente.Sexo_Docente == true)
+                                    {
+                                        <span class="text">Masculino</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text">Femenino</span>
+                                    }
                                 </li>
                                 <li>
                                     <span class="title">Estado Civil:</span>
@@ -73,7 +91,14 @@
                                 <li>
                                     <span class="title">Estado:</span>
 
-                                    <span class="text">@usuario.Tbl_Docente.Estado_Docente</span>
+                                    @if (usuario.Tbl_Docente.Estado_Docente == true)
+                                    {
+                                        <span class="text">Activo</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text">Inactivo</span>
+                                    }
 
                                 </li>
 
