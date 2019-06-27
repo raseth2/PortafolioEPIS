@@ -8,7 +8,7 @@ using Rotativa;
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers
 {
-    public class PruebaEntradaController : Controller
+    public class PruebaEntrada1Controller : Controller
     {
 
         private Tbl_ConocimientoHabilidad ObjConocimientoHabilidad = new Tbl_ConocimientoHabilidad();
