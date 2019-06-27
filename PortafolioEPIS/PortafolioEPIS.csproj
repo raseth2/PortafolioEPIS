@@ -656,6 +656,7 @@
     <Content Include="assets\PortalWeb\css\shortcodes\widget.css" />
     <Content Include="assets\PortalWeb\css\style.css" />
     <Content Include="assets\PortalWeb\css\typography.css" />
+    <Content Include="assets\PortalWeb\epis123.jpg" />
     <Content Include="assets\PortalWeb\images\about\pic1.jpg" />
     <Content Include="assets\PortalWeb\images\adv\adv.jpg" />
     <Content Include="assets\PortalWeb\images\background\bg1.jpg" />
@@ -1051,6 +1052,8 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Agregar.cshtml" />
     <Content Include="Views\PruebaEntrada\ListaPDFPruebaEntrada.cshtml" />
+    <Content Include="Views\PruebaEntrada\ListaPDFPruebaEntrada2.cshtml" />
+    <Content Include="Views\PruebaEntrada\IndexLista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
