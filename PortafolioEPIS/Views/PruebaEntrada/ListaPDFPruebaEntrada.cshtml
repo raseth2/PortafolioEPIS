@@ -25,6 +25,7 @@
 <table>
     <tr>
         <td rowspan="2"><img src="~/assets/PortalWeb/epis123.jpg" width="60" height="60" /></td>
+        <td rowspan="2"> &nbsp;&nbsp;</td>
         <td> FACULTAD DE INGENIERIA</td>
     </tr>
     <tr>
@@ -381,57 +382,67 @@
 
         </div>
     </div>*@
-
+<div class="row clearfix">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><strong>MEDIDAS CORRECTIVAS</strong></li>
+            </ol>
+        </nav>
+    </div>
+</div>
 @foreach (var medida in ListaMedidasCorrectivas)
 {
     if (idpruebaEntrada == medida.Codigo_PruebaEntrada)
     {
-
-
         <div class="row clearfix">
 
+            <table>
+                <tr>
+                    <td>
+                        <div class="col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" @(medida.Medida1_MedidasCorrectivas == true ? "checked" : "") /> 1. Repaso en horas de clase
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" @(medida.Medida2_MedidasCorrectivas == true ? "checked" : "") /> 2. Repaso con horas adicionales de clase
 
-            <div class="col-md-6">
-                <div class="checkbox">
-                    <label>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" @(medida.Medida3_MedidasCorrectivas == true ? "checked" : "") />  3. Ejercicios propuestos para resolver en casa
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" @(medida.Medida4_MedidasCorrectivas == true ? "checked" : "") /> 4. Entrega de material de repaso
 
-                        <input type="checkbox" @(medida.Medida1_MedidasCorrectivas == true ? "checked" : "") /> 1. Repaso en horas de clase
-                    </label>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
 
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" @(medida.Medida2_MedidasCorrectivas == true ? "checked" : "") /> 2. Repaso con horas adicionales de clase
+                                    <input type="checkbox" @(medida.Medida5_MedidasCorrectivas == true ? "checked" : "") /> 5. Recomendacion de bibliografia
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
 
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-
-                        <input type="checkbox" @(medida.Medida3_MedidasCorrectivas == true ? "checked" : "") />  3. Ejercicios propuestos para resolver en casa
-                    </label>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" @(medida.Medida4_MedidasCorrectivas == true ? "checked" : "") /> 4. Entrega de material de repaso
-
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-
-                        <input type="checkbox" @(medida.Medida5_MedidasCorrectivas == true ? "checked" : "") /> 5. Recomendacion de bibliografia
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-
-                        <input type="checkbox" @(medida.Medida6_MedidasCorrectivas == true ? "checked" : "") />6. Otros(Detalle en la descripcion)
-                    </label>
-                </div>
-            </div>
+                                    <input type="checkbox" @(medida.Medida6_MedidasCorrectivas == true ? "checked" : "") />6. Otros(Detalle en la descripcion)
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="row clearfix">
             <div class="col-md-12">
@@ -444,18 +455,11 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
     }
 }
-<br /><br />
+
 <p> Fecha: @DateTime.Parse((DateTime.Now).ToString()).ToShortDateString()</p>
-<br /><br /><br />
+<br /><br />
 
 
 <p class="text-center">------------------------------------</p>
