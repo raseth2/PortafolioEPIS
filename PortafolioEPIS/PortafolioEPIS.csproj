@@ -656,6 +656,7 @@
     <Content Include="assets\PortalWeb\css\shortcodes\widget.css" />
     <Content Include="assets\PortalWeb\css\style.css" />
     <Content Include="assets\PortalWeb\css\typography.css" />
+    <Content Include="assets\PortalWeb\epis123.jpg" />
     <Content Include="assets\PortalWeb\images\about\pic1.jpg" />
     <Content Include="assets\PortalWeb\images\adv\adv.jpg" />
     <Content Include="assets\PortalWeb\images\background\bg1.jpg" />
@@ -821,10 +822,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AreaDocente\AreaDocenteAreaRegistration.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\AreaDocente\Controllers\LoginDocentesController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\MiCargaAcademicaController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\MiPerfilController.cs" />
-    <Compile Include="Areas\AreaDocente\Controllers\PruebaEntradaController.cs" />
     <Compile Include="Controllers\CargaAcademicaController.cs" />
     <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
@@ -998,12 +997,6 @@
     <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\Index.cshtml" />
     <Content Include="Areas\AreaDocente\Views\MiPerfil\Index.cshtml" />
     <Content Include="Areas\AreaDocente\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VerDocente.cshtml" />
-    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VerCursosDocente.cshtml" />
-    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaPruebaEntrada.cshtml" />
-    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaPortafolioU.cshtml" />
-    <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaInformeFinal.cshtml" />
-    <Content Include="Areas\AreaDocente\Views\PruebaEntrada\IndexLista.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1061,6 +1054,7 @@
     <Content Include="Views\PruebaEntrada\ListaPDFPruebaEntrada.cshtml" />
     <Content Include="Views\PruebaEntrada\ListaPDFPruebaEntrada2.cshtml" />
     <Content Include="Views\PruebaEntrada\IndexLista.cshtml" />
+    <Content Include="Views\InformeFinal\AgregarMotivo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1071,8 +1065,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AreaDocente\Models\" />
-    <Folder Include="Areas\AreaDocente\Views\DocentePruebaEntrada\" />
-    <Folder Include="Areas\AreaDocente\Views\LoginDocentes\" />
     <Folder Include="assets\PortalWeb\images\main-slider\" />
     <Folder Include="Reports\" />
   </ItemGroup>
