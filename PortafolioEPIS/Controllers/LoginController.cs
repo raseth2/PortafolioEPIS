@@ -31,7 +31,7 @@ namespace PortafolioEPIS.Controllers
         
         public ActionResult Validar(string Usuario, string Password,int cargo)
         {
-            var rm = usuario.ValidarLogin(Usuario, Password,cargo);
+            var rm = usuario.ValidarLogin(Usuario,Password,cargo);
             if (rm.response)
             {
                 if(cargo==1)

@@ -8,12 +8,11 @@ using System.IO;
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
 {
-    public class PortafolioU1DocenteController : Controller
+    public class PortafolioU2DocenteController : Controller
     {
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
         private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
         private Tbl_Material objMaterial = new Tbl_Material();
-
         // Accion Listar
         public ActionResult Index()
         {
@@ -62,7 +61,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
             }
 
             objEvidencia.Guardar();
-            return Redirect("~/AreaDocente/PortafolioU1Docente/Agregar/" + Codigo_detalle_carga);
+            return Redirect("~/AreaDocente/PortafolioU2Docente/Agregar/" + Codigo_detalle_carga);
         }
 
         [HttpPost]
@@ -78,7 +77,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
             }
 
             objEvidencia.Guardar();
-            return Redirect("~/AreaDocente/PortafolioU1Docente/Agregar/" + Codigo_detalle_carga);
+            return Redirect("~/AreaDocente/PortafolioU2Docente/Agregar/" + Codigo_detalle_carga);
         }
 
         public ActionResult Guardar(Tbl_Portafolio objPortafolioU1, int idprueba, int retirados, int abandonos, int aprobados, int codigo, string estado, string unidad)
@@ -93,7 +92,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
             objPortafolioU1.Fecha_Portafolio = DateTime.Now;
             objPortafolioU1.Estado_Portafolio = estado;
             objPortafolioU1.Guardar();
-            return Redirect("~/AreaDocente/PortafolioU1Docente/Agregar/" + codigo);
+            return Redirect("~/AreaDocente/PortafolioU2Docente/Agregar/" + codigo);
 
             //}
             //else
@@ -101,45 +100,6 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
             //    return View("~/Views/PruebaEntrada/Agregar.cshtml");
             //}
 
-        }
-
-        public ActionResult Guardar1(Tbl_Material objmaterial, int idprueba, string material, string tipo, string evidencia, int cantidad, string descripcion, int codigo)
-        {
-
-
-            objmaterial.Codigo_Portafolio = idprueba;
-            objmaterial.Nombre_Material = material;
-            objmaterial.Estado_Material = tipo;
-            //objmaterial.Archivo_Material = evidencia;
-            objmaterial.Cantidad_Material = cantidad;
-            objmaterial.Descripcion_Material = descripcion;
-            objmaterial.Tipo_Material = "ESTUDIANTE";
-
-            objmaterial.Guardar();
-            return Redirect("~/AreaDocente/PortafolioU1Docente/Agregar/" + codigo);
-        }
-
-        [HttpPost]
-        public ActionResult CargarImagen(Tbl_Material objmaterial, HttpPostedFileBase evidenciae)
-        {
-            if (ModelState.IsValid)
-            {
-
-                if (evidenciae != null)
-                {
-                    string archivo = (evidenciae.FileName).ToLower();
-
-                    evidenciae.SaveAs(Server.MapPath("~/Imagen/" + evidenciae.FileName));
-                    objmaterial.Archivo_Material = evidenciae.FileName;
-                }
-
-                objmaterial.Guardar();
-                return Redirect("~/AreaDocente/PortafolioU1Docente/Agregar/");
-            }
-            else
-            {
-                return View("~/AreaDocente/MiCargaAcademica/Agregar.cshtml");
-            }
         }
     }
 }
