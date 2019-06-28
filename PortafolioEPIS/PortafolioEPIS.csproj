@@ -132,6 +132,7 @@
     <Content Include="assets\DataTables\popper.js" />
     <Content Include="assets\fonts\fontawesome-webfont3e6e.html" />
     <Content Include="assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="assets\HighCharts\accessibility.js" />
     <Content Include="assets\HighCharts\css\annotations\popup.css" />
     <Content Include="assets\HighCharts\css\highcharts.css" />
     <Content Include="assets\HighCharts\css\stocktools\gui.css" />
@@ -556,6 +557,7 @@
     <Content Include="assets\HighCharts\themes\skies.src.js" />
     <Content Include="assets\HighCharts\themes\sunset.js" />
     <Content Include="assets\HighCharts\themes\sunset.src.js" />
+    <Content Include="assets\HighCharts\variable-pie.js" />
     <Content Include="assets\img\attachment.png" />
     <Content Include="assets\img\blog\blog-01.jpg" />
     <Content Include="assets\img\blog\blog-02.jpg" />
@@ -1083,6 +1085,7 @@
     <Content Include="Views\PruebaEntrada\IndexLista.cshtml" />
     <Content Include="Views\InformeFinal\AgregarMotivo.cshtml" />
     <Content Include="Views\PortafolioU1\ListaPDFPortafolioU1.cshtml" />
+    <Content Include="Views\PortafolioU2\ListaPDFPortafolioU2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

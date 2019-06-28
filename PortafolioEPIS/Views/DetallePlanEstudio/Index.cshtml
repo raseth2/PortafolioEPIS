@@ -1,9 +1,7 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_DetallePlanEstudio>
-
 @{
     ViewBag.Title = "Index";
     PortafolioEPIS.Models.Tbl_PlanEstudio objPlanEstudio = ViewBag.Tbl_PlanEstudio_id;
-
 }
 
 <div class="row">
@@ -56,6 +54,7 @@
                                         </thead>
                                         <tbody>
                                             @{ int num0 = 0;}
+                                            
                                             @foreach (var p in Model)
                                             {
                                                 num0 = num0 + 1;
@@ -95,81 +94,140 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-
-            <div class="row clearfix">
-                <div class="col-md-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-
-
-            <div class="row clearfix">
-                <div class="col-md-6">
-                    <div class="card-box">
-
-                        <div id="container"></div>
-                        <script type="text/javascript">
-                            Highcharts.chart('container', {
-                                chart: {
-                                    type: 'pie',
-                                    options3d: {
-                                        enabled: true,
-                                        alpha: 45,
-                                        beta: 0
-                                    }
-                                },
-                                title: {
-                                    text: 'hhhhhhhhhh'
-                                },
-                                tooltip: {
-                                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                                },
-                                plotOptions: {
-                                    pie: {
-                                        allowPointSelect: true,
-                                        cursor: 'pointer',
-                                        depth: 35,
-                                        dataLabels: {
-                                            enabled: true,
-                                            format: '{point.name}'
-                                        }
-                                    }
-                                },
-                                series: [{
-                                    type: 'pie',
-                                    name: 'Browser share',
-                                    data: [
-                                       
+                                <!--Resumen general de Semestre-->
+                                <br />
+                                @{
+                                    int cantObligatorio = 0, cantElectivo = 0, cantciclo = 0;
+                                    foreach (var s in Model)
+                                    {
+                                        if (s.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
                                         {
-                                            name: 'ffffffff',
-                                            y: ,
-                                            sliced: true,
-                                            selected: true
-                                        },
-                                        
-                                    ]
-                                }]
-                            });
-                        </script>
-                    </div>
-                </div>
+                                            cantObligatorio++;
+                                        }
+                                        else
+                                        {
+                                            cantElectivo++;
+                                        }
 
-                <div class="col-md-6">
-                    <div class="card-box">
+                                    }
+                                }
 
-                        <div id="container010"></div>
-                        <script type="text/javascript">
-                                                    Highcharts.chart('container010', {
+
+                                <div class="card-box profile-header">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="profile-view">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="profile-info-left">
+                                                            <ul class="personal-info">
+                                                                <li>
+                                                                    <span class="title">Cursos Obligatorios:</span>
+                                                                    <span class="text">@cantObligatorio</span>
+                                                                </li>
+
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Electivos:</span>
+                                                                <span class="text">@cantElectivo</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+
+                                                <div id="container111"></div>
+                                                <script type="text/javascript">
+
+                                                    Highcharts.chart('container111', {
+                                                        chart: {
+                                                            plotBackgroundColor: null,
+                                                            plotBorderWidth: 0,
+                                                            plotShadow: false
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico Dona de Semicírculo',
+                                                            //align: 'center',
+                                                            //verticalAlign: 'middle',
+                                                            //y: 40
+                                                        },
+                                                        tooltip: {
+                                                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+
+                                                        },
+                                                        plotOptions: {
+                                                            pie: {
+                                                                dataLabels: {
+
+
+                                                                    enabled: true,
+                                                                    distance: -50,
+                                                                    style: {
+                                                                        fontWeight: 'bold',
+                                                                        color: 'white'
+                                                                    }
+                                                                },
+
+                                                                startAngle: -90,
+                                                                endAngle: 90,
+                                                                center: ['50%', '75%'],
+                                                                size: '110%'
+                                                            }
+                                                        },
+                                                        series: [{
+                                                            type: 'pie',
+                                                            name: 'Porcentaje',
+                                                            innerSize: '50%',
+                                                            data: [
+                                                            ['Obligatorios', @cantObligatorio],
+                                                            ['Electivos', @cantElectivo],
+
+                                                            ]
+                                                        }]
+                                                    });
+
+                                                </script>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+
+                                                <div id="container222"></div>
+                                                <script type="text/javascript">
+                                                    Highcharts.chart('container222', {
                                                         chart: {
                                                             type: 'column'
                                                         },
@@ -209,13 +267,13 @@
                                                                     {
                                                                         name: 'Obligatorio',
                                                                         color: '#0597F2',
-                                                                        y: @cantObligatorio10,
+                                                                        y: @cantObligatorio,
 
                                                                     },
                                                                     {
                                                                         name: 'Electivo',
                                                                         color: '#93959A',
-                                                                        y: @cantElectivo10,
+                                                                        y: @cantElectivo,
 
                                                                     },
 
@@ -223,10 +281,26 @@
                                                             }
                                                         ]
                                                     });
-                        </script>
+                                                </script>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
+
+
                 </div>
+
             </div>
+
+
 
 
 
@@ -314,7 +388,7 @@
                 </div>
             </div>
 
-            
+
 
         </div>
         <div class="tab-pane" id="bottom-tab2">

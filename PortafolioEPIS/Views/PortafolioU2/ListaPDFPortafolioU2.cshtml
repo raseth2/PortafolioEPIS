@@ -1,17 +1,15 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
 @{
     Layout = null;
-    ViewBag.Title = "ListaPDFPortafolioU1";
+    ViewBag.Title = "ListaPDFPortafolioU2";
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> pruebaEntrada = ViewBag.Prueba;
     List<PortafolioEPIS.Models.Tbl_Portafolio> Portafolio = ViewBag.Portafolio;
     List<PortafolioEPIS.Models.Tbl_Material> listaMaterial = ViewBag.ListarEvidencia;
     int idCodigoPortafolio = 0;
     int evaluados = 0;
 }
+
 <div style="background-color:white">
-
-
-
     <meta name="viewport" content="width=device-width" />
     <title>ListaPDFPortafolioU1</title>
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
@@ -29,7 +27,7 @@
         </tr>
     </table>
 
-    <h2 class="text-center"><strong>Informe Portafolio Unidad I</strong></h2>
+    <h2 class="text-center"><strong>Informe Prueba de Entrada</strong></h2>
     <div class="table-responsive">
         <div class="row clearfix">
             <div class="col-md-12">
@@ -100,37 +98,42 @@
         </div>
         <table border="1" class="table">
             <tr>
-                <th colspan="3">Matriculados</th>
-                <th colspan="3">Retirados</th>
-                <th colspan="3">Abandonos</th>
-                <th colspan="3">Aprobados</th>
-
+                <th colspan="5">Matriculados</th>
+                <th colspan="5">Evaluados</th>
             </tr>
-            <tr>
-                <td colspan="3" class="text-center">@Model.Matriculados_DetalleCargaAcademica</td>
-                @foreach (var p in Portafolio)
+            @*@foreach (var p in pruebaEntrada)
                 {
-                    if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UI")
+                    if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
                     {
-                        idCodigoPortafolio = p.Codigo_Portafolio;
-                        <td colspan="3" class="text-center">@Convert.ToString(p.Retirados_Portafolio)</td>
-                        <td colspan="3" class="text-center">@Convert.ToString(p.Abandono_Portafolio)</td>
-                        <td colspan="3" class="text-center">@Convert.ToString(p.Aprobados_Portafolio)</td>
+                        idpruebaEntrada = p.Codigo_PruebaEntrada;
+                        evaluados = p.Evaluados_PruebaEntrada;
                     }
-                }
+                }*@
+            <tr>
+                <td colspan="5" class="text-center">@Model.Matriculados_DetalleCargaAcademica</td>
+                @* <td colspan="5" class="text-center">@evaluados</td>*@
             </tr>
+
         </table>
     </div>
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>MATERIAL QUE EL DOCENTE PREPARA Y ENTREGA A LOS ESTUDIANTES</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    <br />
+    --------------------------------------------------------------------------------------
+    <br />
+    @foreach (var p in Portafolio)
+    {
+        if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UII")
+        {
+            idCodigoPortafolio = p.Codigo_Portafolio;
+            @Html.Label("Retirados: " + Convert.ToString(p.Retirados_Portafolio))<br />
+            @Html.Label("Abandonados: " + Convert.ToString(p.Abandono_Portafolio))<br />
+            @Html.Label("Aprobados: " + Convert.ToString(p.Aprobados_Portafolio))<br />
+        }
+    }
+    <br />
+    ------------------------------------------------------------------------------------------
+    <br />
     <div class="table-responsive">
+
         <table id="example" class="table table-hover">
             <thead>
                 <tr>
@@ -139,37 +142,35 @@
                     <th>Tipo Entraga</th>
                     <th>Cantidad</th>
                     <th>Evidencia</th>
+                    <th class="text-right">Accción</th>
                 </tr>
             </thead>
             @{int con = 0; }
             <tbody>
                 @foreach (var list in listaMaterial)
                 {
-                    if (list.Tipo_Material == "DOCENTEUI" && list.Codigo_Portafolio == idCodigoPortafolio)
+                    if (list.Tipo_Material == "DOCENTEUII" && list.Codigo_Portafolio == idCodigoPortafolio)
                     {
                         con = con + 1;
                         <tr>
                             <td>@con</td>
-                            <td>@list.Nombre_Material</td>
+                            <td>@list.Nombre_Material @*Sílabo formato UPT (Impreso y Digital)*@</td>
                             <td>@list.Estado_Material</td>
                             <td>@list.Cantidad_Material</td>
                             <td>@list.Archivo_Material</td>
+
                         </tr>
                     }
                 }
+
+
             </tbody>
         </table>
     </div>
+    <br />
 
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>MATERIAL GENERADO POR EL ESTUDIANTE</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    ------------------------------------------------------
+    <br />
     <div class="table-responsive">
         <table id="example2" class="table table-hover">
             <thead>
@@ -179,13 +180,14 @@
                     <th>Tipo Entraga</th>
                     <th>Cantidad</th>
                     <th>Evidencia</th>
+                    <th class="text-right">Accción</th>
                 </tr>
             </thead>
             @{ int con1 = 0;}
             <tbody>
                 @foreach (var list1 in listaMaterial)
                 {
-                    if (list1.Tipo_Material == "ESTUDIANTEUI" && list1.Codigo_Portafolio == idCodigoPortafolio)
+                    if (list1.Tipo_Material == "ESTUDIANTEUII" && list1.Codigo_Portafolio == idCodigoPortafolio)
                     {
                         con1 = con1 + 1;
                         <tr>
@@ -194,17 +196,12 @@
                             <td>@list1.Estado_Material</td>
                             <td>@list1.Cantidad_Material</td>
                             <td>@list1.Archivo_Material</td>
+
                         </tr>
                     }
                 }
+
             </tbody>
         </table>
     </div>
-
-    <p> Fecha: @DateTime.Parse((DateTime.Now).ToString()).ToShortDateString()</p>
-    <br /><br />
-
-
-    <p class="text-center">------------------------------------</p>
-    <p class="text-center">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</p>
 </div>
