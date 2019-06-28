@@ -27,7 +27,7 @@
     </tr>
 </table>
 
-<h2 class="text-center"><strong>Informe Prueba de Entrada</strong></h2>
+<h2 class="text-center"><strong>Informe Portafolio Unidad I</strong></h2>
 <div class="table-responsive">
     <div class="row clearfix">
         <div class="col-md-12">
@@ -98,42 +98,37 @@
     </div>
     <table border="1" class="table">
         <tr>
-            <th colspan="5">Matriculados</th>
-            <th colspan="5">Evaluados</th>
-        </tr>
-        @*@foreach (var p in pruebaEntrada)
-            {
-                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
-                {
-                    idpruebaEntrada = p.Codigo_PruebaEntrada;
-                    evaluados = p.Evaluados_PruebaEntrada;
-                }
-            }*@
-        <tr>
-            <td colspan="5" class="text-center">@Model.Matriculados_DetalleCargaAcademica</td>
-            @* <td colspan="5" class="text-center">@evaluados</td>*@
-        </tr>
+            <th colspan="3">Matriculados</th>
+            <th colspan="3">Retirados</th>
+            <th colspan="3">Abandonos</th>
+            <th colspan="3">Aprobados</th>
 
+        </tr>
+        <tr>
+            <td colspan="3" class="text-center">@Model.Matriculados_DetalleCargaAcademica</td>
+            @foreach (var p in Portafolio)
+            {
+                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UI")
+                {
+                    idCodigoPortafolio = p.Codigo_Portafolio;
+                    <td colspan="3" class="text-center">@Convert.ToString(p.Retirados_Portafolio)</td>
+                    <td colspan="3" class="text-center">@Convert.ToString(p.Abandono_Portafolio)</td>
+                    <td colspan="3" class="text-center">@Convert.ToString(p.Aprobados_Portafolio)</td>
+                }
+            }
+        </tr>
     </table>
 </div>
-<br />
---------------------------------------------------------------------------------------
-<br />
-@foreach (var p in Portafolio)
-{
-    if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UI")
-    {
-        idCodigoPortafolio = p.Codigo_Portafolio;
-        @Html.Label("Retirados: " + Convert.ToString(p.Retirados_Portafolio))<br />
-        @Html.Label("Abandonados: " + Convert.ToString(p.Abandono_Portafolio))<br />
-        @Html.Label("Aprobados: " + Convert.ToString(p.Aprobados_Portafolio))<br />
-    }
-}
-<br />
-------------------------------------------------------------------------------------------
-<br />
+<div class="row clearfix">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><strong>MATERIAL QUE EL DOCENTE PREPARA Y ENTREGA A LOS ESTUDIANTES</strong></li>
+            </ol>
+        </nav>
+    </div>
+</div>
 <div class="table-responsive">
-
     <table id="example" class="table table-hover">
         <thead>
             <tr>
@@ -142,7 +137,6 @@
                 <th>Tipo Entraga</th>
                 <th>Cantidad</th>
                 <th>Evidencia</th>
-                <th class="text-right">Accción</th>
             </tr>
         </thead>
         @{int con = 0; }
@@ -154,23 +148,26 @@
                     con = con + 1;
                     <tr>
                         <td>@con</td>
-                        <td>@list.Nombre_Material @*Sílabo formato UPT (Impreso y Digital)*@</td>
+                        <td>@list.Nombre_Material</td>
                         <td>@list.Estado_Material</td>
                         <td>@list.Cantidad_Material</td>
                         <td>@list.Archivo_Material</td>
-
                     </tr>
                 }
             }
-
-
         </tbody>
     </table>
 </div>
-<br />
 
-------------------------------------------------------
-<br />
+<div class="row clearfix">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><strong>MATERIAL GENERADO POR EL ESTUDIANTE</strong></li>
+            </ol>
+        </nav>
+    </div>
+</div>
 <div class="table-responsive">
     <table id="example2" class="table table-hover">
         <thead>
@@ -180,7 +177,6 @@
                 <th>Tipo Entraga</th>
                 <th>Cantidad</th>
                 <th>Evidencia</th>
-                <th class="text-right">Accción</th>
             </tr>
         </thead>
         @{ int con1 = 0;}
@@ -196,11 +192,16 @@
                         <td>@list1.Estado_Material</td>
                         <td>@list1.Cantidad_Material</td>
                         <td>@list1.Archivo_Material</td>
-                       
                     </tr>
                 }
             }
-
         </tbody>
     </table>
 </div>
+
+<p> Fecha: @DateTime.Parse((DateTime.Now).ToString()).ToShortDateString()</p>
+<br /><br />
+
+
+<p class="text-center">------------------------------------</p>
+<p class="text-center">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</p>
