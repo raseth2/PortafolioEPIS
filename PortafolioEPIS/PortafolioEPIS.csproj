@@ -818,6 +818,7 @@
     <Content Include="Imagen\docente9.jpg" />
     <Content Include="Imagen\fondo Portafolio.png" />
     <Content Include="Imagen\fondo Portafoliov2.png" />
+    <Content Include="Imagen\imagen_inicio.png" />
     <Content Include="Imagen\img.png" />
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
