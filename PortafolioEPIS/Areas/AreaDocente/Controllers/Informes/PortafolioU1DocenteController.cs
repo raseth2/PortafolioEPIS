@@ -5,16 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using System.IO;
-using Rotativa;
 
-namespace PortafolioEPIS.Controllers.Informes
+namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
 {
-    public class PortafolioU2Controller : Controller
+    public class PortafolioU1DocenteController : Controller
     {
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
         private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
         private Tbl_Material objMaterial = new Tbl_Material();
-        private Tbl_PruebaEntrada objPruebaEntrada = new Tbl_PruebaEntrada();
+
         // Accion Listar
         public ActionResult Index()
         {
@@ -63,7 +62,7 @@ namespace PortafolioEPIS.Controllers.Informes
             }
 
             objEvidencia.Guardar();
-            return Redirect("~/PortafolioU2/Agregar/" + Codigo_detalle_carga);
+            return Redirect("~/PortafolioU1Docente/Agregar/" + Codigo_detalle_carga);
         }
 
         [HttpPost]
@@ -79,7 +78,7 @@ namespace PortafolioEPIS.Controllers.Informes
             }
 
             objEvidencia.Guardar();
-            return Redirect("~/PortafolioU2/Agregar/" + Codigo_detalle_carga);
+            return Redirect("~/PortafolioU1Docente/Agregar/" + Codigo_detalle_carga);
         }
 
         public ActionResult Guardar(Tbl_Portafolio objPortafolioU1, int idprueba, int retirados, int abandonos, int aprobados, int codigo, string estado, string unidad)
@@ -94,7 +93,7 @@ namespace PortafolioEPIS.Controllers.Informes
             objPortafolioU1.Fecha_Portafolio = DateTime.Now;
             objPortafolioU1.Estado_Portafolio = estado;
             objPortafolioU1.Guardar();
-            return Redirect("~/PortafolioU2/Agregar/" + codigo);
+            return Redirect("~/PortafolioU1Docente/Agregar/" + codigo);
 
             //}
             //else
@@ -102,41 +101,45 @@ namespace PortafolioEPIS.Controllers.Informes
             //    return View("~/Views/PruebaEntrada/Agregar.cshtml");
             //}
 
-
-
         }
 
-        public ActionResult ListaPDFPortafolioU2(int id)
+        public ActionResult Guardar1(Tbl_Material objmaterial, int idprueba, string material, string tipo, string evidencia, int cantidad, string descripcion, int codigo)
         {
-            ViewBag.prueba = objPruebaEntrada.Listar();
-            ViewBag.Portafolio = objPortafolio.Listar();
 
-            int foerach = 0;
-            List<Tbl_Portafolio> listPortafolio = objPortafolio.Listar();
 
-            foreach (var listaportafolio in listPortafolio)
+            objmaterial.Codigo_Portafolio = idprueba;
+            objmaterial.Nombre_Material = material;
+            objmaterial.Estado_Material = tipo;
+            //objmaterial.Archivo_Material = evidencia;
+            objmaterial.Cantidad_Material = cantidad;
+            objmaterial.Descripcion_Material = descripcion;
+            objmaterial.Tipo_Material = "ESTUDIANTE";
+
+            objmaterial.Guardar();
+            return Redirect("~/PortafolioU1Docente/Agregar/" + codigo);
+        }
+
+        [HttpPost]
+        public ActionResult CargarImagen(Tbl_Material objmaterial, HttpPostedFileBase evidenciae)
+        {
+            if (ModelState.IsValid)
             {
-                if (listaportafolio.Codigo_DetalleCargaAcademica == id)
+
+                if (evidenciae != null)
                 {
-                    ViewBag.ListarEvidencia = objMaterial.Listar(listaportafolio.Codigo_Portafolio); //obtener la lista deevidencias de un  portafolio
-                    foerach++;
+                    string archivo = (evidenciae.FileName).ToLower();
+
+                    evidenciae.SaveAs(Server.MapPath("~/Imagen/" + evidenciae.FileName));
+                    objmaterial.Archivo_Material = evidenciae.FileName;
                 }
 
+                objmaterial.Guardar();
+                return Redirect("~/PortafolioU1Docente/Agregar/");
             }
-
-            if (foerach == 0)
+            else
             {
-                ViewBag.ListarEvidencia = objMaterial.Listar(0); //obtener la lista deevidencias de un  portafolio
+                return View("~/MiCargaAcademica/Agregar.cshtml");
             }
-
-            //ViewBag.prueba = objPruebaEntrada.Listar();
-            //ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
-            //ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
-            return View(objDetalleCargaAcademica.Obtener(id));
-        }
-        public ActionResult ExportaAPDF(int id)
-        {
-            return new ActionAsPdf("ListaPDFPortafolioU2/" + id);
         }
     }
 }
