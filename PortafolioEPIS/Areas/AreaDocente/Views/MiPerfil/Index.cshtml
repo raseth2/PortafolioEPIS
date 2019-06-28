@@ -6,30 +6,31 @@
     string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
     PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
 
-    List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
+    //List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
 
-    List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = new PortafolioEPIS.Models.Tbl_Portafolio().Listar();
-    List<PortafolioEPIS.Models.Tbl_InformeFinal> informe = new PortafolioEPIS.Models.Tbl_InformeFinal().Listar();
+    //List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = new PortafolioEPIS.Models.Tbl_Portafolio().Listar();
+    //List<PortafolioEPIS.Models.Tbl_InformeFinal> informe = new PortafolioEPIS.Models.Tbl_InformeFinal().Listar();
 
-    int cantGuardados = 0, cantEnviado = 0, cantRechazado = 0, cantAceptado = 0;
-    int cantGuardados2 = 0, cantEnviado2 = 0, cantRechazado2 = 0, cantAceptado2 = 0;
-    int cantGuardados3 = 0, cantEnviado3 = 0, cantRechazado3 = 0, cantAceptado3 = 0;
-    int cantPruebaG = 0, cantPruebaE = 0, cantPruebaR = 0, cantPruebaA = 0;
-    int cantInformeG = 0, cantInformeE = 0, cantInformeR = 0, cantInformeA = 0;
-    int cantEstudianteAUI = 0, cantEstudianteDUI = 0, cantEstudianteRUI = 0, cantEstudianteABUI = 0 , cantEstudianteASUI = 0;
-    int cantEstudianteAUII = 0, cantEstudianteDUII = 0, cantEstudianteRUII = 0, cantEstudianteABUII = 0, cantEstudianteASUII = 0;
-    int cantEstudianteAUIII = 0, cantEstudianteDUIII = 0, cantEstudianteRUIII = 0, cantEstudianteABUIII = 0, cantEstudianteASUIII = 0;
-    int codigodetallle = 0;
-    int cantEstudianteMa = 0;
+    //int cantGuardados = 0, cantEnviado = 0, cantRechazado = 0, cantAceptado = 0;
+    //int cantGuardados2 = 0, cantEnviado2 = 0, cantRechazado2 = 0, cantAceptado2 = 0;
+    //int cantGuardados3 = 0, cantEnviado3 = 0, cantRechazado3 = 0, cantAceptado3 = 0;
+    //int cantPruebaG = 0, cantPruebaE = 0, cantPruebaR = 0, cantPruebaA = 0;
+    //int cantInformeG = 0, cantInformeE = 0, cantInformeR = 0, cantInformeA = 0;
+    //int cantEstudianteAUI = 0, cantEstudianteDUI = 0, cantEstudianteRUI = 0, cantEstudianteABUI = 0 , cantEstudianteASUI = 0;
+    //int cantEstudianteAUII = 0, cantEstudianteDUII = 0, cantEstudianteRUII = 0, cantEstudianteABUII = 0, cantEstudianteASUII = 0;
+    //int cantEstudianteAUIII = 0, cantEstudianteDUIII = 0, cantEstudianteRUIII = 0, cantEstudianteABUIII = 0, cantEstudianteASUIII = 0;
+    //int codigodetallle = 0;
+    //int cantEstudianteMa = 0;
 
 }
-@foreach (var q in detalle)
+
+@*@foreach (var q in detalle)
 {
     if (q.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
     {
         codigodetallle = q.Codigo_DetalleCargaAcademica;
         cantEstudianteMa = q.Matriculados_DetalleCargaAcademica;
-        @*<label>@codigodetallle</label>*@
+        @*<label>@codigodetallle</label>
 
         foreach (var prue in prueba)
         {
@@ -176,7 +177,7 @@
 
 
     }
-}
+}*@
 
 
 
@@ -286,7 +287,7 @@
 
 </div>
 
-<br />
+@*<br />
 
 <div class="row clearfix">
     <div class="col-md-4">
@@ -824,4 +825,4 @@
             </script>
         </div>
     </div>
-</div>
+</div>*@
