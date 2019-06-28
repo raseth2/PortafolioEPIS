@@ -132,8 +132,8 @@
                                                                     <span class="title">Cursos Obligatorios:</span>
                                                                     <span class="text">@cantObligatorio</span>
                                                                 </li>
-                                                                
-                                                                
+
+
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -149,6 +149,134 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+                                                
+                                                <div id="container"></div>
+                                                <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                                text: 'Grafico Circular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                </script>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+                                                
+                                                <div id="container0"></div>
+                                                <script type="text/javascript">
+                                                    Highcharts.chart('container0', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo,
+
+                                                                    },
+                            
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
                                 </div>
 
 
@@ -244,6 +372,7 @@
                                 }
 
                                 <div class="card-box profile-header">
+
                                     <div class="row clearfix">
                                         <div class="col-md-12">
                                             <nav aria-label="breadcrumb">
@@ -253,32 +382,159 @@
                                             </nav>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="profile-view">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="profile-info-left">
-                                                            <ul class="personal-info">
-                                                                <li>
-                                                                    <span class="title">Cursos Obligatorios:</span>
-                                                                    <span class="text">@cantObligatorio1</span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
+
+                                    <div class="col-md-12">
+                                        <div class="profile-view">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="profile-info-left">
                                                         <ul class="personal-info">
                                                             <li>
-                                                                <span class="title">Cursos Electivos:</span>
-                                                                <span class="text">@cantElectivo1</span>
+                                                                <span class="title">Cursos Obligatorios:</span>
+                                                                <span class="text">@cantObligatorio1</span>
                                                             </li>
                                                         </ul>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <ul class="personal-info">
+                                                        <li>
+                                                            <span class="title">Cursos Electivos:</span>
+                                                            <span class="text">@cantElectivo1</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+
+                                                <div id="container1"></div>
+                                                <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container1', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                                text: 'Grafico Circular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio1,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo1,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                </script>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+
+                                                <div id="container01"></div>
+                                                <script type="text/javascript">
+                                                    Highcharts.chart('container01', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio1,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo1,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
 
 
@@ -408,6 +664,133 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container2"></div>
+                                                    <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container2', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                            text: 'Grafico Cicular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio2,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo2,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container02"></div>
+                                                    <script type="text/javascript">
+                                                    Highcharts.chart('container02', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio2,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo2,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                   
                                 </div>
 
 
@@ -535,6 +918,133 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container3"></div>
+                                                    <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container3', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                            text: 'Grafico Cicular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio3,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo3,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container03"></div>
+                                                    <script type="text/javascript">
+                                                    Highcharts.chart('container03', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio3,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo3,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    
                                 </div>
 
 
@@ -662,6 +1172,133 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container4"></div>
+                                                    <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container4', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                            text: 'Grafico Cicular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio4,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo4,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container04"></div>
+                                                    <script type="text/javascript">
+                                                    Highcharts.chart('container04', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio4,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo4,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    
                                 </div>
                             </div>
                         </div>
@@ -787,6 +1424,133 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container5"></div>
+                                                    <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container5', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                            text: 'Grafico Cicular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio5,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo5,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container05"></div>
+                                                    <script type="text/javascript">
+                                                    Highcharts.chart('container05', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Cantidad de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio5,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo5,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    
                                 </div>
                             </div>
                         </div>
@@ -913,6 +1677,133 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container6"></div>
+                                                    <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container6', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                            text: 'Grafico Cicular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio6,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo6,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container06"></div>
+                                                    <script type="text/javascript">
+                                                    Highcharts.chart('container06', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio6,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo6,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    
                                 </div>
 
                             </div>
@@ -1039,6 +1930,133 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container7"></div>
+                                                    <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container7', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                            text: 'Grafico Cicular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio7,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo7,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container07"></div>
+                                                    <script type="text/javascript">
+                                                    Highcharts.chart('container07', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio7,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo7,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                   
                                 </div>
 
                             </div>
@@ -1165,6 +2183,132 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+
+                                                <div id="container8"></div>
+                                                <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container8', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                            text: 'Grafico Cicular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio8,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo8,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                </script>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+
+                                                <div id="container08"></div>
+                                                <script type="text/javascript">
+                                                    Highcharts.chart('container08', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio8,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo8,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -1291,6 +2435,132 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row clearfix">
+                                        <div class="col-md-12">
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+
+                                                <div id="container9"></div>
+                                                <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container9', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                                text: 'Grafico Cicular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio9,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo9,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                </script>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="card-box">
+
+                                                <div id="container09"></div>
+                                                <script type="text/javascript">
+                                                    Highcharts.chart('container09', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio9,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo9,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -1417,6 +2687,133 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <nav aria-label="breadcrumb">
+                                                    <ol class="breadcrumb">
+                                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                        </div>
+
+                                        <div class="row clearfix">
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container10"></div>
+                                                    <script type="text/javascript">
+
+
+                                                    Highcharts.chart('container10', {
+                                                        chart: {
+                                                        type: 'pie'
+                                                       },
+                                                        title: {
+                                                                text: 'Grafico Circular'
+                                                        },
+                                                            //tooltip: {
+                                                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                                    //},
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                //enabled: true,
+                                                                format: '<b>{point.name}:{point.y}</b>',
+                                                                //style: {
+                                                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                                                //}
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: [{
+                                                        name: 'Carga Academica',
+                                                        colorByPoint: true,
+                                                        data: [{
+                                                            name: 'Obligatorios',
+                                                            color: '#0597F2',
+                                                            y: @cantObligatorio10,
+
+                                                        }, {
+                                                            name: 'Electivos',
+                                                            color: '#93959A',
+                                                            y: @cantElectivo10,
+
+                                                            }]
+                                                        }]
+                                                     });
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card-box">
+
+                                                    <div id="container010"></div>
+                                                    <script type="text/javascript">
+                                                    Highcharts.chart('container010', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio10,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo10,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>
