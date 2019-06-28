@@ -1,7 +1,7 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
 @{
     Layout = null;
-    ViewBag.Title = "ListaPDFPortafolioU1";
+    ViewBag.Title = "ListaPDFPortafolioU3";
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> pruebaEntrada = ViewBag.Prueba;
     List<PortafolioEPIS.Models.Tbl_Portafolio> Portafolio = ViewBag.Portafolio;
     List<PortafolioEPIS.Models.Tbl_Material> listaMaterial = ViewBag.ListarEvidencia;
@@ -13,7 +13,7 @@
 
 
     <meta name="viewport" content="width=device-width" />
-    <title>ListaPDFPortafolioU1</title>
+    <title>ListaPDFPortafolioU3</title>
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
@@ -29,7 +29,7 @@
         </tr>
     </table>
 
-    <h2 class="text-center"><strong>Informe Portafolio Unidad II</strong></h2>
+    <h2 class="text-center"><strong>Informe Portafolio Unidad III</strong></h2>
     <div class="table-responsive">
         <div class="row clearfix">
             <div class="col-md-12">
@@ -110,7 +110,7 @@
                 <td colspan="3" class="text-center">@Model.Matriculados_DetalleCargaAcademica</td>
                 @foreach (var p in Portafolio)
                 {
-                    if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UI")
+                    if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UIII")
                     {
                         idCodigoPortafolio = p.Codigo_Portafolio;
                         <td colspan="3" class="text-center">@Convert.ToString(p.Retirados_Portafolio)</td>
@@ -145,7 +145,7 @@
             <tbody>
                 @foreach (var list in listaMaterial)
                 {
-                    if (list.Tipo_Material == "DOCENTEUI" && list.Codigo_Portafolio == idCodigoPortafolio)
+                    if (list.Tipo_Material == "DOCENTEUIII" && list.Codigo_Portafolio == idCodigoPortafolio)
                     {
                         con = con + 1;
                         <tr>
@@ -185,7 +185,7 @@
             <tbody>
                 @foreach (var list1 in listaMaterial)
                 {
-                    if (list1.Tipo_Material == "ESTUDIANTEUI" && list1.Codigo_Portafolio == idCodigoPortafolio)
+                    if (list1.Tipo_Material == "ESTUDIANTEUIII" && list1.Codigo_Portafolio == idCodigoPortafolio)
                     {
                         con1 = con1 + 1;
                         <tr>
