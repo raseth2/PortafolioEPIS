@@ -818,6 +818,7 @@
     <Content Include="Imagen\docente9.jpg" />
     <Content Include="Imagen\fondo Portafolio.png" />
     <Content Include="Imagen\fondo Portafoliov2.png" />
+    <Content Include="Imagen\imagen_inicio.png" />
     <Content Include="Imagen\img.png" />
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
@@ -1079,6 +1080,7 @@
     <Content Include="Views\PruebaEntrada\ListaPDFPruebaEntrada2.cshtml" />
     <Content Include="Views\PruebaEntrada\IndexLista.cshtml" />
     <Content Include="Views\InformeFinal\AgregarMotivo.cshtml" />
+    <Content Include="Views\PortafolioU1\ListaPDFPortafolioU1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

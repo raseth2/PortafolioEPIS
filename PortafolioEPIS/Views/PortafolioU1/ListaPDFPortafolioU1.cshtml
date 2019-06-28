@@ -1,0 +1,207 @@
+﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
+@{
+    Layout = null;
+    ViewBag.Title = "ListaPDFPortafolioU1";
+    List<PortafolioEPIS.Models.Tbl_PruebaEntrada> pruebaEntrada = ViewBag.Prueba;
+    List<PortafolioEPIS.Models.Tbl_Portafolio> Portafolio = ViewBag.Portafolio;
+    List<PortafolioEPIS.Models.Tbl_Material> listaMaterial = ViewBag.ListarEvidencia;
+    int idCodigoPortafolio = 0;
+    int evaluados = 0;
+}
+
+
+<meta name="viewport" content="width=device-width" />
+<title>ListaPDFPortafolioU1</title>
+<link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+
+<table>
+    <tr>
+        <td rowspan="2"><img src="~/assets/PortalWeb/epis123.jpg" width="60" height="60" /></td>
+        <td rowspan="2"> &nbsp;&nbsp;</td>
+        <td> FACULTAD DE INGENIERIA</td>
+    </tr>
+    <tr>
+        <td> Escuela Profesional de Ingenieria de Sistemas</td>
+    </tr>
+</table>
+
+<h2 class="text-center"><strong>Informe Portafolio Unidad I</strong></h2>
+<div class="table-responsive">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page"><strong>INFORMACION DE CURSO</strong></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <table border="1" class="table">
+        <tr>
+            <th colspan="2">Codigo</th>
+            <th colspan="8">Nombre</th>
+        </tr>
+        <tr>
+            <td colspan="2">@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
+            <td colspan="8">@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+        </tr>
+        <tr>
+            <th>Sección</th>
+            <td>@Model.Tbl_Seccion.Nombre_Seccion</td>
+            <th>Ciclo</th>
+            <td>@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio</td>
+            <th>Horas</th>
+            <td>@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio</td>
+            <th>Créditos</th>
+            <td>@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</td>
+            <th>Tipo Curso</th>
+            <td>@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+        </tr>
+    </table>
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page"><strong>INFORMACION DEL DOCENTE</strong></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <table border="1" class="table">
+        <tr>
+            <th colspan="2">Codigo</th>
+            <th colspan="8">Nombre</th>
+        </tr>
+        <tr>
+            <td colspan="2">@Model.Tbl_Docente.Codigo_Docenteepis</td>
+            <td colspan="8">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</td>
+        </tr>
+        <tr>
+            <th colspan="2">Email</th>
+            <td colspan="4">@Model.Tbl_Docente.Correo_Docente</td>
+            <th colspan="2">Celular</th>
+            <td colspan="2">@Model.Tbl_Docente.TelefonoCelular_Docente</td>
+
+        </tr>
+    </table>
+
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page"><strong>NUMERO DE ESTUDIANTES</strong></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <table border="1" class="table">
+        <tr>
+            <th colspan="3">Matriculados</th>
+            <th colspan="3">Retirados</th>
+            <th colspan="3">Abandonos</th>
+            <th colspan="3">Aprobados</th>
+
+        </tr>
+        <tr>
+            <td colspan="3" class="text-center">@Model.Matriculados_DetalleCargaAcademica</td>
+            @foreach (var p in Portafolio)
+            {
+                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UI")
+                {
+                    idCodigoPortafolio = p.Codigo_Portafolio;
+                    <td colspan="3" class="text-center">@Convert.ToString(p.Retirados_Portafolio)</td>
+                    <td colspan="3" class="text-center">@Convert.ToString(p.Abandono_Portafolio)</td>
+                    <td colspan="3" class="text-center">@Convert.ToString(p.Aprobados_Portafolio)</td>
+                }
+            }
+        </tr>
+    </table>
+</div>
+<div class="row clearfix">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><strong>MATERIAL QUE EL DOCENTE PREPARA Y ENTREGA A LOS ESTUDIANTES</strong></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="table-responsive">
+    <table id="example" class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Material Docente Entregado</th>
+                <th>Tipo Entraga</th>
+                <th>Cantidad</th>
+                <th>Evidencia</th>
+            </tr>
+        </thead>
+        @{int con = 0; }
+        <tbody>
+            @foreach (var list in listaMaterial)
+            {
+                if (list.Tipo_Material == "DOCENTEUI" && list.Codigo_Portafolio == idCodigoPortafolio)
+                {
+                    con = con + 1;
+                    <tr>
+                        <td>@con</td>
+                        <td>@list.Nombre_Material</td>
+                        <td>@list.Estado_Material</td>
+                        <td>@list.Cantidad_Material</td>
+                        <td>@list.Archivo_Material</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="row clearfix">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><strong>MATERIAL GENERADO POR EL ESTUDIANTE</strong></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="table-responsive">
+    <table id="example2" class="table table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Material Docente Entregado</th>
+                <th>Tipo Entraga</th>
+                <th>Cantidad</th>
+                <th>Evidencia</th>
+            </tr>
+        </thead>
+        @{ int con1 = 0;}
+        <tbody>
+            @foreach (var list1 in listaMaterial)
+            {
+                if (list1.Tipo_Material == "ESTUDIANTEUI" && list1.Codigo_Portafolio == idCodigoPortafolio)
+                {
+                    con1 = con1 + 1;
+                    <tr>
+                        <td>@con1</td>
+                        <td>@list1.Nombre_Material</td>
+                        <td>@list1.Estado_Material</td>
+                        <td>@list1.Cantidad_Material</td>
+                        <td>@list1.Archivo_Material</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<p> Fecha: @DateTime.Parse((DateTime.Now).ToString()).ToShortDateString()</p>
+<br /><br />
+
+
+<p class="text-center">------------------------------------</p>
+<p class="text-center">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</p>
