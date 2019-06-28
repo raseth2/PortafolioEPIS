@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using System.IO;
+using Rotativa;
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
 {
@@ -140,6 +141,41 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
             {
                 return View("~/AreaDocente/MiCargaAcademica/Agregar.cshtml");
             }
+        }
+        //parte guimer PDF
+
+        // Metodo para Imprimir PDF Docente
+        public ActionResult ListaPDFPortafolioU1(int id)
+        {
+            //ViewBag.prueba = objPruebaEntrada.Listar();
+            ViewBag.Portafolio = objPortafolio.Listar();
+
+            int foerach = 0;
+            List<Tbl_Portafolio> listPortafolio = objPortafolio.Listar();
+
+            foreach (var listaportafolio in listPortafolio)
+            {
+                if (listaportafolio.Codigo_DetalleCargaAcademica == id)
+                {
+                    ViewBag.ListarEvidencia = objMaterial.Listar(listaportafolio.Codigo_Portafolio); //obtener la lista deevidencias de un  portafolio
+                    foerach++;
+                }
+
+            }
+
+            if (foerach == 0)
+            {
+                ViewBag.ListarEvidencia = objMaterial.Listar(0); //obtener la lista deevidencias de un  portafolio
+            }
+
+            //ViewBag.prueba = objPruebaEntrada.Listar();
+            //ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
+            //ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
+            return View(objDetalleCargaAcademica.Obtener(id));
+        }
+        public ActionResult ExportaAPDF(int id)
+        {
+            return new ActionAsPdf("ListaPDFPortafolioU1/" + id);
         }
     }
 }

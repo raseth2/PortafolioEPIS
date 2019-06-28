@@ -1036,6 +1036,10 @@
     <Content Include="Areas\AreaDocente\Views\InformeFinalDocente\AgregarMotivo.cshtml" />
     <Content Include="Areas\AreaDocente\Views\InformeFinalDocente\AgregarCapacidadCurso.cshtml" />
     <Content Include="Areas\AreaDocente\Views\InformeFinalDocente\ListarCapacidadCurso.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PruebaEntradaDocente\ListaPDFPruebaEntrada.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PortafolioU1Docente\ListaPDFPortafolioU1.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PortafolioU2Docente\ListaPDFPortafolioU2.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PortafolioU3Docente\ListaPDFPortafolioU3.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
