@@ -835,6 +835,7 @@
     <Compile Include="Areas\AreaDocente\Controllers\DashboardController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\Informes\PortafolioU1DocenteController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\Informes\PortafolioU2DocenteController.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\Informes\PortafolioU3DocenteController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\LoginDocentesController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\Informes\MedidasCorrectivasDocenteController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\MiCargaAcademicaController.cs" />
@@ -1026,6 +1027,7 @@
     <Content Include="Areas\AreaDocente\Views\ConocimientoHanilidadDocente\Index.cshtml" />
     <Content Include="Areas\AreaDocente\Views\PortafolioU1Docente\Agregar.cshtml" />
     <Content Include="Areas\AreaDocente\Views\PortafolioU2Docente\Agregar.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PortafolioU3Docente\Agregar.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
