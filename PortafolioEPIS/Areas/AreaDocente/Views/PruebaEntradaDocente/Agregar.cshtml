@@ -11,17 +11,11 @@
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Prueba de Entrada</h4>
     </div>
-
-    <div class="col-sm-5 col-6 text-right m-b-20">
+    <div class="col-sm-5 col-3 text-right m-b-20">
         <div class="form-check form-check-inline">
             <a href="~/PruebaEntrada/ExportaAPDF/@Model.Codigo_DetalleCargaAcademica" target="_blank" class="btn btn-success btn-rounded float-right"><i class="fa fa-print"></i> Imprimir</a>
         </div>
-        <div class="form-check form-check-inline">
-            <a href="~/Docente/Ver/@Model.Tbl_Docente.Codigo_Docente" class="btn btn-primary btn-rounded float-right"><i class="fa fa-arrow-circle-left"></i> Regresar</a>
-        </div>        
     </div>
-
-
 
 
 </div>
@@ -188,19 +182,19 @@
 
                                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                                             @*<script type="text/javascript">
-                                            function Habilitar() {
-                                                var eva;
-                                                eva = document.getElementById("evaluados").value;
-                                                if (eva === "") {
+                                                    function Habilitar() {
+                                                        var eva;
+                                                        eva = document.getElementById("evaluados").value;
+                                                        if (eva === "") {
 
-                                                    evaluados.disabled = false;
+                                                            evaluados.disabled = false;
 
-                                                }
-                                                else {
-                                                    evaluados.disabled = true;
-                                                }
-                                            }
-                                        </script>*@
+                                                        }
+                                                        else {
+                                                            evaluados.disabled = true;
+                                                        }
+                                                    }
+                                                </script>*@
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
                                             @if (evaluados == 0)
                                             {
@@ -282,8 +276,8 @@
                                 </div>
                             </form>
 
-                            @{Html.RenderAction("Index", "ConocimientoHabilidad", new { id1 = idpruebas }); }
-                          
+                            @{Html.RenderAction("Index", "ConocimientoHanilidadDocente", new { id1 = idpruebas }); }
+
 
                         </div>
                     </div>
@@ -304,7 +298,7 @@
                                 </div>
                             </div>
                             <!--CONTENIDO 3-->
-                            @{Html.RenderAction("Index", "MedidasCorrectivas", new { id1 = idpruebas, id2 = Model.Codigo_DetalleCargaAcademica }); }
+                            @{Html.RenderAction("Index", "MedidasCorrectivasDocente", new { id1 = idpruebas, id2 = Model.Codigo_DetalleCargaAcademica }); }
                         </div>
                     </div>
                 </div>
@@ -312,7 +306,7 @@
         }
         else
         {
-            
+
         }
     </div>
 </div>
@@ -321,7 +315,7 @@
         var evaluados = document.getElementById("evaluados").value;
         var stado = "G";
         var idprueba = document.getElementById("idprueba").value;
-        window.location.href = '@Url.Content("~/PruebaEntrada/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&idprueba=" + idprueba;
+        window.location.href = '@Url.Content("~/PruebaEntradaDocente/Guardar/")' + "?evaluados=" + evaluados + "&estado=" + stado + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&idprueba=" + idprueba;
     }
     var form2 = function () {
         var nombre = document.getElementById("nombre").value;
@@ -329,7 +323,7 @@
         var suficiente = document.getElementById("suficiente").value;
         var bueno = document.getElementById("bueno").value;
         var idp = document.getElementById("idprueba").value;
-        window.location.href = '@Url.Content("~/ConocimientoHabilidad/Guardar/")' + "?nombre=" + nombre + "&deficiente=" + deficiente + "&suficiente=" + suficiente + "&idprueba=" + idp + "&bueno=" + bueno+ "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
+        window.location.href = '@Url.Content("~/ConocimientoHanilidadDocente/Guardar/")' + "?nombre=" + nombre + "&deficiente=" + deficiente + "&suficiente=" + suficiente + "&idprueba=" + idp + "&bueno=" + bueno+ "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
     }
 
 </script>

@@ -829,11 +829,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AreaDocente\AreaDocenteAreaRegistration.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\Informes\ConocimientoHanilidadDocenteController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\Informes\PortafolioU1DocenteController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\LoginDocentesController.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\Informes\MedidasCorrectivasDocenteController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\MiCargaAcademicaController.cs" />
     <Compile Include="Areas\AreaDocente\Controllers\MiPerfilController.cs" />
-    <Compile Include="Areas\AreaDocente\Controllers\PruebaEntrada1Controller.cs" />
+    <Compile Include="Areas\AreaDocente\Controllers\Informes\PruebaEntradaDocenteController.cs" />
     <Compile Include="Controllers\CargaAcademicaController.cs" />
     <Compile Include="Controllers\DetalleCargaAcademicaController.cs" />
     <Compile Include="Controllers\DetallePlanEstudioController.cs" />
@@ -1012,7 +1015,13 @@
     <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaInformeFinal.cshtml" />
     <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaPortafolioU.cshtml" />
     <Content Include="Areas\AreaDocente\Views\MiCargaAcademica\VistaPruebaEntrada.cshtml" />
-    <Content Include="Areas\AreaDocente\Views\PruebaEntrada\IndexLista.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PruebaEntradaDocente\IndexLista.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PruebaEntradaDocente\Index.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PruebaEntradaDocente\IndexAdmin.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PruebaEntradaDocente\Agregar.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MedidasCorrectivasDocente\Index.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\ConocimientoHanilidadDocente\Index.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\PortafolioU1Docente\Agregar.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1083,7 +1092,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AreaDocente\Models\" />
-    <Folder Include="Areas\AreaDocente\Views\DocentePruebaEntrada\" />
     <Folder Include="Areas\AreaDocente\Views\LoginDocentes\" />
     <Folder Include="assets\PortalWeb\images\main-slider\" />
     <Folder Include="Reports\" />

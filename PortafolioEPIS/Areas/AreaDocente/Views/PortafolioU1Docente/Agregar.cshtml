@@ -18,19 +18,15 @@
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Portafolio <strong>Unidad I</strong></h4>
     </div>
-    <div class="col-sm-5 col-6 text-right m-b-20">
+    <div class="col-sm-5 col-3 text-right m-b-20">
         <div class="form-check form-check-inline">
-            <a href="~/PortafolioU1/ExportaAPDF/@Model.Codigo_DetalleCargaAcademica" target="_blank" class="btn btn-success btn-rounded float-right"><i class="fa fa-print"></i> Imprimir</a>
-        </div>
-        <div class="form-check form-check-inline">
-            <a href="~/Docente/Ver/@Model.Tbl_Docente.Codigo_Docente" class="btn btn-primary btn-rounded float-right"><i class="fa fa-arrow-circle-left"></i> Regresar</a>
+            <a href="#" target="_blank" class="btn btn-success btn-rounded float-right"><i class="fa fa-print"></i> Imprimir</a>
         </div>
     </div>
-    
 </div>
 @*<button class="btn btn-primary" onclick="window.print();">
-    <i class="fa fa-print"></i> <span class="hidden-xs hidden-sm">Imprimir</span>
-</button>*@
+        <i class="fa fa-print"></i> <span class="hidden-xs hidden-sm">Imprimir</span>
+    </button>*@
 
 <div class="profile-tabs">
     <ul class="nav nav-tabs nav-tabs-bottom">
@@ -273,7 +269,7 @@
                                 var aprobados = document.getElementById("aprobados").value;
                                 var unidad = "UI";
                                 var stado = "G";
-                                window.location.href = '@Url.Content("~/PortafolioU1/Guardar/")' + "?idprueba=" + idprueba + "&retirados=" + retirados + "&abandonos=" + abandonos + "&aprobados=" + aprobados + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&estado=" + stado + "&unidad=" + unidad;
+                                window.location.href = '@Url.Content("~/PortafolioU1Docente/Guardar/")' + "?idprueba=" + idprueba + "&retirados=" + retirados + "&abandonos=" + abandonos + "&aprobados=" + aprobados + "&codigo=" + @Model.Codigo_DetalleCargaAcademica + "&estado=" + stado + "&unidad=" + unidad;
                             }
                         </script>
                     </div>
@@ -504,7 +500,7 @@
                                 </div>
                             </div>
                         </div>
-                        @using (Html.BeginForm("Evidencia", "PortafolioU1", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("Evidencia", "PortafolioU1Docente", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
 
                             <!-- Modal / Ventana / Overlay en HTML -->
@@ -692,7 +688,7 @@
                         </div>
 
                         <!-- Modal / Ventana / Overlay en HTML -->
-                        @using (Html.BeginForm("Evidencia1", "PortafolioU1", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        @using (Html.BeginForm("Evidencia1", "PortafolioU1Docente", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                             <input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden />
 
