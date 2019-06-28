@@ -583,6 +583,7 @@
     <Content Include="assets\img\doctor-thumb-11.jpg" />
     <Content Include="assets\img\doctor-thumb-12.jpg" />
     <Content Include="assets\img\favicon.ico" />
+    <Content Include="assets\img\icono_portafolio.png" />
     <Content Include="assets\img\logo-dark.png" />
     <Content Include="assets\img\logo.png" />
     <Content Include="assets\img\logo_portafolioEPIS.png" />
@@ -627,6 +628,7 @@
     <Content Include="assets\Login\jquery.validate.unobtrusive.min.js" />
     <Content Include="assets\Login\login.css" />
     <Content Include="assets\Login\login.js" />
+    <Content Include="assets\Login\logo_circular.png" />
     <Content Include="assets\plugins\light-gallery\css\lightgallery.min.css" />
     <Content Include="assets\plugins\light-gallery\fonts\lgd641.svg" />
     <Content Include="assets\plugins\light-gallery\img\loading.gif" />
