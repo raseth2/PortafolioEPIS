@@ -98,20 +98,73 @@
                                 <!--Resumen general de Semestre-->
                                 <br />
                                 @{
-                                    int cantObligatorio = 0, cantElectivo = 0, cantciclo = 0;
+                                    int cantObligatorio = 0, cantElectivo = 0;
+                                    int cicloI = 0;
+                                    int cicloII = 0;
+                                    int cicloIII = 0;
+                                    int cicloIV = 0;
+                                    int cicloV = 0;
+                                    int cicloVI = 0;
+                                    int cicloVII = 0;
+                                    int cicloVIII = 0;
+                                    int cicloIX = 0;
+                                    int cicloX = 0;
+
                                     foreach (var s in Model)
                                     {
                                         if (s.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
                                         {
                                             cantObligatorio++;
+
                                         }
                                         else
                                         {
                                             cantElectivo++;
                                         }
 
+                                        switch (s.Ciclo_DetallePlanEstudio)
+                                        {
+                                            case "I":
+                                                cicloI++;
+                                                break;
+                                            case "II":
+                                                cicloII++;
+                                                break;
+                                            case "III":
+                                                cicloIII++;
+                                                break;
+                                            case "IV":
+                                                cicloIV++;
+                                                break;
+                                            case "V":
+                                                cicloV++;
+                                                break;
+                                            case "VI":
+                                                cicloVI++;
+                                                break;
+                                            case "VII":
+                                                cicloVII++;
+                                                break;
+                                            case "VIII":
+                                                cicloVIII++;
+                                                break;
+                                            case "IX":
+                                                cicloIX++;
+                                                break;
+                                            case "X":
+                                                cicloX++;
+                                                break;
+                                        }
+
+                                        //if (s.Ciclo_DetallePlanEstudio.Equals("I"))
+                                        //{
+                                        //    cicloI++;
+
+                                        //}
+
                                     }
-                                }
+
+                                    }
 
 
                                 <div class="card-box profile-header">
@@ -149,6 +202,23 @@
                                                             </li>
                                                         </ul>
                                                     </div>
+
+                                                    @*<div class="col-md-6">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Ciclo I:</span>
+                                                                <span class="text">@cicloI</span>
+                                                            </li>
+                                                        </ul>
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Cursos Ciclo II:</span>
+                                                                <span class="text">@cicloI</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>*@
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -261,19 +331,67 @@
 
                                                         series: [
                                                             {
-                                                                name: "Estado",
+                                                                name: "Cursos",
                                                                 colorByPoint: true,
                                                                 data: [
                                                                     {
-                                                                        name: 'Obligatorio',
+                                                                        name: 'Ciclo I',
                                                                         color: '#0597F2',
-                                                                        y: @cantObligatorio,
+                                                                        y: @cicloI,
 
                                                                     },
                                                                     {
-                                                                        name: 'Electivo',
+                                                                        name: 'Ciclo II',
                                                                         color: '#93959A',
-                                                                        y: @cantElectivo,
+                                                                        y: @cicloII,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Ciclo III',
+                                                                        color: '#0597F2',
+                                                                        y: @cicloIII,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Ciclo IV',
+                                                                        color: '#93959A',
+                                                                        y: @cicloVI,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Ciclo V',
+                                                                        color: '#0597F2',
+                                                                        y: @cicloV,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Ciclo VI',
+                                                                        color: '#93959A',
+                                                                        y: @cicloVI,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Ciclo VII',
+                                                                        color: '#0597F2',
+                                                                        y: @cicloVII,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Ciclo VIII',
+                                                                        color: '#93959A',
+                                                                        y: @cicloVIII,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Ciclo IX',
+                                                                        color: '#0597F2',
+                                                                        y: @cicloIX,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Ciclo X',
+                                                                        color: '#93959A',
+                                                                        y: @cicloX,
 
                                                                     },
 
