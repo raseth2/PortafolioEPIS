@@ -1090,6 +1090,7 @@
     <Content Include="Views\InformeFinal\AgregarMotivo.cshtml" />
     <Content Include="Views\PortafolioU1\ListaPDFPortafolioU1.cshtml" />
     <Content Include="Views\PortafolioU2\ListaPDFPortafolioU2.cshtml" />
+    <Content Include="Views\PortafolioU3\ListaPDFPortafolioU3.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
