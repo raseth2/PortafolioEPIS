@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using System.IO;
+using Rotativa;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
@@ -13,6 +14,7 @@ namespace PortafolioEPIS.Controllers.Informes
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
         private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
         private Tbl_Material objMaterial = new Tbl_Material();
+        private Tbl_PruebaEntrada objPruebaEntrada = new Tbl_PruebaEntrada();
         // Accion Listar
         public ActionResult Index()
         {
@@ -100,6 +102,41 @@ namespace PortafolioEPIS.Controllers.Informes
             //    return View("~/Views/PruebaEntrada/Agregar.cshtml");
             //}
 
+
+
+        }
+
+        public ActionResult ListaPDFPortafolioU2(int id)
+        {
+            ViewBag.prueba = objPruebaEntrada.Listar();
+            ViewBag.Portafolio = objPortafolio.Listar();
+
+            int foerach = 0;
+            List<Tbl_Portafolio> listPortafolio = objPortafolio.Listar();
+
+            foreach (var listaportafolio in listPortafolio)
+            {
+                if (listaportafolio.Codigo_DetalleCargaAcademica == id)
+                {
+                    ViewBag.ListarEvidencia = objMaterial.Listar(listaportafolio.Codigo_Portafolio); //obtener la lista deevidencias de un  portafolio
+                    foerach++;
+                }
+
+            }
+
+            if (foerach == 0)
+            {
+                ViewBag.ListarEvidencia = objMaterial.Listar(0); //obtener la lista deevidencias de un  portafolio
+            }
+
+            //ViewBag.prueba = objPruebaEntrada.Listar();
+            //ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
+            //ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
+            return View(objDetalleCargaAcademica.Obtener(id));
+        }
+        public ActionResult ExportaAPDF(int id)
+        {
+            return new ActionAsPdf("ListaPDFPortafolioU2/" + id);
         }
     }
 }
