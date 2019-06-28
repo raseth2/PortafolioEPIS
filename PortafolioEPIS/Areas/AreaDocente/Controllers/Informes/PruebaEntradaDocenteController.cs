@@ -8,7 +8,7 @@ using Rotativa;
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers
 {
-    public class PruebaEntrada1Controller : Controller
+    public class PruebaEntradaDocenteController : Controller
     {
 
         private Tbl_ConocimientoHabilidad ObjConocimientoHabilidad = new Tbl_ConocimientoHabilidad();
@@ -22,12 +22,22 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers
         private Tbl_Semestre objSemestre = new Tbl_Semestre();
         private Tbl_CargaAcademica objCargaAcademica = new Tbl_CargaAcademica();
         private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
-
-        // GET: AreaDocente/PruebaEntrada
+        // Accion Listar
         public ActionResult Index()
         {
-            return View();
+
+            return View(objPruebaEntrada.Listar());
         }
+
+        public ActionResult Ver(int id)
+        {
+            return View(objPruebaEntrada.Obtener(id));
+        }
+        public ActionResult IndexAdmin()
+        {
+            return View(objCargaAcademica.Listar());
+        }
+
 
         public ActionResult IndexLista(int id = 0)
         {
@@ -36,22 +46,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers
             return View(objDetalleCargaAcademica.Listar());
         }
 
-        public ActionResult GuardarEstado(Tbl_PruebaEntrada objPruebaEntrada, int id = 0, int codigodetalle = 0, int evaluados = 0, string estado = null, int iddocente = 0)
-        {
-
-
-
-            objPruebaEntrada.Estado_PruebaEntrada = estado;
-            objPruebaEntrada.Codigo_PruebaEntrada = id;
-            objPruebaEntrada.Codigo_DetalleCargaAcademica = codigodetalle;
-            objPruebaEntrada.Evaluados_PruebaEntrada = evaluados;
-            objPruebaEntrada.Fecha_PruebaEntrada = DateTime.Now;
-            objPruebaEntrada.Guardar();
-
-            return Redirect("~/AreaDocente/MiCargaAcademica/VerDocente/" + iddocente);
-
-        }
-
+        //Action Guardar
         public ActionResult Guardar(Tbl_PruebaEntrada objPruebaEntrada, int evaluados, int codigo, string estado, int idprueba)
         {
 
@@ -61,7 +56,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers
             objPruebaEntrada.Fecha_PruebaEntrada = DateTime.Now;
             objPruebaEntrada.Estado_PruebaEntrada = estado;
             objPruebaEntrada.Guardar();
-            return Redirect("~/AreaDocente/PruebaEntrada/Agregar/" + codigo);
+            return Redirect("~/AreaDocente/PruebaEntradaDocente/Agregar/" + codigo);
 
             //}
             //else
@@ -71,7 +66,24 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers
 
         }
 
- 
+        public ActionResult GuardarEstado(Tbl_PruebaEntrada objPruebaEntrada, int id = 0, int codigodetalle = 0, int evaluados = 0, string estado = null, int iddocente = 0)
+        {
+
+
+
+            objPruebaEntrada.Estado_PruebaEntrada = estado;
+
+
+
+            objPruebaEntrada.Codigo_PruebaEntrada = id;
+            objPruebaEntrada.Codigo_DetalleCargaAcademica = codigodetalle;
+            objPruebaEntrada.Evaluados_PruebaEntrada = evaluados;
+            objPruebaEntrada.Fecha_PruebaEntrada = DateTime.Now;
+            objPruebaEntrada.Guardar();
+
+            return Redirect("~/AreaDocente/MiCargaAcademica/VerDocente/" + iddocente);
+
+        }
 
 
 
