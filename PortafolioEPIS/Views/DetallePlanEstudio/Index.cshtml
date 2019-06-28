@@ -62,34 +62,34 @@
 
                                                 if (p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
-                                                <tr>
-                                                    <td>@num0</td>
-                                                    <td><a href="~/DetallePlanEstudio/Agregar1/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
-                                                    <td>@p.Asignatura_DetallePlanEstudio</td>
-                                                    <td>@p.TipoCurso_DetallePlanEstudio</td>
-                                                    <td>@p.TotalHoras_DetallePlanEstudio</td>
-                                                    <td>@p.TotalCreditos_DetallePlanEstudio</td>
-                                                    <td>@p.Ciclo_DetallePlanEstudio</td>
+                                                    <tr>
+                                                        <td>@num0</td>
+                                                        <td><a href="~/DetallePlanEstudio/Agregar1/@p.Codigo_DetallePlanEstudio">@p.CodigoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.Asignatura_DetallePlanEstudio</td>
+                                                        <td>@p.TipoCurso_DetallePlanEstudio</td>
+                                                        <td>@p.TotalHoras_DetallePlanEstudio</td>
+                                                        <td>@p.TotalCreditos_DetallePlanEstudio</td>
+                                                        <td>@p.Ciclo_DetallePlanEstudio</td>
 
-                                                    @if (p.Estado_DetallePlanEstudio == true)
-                                                    {
-                                                        <td><span class="custom-badge status-green">Activo</span></td>
-                                                    }
-                                                    else
-                                                    {
-                                                        <td><span class="custom-badge status-red">Inactivo</span></td>
-                                                    }
-                                                    <td class="text-right">
-                                                        <div class="dropdown dropdown-action">
-                                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar1/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
-                                                                <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                        @if (p.Estado_DetallePlanEstudio == true)
+                                                        {
+                                                            <td><span class="custom-badge status-green">Activo</span></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><span class="custom-badge status-red">Inactivo</span></td>
+                                                        }
+                                                        <td class="text-right">
+                                                            <div class="dropdown dropdown-action">
+                                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Ver/@p.Codigo_DetallePlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Agregar1/@p.Codigo_DetallePlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                                                    <a class="dropdown-item" href="~/DetallePlanEstudio/Eliminar/@p.Codigo_DetallePlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                    </tr>
                                                 }
                                             }
                                         </tbody>
@@ -101,6 +101,136 @@
 
                 </div>
             </div>
+
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+
+            <div class="row clearfix">
+                <div class="col-md-6">
+                    <div class="card-box">
+
+                        <div id="container"></div>
+                        <script type="text/javascript">
+                            Highcharts.chart('container', {
+                                chart: {
+                                    type: 'pie',
+                                    options3d: {
+                                        enabled: true,
+                                        alpha: 45,
+                                        beta: 0
+                                    }
+                                },
+                                title: {
+                                    text: 'hhhhhhhhhh'
+                                },
+                                tooltip: {
+                                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                },
+                                plotOptions: {
+                                    pie: {
+                                        allowPointSelect: true,
+                                        cursor: 'pointer',
+                                        depth: 35,
+                                        dataLabels: {
+                                            enabled: true,
+                                            format: '{point.name}'
+                                        }
+                                    }
+                                },
+                                series: [{
+                                    type: 'pie',
+                                    name: 'Browser share',
+                                    data: [
+                                       
+                                        {
+                                            name: 'ffffffff',
+                                            y: ,
+                                            sliced: true,
+                                            selected: true
+                                        },
+                                        
+                                    ]
+                                }]
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card-box">
+
+                        <div id="container010"></div>
+                        <script type="text/javascript">
+                                                    Highcharts.chart('container010', {
+                                                        chart: {
+                                                            type: 'column'
+                                                        },
+                                                        title: {
+                                                            text: 'Grafico de Barras'
+                                                        },
+                                                        xAxis: {
+                                                            type: 'category'
+                                                        },
+                                                        yAxis: {
+                                                            title: {
+                                                                text: 'Cantidad total'
+                                                            }
+
+                                                        },
+                                                        legend: {
+                                                            enabled: false
+                                                        },
+                                                        ooltip: {
+                                                            headerFormat: '<b>{point.x}</b><br/>',
+                                                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                                        }, plotOptions: {
+                                                            column: {
+                                                                stacking: 'normal',
+                                                                dataLabels: {
+                                                                    enabled: true,
+                                                                },
+                                                                showInLegend: true,
+                                                            }
+                                                        },
+
+                                                        series: [
+                                                            {
+                                                                name: "Estado",
+                                                                colorByPoint: true,
+                                                                data: [
+                                                                    {
+                                                                        name: 'Obligatorio',
+                                                                        color: '#0597F2',
+                                                                        y: @cantObligatorio10,
+
+                                                                    },
+                                                                    {
+                                                                        name: 'Electivo',
+                                                                        color: '#93959A',
+                                                                        y: @cantElectivo10,
+
+                                                                    },
+
+                                                                ]
+                                                            }
+                                                        ]
+                                                    });
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+
+
+
         </div>
         <div class="tab-pane" id="bottom-tab1">
             <div class="row">
@@ -127,8 +257,8 @@
                                             @{ int num1 = 0;}
                                             @foreach (var p1 in Model)
                                             {
-                                                
-                                                
+
+
                                                 if (p1.Ciclo_DetallePlanEstudio == "I" && p1.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                                 {
                                                     num1 = num1 + 1;
@@ -160,8 +290,8 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    }
-                                                
+                                                }
+
 
                                             }
                                         </tbody>
@@ -173,6 +303,18 @@
 
                 </div>
             </div>
+
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            
 
         </div>
         <div class="tab-pane" id="bottom-tab2">

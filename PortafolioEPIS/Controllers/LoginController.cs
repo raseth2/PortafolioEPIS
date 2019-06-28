@@ -44,7 +44,7 @@ namespace PortafolioEPIS.Controllers
                 }
                 if(cargo==3)
                 {
-                    rm.href = Url.Content("~/AreaDocente/Miperfil");
+                    rm.href = Url.Content("~/AreaDocente/Dashboard");
                 }
                 
             }

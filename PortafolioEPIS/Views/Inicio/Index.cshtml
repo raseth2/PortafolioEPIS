@@ -116,6 +116,7 @@
     {
         cantRechazado++;
     }
+
     if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "G")
     {
         cantGuardados2++;
@@ -153,25 +154,6 @@
 
 }
 
-@foreach (var infof in informe)
-{
-    if (infof.Codigo_DetalleCargaAcademica == 1)
-    {
-        cantInformeG++;
-    }
-    else if (infof.Estado_InformeFinal == "E")
-    {
-        cantInformeE++;
-    }
-    else if (infof.Estado_InformeFinal == "A")
-    {
-        cantInformeA++;
-    }
-    else if (infof.Estado_InformeFinal == "R")
-    {
-        cantInformeR++;
-    }
-}
 
 
 <div class="row">
@@ -246,7 +228,7 @@
 <!--bienvenida-->
 <div class="card">
     <div class="card-body">
-        <img src="~/Imagen/fondo Portafoliov2.png" class="img-fluid" alt="Responsive image" />
+        <img src="~/Imagen/imagen_inicio.png" class="img-fluid" alt="Responsive image" />
     </div>
 </div>
 
@@ -483,7 +465,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Portafolio Unidad III'
+                    text: 'Prueba de Entrada'
                 },
                 xAxis: {
                     type: 'category'
