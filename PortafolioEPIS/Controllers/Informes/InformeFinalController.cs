@@ -204,6 +204,9 @@ namespace PortafolioEPIS.Controllers.Informes
         // Metodo para Imprimir PDF Docente
         public ActionResult ListaPDFInformeFinal(int id)
         {
+
+           
+
             ViewBag.prueba = objInformeFinal.Listar();
             ViewBag.portafolio = objportafolio.Listar();
             List<Tbl_InformeFinal> listInformeFinal = objInformeFinal.Listar();
@@ -212,6 +215,7 @@ namespace PortafolioEPIS.Controllers.Informes
                 if (listaInforme.Codigo_DetalleCargaAcademica == id)
                 {
                     ViewBag.ListarObservaciones = objObservaciones.Listar1(listaInforme.Codigo_InformeFinal); //obtener la lista deevidencias de un  portafolio
+                    ViewBag.CapacidadesCurso = objCapacidadesCurso.Listar(listaInforme.Codigo_InformeFinal);
                     
                 }
 

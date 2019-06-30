@@ -3,6 +3,8 @@
     Layout = null;
     List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
     List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = ViewBag.Portafolio;
+    List <PortafolioEPIS.Models.Tbl_CapacidadesCurso> CapacidadesCurso = ViewBag.CapacidadesCurso;
+    List<PortafolioEPIS.Models.Tbl_Observaciones> observaciones = ViewBag.ListarObservaciones;
 
 
     ViewBag.Title = "ListaPDFInformeFinal";
@@ -216,3 +218,58 @@
 
     </table>
 
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th rowspan="2">#</th>
+                <th rowspan="2">Capacidades del curso</th>
+                <th class="text-center" colspan="5">Nivel Alcanzado</th>
+                <th rowspan="2" class="text-right">Accción</th>
+            </tr>
+            <tr>
+                <th class="text-center">Nada</th>
+                <th class="text-center">Poco</th>
+                <th class="text-center">Aceptable</th>
+                <th class="text-center">Bien</th>
+                <th class="text-center">Muy Bien</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int conteo = 0;}
+            @foreach (var capacidad in CapacidadesCurso)
+            {
+
+                conteo = conteo + 1;
+                <tr>
+                    <td>@conteo</td>
+                    <td>@capacidad.Descripcion_CapacidadesCurso</td>
+                    <td class="text-center">@(capacidad.Nada_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(capacidad.Poco_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(capacidad.Aceptable_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(capacidad.Bien_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(capacidad.MuyBien_CapacidadesCurso == 1 ? "X" : "")</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    
+
+    @foreach (var ob in observaciones)
+    {
+        <label>delasobservaciones:  @ob.Estudiantes_Observaciones</label>
+        <label>Asistencia Puntualida:  @ob.AsistenciaPuntualidad_Observaciones</label>
+        <label>Silavo Observaciones:  @ob.Silabo_Observaciones</label>
+        <label>delasobservaciones:  @ob.MaterialCurso_Observaciones</label>
+        <label>delasobservaciones:  @ob.Cuestionarios_Observaciones</label>
+        <label>delasobservaciones:  @ob.TareasEncargadas_Observaciones</label>
+        <label>delasobservaciones:  @ob.Foros_Observaciones</label>
+        <label>delasobservaciones:  @ob.ExamenesVirtuales_Observaciones</label>
+        <label>delasobservaciones:  @ob.Slideshow_Observaciones</label>
+        <label>delasobservaciones:  @ob.Administrativas_Observaciones</label>
+        <label>delasobservaciones:  @ob.MejoraContinua_Observaciones</label>
+        <label>delasobservaciones:  @ob.ActualizacionDocente_Observaciones</label>
+        <label>delasobservaciones:  @ob.ComentariosRecomendaciones_Observaciones</label>
+    }
