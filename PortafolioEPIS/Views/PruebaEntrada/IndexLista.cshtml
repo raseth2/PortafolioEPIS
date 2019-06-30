@@ -3,7 +3,7 @@
     
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = ViewBag.Prueba;
     int idpruebas = 0;
-    string estado = "";
+    string estado = null;
     string unidad = "";
     int detalleplan = 0;
 }
@@ -49,112 +49,143 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
                                     @{ int num = 0;}
                                     @foreach (var q in prueba)
                                     {
-                                        @*<label> cad @q.Codigo_DetalleCargaAcademica o</label>
-                                            if (q.Codigo_DetalleCargaAcademica == Convert.ToInt32(ViewBag.id))
-                                            {
-                                                idpruebas = q.Codigo_PruebaEntrada;
-                                                estado = q.Estado_PruebaEntrada;
-                                                detalleplan = q.Codigo_DetalleCargaAcademica;
+                                        if (q.Codigo_DetalleCargaAcademica == Convert.ToInt32(ViewBag.id))
+                                        {
+                                            estado = q.Estado_PruebaEntrada;
+                                        }
+                                      @*<label> cad @q.Codigo_DetalleCargaAcademica o</label>
+                                        if (q.Codigo_DetalleCargaAcademica == Convert.ToInt32(ViewBag.id))
+                                        {
+                                            idpruebas = q.Codigo_PruebaEntrada;
+                                            estado = q.Estado_PruebaEntrada;
+                                            detalleplan = q.Codigo_DetalleCargaAcademica;
 
-                                                <label>@idpruebas</label>
-                                                <label>@estado</label>
-                                                <label>@detalleplan</label>*@
+                                            <label>@idpruebas</label>
+                                            <label>@estado</label>
+                                            <label>@detalleplan</label>*@
                                     foreach (var p in Model)
 
                                     {
-                                        if(p.Codigo_CargaAcademica== (Convert.ToInt32(ViewBag.id)))
+
+                                        if (p.Codigo_CargaAcademica == (Convert.ToInt32(ViewBag.id)))
                                         {
 
                                     <tr>
-                                        <td>@num</td>
+                                        <td>3</td>
                                         <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
                                         <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                         <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                         <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
                                         <td>@p.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio</td>
                                         <td>@p.Tbl_Seccion.Nombre_Seccion</td>
-
-
-                                        @if (estado == "G")
+                                        @if (q.Codigo_DetalleCargaAcademica == p.Codigo_DetalleCargaAcademica)
                                         {
-                                            <td><span class="custom-badge status-grey">Guardado</span></td>
-                                            <td class="text-right">
-                                                <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                            estado = q.Estado_PruebaEntrada;
 
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+
+
+
+
+                                            if (estado == "G")
+                                            {
+                                                <td><span class="custom-badge status-blue">Guardado</span></td>
+                                                <td class="text-right">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
+                                                </td>
 
-                                        }
-                                        @if (estado == "E")
-                                        {
-                                            <td><span class="custom-badge status-purple">Enviado</span></td>
-                                            <td class="text-right">
-                                                <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                        <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@q.Codigo_PruebaEntrada&codigodetalle=@q.Codigo_DetalleCargaAcademica&evaluados=@q.Evaluados_PruebaEntrada&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
-                                                        <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@q.Codigo_PruebaEntrada&codigodetalle=@q.Codigo_DetalleCargaAcademica&evaluados=@q.Evaluados_PruebaEntrada&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                            }
+                                            if (estado == "E")
+                                            {
+                                                <td><span class="custom-badge status-purple">Enviado</span></td>
+                                                <td class="text-right">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                            @*<a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@q.Codigo_PruebaEntrada&codigodetalle=@q.Codigo_DetalleCargaAcademica&evaluados=@q.Evaluados_PruebaEntrada&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
+                            <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@q.Codigo_PruebaEntrada&codigodetalle=@q.Codigo_DetalleCargaAcademica&evaluados=@q.Evaluados_PruebaEntrada&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>*@
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
+                                                </td>
 
-                                        }
-                                        @if (estado == "R")
-                                        {
-                                            <td><span class="custom-badge status-red">Rechazado</span></td>
-                                            <td class="text-right">
-                                                <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                            }
+                                            if (estado == "R")
+                                            {
+                                                <td><span class="custom-badge status-red">Rechazado</span></td>
+                                                <td class="text-right">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
 
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                        }
-                                        @if (estado == "A")
-                                        {
-                                            <td><span class="custom-badge status-green">Aceptado</span></td>
-                                            <td class="text-right">
-                                                <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                </td>
+                                            }
+                                            if (estado == "A")
+                                            {
+                                                <td><span class="custom-badge status-green">Aceptado</span></td>
+                                                <td class="text-right">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
 
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
+                                                </td>
 
+                                            }
+                                            if (estado == null)
+                                            {
+                                                <td><span class="custom-badge status-green">No Genrado</span></td>
+                                                <td class="text-right">
+                                                    <div class="dropdown dropdown-action">
+                                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+
+                                                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            }
                                         }
                                         else
+
                                         {
-                                            <td><span class="custom-badge status-green">Aceptado</span></td>
+
+                                            <td><span class="custom-badge status-grey">No Generado</span></td>
                                             <td class="text-right">
                                                 <div class="dropdown dropdown-action">
                                                     <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                        <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Sin acciones</a>
 
-                                                        <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                              
                                                     </div>
                                                 </div>
                                             </td>
 
                                         }
+
                                     </tr>
-                                                
+
 
                                             }
                                         }
