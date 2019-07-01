@@ -72,9 +72,10 @@
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                <a class="dropdown-item" href="~/AreaDocente/PruebaEntrada/GuardarEstado/?id=@q.Codigo_InformeFinal&codigodetalle=@q.Codigo_DetalleCargaAcademica&abandono=@q.EstudiantesAbandono_InformeFinal&aprobados=@q.EstudiantesAprobados_InformeFinal&asisten=@q.EstudiantesAsisten_InformeFinal&estado=E&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Enviar</a>
-                                                <a class="dropdown-item" href="#"><i class="fa fa-close m-r-5"></i> Editar</a>
+                                                
+                                                <a class="dropdown-item" href="~/AreaDocente/InformeFinalDocente/Agregar/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-close m-r-5"></i> Editar</a>
+                                                <a class="dropdown-item" href="~/AreaDocente/InformeFinalDocente/GuardarEstado/?idprueba=@q.Codigo_InformeFinal&psilabo=@q.PorcentajeSilabo_InformeFinal&prarealizadas=@q.PracticasCalificadas_InformeFinal&elaboratorio=@q.LaboratoriosRealizados_InformeFinal&codigo=@q.Codigo_DetalleCargaAcademica&estado=E&prorealizados=@q.TrabajosRealizados_InformeFinal&matriculados=@q.EstudiantesMatriculados_InformeFinal&estretiro=@q.EstudiantesRetiro_InformeFinal&estabandono=@q.EstudiantesAbandono_InformeFinal&estasistentes=@q.EstudiantesAsisten_InformeFinal&estaprobados=@q.EstudiantesAprobados_InformeFinal&estdesaprobados=@q.EstudiantesDesaprobados_InformeFinal&notaalta=@q.NotaAlta_InformeFinal&notapromedio=@q.NotaPromedio_InformeFinal&notabaja=@q.NotaBaja_InformeFinal&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Enviar</a>
+                                                
                                             </div>
                                         </div>
                                     </td>
@@ -87,8 +88,8 @@
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                
-                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+
+                                                <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                             </div>
                                         </div>
                                     </td>
@@ -100,9 +101,11 @@
                                     <td class="text-right">
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">                                               
-                                                <a class="dropdown-item" href="~/AreaDocente/PruebaEntradaDocente/GuardarEstado/?id=@q.Codigo_InformeFinal&codigodetalle=@q.Codigo_DetalleCargaAcademica&aprobados=@q.EstudiantesAprobados_InformeFinal&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Enviar</a>
-                                                <a class="dropdown-item" href="~/AreaDocente/PruebaEntradaDocente/Agregar/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Editar</a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+
+                                                <a class="dropdown-item" href="~/AreaDocente/InformeFinalDocente/Agregar/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-close m-r-5"></i> Editar</a>
+                                                 <a class="dropdown-item" href="~/AreaDocente/InformeFinalDocente/GuardarEstado/?idprueba=@q.Codigo_InformeFinal&psilabo=@q.PorcentajeSilabo_InformeFinal&prarealizadas=@q.PracticasCalificadas_InformeFinal&elaboratorio=@q.LaboratoriosRealizados_InformeFinal&codigo=@q.Codigo_DetalleCargaAcademica&estado=E&prorealizados=@q.TrabajosRealizados_InformeFinal&matriculados=@q.EstudiantesMatriculados_InformeFinal&estretiro=@q.EstudiantesRetiro_InformeFinal&estabandono=@q.EstudiantesAbandono_InformeFinal&estasistentes=@q.EstudiantesAsisten_InformeFinal&estaprobados=@q.EstudiantesAprobados_InformeFinal&estdesaprobados=@q.EstudiantesDesaprobados_InformeFinal&notaalta=@q.NotaAlta_InformeFinal&notapromedio=@q.NotaPromedio_InformeFinal&notabaja=@q.NotaBaja_InformeFinal&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Enviar</a>
+
                                             </div>
                                         </div>
                                     </td>
@@ -114,9 +117,9 @@
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                            <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
 
-                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                               
                                             </div>
                                         </div>
                                     </td>

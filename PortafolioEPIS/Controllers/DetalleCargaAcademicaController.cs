@@ -38,6 +38,7 @@ namespace PortafolioEPIS.Controllers
         public ActionResult Agregar(int id = 0, int cargaAcademica = 0)
         {
             ViewBag.Tbl_CargaAcademica_id = objCargaAcademica.Obtener(cargaAcademica);
+           
 
 
             ViewBag.Tbl_CargaAcademica = objCargaAcademica.Listar();

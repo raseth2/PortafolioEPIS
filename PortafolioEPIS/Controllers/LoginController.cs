@@ -34,17 +34,21 @@ namespace PortafolioEPIS.Controllers
             var rm = usuario.ValidarLogin(Usuario,Password,cargo);
             if (rm.response)
             {
-                if(cargo==1)
-                {
-                    rm.href = Url.Content("~/Inicio");
-                }
-                if(cargo==2)
-                {
-                    rm.href = Url.Content("~/Inicio");
-                }
+                //if(cargo==1)
+                //{
+                  
+                //}
+                //if(cargo==2)
+                //{
+                //    rm.href = Url.Content("~/Inicio");
+                //}
                 if(cargo==3)
                 {
                     rm.href = Url.Content("~/AreaDocente/Dashboard");
+                }
+                else
+                {
+                    rm.href = Url.Content("~/Inicio");
                 }
                 
             }
