@@ -43,6 +43,7 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             ViewBag.id = id;
             ViewBag.prueba = objPruebaEntrada.Listar();
+            ViewBag.carga=objCargaAcademica.Listar();
             return View(objDetalleCargaAcademica.Listar());
         }
 
