@@ -60,6 +60,10 @@
                             <a class="dropdown-item" href="#">Mi Prefil</a>
                             <a class="dropdown-item" href="#">Editar Perfil</a>
                             <a class="dropdown-item" href="#">Configurar</a>
+                            @if(usuario.Tbl_Docente.Codigo_CargoDocente==2 || usuario.Tbl_Docente.Codigo_CargoDocente==1)
+                            {
+                                <a class="dropdown-item" href="~/Inicio">Ingresar Area de Administrador</a>
+                            }
                             <a class="dropdown-item" href="~/AreaDocente/LoginDocentes/logout">Salir</a>
                         </div>
                     </li>
