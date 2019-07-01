@@ -11,6 +11,9 @@ namespace PortafolioEPIS.Controllers.Informes
 {
     public class PruebaPDFController : Controller
     {
+        private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
+        private Tbl_Docente objDocente = new Tbl_Docente();
+
         Tbl_Docente objdocente = new Tbl_Docente();
         public ActionResult Index()
         {
@@ -89,6 +92,12 @@ namespace PortafolioEPIS.Controllers.Informes
                 .Recipe(Recipe.ChromePdf);
 
             return View("Invoice", InvoiceModel.Example());
+        }
+
+        public ActionResult Reporte()
+        {
+            ViewBag.listaDocente = objDocente.Listar();
+            return View(objDetalleCargaAcademica.Listar());
         }
     }
 }

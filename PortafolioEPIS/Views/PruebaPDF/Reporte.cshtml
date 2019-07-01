@@ -1,0 +1,68 @@
+﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
+    
+@{
+
+    ViewBag.Title = "Reporte";
+    List<PortafolioEPIS.Models.Tbl_Docente> listDocente = ViewBag.listaDocente;
+}
+
+<h2>Reporte</h2>
+
+<table id="s" class="table table-hover">
+    <thead>
+        <tr>
+
+            <th>Docente</th>
+            <th>Curso</th>
+            <th>#</th>
+            <th>Horas</th>
+            <th>Creditos</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var d in listDocente)
+        {
+            int num = 0 , horas =0, creditos = 0;
+
+            foreach (var p in Model)
+            {
+                <tr>
+                    @if (d.Codigo_Docente == p.Codigo_Docente)
+                    {
+
+
+                        num = num + 1;
+                        horas =horas+ p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio;
+                        creditos =creditos+ p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
+
+                        //id = p.Codigo_Semestre;
+
+                        <td>@(num == 1 ? (p.Tbl_Docente.Nombres_Docente+", "+ p.Tbl_Docente.Apellidos_Docente): "")</td>
+                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                        <td>@num</td>
+                        <td>@p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio</td>
+                        <td>@p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</td>
+
+
+
+                    }
+                </tr>
+
+            }
+                <tr>
+                    <td bgcolor="yellow"></td>
+                    <td bgcolor="yellow"></td>
+                    <td bgcolor="yellow">Total</td>
+                    <td bgcolor="yellow">@horas</td>
+                    <td bgcolor="yellow">@creditos</td>
+                </tr>
+
+
+        }
+
+
+    </tbody>
+
+</table>

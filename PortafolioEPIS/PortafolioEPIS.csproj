@@ -1163,6 +1163,7 @@
     <Content Include="Views\PruebaEntrada\PruebaJsreport.cshtml" />
     <Content Include="Views\PruebaPDF\Index.cshtml" />
     <Content Include="Views\PruebaPDF\Invoice.cshtml" />
+    <Content Include="Views\PruebaPDF\Reporte.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
