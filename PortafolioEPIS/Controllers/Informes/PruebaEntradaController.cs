@@ -125,5 +125,17 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             return new ActionAsPdf("ListaPDFPruebaEntrada/" + id);
         }
+
+        public ActionResult ListaPDFPruebaEntrada2(int id)
+        {
+            ViewBag.prueba = objPruebaEntrada.Listar();
+            ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
+            ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
+            return View(objDetalleCargaAcademica.Obtener(id));
+        }
+        public ActionResult ExportaAPDF2(int id)
+        {
+            return new ActionAsPdf("ListaPDFPruebaEntrada2/" + id);
+        }
     }
 }

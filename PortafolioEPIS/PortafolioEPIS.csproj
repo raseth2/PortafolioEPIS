@@ -599,6 +599,9 @@
     <Content Include="assets\img\user-06.jpg" />
     <Content Include="assets\img\user.jpg" />
     <Content Include="assets\img\video-call.jpg" />
+    <Content Include="assets\Informes\logo_pdf.PNG" />
+    <Content Include="assets\Informes\portafolio.css" />
+    <Content Include="assets\Informes\prueba_entrada.css" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\bootstrap-datetimepicker.min.js" />
     <Content Include="assets\js\bootstrap.min.js" />
@@ -1101,6 +1104,8 @@
     <Content Include="Views\PortafolioU1\ListaPDFPortafolioU1.cshtml" />
     <Content Include="Views\PortafolioU2\ListaPDFPortafolioU2.cshtml" />
     <Content Include="Views\PortafolioU3\ListaPDFPortafolioU3.cshtml" />
+    <Content Include="Views\PruebaEntrada\probando.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

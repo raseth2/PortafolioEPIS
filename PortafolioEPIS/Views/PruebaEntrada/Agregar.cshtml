@@ -7,6 +7,7 @@
 
 }
 
+
 <div class="row">
     <div class="col-sm-7 col-6">
         <h4 class="page-title">Informe Prueba de Entrada</h4>
@@ -14,18 +15,16 @@
 
     <div class="col-sm-5 col-6 text-right m-b-20">
         <div class="form-check form-check-inline">
+            <a href="~/PruebaEntrada/ExportaAPDF2/@Model.Codigo_DetalleCargaAcademica" target="_blank" class="btn btn-danger btn-rounded float-right"><i class="fa fa-print"></i> Imprimir2</a>
+        </div>
+        <div class="form-check form-check-inline">
             <a href="~/PruebaEntrada/ExportaAPDF/@Model.Codigo_DetalleCargaAcademica" target="_blank" class="btn btn-success btn-rounded float-right"><i class="fa fa-print"></i> Imprimir</a>
         </div>
         <div class="form-check form-check-inline">
             <a href="~/Docente/Ver/@Model.Tbl_Docente.Codigo_Docente" class="btn btn-primary btn-rounded float-right"><i class="fa fa-arrow-circle-left"></i> Regresar</a>
-        </div>        
+        </div>
     </div>
-
-
-
-
 </div>
-
 
 <div class="profile-tabs">
     <ul class="nav nav-tabs nav-tabs-bottom">
@@ -188,19 +187,19 @@
 
                                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                                             @*<script type="text/javascript">
-                                            function Habilitar() {
-                                                var eva;
-                                                eva = document.getElementById("evaluados").value;
-                                                if (eva === "") {
+                                                    function Habilitar() {
+                                                        var eva;
+                                                        eva = document.getElementById("evaluados").value;
+                                                        if (eva === "") {
 
-                                                    evaluados.disabled = false;
+                                                            evaluados.disabled = false;
 
-                                                }
-                                                else {
-                                                    evaluados.disabled = true;
-                                                }
-                                            }
-                                        </script>*@
+                                                        }
+                                                        else {
+                                                            evaluados.disabled = true;
+                                                        }
+                                                    }
+                                                </script>*@
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
                                             @if (evaluados == 0)
                                             {
@@ -283,7 +282,7 @@
                             </form>
 
                             @{Html.RenderAction("Index", "ConocimientoHabilidad", new { id1 = idpruebas }); }
-                          
+
 
                         </div>
                     </div>
@@ -312,7 +311,7 @@
         }
         else
         {
-            
+
         }
     </div>
 </div>
