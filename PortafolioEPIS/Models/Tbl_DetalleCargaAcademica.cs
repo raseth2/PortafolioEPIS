@@ -6,7 +6,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -37,6 +36,9 @@ namespace PortafolioEPIS.Models
 
         public int Matriculados_DetalleCargaAcademica { get; set; }
 
+        [StringLength(250)]
+        public string URL_DetalleCargaAcademica { get; set; }
+
         public bool Estado_DetalleCargaAcademica { get; set; }
 
         public virtual Tbl_CargaAcademica Tbl_CargaAcademica { get; set; }
@@ -59,6 +61,7 @@ namespace PortafolioEPIS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_PruebaEntrada> Tbl_PruebaEntrada { get; set; }
+
 
         //Metodo Listar
         public List<Tbl_DetalleCargaAcademica> Listar()

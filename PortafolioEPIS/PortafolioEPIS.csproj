@@ -652,9 +652,6 @@
     <Content Include="assets\img\user-06.jpg" />
     <Content Include="assets\img\user.jpg" />
     <Content Include="assets\img\video-call.jpg" />
-    <Content Include="assets\Informes\logo_pdf.PNG" />
-    <Content Include="assets\Informes\portafolio.css" />
-    <Content Include="assets\Informes\prueba_entrada.css" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\bootstrap-datetimepicker.min.js" />
     <Content Include="assets\js\bootstrap.min.js" />
@@ -841,10 +838,7 @@
     <Content Include="assets\PortalWeb\vendors\themify\themify-icons.css" />
     <Content Include="assets\Validaciones\bootstrap-validate.js" />
     <Content Include="Content\css\invoice.css" />
-    <Content Include="Content\css\portafolio.css" />
-    <Content Include="Content\css\prueba_entrada.css" />
     <Content Include="Content\img\logo.png" />
-    <Content Include="Content\img\logo_pdf.PNG" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\Captura.PNG" />
@@ -1170,7 +1164,7 @@
     <Content Include="Views\PruebaPDF\Index.cshtml" />
     <Content Include="Views\PruebaPDF\Invoice.cshtml" />
     <Content Include="Views\PruebaPDF\Reporte.cshtml" />
-    <Content Include="Views\PruebaPDF\ListaPDFPruebaEntrada2.cshtml" />
+    <Content Include="Views\Usuario\Seleccionar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

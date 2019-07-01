@@ -6,7 +6,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -31,6 +30,7 @@ namespace PortafolioEPIS.Models
         public int? MuyBien_CapacidadesCurso { get; set; }
 
         public virtual Tbl_InformeFinal Tbl_InformeFinal { get; set; }
+
 
         //metodo listar
         public List<Tbl_CapacidadesCurso> Listar(int id)//Retorna una coleccion de registros

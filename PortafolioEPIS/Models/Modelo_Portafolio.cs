@@ -61,6 +61,10 @@ namespace PortafolioEPIS.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Tbl_DetalleCargaAcademica>()
+                .Property(e => e.URL_DetalleCargaAcademica)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Tbl_DetalleCargaAcademica>()
                 .HasMany(e => e.Tbl_InformeFinal)
                 .WithRequired(e => e.Tbl_DetalleCargaAcademica)
                 .WillCascadeOnDelete(false);

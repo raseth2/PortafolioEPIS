@@ -2,6 +2,10 @@
 @{
     List<PortafolioEPIS.Models.Tbl_Docente> objDocente = ViewBag.Tbl_Docente;
     ViewBag.Title = "Agregar";
+    string nombre = null;
+
+
+
 }
 <div class="row">
     <div class="col-sm-12">
@@ -18,20 +22,31 @@
                 <div class="row clearfix">
                     <div class="col-md-12">
                         @Html.Label("Docente")
-                        <select name="Codigo_Docente" class="form-control" id="validationCustom01" required="required">
-                            <option value=""> - Seleccione -</option>
-                            @foreach (var e in objDocente)
+
+                        @foreach (var d in objDocente)
+                        {
+                            if (d.Codigo_Docente == ViewBag.IdNuevo || d.Codigo_Docente==Model.Codigo_Docente)
                             {
-                                if (e.Estado_Docente == true)
-                                {
-                                    <option @(Model.Codigo_Docente.Equals(e.Codigo_Docente) ? "selected" : "") value="@e.Codigo_Docente">@e.Nombres_Docente @e.Apellidos_Docente</option>
-                                }
+                                nombre = d.Apellidos_Docente + ", " + d.Nombres_Docente;
                             }
-                        </select>
+                        }
+
+                        @if (Model.Codigo_Usuario > 0)
+                        {
+
+                            @Html.HiddenFor(x => x.Codigo_Docente)
+                        }
+                        else
+                        {
+
+                            <input type="text" name="Codigo_Docente" value="@ViewBag.IdNuevo" hidden class="form-control" />
+                        }
+                        <input type="text" name="nombre" value="@nombre" class="form-control" />
+
                         <div class="invalid-feedback">
                             Seleccionar Docente
                         </div>
-                    </div>                    
+                    </div>
                 </div>
 
                 <div class="row clearfix">
@@ -47,7 +62,11 @@
                     <div class="col-md-6">
                         @Html.Label("Contraseña")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Password_Usuario, new { @class = "form-control", Type = "Password", id = "validationCustom03", required = "required" })
+
+                            <input type="text" name="pass" class="form-control" />
+
+
+                            @*@Html.TextBoxFor(x => x.Password_Usuario, new { @class = "form-control", Type = "Password", id = "validationCustom03", required = "required" })*@
                             <div class="invalid-feedback">
                                 Ingrese Contraseña
                             </div>

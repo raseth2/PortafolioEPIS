@@ -9,7 +9,6 @@ namespace PortafolioEPIS.Models
 
     using System.Linq;
     using System.Data.Entity;
-
     public partial class Tbl_Motivo
     {
         [Key]
@@ -21,7 +20,6 @@ namespace PortafolioEPIS.Models
         public string Descripcion_Motivo { get; set; }
 
         public virtual Tbl_InformeFinal Tbl_InformeFinal { get; set; }
-
 
         //Metodo Obtener
         public Tbl_Motivo Obtener(int id)//retorna solo un objeto

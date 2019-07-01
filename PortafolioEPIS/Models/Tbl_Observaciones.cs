@@ -6,7 +6,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -54,6 +53,7 @@ namespace PortafolioEPIS.Models
         public string ComentariosRecomendaciones_Observaciones { get; set; }
 
         public virtual Tbl_InformeFinal Tbl_InformeFinal { get; set; }
+
 
         //metodo listar
         public List<Tbl_Observaciones> Listar()//Retorna una coleccion de registros

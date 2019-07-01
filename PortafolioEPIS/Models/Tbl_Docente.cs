@@ -6,7 +6,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -47,11 +46,8 @@ namespace PortafolioEPIS.Models
         [StringLength(30)]
         public string EstadoCivil_Docente { get; set; }
 
-
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Fecha Nacimiento")]
-        public DateTime? FechaNac_Docente { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime FechaNac_Docente { get; set; }
 
         [Required]
         [StringLength(200)]

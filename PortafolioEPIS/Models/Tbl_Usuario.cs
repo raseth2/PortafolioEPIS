@@ -6,13 +6,8 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-
     using System.Linq;
     using System.Data.Entity;
-
-    using System.Data.Entity.Validation;
-    using System.Web;
-    using System.IO;
 
     public partial class Tbl_Usuario
     {
@@ -33,7 +28,7 @@ namespace PortafolioEPIS.Models
         [Column(TypeName = "date")]
         public DateTime? FechaActualizacion_Usuario { get; set; }
 
-        public bool? Estado_Usuario { get; set; }
+        public bool Estado_Usuario { get; set; }
 
         public virtual Tbl_Docente Tbl_Docente { get; set; }
 
@@ -123,7 +118,7 @@ namespace PortafolioEPIS.Models
         }
 
         //Metodo validar Login
-        public ResponseModel ValidarLogin(string Usuario, string Password,int cargo)
+        public ResponseModel ValidarLogin(string Usuario, string Password, int cargo)
         {
             var rm = new ResponseModel();
             try
@@ -133,7 +128,7 @@ namespace PortafolioEPIS.Models
                     Password = HashHelper.SHA1(Password);
                     var usuario = db.Tbl_Usuario.Where(x => x.Nombre_Usuario == Usuario)
                                              .Where(x => x.Password_Usuario == Password)
-                                             .Where(x=>x.Tbl_Docente.Codigo_CargoDocente==cargo)
+                                             .Where(x => x.Tbl_Docente.Codigo_CargoDocente == cargo)
                                              .SingleOrDefault();
                     if (usuario != null)
                     {

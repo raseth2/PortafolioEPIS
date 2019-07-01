@@ -6,7 +6,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -34,7 +33,6 @@ namespace PortafolioEPIS.Models
 
         public virtual Tbl_PruebaEntrada Tbl_PruebaEntrada { get; set; }
 
-       
 
         //metodo listar
         public List<Tbl_MedidasCorrectivas> Listar()//Retorna una coleccion de registros

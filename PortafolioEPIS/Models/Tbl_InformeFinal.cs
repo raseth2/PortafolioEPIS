@@ -5,8 +5,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -67,6 +65,7 @@ namespace PortafolioEPIS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_Observaciones> Tbl_Observaciones { get; set; }
+
         //metodo listar
         public List<Tbl_InformeFinal> Listar()//Retorna una coleccion de registros
         {

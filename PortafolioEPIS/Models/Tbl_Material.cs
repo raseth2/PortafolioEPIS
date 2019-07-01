@@ -9,7 +9,6 @@ namespace PortafolioEPIS.Models
 
     using System.Linq;
     using System.Data.Entity;
-
     public partial class Tbl_Material
     {
         [Key]
@@ -44,6 +43,7 @@ namespace PortafolioEPIS.Models
         public string UrlOnline_Material { get; set; }
 
         public virtual Tbl_Portafolio Tbl_Portafolio { get; set; }
+
 
         //metodo listar
         public List<Tbl_Material> Listar(int id)//Retorna una coleccion de registros

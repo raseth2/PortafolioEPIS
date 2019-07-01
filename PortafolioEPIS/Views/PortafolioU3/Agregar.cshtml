@@ -475,6 +475,135 @@
                             </div>
                         </div>
 
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 4 : ASISTENCIA DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <div id="columnchart_values" style="width: 450px; height: 400px; margin: 0 auto"></div>
+
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <script type="text/javascript">
+                                    google.charts.load("current", {packages: ['corechart']});
+                                    google.charts.setOnLoadCallback(drawChart);
+                                    function drawChart() {
+                                      var data = google.visualization.arrayToDataTable([
+                                        ["Element","Density", {role: "style" } ],
+                                          ["Matriculados", @Model.Matriculados_DetalleCargaAcademica, "#3366CC"],
+                                          ["Asisten", @asisten, "#FF9900"]
+                                        ]);
+                                        var view = new google.visualization.DataView(data);
+                                        view.setColumns([0, 1,
+                                            {
+                                                calc: "stringify",
+                                                sourceColumn: 1,
+                                                type: "string",
+                                                role: "annotation"
+
+                                            },
+                                            2]);
+
+                                  var options = {
+                                        title: "Alumnos Matriculados",
+                                        width: 400,
+                                        height: 400,
+                                        bar: {groupWidth: "80%"},
+                                        legend: {position: "none" },
+                                        };
+
+                                      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+                                      chart.draw(view, options);
+                              }
+
+                                //<div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+                                </script>
+                            </div>
+                        </div>
+
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 5 : SITUACIÓN GENERAL DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <center><div id="piechart" style="width: 700px; height: 800px;"></div></center>
+                                <script type="text/javascript">
+                                google.charts.load('current', { 'packages': ['corechart'] });
+                                google.charts.setOnLoadCallback(drawChart);
+
+                                function drawChart() {
+
+                                    var data = google.visualization.arrayToDataTable([
+                                        ['Task', 'Estado Estudiantes '],
+                                        ['Aprobados', @aprobados],
+                                        ['Desaprobados', @desaprobados],
+                                        ['Retirados', @retirados],
+                                        ['Abandono', @abandonos]
+                                    ]);
+
+                                    var options = {
+                                        title: 'Portafolio Unidad I',
+                                        //fontSize: 7
+
+                                    };
+
+                                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                                    chart.draw(data, options);
+                                }
+                                </script>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page">GRAFICO 6 : RENDIMIENTO DE ESTUDIANTES</li>
+                                    </ol>
+                                </nav>
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <center><div id="chart_div" style="width: 600px; height: 150px;"></div></center>
+                                <script type="text/javascript">
+                                google.charts.load('current', { packages: ['corechart', 'bar'] });
+                                google.charts.setOnLoadCallback(drawStacked);
+
+                                    function drawStacked() {
+                                        var data = google.visualization.arrayToDataTable([
+                                            ['City', 'Aprobados', 'Desaprobados'],
+                                            ['Rendimiento', @aprobados, @desaprobados]
+                                        ]);
+
+                                        var options = {
+                                            chartArea: { width: '70%' },
+                                            isStacked: true,
+                                            isStacked: 'percent',
+                                            hAxis: {
+                                                title: 'Total Rendimiento',
+                                                minValue: 0,
+                                            },
+                                            vAxis: {
+                                                title: 'Porcentaje'
+
+                                            }
+                                        };
+                                        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                                        chart.draw(data, options);
+                                    }
+                                </script>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

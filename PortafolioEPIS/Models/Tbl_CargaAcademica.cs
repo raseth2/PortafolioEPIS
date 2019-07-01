@@ -5,8 +5,6 @@ namespace PortafolioEPIS.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
-
     using System.Linq;
     using System.Data.Entity;
 
@@ -27,15 +25,11 @@ namespace PortafolioEPIS.Models
         [StringLength(50)]
         public string Nombre_CargaAcademica { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Fecha Inicio")]
-        public DateTime? FechaInicio_CargaAcademica { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime FechaInicio_CargaAcademica { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Fecha Fin")]
-        public DateTime? FechaFin_CargaAcademica { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime FechaFin_CargaAcademica { get; set; }
 
         public bool Estado_CargaAcademica { get; set; }
 
@@ -43,7 +37,6 @@ namespace PortafolioEPIS.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tbl_DetalleCargaAcademica> Tbl_DetalleCargaAcademica { get; set; }
-
 
         //Metodo Listar
         public List<Tbl_CargaAcademica> Listar()
