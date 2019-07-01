@@ -128,7 +128,7 @@ namespace PortafolioEPIS.Models
                     Password = HashHelper.SHA1(Password);
                     var usuario = db.Tbl_Usuario.Where(x => x.Nombre_Usuario == Usuario)
                                              .Where(x => x.Password_Usuario == Password)
-                                             .Where(x => x.Tbl_Docente.Codigo_CargoDocente == cargo)
+                                             .Where(x => x.Tbl_Docente.Codigo_CargoDocente == cargo )
                                              .SingleOrDefault();
                     if (usuario != null)
                     {
