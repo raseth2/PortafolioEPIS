@@ -9,452 +9,288 @@
     int idpruebaEntrada = 0;
     int evaluados = 0;
 
-    //PortafolioEPIS.Models.Tbl_ConocimientoHabilidad ConocimientoHabilidad = new PortafolioEPIS.Models.Tbl_ConocimientoHabilidad().Obtener2(idpruebaEntrada);
 }
-
-
-
 
 
 <meta name="viewport" content="width=device-width" />
 <title>ListaPDFDocente</title>
-<link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+<link href="~/assets/Informes/prueba_entrada.css" rel="stylesheet" />
 
-<table>
+
+
+
+<table class="table">
     <tr>
-        <td rowspan="2"><img src="~/assets/PortalWeb/epis123.jpg" width="60" height="60" /></td>
-        <td rowspan="2"> &nbsp;&nbsp;</td>
-        <td> FACULTAD DE INGENIERIA</td>
-    </tr>
-    <tr>
-        <td> Escuela Profesional de Ingenieria de Sistemas</td>
+        <td><img src="~/assets/Informes/logo_pdf.PNG" width="220" height="60" /></td>
     </tr>
 </table>
+<span><h2><strong><u>Informe de la Prueba de Entrada</u></strong></h2></span>
+<span><h2><strong><u>@Model.Tbl_Semestre.Nombre_Semestre</u></strong></h2></span>
 
-<h2 class="text-center"><strong>Informe Prueba de Entrada</strong></h2>
-<div class="table-responsive">
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>INFORMACION DE CURSO</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <table border="1" class="table">
-        <tr>
-            <th colspan="2">Codigo</th>
-            <th colspan="8">Nombre</th>
-        </tr>
-        <tr>
-            <td colspan="2">@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
-            <td colspan="8">@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
-        </tr>
-        <tr>
-            <th>Sección</th>
-            <td>@Model.Tbl_Seccion.Nombre_Seccion</td>
-            <th>Ciclo</th>
-            <td>@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio</td>
-            <th>Horas</th>
-            <td>@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio</td>
-            <th>Créditos</th>
-            <td>@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</td>
-            <th>Tipo Curso</th>
-            <td>@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
-        </tr>
-    </table>
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>INFORMACION DEL DOCENTE</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <table border="1" class="table">
-        <tr>
-            <th colspan="2">Codigo</th>
-            <th colspan="8">Nombre</th>
-        </tr>
-        <tr>
-            <td colspan="2">@Model.Tbl_Docente.Codigo_Docenteepis</td>
-            <td colspan="8">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</td>
-        </tr>
-        <tr>
-            <th colspan="2">Email</th>
-            <td colspan="4">@Model.Tbl_Docente.Correo_Docente</td>
-            <th colspan="2">Celular</th>
-            <td colspan="2">@Model.Tbl_Docente.TelefonoCelular_Docente</td>
 
-        </tr>
-    </table>
+<table border="1" class="table">
+    <tr>
+        <th colspan="10" style="font-size: 20px;">CURSO</th>
+    </tr>
+    <tr>
+        <th colspan="2">Codigo</th>
+        <th colspan="8">Nombre</th>
+    </tr>
+    <tr>
+        <td colspan="1" style="text-align:center; background-color:#F2E2C4">@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
+        <td colspan="9">@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+    </tr>
+    <tr>
+        <th width="10%">Sección</th>
+        <td width="9%" style="text-align:center; background-color:#F2E2C4">@Model.Tbl_Seccion.Nombre_Seccion</td>
+        <th width="10%">Ciclo</th>
+        <td width="9%" style="text-align:center">@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio</td>
+        <th width="10%">Horas</th>
+        <td width="9%" style="text-align:center">@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio</td>
+        <th width="10%">Créditos</th>
+        <td width="9%" style="text-align:center">@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</td>
+        <th width="15%">Tipo Curso</th>
+        <td width="9%" style="text-align:center">@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+    </tr>
 
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>NUMERO DE ESTUDIANTES</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <table border="1" class="table">
-        <tr>
-            <th colspan="5">Matriculados</th>
-            <th colspan="5">Evaluados</th>
-        </tr>
-        @foreach (var p in pruebaEntrada)
-        {
-            if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
-            {
-                idpruebaEntrada = p.Codigo_PruebaEntrada;
-                evaluados = p.Evaluados_PruebaEntrada;
-            }
-        }
-        <tr>
-            <td colspan="5" class="text-center">@Model.Matriculados_DetalleCargaAcademica</td>
-            <td colspan="5" class="text-center">@evaluados</td>
-        </tr>
+    <tr>
+        <th colspan="10" style="font-size: 20px;">DOCENTE</th>
+    </tr>
+    <tr>
+        <th colspan="2">Codigo</th>
+        <th colspan="8">Nombre</th>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align:center">@Model.Tbl_Docente.Codigo_Docenteepis</td>
+        <td colspan="8">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</td>
+    </tr>
+    <tr>
+        <th colspan="2">Email</th>
+        <td colspan="4">@Model.Tbl_Docente.Correo_Docente</td>
+        <th colspan="2">Celular</th>
+        <td colspan="2">@Model.Tbl_Docente.TelefonoCelular_Docente</td>
 
-    </table>
-</div>
+    </tr>
+</table>
 <br />
-<div class="row clearfix">
-    <div class="col-md-12">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page"><strong>CONOCIMIENTOS Y HABILIDADES</strong></li>
-            </ol>
-        </nav>
-    </div>
-</div>
 
+<table class="table">
+    @foreach (var p in pruebaEntrada)
+    {
+        if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+        {
+            idpruebaEntrada = p.Codigo_PruebaEntrada;
+            evaluados = p.Evaluados_PruebaEntrada;
+        }
+    }
+    <tr>
+        <th width="15%" style="text-align:center; background-color:#fff">Nº de Estudiantes</th>
+        <th width="10%" style="text-align:right; background-color:#fff;">Matriculados:</th>
+        <td width="10%" style="text-align:left; background-color:#FFF"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Matriculados_DetalleCargaAcademica" size="10" /> </td>
+        <th width="10%" style="text-align:right; background-color:#fff">Evaluados:</th>
+        <td width="10%" style="text-align:left; background-color:#FFF"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@evaluados" size="10" /></td>
+        <td width="10%"></td>
+    </tr>
+</table>
+<br />
 
+<table border="1" class="table">
+    <thead>
+        <tr>
+            <th width="5%" rowspan="2">#</th>
+            <th width="30%" rowspan="2">Conocimientos o habilidades</th>
+            <th width="10%" class="text-center" colspan="8">Numero de estudiantes por rango de nota (Nivel alcanzado en %)</th>
 
-<div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th rowspan="2">#</th>
-                <th rowspan="2">Nombre</th>
-                <th class="text-center" colspan="7">Numero de estudiantes por rango de nota (Nivel alcanzado en %)</th>
+        </tr>
+        <tr>
+            <th width="10%">Deficiente (0 -10)</th>
+            <th width="7%">%</th>
+            <th width="10%">Suficiente (11 -15)</th>
+            <th width="7%">%</th>
+            <th width="10%">Bueno (16 -20)</th>
+            <th width="7%">%</th>
+            <th width="10%">Total %</th>
+            <th width="2%">I</th>
+        </tr>
 
-            </tr>
-            <tr>
-                <th class="text-center">Deficiente</th>
-                <th class="text-center">%</th>
-                <th class="text-center">Suficiente</th>
-                <th class="text-center">%</th>
-                <th class="text-center">Bueno</th>
-                <th class="text-center">%</th>
-                <th class="text-center">Total</th>
-            </tr>
+    </thead>
 
-        </thead>
+    <tbody>
+        @{ int num = 0;
+            int totald = 0;
+            int totals = 0;
+            int totalb = 0;
+            string nombre = "";
+            int d = 0;
+            int s = 0;
+            int b = 0;
+            string nombre1 = "";
+            int d1 = 0;
+            int s1 = 0;
+            int b1 = 0;
+            string nombre2 = "";
+            int d2 = 0;
+            int s2 = 0;
+            int b2 = 0;
+            string nombre3 = "";
+            int d3 = 0;
+            int s3 = 0;
+            int b3 = 0;
+            string nombre4 = "";
+            int d4 = 0;
+            int s4 = 0;
+            int b4 = 0;
+            double porcentaje = 100;
+            double deficiente = 0;
+            double suficiente = 0;
+            double bueno = 0;
+            double total = 0;
+        }
+        @foreach (var p in ConocimeintoHabilidad)
+        {
 
-        <tbody>
-            @{ int num = 0;
-                int totald = 0;
-                int totals = 0;
-                int totalb = 0;
-                string nombre = "";
-                int d = 0;
-                int s = 0;
-                int b = 0;
-                string nombre1 = "";
-                int d1 = 0;
-                int s1 = 0;
-                int b1 = 0;
-                string nombre2 = "";
-                int d2 = 0;
-                int s2 = 0;
-                int b2 = 0;
-                string nombre3 = "";
-                int d3 = 0;
-                int s3 = 0;
-                int b3 = 0;
-                string nombre4 = "";
-                int d4 = 0;
-                int s4 = 0;
-                int b4 = 0;
-                double porcentaje = 100;
-                double deficiente = 0;
-                double suficiente = 0;
-                double bueno = 0;
-                double total = 0;
-            }
-            @foreach (var p in ConocimeintoHabilidad)
+            if (p.Codigo_PruebaEntrada == Convert.ToInt32(idpruebaEntrada))
             {
+                num = num + 1;
+                deficiente = Math.Round(((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
+                suficiente = Math.Round(((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
+                bueno = Math.Round(((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
+                total = Math.Round((deficiente + suficiente + bueno), 1);
+                <tr>
+                    <td style="text-align:center;">@num</td>
+                    <td style="background-color:#F2E2C4;">@p.Nombre_ConocimientoHabilidad</td>
+                    <td style="background-color:#F2E2C4;text-align:center;">@p.Deficiente_ConocimientoHabilidad</td>
+                    <td style="text-align:center;">@deficiente</td>
+                    <td style="background-color:#F2E2C4;text-align:center;">@p.Suficiente_ConocimientoHabilidad</td>
+                    <td style="text-align:center;">@suficiente</td>
+                    <td style="background-color:#F2E2C4;text-align:center;">@p.Bueno_ConocimientoHabilidad</td>
+                    <td style="text-align:center;">@bueno</td>
+                    <td style="text-align:center;" bgcolor="#43FF52">@total</td>
+                    <td style="text-align:center;"> </td>
 
-                if (p.Codigo_PruebaEntrada == Convert.ToInt32(idpruebaEntrada))
-                {
-                    num = num + 1;
-                    deficiente = Math.Round(((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
-                    suficiente = Math.Round(((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
-                    bueno = Math.Round(((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
-                    total = Math.Round(deficiente + suficiente + bueno);
-                    <tr>
-                        <td>@num</td>
-                        <td>@p.Nombre_ConocimientoHabilidad</td>
-                        <td class="text-center">@p.Deficiente_ConocimientoHabilidad</td>
-                        <td class="text-center">@deficiente</td>
-                        <td class="text-center">@p.Suficiente_ConocimientoHabilidad</td>
-                        <td class="text-center">@suficiente</td>
-                        <td class="text-center">@p.Bueno_ConocimientoHabilidad</td>
-                        <td class="text-center">@bueno</td>
-                        <td class="text-center" bgcolor="#43FF52">@total</td>
-
-
-                        @{totald = totald + p.Deficiente_ConocimientoHabilidad;}
-                        @{totals = totals + p.Suficiente_ConocimientoHabilidad;}
-                        @{totalb = totalb + p.Bueno_ConocimientoHabilidad;}
-                        @{if (num == 1)
-                            {
-                                d = p.Deficiente_ConocimientoHabilidad;
-                                s = p.Suficiente_ConocimientoHabilidad;
-                                b = p.Bueno_ConocimientoHabilidad;
-                                nombre = p.Nombre_ConocimientoHabilidad;
-                            }
-                            else if (num == 2)
-                            {
-                                d1 = p.Deficiente_ConocimientoHabilidad;
-                                s1 = p.Suficiente_ConocimientoHabilidad;
-                                b1 = p.Bueno_ConocimientoHabilidad;
-                                nombre1 = p.Nombre_ConocimientoHabilidad;
-                            }
-
-                            else if (num == 3)
-                            {
-                                d2 = p.Deficiente_ConocimientoHabilidad;
-                                s2 = p.Suficiente_ConocimientoHabilidad;
-                                b2 = p.Bueno_ConocimientoHabilidad;
-                                nombre2 = p.Nombre_ConocimientoHabilidad;
-                            }
-
-                            else if (num == 4)
-                            {
-                                d3 = p.Deficiente_ConocimientoHabilidad;
-                                s3 = p.Suficiente_ConocimientoHabilidad;
-                                b3 = p.Bueno_ConocimientoHabilidad;
-                                nombre3 = p.Nombre_ConocimientoHabilidad;
-                            }
-
-                            else
-                            {
-                                d4 = p.Deficiente_ConocimientoHabilidad;
-                                s4 = p.Suficiente_ConocimientoHabilidad;
-                                b4 = p.Bueno_ConocimientoHabilidad;
-                                nombre4 = p.Nombre_ConocimientoHabilidad;
-                            }
+                    @{totald = totald + p.Deficiente_ConocimientoHabilidad;}
+                    @{totals = totals + p.Suficiente_ConocimientoHabilidad;}
+                    @{totalb = totalb + p.Bueno_ConocimientoHabilidad;}
+                    @{if (num == 1)
+                        {
+                            d = p.Deficiente_ConocimientoHabilidad;
+                            s = p.Suficiente_ConocimientoHabilidad;
+                            b = p.Bueno_ConocimientoHabilidad;
+                            nombre = p.Nombre_ConocimientoHabilidad;
                         }
-                    </tr>
-                }
+                        else if (num == 2)
+                        {
+                            d1 = p.Deficiente_ConocimientoHabilidad;
+                            s1 = p.Suficiente_ConocimientoHabilidad;
+                            b1 = p.Bueno_ConocimientoHabilidad;
+                            nombre1 = p.Nombre_ConocimientoHabilidad;
+                        }
 
-            }
-        </tbody>
-    </table>
-</div>
+                        else if (num == 3)
+                        {
+                            d2 = p.Deficiente_ConocimientoHabilidad;
+                            s2 = p.Suficiente_ConocimientoHabilidad;
+                            b2 = p.Bueno_ConocimientoHabilidad;
+                            nombre2 = p.Nombre_ConocimientoHabilidad;
+                        }
 
-@*<div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
-                </ol>
-            </nav>
-            <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                        else if (num == 4)
+                        {
+                            d3 = p.Deficiente_ConocimientoHabilidad;
+                            s3 = p.Suficiente_ConocimientoHabilidad;
+                            b3 = p.Bueno_ConocimientoHabilidad;
+                            nombre3 = p.Nombre_ConocimientoHabilidad;
+                        }
 
-            <script type="text/javascript">
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'pie'
-                },
-                title: {
-                    text: 'Porcentaje Total Conocimiento Habilidad'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        },
-                        showInLegend: true
+                        else
+                        {
+                            d4 = p.Deficiente_ConocimientoHabilidad;
+                            s4 = p.Suficiente_ConocimientoHabilidad;
+                            b4 = p.Bueno_ConocimientoHabilidad;
+                            nombre4 = p.Nombre_ConocimientoHabilidad;
+                        }
                     }
-                },
-                series: [{
-                    name: 'Conocimiento habilidad',
-                    colorByPoint: true,
-                    data: [{
-                        name: 'Deficiente',
-                        color: '#FF0000',
-                        y: @totald,
+                </tr>
+            }
 
-                    }, {
-                        name: 'Suficiente',
-                        color: '#FFC000',
-                        y: @totals,
+        }
+    </tbody>
+</table>
+<br />
+<table class="table">
+    <tr>
+        <td><strong>LEYENDA:</strong></td>
+        <td>Si la columna del Indicador es de <b><font color="green">color verde</font></b> capacidad alcanzada</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Si la columna del Indicador es de <b><font color="orange">color naranja</font></b>no necesariamente requiere acción de mejora</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Si la columna del Indicador es de <b><font color="red">color rojo</font></b> requiere acción de mejora</td>
+    </tr>
+</table>
+<br />
+<table border="1" class="table">
+    @foreach (var p in ConocimeintoHabilidad)
+    {
 
-                    }, {
-                        name: 'Bueno',
-                        color: '#00B0F0',
-                        y: @totalb,
-                    }]
-                    }]
-                 });
-            </script>
-        </div>
-    </div>
+        if (p.Codigo_PruebaEntrada == Convert.ToInt32(idpruebaEntrada))
+        {
+            num = num + 1;
+            deficiente = Math.Round(((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
+            suficiente = Math.Round(((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
+            bueno = Math.Round(((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
+            total = Math.Round((deficiente + suficiente + bueno), 1);
+            <tr>
+                <td style="width:@deficiente %;">@p.Deficiente_ConocimientoHabilidad</td>
+                <td style="width:@suficiente %;">@p.Suficiente_ConocimientoHabilidad</td>
+                <td style="width:@bueno %;">@p.Bueno_ConocimientoHabilidad</td>
+            </tr>
+        }
+    }
 
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">GRAFICO -  RESUMEN POR CONOCIMIENTOS Y HABILIDADES</li>
-                </ol>
-            </nav>
-            <div id="container2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
-            <script type="text/javascript">
+</table>
 
-                    Highcharts.chart('container2', {
-                        chart: {
-                            type: 'bar'
-                        },
-                        title: {
-                            text: 'Conocimiento Habilidad'
-                        },
-                        xAxis: {
-
-                            categories: ['@nombre','@nombre1','@nombre2','@nombre3','@nombre4']
-                        },
-                        yAxis: {
-                            min: 0,
-                            title: {
-                                text: 'Rendimiento'
-                            }
-                        },
-                        legend: {
-                            reversed: true
-                        },
-
-                        plotOptions: {
-                            series:
-                            {
-                                stacking: 'normal',
-                                dataLabels: {
-                                    cursor: 'pointer',
-                                    enabled: true,
-
-                                }
-                            }
-                        },
-                        series: [{
-                            name: 'Bueno',
-                            color: '#00B0F0',
-                            data: [@b,@b1,@b2,@b3,@b4]
-                        },
-                        {
-                            name: 'Suficiente',
-                            color: '#FFC000',
-                            data: [@s,@s1,@s2,@b3,@b4]
-                        }
-                            ,
-                        {
-                            name: 'Deficiente',
-                            color: '#FF0000',
-                            data: [@d,@d1,@d2,@d3,@d4]
-                        }]
-
-                    });
-
-            </script>
-
-        </div>
-    </div>*@
-<div class="row clearfix">
-    <div class="col-md-12">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page"><strong>MEDIDAS CORRECTIVAS</strong></li>
-            </ol>
-        </nav>
-    </div>
-</div>
+<br />
 @foreach (var medida in ListaMedidasCorrectivas)
 {
     if (idpruebaEntrada == medida.Codigo_PruebaEntrada)
     {
-        <div class="row clearfix">
+        <table class="table">
+            <tr>
+                <td colspan="4"><strong>Medidas correctivas que ha tomado en los casos de grado <b><font color="red">"deficiente"</font></b>. Marque con (X) las acciones realizadas:</strong></td>
+            </tr>
+            <tr>
+                <td width="40%">1. Repaso en horas de clase</td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida1_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+                <td width="5%"> </td>
+                <td width="35%">4. Entrega de material de repaso</td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida4_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+            </tr>
+            <tr>
+                <td width="40%">2. Repaso con horas adicionales de clase</td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida2_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+                <td width="5%"> </td>
+                <td width="35%">5. Recomendación de bibliografía</td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida5_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+            </tr>
+            <tr>
+                <td width="40%">3. Ejercicios propuestos para resolver en casa </td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida3_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+                <td width="5%"> </td>
+                <td width="35%">6. Otros (Detalle en la descripción) </td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida6_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+            </tr>
+            <tr>
+                <td colspan="5">Describa otras medidas correctivas y/o recomendaciones.</td>
+            </tr>
+            <tr>
+                <td colspan="5"><textarea style="background-color:#F2E2C4;" name="textarea" rows="5" cols="110">@medida.Medida7_MedidasCorrectivas</textarea></td>
 
-            <table>
-                <tr>
-                    <td>
-                        <div class="col-md-6">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" @(medida.Medida1_MedidasCorrectivas == true ? "checked" : "") /> 1. Repaso en horas de clase
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" @(medida.Medida2_MedidasCorrectivas == true ? "checked" : "") /> 2. Repaso con horas adicionales de clase
-
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" @(medida.Medida3_MedidasCorrectivas == true ? "checked" : "") />  3. Ejercicios propuestos para resolver en casa
-                                </label>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="col-md-6">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" @(medida.Medida4_MedidasCorrectivas == true ? "checked" : "") /> 4. Entrega de material de repaso
-
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-
-                                    <input type="checkbox" @(medida.Medida5_MedidasCorrectivas == true ? "checked" : "") /> 5. Recomendacion de bibliografia
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-
-                                    <input type="checkbox" @(medida.Medida6_MedidasCorrectivas == true ? "checked" : "") />6. Otros(Detalle en la descripcion)
-                                </label>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="row clearfix">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Describa otras medidas correctivas y/o recomendaciones</label>
-                    <div class="form-group">
-
-                        <input type="text" value="@medida.Medida7_MedidasCorrectivas" class="form-control" placeholder="Escriba aquí" rows="3" cols="5" />
-                    </div>
-                </div>
-            </div>
-        </div>
+            </tr>
+        </table>
     }
 }
 
@@ -462,5 +298,5 @@
 <br /><br />
 
 
-<p class="text-center">------------------------------------</p>
-<p class="text-center">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</p>
+<center><p>___________________________________</p></center>
+<center><p> @Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</p></center>
