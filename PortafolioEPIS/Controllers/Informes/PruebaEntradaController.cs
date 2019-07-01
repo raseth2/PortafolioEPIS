@@ -29,6 +29,12 @@ namespace PortafolioEPIS.Controllers.Informes
             return View(objPruebaEntrada.Listar());
         }
 
+        public ActionResult PruebaJsreport()
+        {
+
+            return View(objPruebaEntrada.Listar());
+        }
+
         public ActionResult Ver(int id)
         {
             return View(objPruebaEntrada.Obtener(id));
