@@ -28,7 +28,7 @@ namespace PortafolioEPIS.Models
         [Column(TypeName = "date")]
         public DateTime? FechaActualizacion_Usuario { get; set; }
 
-        public bool? Estado_Usuario { get; set; }
+        public bool Estado_Usuario { get; set; }
 
         public virtual Tbl_Docente Tbl_Docente { get; set; }
 

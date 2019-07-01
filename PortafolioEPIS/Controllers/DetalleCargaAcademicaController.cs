@@ -18,12 +18,12 @@ namespace PortafolioEPIS.Controllers
         private Tbl_DetallePlanEstudio objDetallePlanEstudio = new Tbl_DetallePlanEstudio();
         private Tbl_Semestre objSemestre = new Tbl_Semestre();
 
-      
+
 
         public ActionResult Index(int id)
         {
             ViewBag.Tbl_CargaAcademica_id = objCargaAcademica.Obtener(id);
-         
+
             return View(objDetalleCargaAcademica.Listar2(id));
         }
 
@@ -57,7 +57,7 @@ namespace PortafolioEPIS.Controllers
             if (ModelState.IsValid)
             {
                 objDetalleCargaAcademica.Guardar();
-                return Redirect("~/DetalleCargaAcademica/Index/"+ semestre_id);
+                return Redirect("~/DetalleCargaAcademica/Index/" + semestre_id);
             }
             else
             {

@@ -2,7 +2,7 @@
 @{
     PortafolioEPIS.Models.Tbl_CargaAcademica ObjCargaAcademica = ViewBag.Tbl_CargaAcademica_id;
 
-    
+
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> objPlanEstudio = ViewBag.Tbl_PlanEstudio;
     List<PortafolioEPIS.Models.Tbl_Docente> objDocente = ViewBag.Tbl_Docente;
     List<PortafolioEPIS.Models.Tbl_Seccion> objSeccion = ViewBag.Tbl_Seccion;
@@ -130,11 +130,11 @@
                         @Html.Label("Numero de Matriculados")
                         <div class="form-group">
                             @Html.TextBoxFor(x => x.Matriculados_DetalleCargaAcademica, new { @type = "number", @class = "form-control", @placeholder = "Ingrese Numero de Matriculados", id = "validationCustom07", required = "required" })
-                            
+
                         </div>
                     </div>
                 </div>
-                        
+
                 <div class="row clearfix">
                     <div class="col-md-12">
                         @Html.Label("Estado")
@@ -160,23 +160,23 @@
                             <div class="form-group row">
                                 <div class="col-sm-8 col-9 text-left">
                                     <div class="form-check form-check-inline">
-                                       
-                                            <a href="~/DetalleCargaAcademica/Index/@Model.Tbl_CargaAcademica.Codigo_Semestre" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
-                                        
+
+                                        <a href="~/DetalleCargaAcademica/Index/@ObjCargaAcademica.Codigo_Semestre" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
+
 
                                     </div>
-                                    
+
                                     <div class="form-check form-check-inline">
                                         <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                        }
-                    </div>
+            }
+        </div>
     </div>
 </div>
 <script>
