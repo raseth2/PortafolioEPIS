@@ -179,233 +179,8 @@
 }
 
 
-
-
 <div class="row clearfix">
-    <div class="col-md-4">
-        <div class="card-box">
-            <center><h4 class="card-title">Estado Informe Unidad I</h4></center>
-            <div id="container2"></div>
-            <script type="text/javascript">
-                    Highcharts.chart('container2', {
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: 'Portafolio Unidad I'
-                        },
-                        xAxis: {
-                            type: 'category'
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Cantidad total'
-                            }
-
-                        },
-                        legend: {
-                            enabled: false
-                        },
-                        ooltip: {
-                            headerFormat: '<b>{point.x}</b><br/>',
-                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-                        }, plotOptions: {
-                            column: {
-                                stacking: 'normal',
-                                dataLabels: {
-                                    enabled: true,
-                                },
-                                showInLegend: true,
-                            }
-                        },
-
-                        series: [
-                            {
-                                name: "Estado",
-                                colorByPoint: true,
-                                data: [
-                                    {
-                                        name: 'Guardado',
-                                        color: '#ED7D31',
-                                        y: @cantGuardados,
-
-                                    },
-                                    {
-                                        name: 'Enviado',
-                                        color: '#009EFB',
-                                        y: @cantEnviado,
-
-                                    },
-                                    {
-                                        name: 'Aceptado',
-                                        color: '#55CE63',
-                                        y: @cantAceptado,
-
-                                    },
-                                    {
-                                        name: 'Rechazado',
-                                        color: '#FF0000',
-                                        y: @cantRechazado,
-
-                                    },
-                                ]
-                            }
-                        ]
-                    });
-            </script>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card-box">
-            <center><h4 class="card-title">Estado Informe Unidad II</h4></center>
-            <div id="container3"></div>
-            <script type="text/javascript">
-                    Highcharts.chart('container3', {
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: 'Portafolio Unidad II'
-                        },
-                        xAxis: {
-                            type: 'category'
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Cantidad total'
-                            }
-
-                        },
-                        legend: {
-                            enabled: false
-                        },
-                        ooltip: {
-                            headerFormat: '<b>{point.x}</b><br/>',
-                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-                        }, plotOptions: {
-                            column: {
-                                stacking: 'normal',
-                                dataLabels: {
-                                    enabled: true,
-                                },
-                                showInLegend: true,
-                            }
-                        },
-
-                        series: [
-                            {
-                                name: "Estado",
-                                colorByPoint: true,
-                                data: [
-                                    {
-                                        name: 'Guardado',
-                                        color: '#ED7D31',
-                                        y: @cantGuardados2,
-
-                                    },
-                                    {
-                                        name: 'Enviado',
-                                        color: '#009EFB',
-                                        y: @cantEnviado2,
-
-                                    },
-                                    {
-                                        name: 'Aceptado',
-                                        color: '#55CE63',
-                                        y: @cantAceptado2,
-
-                                    },
-                                    {
-                                        name: 'Rechazado',
-                                        color: '#FF0000',
-                                        y: @cantRechazado2,
-
-                                    },
-                                ]
-                            }
-                        ]
-                    });
-            </script>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card-box">
-            <center><h4 class="card-title">Estado Informe Unidad III</h4></center>
-            <div id="container4"></div>
-            <script type="text/javascript">
-                    Highcharts.chart('container4', {
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: 'Portafolio Unidad III'
-                        },
-                        xAxis: {
-                            type: 'category'
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Cantidad total'
-                            }
-
-                        },
-                        legend: {
-                            enabled: false
-                        },
-                        ooltip: {
-                            headerFormat: '<b>{point.x}</b><br/>',
-                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
-                        }, plotOptions: {
-                            column: {
-                                stacking: 'normal',
-                                dataLabels: {
-                                    enabled: true,
-                                },
-                                showInLegend: true,
-                            }
-                        },
-
-                        series: [
-                            {
-                                name: "Estado",
-                                colorByPoint: true,
-                                data: [
-                                    {
-                                        name: 'Guardado',
-                                        color: '#ED7D31',
-                                        y: @cantGuardados3,
-
-                                    },
-                                    {
-                                        name: 'Enviado',
-                                        color: '#009EFB',
-                                        y: @cantEnviado3,
-
-                                    },
-                                    {
-                                        name: 'Aceptado',
-                                        color: '#55CE63',
-                                        y: @cantAceptado3,
-
-                                    },
-                                    {
-                                        name: 'Rechazado',
-                                        color: '#FF0000',
-                                        y: @cantRechazado3,
-
-                                    },
-                                ]
-                            }
-                        ]
-                    });
-            </script>
-        </div>
-    </div>
-</div>
-
-
-<div class="row clearfix">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="card-box">
             <center><h4 class="card-title">Estado Informe Prueba de Entrada</h4></center>
             <div id="container5"></div>
@@ -478,6 +253,232 @@
             </script>
         </div>
     </div>
+</div>
+
+    <div class="row clearfix">
+        <div class="col-md-4">
+            <div class="card-box">
+                <center><h4 class="card-title">Estado Informe Unidad I</h4></center>
+                <div id="container2"></div>
+                <script type="text/javascript">
+                    Highcharts.chart('container2', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Portafolio Unidad I'
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Cantidad total'
+                            }
+
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        ooltip: {
+                            headerFormat: '<b>{point.x}</b><br/>',
+                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                        }, plotOptions: {
+                            column: {
+                                stacking: 'normal',
+                                dataLabels: {
+                                    enabled: true,
+                                },
+                                showInLegend: true,
+                            }
+                        },
+
+                        series: [
+                            {
+                                name: "Estado",
+                                colorByPoint: true,
+                                data: [
+                                    {
+                                        name: 'Guardado',
+                                        color: '#ED7D31',
+                                        y: @cantGuardados,
+
+                                    },
+                                    {
+                                        name: 'Enviado',
+                                        color: '#009EFB',
+                                        y: @cantEnviado,
+
+                                    },
+                                    {
+                                        name: 'Aceptado',
+                                        color: '#55CE63',
+                                        y: @cantAceptado,
+
+                                    },
+                                    {
+                                        name: 'Rechazado',
+                                        color: '#FF0000',
+                                        y: @cantRechazado,
+
+                                    },
+                                ]
+                            }
+                        ]
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-box">
+                <center><h4 class="card-title">Estado Informe Unidad II</h4></center>
+                <div id="container3"></div>
+                <script type="text/javascript">
+                    Highcharts.chart('container3', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Portafolio Unidad II'
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Cantidad total'
+                            }
+
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        ooltip: {
+                            headerFormat: '<b>{point.x}</b><br/>',
+                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                        }, plotOptions: {
+                            column: {
+                                stacking: 'normal',
+                                dataLabels: {
+                                    enabled: true,
+                                },
+                                showInLegend: true,
+                            }
+                        },
+
+                        series: [
+                            {
+                                name: "Estado",
+                                colorByPoint: true,
+                                data: [
+                                    {
+                                        name: 'Guardado',
+                                        color: '#ED7D31',
+                                        y: @cantGuardados2,
+
+                                    },
+                                    {
+                                        name: 'Enviado',
+                                        color: '#009EFB',
+                                        y: @cantEnviado2,
+
+                                    },
+                                    {
+                                        name: 'Aceptado',
+                                        color: '#55CE63',
+                                        y: @cantAceptado2,
+
+                                    },
+                                    {
+                                        name: 'Rechazado',
+                                        color: '#FF0000',
+                                        y: @cantRechazado2,
+
+                                    },
+                                ]
+                            }
+                        ]
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-box">
+                <center><h4 class="card-title">Estado Informe Unidad III</h4></center>
+                <div id="container4"></div>
+                <script type="text/javascript">
+                    Highcharts.chart('container4', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Portafolio Unidad III'
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Cantidad total'
+                            }
+
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        ooltip: {
+                            headerFormat: '<b>{point.x}</b><br/>',
+                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                        }, plotOptions: {
+                            column: {
+                                stacking: 'normal',
+                                dataLabels: {
+                                    enabled: true,
+                                },
+                                showInLegend: true,
+                            }
+                        },
+
+                        series: [
+                            {
+                                name: "Estado",
+                                colorByPoint: true,
+                                data: [
+                                    {
+                                        name: 'Guardado',
+                                        color: '#ED7D31',
+                                        y: @cantGuardados3,
+
+                                    },
+                                    {
+                                        name: 'Enviado',
+                                        color: '#009EFB',
+                                        y: @cantEnviado3,
+
+                                    },
+                                    {
+                                        name: 'Aceptado',
+                                        color: '#55CE63',
+                                        y: @cantAceptado3,
+
+                                    },
+                                    {
+                                        name: 'Rechazado',
+                                        color: '#FF0000',
+                                        y: @cantRechazado3,
+
+                                    },
+                                ]
+                            }
+                        ]
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+<div class="clearfix">
     <div class="col-md-6">
         <div class="card-box">
             <center><h4 class="card-title">Estado Informe Informe Final</h4></center>
