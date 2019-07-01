@@ -26,10 +26,15 @@ namespace PortafolioEPIS.Controllers
             return View(objUsuario.Obtener(id));
         }
 
+        public ActionResult Seleccionar()
+        {
+            return View(objDocente.Listar());
+        }
         // Accion Agregar
-        public ActionResult Agregar(int id = 0)
+        public ActionResult Agregar(int id = 0, int nuevo=0)
         {
             ViewBag.Tbl_Docente = objDocente.Listar();
+            ViewBag.IdNuevo = nuevo;
 
             return View(id == 0 ? new Tbl_Usuario()//Agregar un nuevo objeto
                : objUsuario.Obtener(id));
