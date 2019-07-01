@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using jsreport.MVC;
+using jsreport.Types;
 using PortafolioEPIS.Models;
 using Rotativa;
 
@@ -133,7 +135,7 @@ namespace PortafolioEPIS.Controllers.Informes
             return new ActionAsPdf("ListaPDFPruebaEntrada/" + id);
         }
 
-        public ActionResult ListaPDFPruebaEntrada2(int id)
+        public ActionResult ListaPDFPruebaEntrada20(int id)
         {
             ViewBag.prueba = objPruebaEntrada.Listar();
             ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
@@ -144,5 +146,22 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             return new ActionAsPdf("ListaPDFPruebaEntrada2/" + id);
         }
+
+
+        //iReport
+        [EnableJsReport()]
+        public ActionResult ListaPDFPruebaEntrada2(int id)
+        {
+            ViewBag.prueba = objPruebaEntrada.Listar();
+            ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
+            ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
+
+
+            HttpContext.JsReportFeature().Recipe(Recipe.ChromePdf);
+            return View(objDetalleCargaAcademica.Obtener(id));
+            //return View(InvoiceModel.Example());
+        }
+
+
     }
 }

@@ -1,0 +1,141 @@
+﻿body {
+    font-family: Calibri;
+}
+/*-----------------
+	1. Columna
+-----------------------*/
+.col-md-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%
+}
+
+.col-md-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%
+}
+
+.col-md-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%
+}
+
+.col-md-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%
+}
+
+.col-md-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%
+}
+
+.col-md-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%
+}
+
+.col-md-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%
+}
+
+.col-md-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%
+}
+
+.col-md-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%
+}
+
+.col-md-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%
+}
+
+.col-md-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%
+}
+
+.col-md-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%
+}
+/*-----------------
+	2. Table
+-----------------------*/
+
+.table {
+    width: 100%;
+    color: #000;
+    border-collapse: collapse;
+    font-family: Calibri;
+}
+
+    .table.table th {
+        background-color: #DCEAF2;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding: 5px;
+    }
+
+    .table.table td {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding: 5px;
+    }
+
+
+.table2 {
+    width: 100%;
+    color: #000;
+    border-collapse: collapse;
+    font-family: Calibri;
+}
+
+    .table.table th {
+        background-color: #DCEAF2;
+        padding-left: 10px;
+        padding-right: 10px;        
+    }
+
+    .table.table td {
+        padding-left: 10px;
+        padding-right: 10px;        
+    }
+/*-----------------
+	2. Titulo Informe 
+-----------------------*/
+h2 {
+    font-family: Calibri;
+    text-align: center;
+}
+
+
+
+#lateral {
+    width: 50%; /*Este será el ancho que tendrá tu columna*/  
+    padding-right:20px;
+    float: left; /*Aqui determinas de lado quieres quede esta "columna" */
+}
+
+#principal {
+    width: 50%; /*Este será el ancho que tendrá tu columna*/
+    padding-left: 20px;
+    float: right; /*Aqui determinas de lado quieres quede esta "columna" */
+    clear: both;
+}
