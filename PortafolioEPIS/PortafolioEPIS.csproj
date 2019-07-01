@@ -652,6 +652,13 @@
     <Content Include="assets\img\user-06.jpg" />
     <Content Include="assets\img\user.jpg" />
     <Content Include="assets\img\video-call.jpg" />
+    <Content Include="assets\Informes\asistencia_estudiantes.png" />
+    <Content Include="assets\Informes\conocimiento-habilidad.png" />
+    <Content Include="assets\Informes\logo_pdf.PNG" />
+    <Content Include="assets\Informes\portafolio.css" />
+    <Content Include="assets\Informes\prueba_entrada.css" />
+    <Content Include="assets\Informes\rendimiento.png" />
+    <Content Include="assets\Informes\situacion-general.png" />
     <Content Include="assets\js\app.js" />
     <Content Include="assets\js\bootstrap-datetimepicker.min.js" />
     <Content Include="assets\js\bootstrap.min.js" />

@@ -21,8 +21,6 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers
         // GET: AreaDocente/MiPerfil
         public ActionResult Index()
         {
-
-            ViewBag.detalle = objDetalleCargaAcademica.Listar();
             return View();
         }
 
