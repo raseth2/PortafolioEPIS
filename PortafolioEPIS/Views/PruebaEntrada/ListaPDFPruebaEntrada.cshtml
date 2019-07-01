@@ -232,24 +232,12 @@
     </tr>
 </table>
 <br />
-<table border="1" class="table">
-    @foreach (var p in ConocimeintoHabilidad)
-    {
-
-        if (p.Codigo_PruebaEntrada == Convert.ToInt32(idpruebaEntrada))
-        {
-            num = num + 1;
-            deficiente = Math.Round(((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
-            suficiente = Math.Round(((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
-            bueno = Math.Round(((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
-            total = Math.Round((deficiente + suficiente + bueno), 1);
-            <tr>
-                <td style="width:@deficiente %;">@p.Deficiente_ConocimientoHabilidad</td>
-                <td style="width:@suficiente %;">@p.Suficiente_ConocimientoHabilidad</td>
-                <td style="width:@bueno %;">@p.Bueno_ConocimientoHabilidad</td>
-            </tr>
-        }
-    }
+<table  class="table">
+    <tr>
+        <td>            
+            <img src="~/assets/Informes/conocimiento-habilidad.png" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"/>
+        </td>
+    </tr>
 
 </table>
 

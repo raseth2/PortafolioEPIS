@@ -127,15 +127,3 @@ h2 {
 
 
 
-#lateral {
-    width: 50%; /*Este será el ancho que tendrá tu columna*/  
-    padding-right:20px;
-    float: left; /*Aqui determinas de lado quieres quede esta "columna" */
-}
-
-#principal {
-    width: 50%; /*Este será el ancho que tendrá tu columna*/
-    padding-left: 20px;
-    float: right; /*Aqui determinas de lado quieres quede esta "columna" */
-    clear: both;
-}

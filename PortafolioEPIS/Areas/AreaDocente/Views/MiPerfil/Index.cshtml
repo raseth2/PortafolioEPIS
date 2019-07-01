@@ -191,6 +191,8 @@
     </div>
 </div>
 
+
+
 <div class="card-box profile-header">
     <div class="row">
         <div class="col-md-12">
@@ -204,34 +206,18 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="profile-info-left">
-                                <h3 class="user-name m-t-0 mb-0"></h3>
-                                <small class="text-muted">
-
+                                <h3 class="user-name m-t-0 mb-0">@usuario.Tbl_Docente.Nombres_Docente @usuario.Tbl_Docente.Apellidos_Docente</h3>
+                                @*<small class="text-muted">
+                                    @Model.Tbl_Profesion.Nombre_Profesion
                                 </small>
                                 <small class="text-muted">
-
-                                </small>
-                                <div class="staff-id"></div>
-                                <ul class="personal-info">
-                                    <li>
-                                        <span class="title">Correo:</span>
-                                        <span class="text">@usuario.Tbl_Docente.Correo_Docente</span>
-
-                                    </li>
-                                    <li>
-                                        <span class="title">Telefono Celular:</span>
-                                        <span class="text">@usuario.Tbl_Docente.TelefonoCelular_Docente</span>
-
-                                    </li>
-                                    <br />
-                                    <li>
-                                        <span class="title">Telefono Fijo :</span>
-                                        <span class="text">@usuario.Tbl_Docente.TelefonoFijo_Docente</span>
-
-                                    </li>
-                                </ul>
-
-
+                                    ( @Model.Tbl_CargoDocente.Nombre_CargoDocente )
+                                </small>*@
+                                <div class="staff-id">@usuario.Tbl_Docente.DNI_Docente</div>
+                                <div class="staff-id">Correo : <a href="#">@usuario.Tbl_Docente.Correo_Docente</a></div>
+                                <div class="staff-id">Celular : <a href="#">@usuario.Tbl_Docente.TelefonoCelular_Docente</a></div>
+                                <div class="staff-id">Tel. Fijo : <a href="#">@usuario.Tbl_Docente.TelefonoFijo_Docente</a></div>
+                                <div class="staff-msg"><a href="#" class="btn btn-primary">Escribir Mensaje</a></div>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -246,6 +232,7 @@
                                     {
                                         <span class="text">Femenino</span>
                                     }
+
                                 </li>
                                 <li>
                                     <span class="title">Estado Civil:</span>
@@ -253,7 +240,7 @@
                                 </li>
                                 <li>
                                     <span class="title">Fecha Nacimiento:</span>
-                                    <span class="text">@usuario.Tbl_Docente.FechaNac_Docente</span>
+                                    <span class="text">@DateTime.Parse((usuario.Tbl_Docente.FechaNac_Docente).ToString()).ToShortDateString()</span>
                                 </li>
                                 <li>
                                     <span class="title">Direccion Actual:</span>
@@ -265,7 +252,6 @@
                                 </li>
                                 <li>
                                     <span class="title">Estado:</span>
-
                                     @if (usuario.Tbl_Docente.Estado_Docente == true)
                                     {
                                         <span class="text">Activo</span>
@@ -274,7 +260,6 @@
                                     {
                                         <span class="text">Inactivo</span>
                                     }
-
                                 </li>
 
                             </ul>
@@ -284,8 +269,20 @@
             </div>
         </div>
     </div>
-
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @*<br />
 

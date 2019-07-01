@@ -47,75 +47,102 @@
         <td colspan="5"><input type="text" style=" background-color:#FFF; border: 1px solid #000; width:100%;" value="@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente" /></td>
     </tr>
 </table>
-<div id="lateral">
-    <table>
-        <tr>
-            <th width="23%" style="text-align:left">Semestre:</th>
-            <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_Semestre.Nombre_Semestre" size="15" /></td>
-            <th width="18%" style="text-align:right"></th>
-        </tr>
-    </table>
-    <strong>Resumen del Curso para la Unidad:</strong>
-    @{
-        int retirados = 0;
-        int abandono = 0;
-        int aprobados = 0;
-        int asisten = 0;
-        asisten = (Model.Matriculados_DetalleCargaAcademica - @retirados - @abandono);
-    }
-    @foreach (var p in Portafolio)
-    {
-        if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UII")
-        {
-            idCodigoPortafolio = p.Codigo_Portafolio;
-            retirados = int.Parse((p.Retirados_Portafolio).ToString());
-            abandono = int.Parse((p.Abandono_Portafolio).ToString());
-            aprobados = int.Parse((p.Aprobados_Portafolio).ToString());
-        }
-    }
-    <table border="1" class="table">
-        <tr>
-            <th>Estudiantes</th>
-            <th>Cantidad</th>
-            <th>Porcentaje</th>
-        </tr>
-        <tr>
-            <td>Matriculados</td>
-            <td style="text-align:center;background-color:#F2E2C4;">@Model.Matriculados_DetalleCargaAcademica</td>
-            <td style="text-align:center;">100%</td>
-        </tr>
+<table class="table">
+    <tr>
+        <td>
+            <div id="lateral">
+                <table>
+                    <tr>
+                        <th width="23%" style="text-align:left;background-color:#FFF;">Semestre:</th>
+                        <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_Semestre.Nombre_Semestre" size="15" /></td>
+                        <th width="18%" style="text-align:right;background-color:#FFF;"></th>
+                    </tr>
+                </table>
+                <strong>Resumen del Curso para la Unidad:</strong>
+                @{
+                    int retirados = 0;
+                    int abandono = 0;
+                    int aprobados = 0;
+                    int asisten = 0;
+                    asisten = (Model.Matriculados_DetalleCargaAcademica - @retirados - @abandono);
+                }
+                @foreach (var p in Portafolio)
+                {
+                    if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UI")
+                    {
+                        idCodigoPortafolio = p.Codigo_Portafolio;
+                        retirados = int.Parse((p.Retirados_Portafolio).ToString());
+                        abandono = int.Parse((p.Abandono_Portafolio).ToString());
+                        aprobados = int.Parse((p.Aprobados_Portafolio).ToString());
+                    }
+                }
+                <table border="1" class="table">
+                    <tr>
+                        <th>Estudiantes</th>
+                        <th>Cantidad</th>
+                        <th>Porcentaje</th>
+                    </tr>
+                    <tr>
+                        <td>Matriculados</td>
+                        <td style="text-align:center;background-color:#F2E2C4;">@Model.Matriculados_DetalleCargaAcademica</td>
+                        <td style="text-align:center;">100%</td>
+                    </tr>
 
-        <tr>
-            <td>Retirados</td>
-            <td style="text-align:center;background-color:#F2E2C4;">@retirados</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(retirados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
-        </tr>
-        <tr>
-            <td>Abandono</td>
-            <td style="text-align:center;background-color:#F2E2C4;">@abandono</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(abandono) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
-        </tr>
-        <tr>
-            <td>Asisten</td>
-            <td style="text-align:center;">@asisten</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(asisten) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
-        </tr>
-        <tr>
-            <td>Aprobados</td>
-            <td style="text-align:center;background-color:#F2E2C4;">@aprobados</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(aprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
-        </tr>
-        <tr>
-            <td>Desaprobados</td>
-            <td style="text-align:center;">@(asisten - aprobados)</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(asisten - aprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
-        </tr>
-    </table>
-</div>
+                    <tr>
+                        <td>Retirados</td>
+                        <td style="text-align:center;background-color:#F2E2C4;">@retirados</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(retirados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                    <tr>
+                        <td>Abandono</td>
+                        <td style="text-align:center;background-color:#F2E2C4;">@abandono</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(abandono) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                    <tr>
+                        <td>Asisten</td>
+                        <td style="text-align:center;">@asisten</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(asisten) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                    <tr>
+                        <td>Aprobados</td>
+                        <td style="text-align:center;background-color:#F2E2C4;">@aprobados</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(aprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                    <tr>
+                        <td>Desaprobados</td>
+                        <td style="text-align:center;">@(asisten - aprobados)</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(asisten - aprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td>
+            <div id="principal">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <img src="~/assets/Informes/asistencia_estudiantes.png" style="min-width: 200px; height: 300px; max-width: 400px; margin: 0 auto" />
+                        </td>
+                    </tr>
 
-<div id="principal">
-    <p>Aquí ira el contenido principal a lado del contenido o menú lateral</p>
-</div>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <td>
+            <img src="~/assets/Informes/situacion-general.png" style="min-width: 350px; height: 300px; max-width: 400px; margin: 0 auto" />
+        </td>
+
+        <td>
+            <img src="~/assets/Informes/rendimiento.png" style="min-width: 300px; height: 300px; max-width: 400px; margin: 0 auto" />
+        </td>
+
+    </tr>
+</table>
 
 <table class="table2">
     <tr>
