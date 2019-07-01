@@ -126,6 +126,26 @@ namespace PortafolioEPIS.Controllers.Informes
             return Redirect("~/PortafolioU1/Agregar/" + codigo);
         }
 
+        public ActionResult GuardarEstado(Tbl_Portafolio objPortafolio, int id = 0, int codigodetalle = 0, string unidad = null, int retirados = 0, int abandono = 0, int aprobados = 0, string estado = null, int iddocente = 0)
+        {
+
+
+
+            objPortafolio.Estado_Portafolio = estado;
+
+            objPortafolio.Codigo_Portafolio = id;
+            objPortafolio.Codigo_DetalleCargaAcademica = codigodetalle;
+            objPortafolio.Unidad_Portafolio = unidad;
+            objPortafolio.Retirados_Portafolio = retirados;
+            objPortafolio.Abandono_Portafolio = abandono;
+            objPortafolio.Aprobados_Portafolio = aprobados;
+            objPortafolio.Fecha_Portafolio = DateTime.Now;
+            objPortafolio.Guardar();
+
+            return Redirect("~/Docente/Ver/" + iddocente);
+
+        }
+
         [HttpPost]
         public ActionResult CargarImagen(Tbl_Material objmaterial,HttpPostedFileBase evidenciae)
         {
