@@ -30,12 +30,15 @@ namespace PortafolioEPIS.Controllers.Informes
         {
            
 
+            if(bueno>0)
+            {
                 objConocimientoHabilidad.Codigo_PruebaEntrada = idprueba;
                 objConocimientoHabilidad.Nombre_ConocimientoHabilidad = nombre;
                 objConocimientoHabilidad.Deficiente_ConocimientoHabilidad = deficiente;
                 objConocimientoHabilidad.Suficiente_ConocimientoHabilidad = suficiente;
                 objConocimientoHabilidad.Bueno_ConocimientoHabilidad = bueno;
                 objConocimientoHabilidad.Guardar();
+            }
                 return Redirect("~/PruebaEntrada/Agregar/" + codigo);
            
 
