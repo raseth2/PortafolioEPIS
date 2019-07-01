@@ -1,5 +1,4 @@
-﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
-@using PortafolioEPIS.Models
+﻿@using PortafolioEPIS.Models
 @{
     Layout = null;
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> pruebaEntrada = ViewBag.Prueba;
@@ -15,7 +14,7 @@
 <meta name="viewport" content="width=device-width" />
 <title>ListaPDFDocente</title>
 <link href="~/assets/Informes/prueba_entrada.css" rel="stylesheet" />
-
+<link href="~/Content/css/invoice.css" type="text/css" rel="stylesheet" />
 
 
 
@@ -258,39 +257,39 @@
 {
     if (idpruebaEntrada == medida.Codigo_PruebaEntrada)
     {
-<table class="table">
-    <tr>
-        <td colspan="4"><strong>Medidas correctivas que ha tomado en los casos de grado <b><font color="red">"deficiente"</font></b>. Marque con (X) las acciones realizadas:</strong></td>
-    </tr>
-    <tr>
-        <td width="40%">1. Repaso en horas de clase</td>
-        <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida1_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
-        <td width="5%"> </td>
-        <td width="35%">4. Entrega de material de repaso</td>
-        <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida4_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
-    </tr>
-    <tr>
-        <td width="40%">2. Repaso con horas adicionales de clase</td>
-        <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida2_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
-        <td width="5%"> </td>
-        <td width="35%">5. Recomendación de bibliografía</td>
-        <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida5_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
-    </tr>
-    <tr>
-        <td width="40%">3. Ejercicios propuestos para resolver en casa </td>
-        <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida3_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
-        <td width="5%"> </td>
-        <td width="35%">6. Otros (Detalle en la descripción) </td>
-        <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida6_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
-    </tr>
-    <tr>
-        <td colspan="5">Describa otras medidas correctivas y/o recomendaciones.</td>
-    </tr>
-    <tr>
-        <td colspan="5"><textarea style="background-color:#F2E2C4;" name="textarea" rows="5" cols="110">@medida.Medida7_MedidasCorrectivas</textarea></td>
-        
-    </tr>
-</table>
+        <table class="table">
+            <tr>
+                <td colspan="4"><strong>Medidas correctivas que ha tomado en los casos de grado <b><font color="red">"deficiente"</font></b>. Marque con (X) las acciones realizadas:</strong></td>
+            </tr>
+            <tr>
+                <td width="40%">1. Repaso en horas de clase</td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida1_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+                <td width="5%"> </td>
+                <td width="35%">4. Entrega de material de repaso</td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida4_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+            </tr>
+            <tr>
+                <td width="40%">2. Repaso con horas adicionales de clase</td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida2_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+                <td width="5%"> </td>
+                <td width="35%">5. Recomendación de bibliografía</td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida5_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+            </tr>
+            <tr>
+                <td width="40%">3. Ejercicios propuestos para resolver en casa </td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida3_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+                <td width="5%"> </td>
+                <td width="35%">6. Otros (Detalle en la descripción) </td>
+                <td width="10%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(medida.Medida6_MedidasCorrectivas == true ? "X" : "")" size="5" /></td>
+            </tr>
+            <tr>
+                <td colspan="5">Describa otras medidas correctivas y/o recomendaciones.</td>
+            </tr>
+            <tr>
+                <td colspan="5"><textarea style="background-color:#F2E2C4;" name="textarea" rows="5" cols="110">@medida.Medida7_MedidasCorrectivas</textarea></td>
+
+            </tr>
+        </table>
     }
 }
 

@@ -1,9 +1,11 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
 @{
+    /**/
+
     Layout = null;
     List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
     List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = ViewBag.Portafolio;
-    List <PortafolioEPIS.Models.Tbl_CapacidadesCurso> CapacidadesCurso = ViewBag.CapacidadesCurso;
+    List<PortafolioEPIS.Models.Tbl_CapacidadesCurso> CapacidadesCurso = ViewBag.CapacidadesCurso;
     List<PortafolioEPIS.Models.Tbl_Observaciones> observaciones = ViewBag.ListarObservaciones;
 
 
@@ -33,243 +35,348 @@
     int notamasbaja = 0;
 }
 
-<h2>ListaPDFInformeFinal</h2>
+<link href="~/assets/Informes/portafolio.css" rel="stylesheet" />
+
+<table>
+    <tr>
+        <td rowspan="2"><img src="~/assets/Informes/logo_pdf.PNG" width="220" height="60" /></td>
+    </tr>
+</table>
+<span><h2><strong><u>INFORME FINAL DEL CURSO</u></strong></h2></span>
+<span><h2><strong><u>@Model.Tbl_CargaAcademica.Tbl_Semestre.Nombre_Semestre</u></strong></h2></span>
+
+<table>
+    <tr>
+        <th width="19%" style="text-align:left">Codigo del Curso:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio" size="15" /></td>
+        <th width="18%" style="text-align:right">Seccion:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_Seccion.Nombre_Seccion" size="15" /></td>
+        <th width="18%" style="text-align:right">Ciclo:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#FFF; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio" size="15" /></td>
+    </tr>
+    <tr>
+        <th width="19%" style="text-align:left">Nombre del Curso:</th>
+        <td colspan="5"><input type="text" style=" background-color:#FFF; border: 1px solid #000; width:100%;" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio" /></td>
+    </tr>
+    <tr>
+        <th width="19%" style="text-align:left">Horas:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#FFF; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio" size="15" /></td>
+        <th width="18%" style="text-align:right">Créditos:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#FFF; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio" size="15" /></td>
+        <th width="18%" style="text-align:right">Tipo Curso:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#FFF; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio" size="15" /></td>
+    </tr>
+    <tr>
+        <th width="19%" style="text-align:left">Docente:</th>
+        <td colspan="5"><input type="text" style=" background-color:#FFF; border: 1px solid #000; width:100%;" value="@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente" /></td>
+    </tr>
+</table>
 
 
-<h2 class="text-center"><strong>Informe Final</strong></h2>
-<div class="table-responsive">
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>INFORMACION DE CURSO</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <table border="1" class="table">
+<div id="lateral">
+    <table>
         <tr>
-            <th colspan="2">Codigo</th>
-            <th colspan="8">Nombre</th>
-        </tr>
-        <tr>
-            <td colspan="2">@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
-            <td colspan="8">@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
-        </tr>
-        <tr>
-            <th>Sección</th>
-            <td>@Model.Tbl_Seccion.Nombre_Seccion</td>
-            <th>Ciclo</th>
-            <td>@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio</td>
-            <th>Horas</th>
-            <td>@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio</td>
-            <th>Créditos</th>
-            <td>@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</td>
-            <th>Tipo Curso</th>
-            <td>@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
+            <th width="23%" style="text-align:left">Semestre:</th>
+            <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_Semestre.Nombre_Semestre" size="15" /></td>
+            <th width="18%" style="text-align:right"></th>
         </tr>
     </table>
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>INFORMACION DEL DOCENTE</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <table border="1" class="table">
-        <tr>
-            <th colspan="2">Codigo</th>
-            <th colspan="8">Nombre</th>
-        </tr>
-        <tr>
-            <td colspan="2">@Model.Tbl_Docente.Codigo_Docenteepis</td>
-            <td colspan="8">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</td>
-        </tr>
-        <tr>
-            <th colspan="2">Email</th>
-            <td colspan="4">@Model.Tbl_Docente.Correo_Docente</td>
-            <th colspan="2">Celular</th>
-            <td colspan="2">@Model.Tbl_Docente.TelefonoCelular_Docente</td>
+    <strong>Resumen del Curso para la Unidad:</strong>
 
-        </tr>
-    </table>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Item</th>
-                <th class="text-center">Cantidad</th>
-                <th class="text-center">Porcentaje</th>
-            </tr>
-        </thead>
-
-
-        <!-- Modal / Ventana / Overlay en HTML -->
-        @foreach (var p in prueba)
+    @foreach (var p in prueba)
+    {
+        if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
         {
-            if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
-            {
 
 
-                idpruebas = p.Codigo_InformeFinal;
-                detallecarga = p.Codigo_DetalleCargaAcademica;
-                porcentajesilabo = Convert.ToInt32(p.PorcentajeSilabo_InformeFinal);
-                practicascalificadas = Convert.ToInt32(p.PracticasCalificadas_InformeFinal);
-                laboratoriosrealizados = Convert.ToInt32(p.LaboratoriosRealizados_InformeFinal);
-                trabajosrealizados = Convert.ToInt32(p.TrabajosRealizados_InformeFinal);
-                //codigoportafo = p.Codigo_Portafolio;
-                estudiantesmatriculados = Convert.ToInt32(p.EstudiantesMatriculados_InformeFinal);
-                estudiantesretiro = Convert.ToInt32(p.EstudiantesRetiro_InformeFinal);
-                estudiantesabandono = Convert.ToInt32(p.EstudiantesAbandono_InformeFinal);
-                estudiantesasisten = Convert.ToInt32(p.EstudiantesAsisten_InformeFinal);
-                estudiantesaprobados = Convert.ToInt32(p.EstudiantesAprobados_InformeFinal);
-                estudiantesdesaprobados = Convert.ToInt32(p.EstudiantesDesaprobados_InformeFinal);
-                notamasalta = Convert.ToInt32(p.NotaAlta_InformeFinal);
-                notapromedio = Convert.ToInt32(p.NotaPromedio_InformeFinal);
-                notamasbaja = Convert.ToInt32(p.NotaBaja_InformeFinal);
+            idpruebas = p.Codigo_InformeFinal;
+            detallecarga = p.Codigo_DetalleCargaAcademica;
+            porcentajesilabo = Convert.ToInt32(p.PorcentajeSilabo_InformeFinal);
+            practicascalificadas = Convert.ToInt32(p.PracticasCalificadas_InformeFinal);
+            laboratoriosrealizados = Convert.ToInt32(p.LaboratoriosRealizados_InformeFinal);
+            trabajosrealizados = Convert.ToInt32(p.TrabajosRealizados_InformeFinal);
+            //codigoportafo = p.Codigo_Portafolio;
+            estudiantesmatriculados = Convert.ToInt32(p.EstudiantesMatriculados_InformeFinal);
+            estudiantesretiro = Convert.ToInt32(p.EstudiantesRetiro_InformeFinal);
+            estudiantesabandono = Convert.ToInt32(p.EstudiantesAbandono_InformeFinal);
+            estudiantesasisten = Convert.ToInt32(p.EstudiantesAsisten_InformeFinal);
+            estudiantesaprobados = Convert.ToInt32(p.EstudiantesAprobados_InformeFinal);
+            estudiantesdesaprobados = Convert.ToInt32(p.EstudiantesDesaprobados_InformeFinal);
+            notamasalta = Convert.ToInt32(p.NotaAlta_InformeFinal);
+            notapromedio = Convert.ToInt32(p.NotaPromedio_InformeFinal);
+            notamasbaja = Convert.ToInt32(p.NotaBaja_InformeFinal);
 
 
-            }
+        }
+    }
+    <table border="1" class="table">
+        <tr>
+            <th>Estudiantes</th>
+            <th>Cantidad</th>
+            <th>Porcentaje</th>
+        </tr>
+        <tr>
+            <td>Porcentaje de cumplimiento del silabo </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@porcentajesilabo</td>
+            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(porcentajesilabo) * 100) / Convert.ToDouble(100), 2)) %</td>
+        </tr>
+        <tr>
+            <td>Practicas calificadas realizadas </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@practicascalificadas</td>
+            <td style="text-align:center;">100 %</td>
+        </tr>
+        <tr>
+            <td>Experiencias de laboratorio realizadas  </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@laboratoriosrealizados</td>
+            <td style="text-align:center;">100%</td>
+        </tr>
+        <tr>
+            <td>Proyectos y/o trabajos de  realizados   </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@trabajosrealizados</td>
+            <td style="text-align:center;">100 %</td>
+        </tr>
+        <tr>
+            <td>Estudiantes matriculados</td>
+            <td style="text-align:center;background-color:#F2E2C4;">@Model.Matriculados_DetalleCargaAcademica</td>
+            <td style="text-align:center;">100 %</td>
+        </tr>
+        <tr>
+            <td>Estudiantes con retiro  </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesretiro</td>
+            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesretiro) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+        </tr>
+        <tr>
+            <td>Estudiantes en abandono  </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesabandono</td>
+            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesabandono) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+        </tr>
+        <tr>
+            <td>Estudiantes que asisten </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesasisten</td>
+            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesasisten) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+        </tr>
+
+        <tr>
+            <td>Estudiantes aprobados </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesaprobados</td>
+            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesaprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+        </tr>
+        <tr>
+            <td>Estudiantes desaprobados </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesdesaprobados</td>
+            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesdesaprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+        </tr>
+        <tr>
+            <td>Nota final mas alta  </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@notamasalta</td>
+
+        </tr>
+        <tr>
+            <td>Nota final promedio  </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@notapromedio</td>
+
+        </tr>
+        <tr>
+            <td>Nota final mas baja   </td>
+            <td style="text-align:center;background-color:#F2E2C4;">@notamasbaja</td>
+
+        </tr>
+    </table>
+</div>
+
+<div id="principal">
+    <p>Aquí ira el contenido principal a lado del contenido o menú lateral</p>
+</div>
+
+<table class="table">
+    <tr>
+        <td><strong>Indicaciones:</strong></td>
+    </tr>
+    <tr>
+        <td>
+            Según su apreciación deberá marcar (x) el nivel que han alcanzado los estudiantes en los diferentes
+            aspectos que se mencionan a continuación.
+        </td>
+    </tr>
+</table>
+<table border="1" class="table">
+    <tr>
+        <td style="text-align:center;"><strong>N</strong></td>
+        <td style="text-align:center;"><strong>P</strong></td>
+        <td style="text-align:center;"><strong>A</strong></td>
+        <td style="text-align:center;"><strong>B</strong></td>
+        <td style="text-align:center;"><strong>M</strong></td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">Nada</td>
+        <td style="text-align:center;">Poco</td>
+        <td style="text-align:center;">Aceptble</td>
+        <td style="text-align:center;">Bien</td>
+        <td style="text-align:center;">Muy Bien</td>
+    </tr>
+</table>
+
+<br />
+<table class="table">
+    <tr>
+        <td><strong>Logros de capacidades del curso</strong></td>
+    </tr>
+</table>
+
+<table border="1" class="table">
+    <thead>
+        <tr>
+            <th width="5%" rowspan="2">#</th>
+            <th width="50%" rowspan="2">Capacidades del curso</th>
+            <th width="50%" class="text-center" colspan="5">Nivel Alcanzado</th>
+        </tr>
+        <tr>
+            <th width="10%" class="text-center">Nada</th>
+            <th width="10%" class="text-center">Poco</th>
+            <th width="10%" class="text-center">Aceptable</th>
+            <th width="10%" class="text-center">Bien</th>
+            <th width="10%" class="text-center">Muy Bien</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int conteo = 0;}
+        @foreach (var capacidad in CapacidadesCurso)
+        {
+
+            conteo = conteo + 1;
+            <tr>
+                <td>@conteo</td>
+                <td>@capacidad.Descripcion_CapacidadesCurso</td>
+                <td class="text-center">@(capacidad.Nada_CapacidadesCurso == 1 ? "X" : "")</td>
+                <td class="text-center">@(capacidad.Poco_CapacidadesCurso == 1 ? "X" : "")</td>
+                <td class="text-center">@(capacidad.Aceptable_CapacidadesCurso == 1 ? "X" : "")</td>
+                <td class="text-center">@(capacidad.Bien_CapacidadesCurso == 1 ? "X" : "")</td>
+                <td class="text-center">@(capacidad.MuyBien_CapacidadesCurso == 1 ? "X" : "")</td>
+
+            </tr>
         }
 
-        <tbody>
-            <tr>
+    </tbody>
+</table>
 
-                <td>1</td>
-                <td>Porcentaje de cumplimiento del sílabo</td>
-                <td><input type="text" name="porcentajesilabo" id="porcentajesilabo" class="form-control text-center" value="@porcentajesilabo"></td>
-                <td class="text-center">80%</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Practicas calificada realizadas</td>
-                <td><input type="text" name="practicasrealizadas" id="practicasrealizadas" class="form-control text-center" value="@practicascalificadas"></td>
-                <td class="text-center">100%</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Experiencias de laboratorio realizadas</td>
-                <td><input type="text" name="experienciaslaboratorio" id="experienciaslaboratorio" class="form-control text-center" value="@laboratoriosrealizados"></td>
-                <td class="text-center">100%</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Proyectos y/o trabajos de realizados</td>
-                <td><input type="text" name="proyectosrealizados" id="proyectosrealizados" class="form-control text-center" value="@trabajosrealizados"></td>
-                <td class="text-center">100%</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Estudiantes Matriculados</td>
-                <td><input type="text" name="matriculados" id="matriculados" readonly class="form-control text-center" value="@Model.Matriculados_DetalleCargaAcademica"></td>
-                <td class="text-center">100%</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Estudiantes con retiro</td>
-                <td><input type="text" onKeyUp="Suma()" name="estudiantesretiro" id="estudiantesretiro" class="form-control text-center" value="@estudiantesretiro"></td>
-                <td class="text-center">6.7%</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Estudiantes en abandono</td>
-                <td><input type="text" onKeyUp="Suma()" name="estudiantesabandono" id="estudiantesabandono" class="form-control text-center" value="@estudiantesabandono"></td>
-                <td class="text-center">10%</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Estudiantes que asisten</td>
-                <td><input type="text" onKeyUp="calaprobados()" name="estudiantesasistentes" id="estudiantesasistentes" readonly class="form-control text-center" value="@estudiantesasisten"></td>
-                <td class="text-center">83.3%</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>Estudiantes Aprobados</td>
-                <td><input type="text" onKeyUp="calaprobados()" name="estudiantesaprobados" id="estudiantesaprobados" class="form-control text-center" value="@estudiantesaprobados"></td>
-                <td class="text-center">50%</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Estudiantes Desaprobados</td>
-                <td><input type="text" name="estudiantesdesaprobados" id="estudiantesdesaprobados" readonly class="form-control text-center" value="@estudiantesdesaprobados"></td>
-                <td class="text-center">33.3%</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>Nota final mas alta</td>
-                <td><input type="text" name="notamasalta" id="notamasalta" class="form-control text-center" value="@notamasalta"></td>
-                <td class="text-center"></td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>Nota final promedio</td>
-                <td><input type="text" name="notapromedio" id="notapromedio" class="form-control text-center" value="@notapromedio"></td>
-                <td class="text-center"></td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>Nota final mas baja</td>
-                <td><input type="text" name="notamasbaja" id="notamasbaja" class="form-control text-center" value="@notamasbaja"></td>
-                <td class="text-center"></td>
-            </tr>
-        </tbody>
 
+@foreach (var ob in observaciones)
+{
+    <table>
+        <tr>
+            <td><strong>OBSERVACIONES</strong></td>
+        </tr>
+        <tr>
+            <td>
+                <b>1.    De los estudiantes.</b> Nivel académico, conocimientos previos, interés en el curso, estilos de
+                aprendizaje.
+            </td>
+        </tr>
+        <tr>
+            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Estudiantes_Observaciones</textarea></td>
+        </tr>
+
+        <tr>
+            <td>
+                <b>2.    Asistencia y puntualidad de los estudiantes.</b>
+            </td>
+        </tr>
+        <tr>
+            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.AsistenciaPuntualidad_Observaciones</textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <b>3.    Del sílabo.</b>  Qué temas del sílabo no se han completado? Considera todos los temas adecuados?
+                Qué temas requieren más tiempo de dedicación?
+            </td>
+        </tr>
+        <tr>
+            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Silabo_Observaciones</textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <b>4.  Uso del Aula Virtual.</b>   Información colocada, uso de foros, chat  y cantidad de visitas estudiantiles.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="table">
+                    <tr>
+                        <td width="25%">Material del curso </td>
+                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.MaterialCurso_Observaciones == true ? "X" : "")" size="5" /></td>
+                        <td width="2%"> </td>
+                        <td width="25%">Cuestionarios </td>
+                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Cuestionarios_Observaciones == true ? "X" : "")" size="5" /></td>
+                        <td width="2%"> </td>
+                        <td width="25%">Tareas Encargadas </td>
+                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.TareasEncargadas_Observaciones == true ? "X" : "")" size="5" /></td>
+                    </tr>
+                    <tr>
+                        <td width="25%">Foros  </td>
+                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Foros_Observaciones == true ? "X" : "")" size="5" /></td>
+                        <td width="2%"> </td>
+                        <td width="25%">Examenes virtuales  </td>
+                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.ExamenesVirtuales_Observaciones == true ? "X" : "")" size="5" /></td>
+                        <td width="2%"> </td>
+                        <td width="25%">Slideshow </td>
+                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Slideshow_Observaciones == true ? "X" : "")" size="5" /></td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>5.  Administrativas.</b>   Disponibilidad de recursos en aulas y laboratorios.
+            </td>
+        </tr>
+        <tr>
+            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Administrativas_Observaciones</textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <b>6. Sílabo por competencias.</b>   Qué actividades realizó usted para la evaluación del cumplimiento de las
+                competencias  de su curso,  por los estudiantes? Podría presentar una propuesta de evaluación de las
+                competencias de su curso?
+            </td>
+        </tr>
+        <tr>
+            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.SilaboCompetencias_Observaciones</textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <b>7. Mejora continua.</b>  Qué actividades de mejora continua ha realizado en el curso en este ciclo y cuales
+                propone para el siguiente, para mejorar el rendimiento académico del estudiante..
+            </td>
+        </tr>
+        <tr>
+            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.MejoraContinua_Observaciones.</textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <b>8. Actualización docente.</b>  Ha seguido usted algún curso de actualización profesional o docente en los
+                últimos dos años. Indique tema del curso y duración.
+            </td>
+        </tr>
+        <tr>
+            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.ActualizacionDocente_Observaciones</textarea></td>
+        <tr>
+            <td>
+                <b>9. Comentarios y Recomendaciones.</b>  Serán útiles para mejorar el Plan de Estudios y los servicios que
+                brindan la Escuela, la Facultad y la Universidad
+            </td>
+        </tr>
+        <tr>
+            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.ComentariosRecomendaciones_Observaciones</textarea></td>
+
+        </tr>
     </table>
 
+}
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th rowspan="2">#</th>
-                <th rowspan="2">Capacidades del curso</th>
-                <th class="text-center" colspan="5">Nivel Alcanzado</th>
-                <th rowspan="2" class="text-right">Accción</th>
-            </tr>
-            <tr>
-                <th class="text-center">Nada</th>
-                <th class="text-center">Poco</th>
-                <th class="text-center">Aceptable</th>
-                <th class="text-center">Bien</th>
-                <th class="text-center">Muy Bien</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{ int conteo = 0;}
-            @foreach (var capacidad in CapacidadesCurso)
-            {
+<p> Fecha: @DateTime.Parse((DateTime.Now).ToString()).ToShortDateString()</p>
+<br /><br />
 
-                conteo = conteo + 1;
-                <tr>
-                    <td>@conteo</td>
-                    <td>@capacidad.Descripcion_CapacidadesCurso</td>
-                    <td class="text-center">@(capacidad.Nada_CapacidadesCurso == 1 ? "X" : "")</td>
-                    <td class="text-center">@(capacidad.Poco_CapacidadesCurso == 1 ? "X" : "")</td>
-                    <td class="text-center">@(capacidad.Aceptable_CapacidadesCurso == 1 ? "X" : "")</td>
-                    <td class="text-center">@(capacidad.Bien_CapacidadesCurso == 1 ? "X" : "")</td>
-                    <td class="text-center">@(capacidad.MuyBien_CapacidadesCurso == 1 ? "X" : "")</td>
 
-                </tr>
-            }
-
-        </tbody>
-    </table>
-    
-
-    @foreach (var ob in observaciones)
-    {
-        <label>delasobservaciones:  @ob.Estudiantes_Observaciones</label>
-        <label>Asistencia Puntualida:  @ob.AsistenciaPuntualidad_Observaciones</label>
-        <label>Silavo Observaciones:  @ob.Silabo_Observaciones</label>
-        <label>delasobservaciones:  @ob.MaterialCurso_Observaciones</label>
-        <label>delasobservaciones:  @ob.Cuestionarios_Observaciones</label>
-        <label>delasobservaciones:  @ob.TareasEncargadas_Observaciones</label>
-        <label>delasobservaciones:  @ob.Foros_Observaciones</label>
-        <label>delasobservaciones:  @ob.ExamenesVirtuales_Observaciones</label>
-        <label>delasobservaciones:  @ob.Slideshow_Observaciones</label>
-        <label>delasobservaciones:  @ob.Administrativas_Observaciones</label>
-        <label>delasobservaciones:  @ob.MejoraContinua_Observaciones</label>
-        <label>delasobservaciones:  @ob.ActualizacionDocente_Observaciones</label>
-        <label>delasobservaciones:  @ob.ComentariosRecomendaciones_Observaciones</label>
-    }
+<center><p>___________________________________</p></center>
+<center><p> @Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</p></center>
