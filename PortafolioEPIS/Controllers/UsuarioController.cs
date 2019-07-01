@@ -36,7 +36,7 @@ namespace PortafolioEPIS.Controllers
         }
 
         //Action Guardar
-        public ActionResult Guardar(Tbl_Usuario objUsuario)
+        public ActionResult Guardar(Tbl_Usuario objUsuario, string pass)
         {
             if (ModelState.IsValid)
             {
@@ -44,6 +44,7 @@ namespace PortafolioEPIS.Controllers
                 {
                     objUsuario.FechaCreacion_Usuario = DateTime.Now;
                     objUsuario.FechaActualizacion_Usuario = DateTime.Now;
+                    objUsuario.Password_Usuario = HashHelper.SHA1(pass);
                     objUsuario.Guardar();
                     return Redirect("~/Usuario");
                 }

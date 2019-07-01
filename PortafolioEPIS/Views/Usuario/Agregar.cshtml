@@ -47,7 +47,16 @@
                     <div class="col-md-6">
                         @Html.Label("Contraseña")
                         <div class="form-group">
-                            @Html.TextBoxFor(x => x.Password_Usuario, new { @class = "form-control", Type = "Password", id = "validationCustom03", required = "required" })
+                            @if (Model.Codigo_Usuario > 0)
+                            {
+                                <input type="text" name="pass" />
+                            }
+                            else
+                            {
+                                <input type="text" name="pass" value="@Model.Password_Usuario"/>
+                            }
+
+                            @*@Html.TextBoxFor(x => x.Password_Usuario, new { @class = "form-control", Type = "Password", id = "validationCustom03", required = "required" })*@
                             <div class="invalid-feedback">
                                 Ingrese Contraseña
                             </div>
