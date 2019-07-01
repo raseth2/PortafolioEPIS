@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using Rotativa;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
@@ -198,6 +199,35 @@ namespace PortafolioEPIS.Controllers.Informes
             objInformeFinal.Codigo_InformeFinal = id;
             objInformeFinal.Eliminar();
             return Redirect("~/InformeFinal");
+        }
+
+        // Metodo para Imprimir PDF Docente
+        public ActionResult ListaPDFInformeFinal(int id)
+        {
+
+           
+
+            ViewBag.prueba = objInformeFinal.Listar();
+            ViewBag.portafolio = objportafolio.Listar();
+            List<Tbl_InformeFinal> listInformeFinal = objInformeFinal.Listar();
+            foreach (var listaInforme in listInformeFinal)
+            {
+                if (listaInforme.Codigo_DetalleCargaAcademica == id)
+                {
+                    ViewBag.ListarObservaciones = objObservaciones.Listar1(listaInforme.Codigo_InformeFinal); //obtener la lista deevidencias de un  portafolio
+                    ViewBag.CapacidadesCurso = objCapacidadesCurso.Listar(listaInforme.Codigo_InformeFinal);
+                    
+                }
+
+            }
+            //ViewBag.prueba = objPruebaEntrada.Listar();
+            //ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
+            //ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
+            return View(objDetalleCargaAcademica.Obtener(id));
+        }
+        public ActionResult ExportaAPDF(int id)
+        {
+            return new ActionAsPdf("ListaPDFInformeFinal/" + id);
         }
     }
 }
