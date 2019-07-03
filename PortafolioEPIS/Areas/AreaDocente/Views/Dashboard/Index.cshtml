@@ -8,7 +8,6 @@
     PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
 
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
-
     List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = new PortafolioEPIS.Models.Tbl_Portafolio().Listar();
     List<PortafolioEPIS.Models.Tbl_InformeFinal> informe = new PortafolioEPIS.Models.Tbl_InformeFinal().Listar();
 
@@ -26,69 +25,474 @@
     string estado1 = null, estado2 = null, estado3 = null, estado4 = null, estado5 = null;
     int num = 0, horas = 0, creditos = 0;
 }
-<div class="row clearfix">
+
+
+<!--ESTADO DE INFORME PRUEBA DE ENTRADA-->
+@{
+    int cant_noguardado = 0;
+    int cant_guardado = 0;
+    int cant_enviado = 0;
+    int cant_rechazado = 0;
+    int cant_aceptado = 0;
+    string cursos_pruebaentrada = "";
+    string estado_pruebaentrada = "";
+}
+@foreach (var item in detalle)
+{
+    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+    {
+        string estadoss = null;
+        string cursoss = null;
+        foreach (var q in prueba)
+        {
+            if (item.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+            {
+                //cursoss = item.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio;
+                cursoss = q.Tbl_DetalleCargaAcademica.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio;
+                estadoss = q.Estado_PruebaEntrada;
+
+
+            }
+            estadoss = "null";
+        }
+
+
+
+        if (estadoss == "G")
+        {
+            cant_guardado++;
+
+        }
+        if (estadoss == "E")
+        {
+            cant_enviado++;
+
+        }
+        if (estadoss == "R")
+        {
+            cant_rechazado++;
+
+        }
+        if (estadoss == "A")
+        {
+            cant_aceptado++;
+
+        }
+        if (estadoss == null)
+        {
+            cant_noguardado++;
+
+        }
+
+        //algoritmo para generar el grafico
+        cursos_pruebaentrada = cursos_pruebaentrada + "'" + item.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio + "', ";
+        //{name: 'Year 1800',data: [107, 31, 635, 203, 2]},   
+        estado_pruebaentrada = estado_pruebaentrada + "{name: '"+ estadoss+"'" + ",data: ["+ 107+", "+31 + ", " + 635 + ", " + 203 + ", " + 2 + "]},";
+
+
+        //estado_pruebaentrada = estado_pruebaentrada + estadoss;
+        //estado_pruebaentrada = estado_pruebaentrada + "'" + estadoss + "', ";
+        /*
+         *          categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+                    series: [{
+                            name: 'Year 1800',
+                            data: [107, 31, 635, 203, 2]
+                        }, {
+                            name: 'Year 1900',
+                            data: [133, 156, 947, 408, 6]
+                        }, {
+                            name: 'Year 2000',
+                            data: [814, 841, 3714, 727, 31]
+                        }, {
+                            name: 'Year 2016',
+                            data: [1216, 1001, 4436, 738, 40]
+                        }]
+     */
+        //contenido_pruebaentrada;
+    }
+
+}
+<!--ESTADO DE INFORME PRUEBA DE ENTRADA-->
+@{
+    int cant_noguardado1 = 0;
+    int cant_guardado1 = 0;
+    int cant_enviado1 = 0;
+    int cant_rechazado1 = 0;
+    int cant_aceptado1 = 0;
+    string cursos_pruebaentrada1 = "";
+    string estado_pruebaentrada1 = "";
+}
+@foreach (var p in detalle)
+{
+    if (p.Codigo_Docente == usuario.Codigo_Docente)
+    {
+        cursos_pruebaentrada1 = cursos_pruebaentrada1 + "'" + p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio + "', ";
+    }
+}
+
+@Html.Raw((String)estado_pruebaentrada)
+<hr />
+@Html.Raw((String)cursos_pruebaentrada)
+<!--Resumen general de PRUEBA DE ENTRADA-->
+<br />
+<div class="card-box ">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <center><h2 class="text-primary">Estado Informe Prueba de Entrada</h2></center>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS POR ESTADO</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
     <div class="col-md-12">
-        <div class="card-box">
+        <div class="profile-view">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="profile-info-left">
+                        <ul class="personal-info">
+                            <li>
+                                <span class="title">No Generado:</span>
+                                <span class="text">@cant_noguardado</span>
+                                <span class="title">Guardado:</span>
+                                <span class="text">@cant_guardado</span>
+                                <span class="title">Enviado:</span>
+                                <span class="text">@cant_enviado</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="personal-info">
+                        <li>
+                            <span class="title">Aceptado:</span>
+                            <span class="text">@cant_aceptado</span>
+                            <span class="title">Rechazado:</span>
+                            <span class="text">@cant_rechazado</span>
+                            <span class="title">Total:</span>
+                            <span class="text">@(cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="card-box">
+                <div id="containerpe"></div>
+                <script type="text/javascript">
+                    Highcharts.chart('containerpe', {
+                        chart: {
+                            type: 'bar'
+                        },
+                        title: {
+                            text: 'Historic World Population by Region'
+                        },
+                        subtitle: {
+                            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                        },
+                        xAxis: {
+                            categories: [@Html.Raw((String)cursos_pruebaentrada)],
+                            title: {
+                                text: null
+                            }
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Population (millions)',
+                                align: 'high'
+                            },
+                            labels: {
+                                overflow: 'justify'
+                            }
+                        },
+                        tooltip: {
+                            valueSuffix: ' millions'
+                        },
+                        plotOptions: {
+                            bar: {
+                                dataLabels: {
+                                    enabled: true
+                                }
+                            }
+                        },
+                        legend: {
+                            layout: 'vertical',
+                            align: 'right',
+                            verticalAlign: 'top',
+                            x: -40,
+                            y: 80,
+                            floating: true,
+                            borderWidth: 1,
+                            backgroundColor:
+                                Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+                            shadow: true
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        series: [@Html.Raw((String)estado_pruebaentrada)]
+                    });
 
-            <h2><center>RESUMEN DE CURSOS HORAS Y CREDITOS</center></h2>
-            <br />
 
+                </script>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!--Resumen general de CARGA ACDEMICA-->
+<div class="card-box ">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <center><h2 class="text-primary">Información de Carga Académica 2019-I</h2></center>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12">
             <table id="s" class="table table-hover">
                 <thead>
                     <tr>
-
                         <th>Docente</th>
                         <th>#</th>
                         <th>Curso</th>
-
                         <th>Horas</th>
                         <th>Creditos</th>
-
                     </tr>
                 </thead>
                 <tbody>
-
                     @foreach (var p in detalle)
                     {
                         if (p.Codigo_Docente == usuario.Codigo_Docente)
                         {
-
                             num = num + 1;
                             horas = horas + p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio;
                             creditos = creditos + p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
-
                             <tr>
-
                                 <td>@(num == 1 ? (p.Tbl_Docente.Nombres_Docente + ", " + p.Tbl_Docente.Apellidos_Docente) : "")</td>
                                 <td>@num</td>
                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
-
                                 <td>@p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio</td>
                                 <td>@p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</td>
-
                             </tr>
-
-
-
                         }
-
-
                     }
                     <tr>
                         <td></td>
                         <td></td>
-                        <td bgcolor="yellow">Total</td>
-                        <td bgcolor="yellow">@horas</td>
-                        <td bgcolor="yellow">@creditos</td>
+                        <th bgcolor="#D9E2FF"><strong>Total</strong></th>
+                        <th bgcolor="#D9E2FF"><strong>@horas</strong></th>
+                        <th bgcolor="#D9E2FF"><strong>@creditos</strong></th>
                     </tr>
-
                 </tbody>
-
             </table>
-
         </div>
     </div>
 </div>
+
+<!--Resumen general de PRUEBA DE ENTRADA-->
+<br />
+<div class="card-box ">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <center><h2 class="text-primary">Estado Informe Prueba de Entrada</h2></center>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - CANTIDAD DE REGISTROS POR ESTADO</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="profile-view">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="profile-info-left">
+                        <ul class="personal-info">
+                            <li>
+                                <span class="title">No Generado:</span>
+                                <span class="text">@cant_noguardado</span>
+                                <span class="title">Guardado:</span>
+                                <span class="text">@cant_guardado</span>
+                                <span class="title">Enviado:</span>
+                                <span class="text">@cant_enviado</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="personal-info">
+                        <li>
+                            <span class="title">Aceptado:</span>
+                            <span class="text">@cant_aceptado</span>
+                            <span class="title">Rechazado:</span>
+                            <span class="text">@cant_rechazado</span>
+                            <span class="title">Total:</span>
+                            <span class="text">@(cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-6">
+            <div class="card-box">
+                <div id="containerg"></div>
+                <script type="text/javascript">
+
+
+                    Highcharts.chart('containerg', {
+                        chart: {
+                        type: 'pie'
+                        },
+                        title: {
+                                text: 'Grafico Circular'
+                        },
+                            //tooltip: {
+                            //    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    //},
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                //enabled: true,
+                                format: '<b>{point.name}:{point.y}</b>',
+                                //style: {
+                                //    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                //}
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Prueba Entrada',
+                        colorByPoint: true,
+                        data: [{
+                            name: 'No Generado',
+                            color: '#8C8C8C',
+                            y: @cant_noguardado,
+
+                        }, {
+                            name: 'Guardado',
+                                color: '#0597F2',
+                            y: @cant_guardado,
+
+                            },{
+                            name: 'Enviado',
+                                color: '#8416F2',
+                            y: @cant_enviado,
+
+                        },{
+                            name: 'Rechazado',
+                                color: '#F20505',
+                            y: @cant_rechazado,
+
+                        },{
+                            name: 'Aceptado',
+                                color: '#04D976',
+                            y: @cant_aceptado,
+
+                        },]
+                        }]
+                        });
+                </script>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-box">
+
+                <div id="container0g"></div>
+                <script type="text/javascript">
+                    Highcharts.chart('container0g', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Grafico de Barras'
+                        },
+                        xAxis: {
+                            type: 'category'
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Cantidad total'
+                            }
+
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        ooltip: {
+                            headerFormat: '<b>{point.x}</b><br/>',
+                            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                        }, plotOptions: {
+                            column: {
+                                stacking: 'normal',
+                                dataLabels: {
+                                    enabled: true,
+                                },
+                                showInLegend: true,
+                            }
+                        },
+
+                        series: [
+                            {
+                                name: "Estado",
+                                colorByPoint: true,
+                                data: [
+                                    {
+                            name: 'No Generado',
+                            color: '#8C8C8C',
+                            y: @cant_noguardado,
+
+                        }, {
+                            name: 'Guardado',
+                                color: '#0597F2',
+                            y: @cant_guardado,
+
+                            },{
+                            name: 'Enviado',
+                                color: '#8416F2',
+                            y: @cant_enviado,
+
+                        },{
+                            name: 'Rechazado',
+                                color: '#F20505',
+                            y: @cant_rechazado,
+
+                        },{
+                            name: 'Aceptado',
+                                color: '#04D976',
+                            y: @cant_aceptado,
+
+                        },
+
+                                ]
+                            }
+                        ]
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 
 @foreach (var q in detalle)
