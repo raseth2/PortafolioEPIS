@@ -9,6 +9,9 @@
 
     string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
     PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
+    List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica> detalleCargaAcademicas = new PortafolioEPIS.Models.Tbl_DetalleCargaAcademica().Listar();
+    List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
+
 
 }
 
@@ -121,9 +124,59 @@
                                 <li><a href="~/Usuario/Index">Usuario</a></li>
                             </ul>
                         </li>
+                        @{ 
+                            int cant_guardado = 0;
+                            int cant_enviado = 0;
+                            int cant_rechazado=0;
+                            int cant_aceptado = 0;
+                            int cant_noguardado = 0;
+                            int total_Portafolio= 0;
+                            
+                        }
+                        @foreach (var item in detalleCargaAcademicas)
+                        {
+                            string estadoss = null;
+                            foreach (var q in prueba)
+                            {
+                                if (item.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                {
+                                    estadoss = q.Estado_PruebaEntrada;
+
+                                }
+                               
+                            }
+                            if (estadoss == "G")
+                            {
+                                cant_guardado++;
+
+                            }
+                            if (estadoss == "E")
+                            {
+                                cant_enviado++;
+
+                            }
+                            if (estadoss == "R")
+                            {
+                                cant_rechazado++;
+
+                            }
+                            if (estadoss == "A")
+                            {
+                                cant_aceptado++;
+
+                            }
+                            if (estadoss == null)
+                            {
+                                cant_noguardado++;
+
+                            }
+                        }
+                        @{ 
+                            total_Portafolio = cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado;
+                        }
                         <li class="menu-title">Informes</li>
                         <li>
-                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">@total_Portafolio</span></a>
                         </li>
                         <li>
                             <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Portafolio</span> <span class="badge badge-pill bg-primary float-right">0</span></a>

@@ -1,5 +1,9 @@
 ﻿@model PortafolioEPIS.Models.Tbl_CapacidadesCurso
 @{
+
+    string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
+
     ViewBag.Title = "AgregarCapacidadCurso";
     Layout = null;
 }
