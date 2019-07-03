@@ -1,5 +1,7 @@
 ﻿
 @{
+    /**/
+
     List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica> detalle = ViewBag.detalle;
 
     string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
@@ -20,7 +22,8 @@
     int cantEstudianteAUIII = 0, cantEstudianteDUIII = 0, cantEstudianteRUIII = 0, cantEstudianteABUIII = 0, cantEstudianteASUIII = 0;
     int codigodetallle = 0;
     int cantEstudianteMa = 0;
-
+    string asignatura = null, estado = null, cadenaHighchart = null, series = null, name = null, name2 = null, name3 = null, name4 = null, /*data = null,*/ data_string = null;
+    string estado1 = null, estado2 = null, estado3 = null, estado4 = null, estado5 = null;
     int num = 0, horas = 0, creditos = 0;
 }
 <div class="row clearfix">
@@ -88,168 +91,200 @@
 </div>
 
 
-            @foreach (var q in detalle)
+@foreach (var q in detalle)
+{
+    if (q.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+    {
+        codigodetallle = q.Codigo_DetalleCargaAcademica;
+        cantEstudianteMa = q.Matriculados_DetalleCargaAcademica;
+        cadenaHighchart = cadenaHighchart + ("'" + q.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio + "', ");
+        @*<label>@codigodetallle</label>*@
+
+
+        foreach (var prue in prueba)
+        {
+            if (prue.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
             {
-                if (q.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+                estado = estado + prue.Estado_PruebaEntrada;
+
+                if (prue.Estado_PruebaEntrada == "A")
                 {
-                    codigodetallle = q.Codigo_DetalleCargaAcademica;
-                    cantEstudianteMa = q.Matriculados_DetalleCargaAcademica;
-                    @*<label>@codigodetallle</label>*@
+                    estado1 = prue.Estado_PruebaEntrada;
+                    name = name + "{ name: 'Aceptado', data: [1,0,0,0]},";
 
-                    foreach (var prue in prueba)
-                    {
-                        if (prue.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
-                        {
+                }
 
-                            if (prue.Estado_PruebaEntrada == "G")
-                            {
-                                cantPruebaG++;
-                            }
-                            else if (prue.Estado_PruebaEntrada == "E")
-                            {
-                                cantPruebaE++;
-                            }
-                            else if (prue.Estado_PruebaEntrada == "A")
-                            {
-                                cantPruebaA++;
-                            }
-                            else if (prue.Estado_PruebaEntrada == "R")
-                            {
-                                cantPruebaR++;
-                            }
-                        }
-                    }
+                else if (prue.Estado_PruebaEntrada == "G")
+                {
+                    //data = data + "";
+                    estado2 = prue.Estado_PruebaEntrada;
+                    name = name + "{ name: 'Guardado', data: [0,1,0,0]},";
+                }
+
+                else if (prue.Estado_PruebaEntrada == "E")
+                {
+
+                    estado3 = prue.Estado_PruebaEntrada;
+                    name = name + "{ name: 'Enviado', data: [0,0,1,0]},";
+                }
+
+                else if (prue.Estado_PruebaEntrada == "R")
+                {
+
+                    estado4 = prue.Estado_PruebaEntrada;
+                    name = name + "{ name: 'Rechazado', data: [0,0,0,1]},";
+                }
 
 
-
-                    foreach (var infof in informe)
-                    {
-                        if (infof.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
-                        {
-                            if (infof.Estado_InformeFinal == "G")
-                            {
-                                cantInformeG++;
-                            }
-                            else if (infof.Estado_InformeFinal == "E")
-                            {
-                                cantInformeE++;
-                            }
-                            else if (infof.Estado_InformeFinal == "A")
-                            {
-                                cantInformeA++;
-                            }
-                            else if (infof.Estado_InformeFinal == "R")
-                            {
-                                cantInformeR++;
-                            }
-                        }
-
-                    }
+                if (prue.Estado_PruebaEntrada == "G")
+                {
+                    cantPruebaG++;
+                }
+                else if (prue.Estado_PruebaEntrada == "E")
+                {
+                    cantPruebaE++;
+                }
+                else if (prue.Estado_PruebaEntrada == "A")
+                {
+                    cantPruebaA++;
+                }
+                else if (prue.Estado_PruebaEntrada == "R")
+                {
+                    cantPruebaR++;
+                }
+            }
+        }
 
 
-                    foreach (var por in portafolio)
-                    {
-                        if (por.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
-                        {
-                            if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "G")
-                            {
-                                cantGuardados++;
-                            }
-                            else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "E")
-                            {
-                                cantEnviado++;
-                            }
-                            else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "A")
-                            {
-                                cantAceptado++;
-                            }
 
-
-                            else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "R")
-                            {
-                                cantRechazado++;
-                            }
-                            if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "G")
-                            {
-                                cantGuardados2++;
-                            }
-                            else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "E")
-                            {
-                                cantEnviado2++;
-                            }
-                            else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "A")
-                            {
-                                cantAceptado2++;
-                            }
-
-                            else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "R")
-                            {
-                                cantRechazado2++;
-                            }
-                            if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "G")
-                            {
-                                cantGuardados3++;
-                            }
-                            else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "E")
-                            {
-                                cantEnviado3++;
-                            }
-                            else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "A")
-                            {
-                                cantAceptado3++;
-                            }
-
-                            else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "R")
-                            {
-                                cantRechazado3++;
-                            }
-
-                            if (por.Unidad_Portafolio == "UI")
-                            {
-                                //idpruebas = p.Codigo_Portafolio;
-                                cantEstudianteRUI = Convert.ToInt32(por.Retirados_Portafolio);
-                                cantEstudianteABUI = Convert.ToInt32(por.Abandono_Portafolio);
-                                cantEstudianteAUI = Convert.ToInt32(por.Aprobados_Portafolio);
-                                cantEstudianteASUI = cantEstudianteMa - cantEstudianteABUI - cantEstudianteRUI;
-                                cantEstudianteDUI = cantEstudianteASUI - cantEstudianteAUI;
-
-                            }
-                            else if (por.Unidad_Portafolio == "UII")
-                            {
-                                //idpruebas = p.Codigo_Portafolio;
-                                cantEstudianteRUII = Convert.ToInt32(por.Retirados_Portafolio);
-                                cantEstudianteABUII = Convert.ToInt32(por.Abandono_Portafolio);
-                                cantEstudianteAUII = Convert.ToInt32(por.Aprobados_Portafolio);
-                                cantEstudianteASUII = cantEstudianteMa - cantEstudianteABUII - cantEstudianteRUII;
-                                cantEstudianteDUII = cantEstudianteASUII - cantEstudianteAUII;
-
-                            }
-
-                            else if (por.Unidad_Portafolio == "UIII")
-                            {
-                                //idpruebas = p.Codigo_Portafolio;
-                                cantEstudianteRUIII = Convert.ToInt32(por.Retirados_Portafolio);
-                                cantEstudianteABUIII = Convert.ToInt32(por.Abandono_Portafolio);
-                                cantEstudianteAUIII = Convert.ToInt32(por.Aprobados_Portafolio);
-                                cantEstudianteASUIII = cantEstudianteMa - cantEstudianteABUIII - cantEstudianteRUIII;
-                                cantEstudianteDUIII = cantEstudianteASUIII - cantEstudianteAUIII;
-
-                            }
-
-                        }
-                    }
-
-
+        foreach (var infof in informe)
+        {
+            if (infof.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+            {
+                if (infof.Estado_InformeFinal == "G")
+                {
+                    cantInformeG++;
+                }
+                else if (infof.Estado_InformeFinal == "E")
+                {
+                    cantInformeE++;
+                }
+                else if (infof.Estado_InformeFinal == "A")
+                {
+                    cantInformeA++;
+                }
+                else if (infof.Estado_InformeFinal == "R")
+                {
+                    cantInformeR++;
                 }
             }
 
+        }
 
-            <div class="row clearfix">
-                <div class="col-md-12">
-                    <div class="card-box">
-                        <center><h4 class="card-title">Estado Informe Prueba de Entrada</h4></center>
-                        <div id="container5"></div>
-                        <script type="text/javascript">
+
+        foreach (var por in portafolio)
+        {
+            if (por.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+            {
+                if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "G")
+                {
+                    cantGuardados++;
+                }
+                else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "E")
+                {
+                    cantEnviado++;
+                }
+                else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "A")
+                {
+                    cantAceptado++;
+                }
+
+
+                else if (por.Unidad_Portafolio == "UI" && por.Estado_Portafolio == "R")
+                {
+                    cantRechazado++;
+                }
+                if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "G")
+                {
+                    cantGuardados2++;
+                }
+                else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "E")
+                {
+                    cantEnviado2++;
+                }
+                else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "A")
+                {
+                    cantAceptado2++;
+                }
+
+                else if (por.Unidad_Portafolio == "UII" && por.Estado_Portafolio == "R")
+                {
+                    cantRechazado2++;
+                }
+                if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "G")
+                {
+                    cantGuardados3++;
+                }
+                else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "E")
+                {
+                    cantEnviado3++;
+                }
+                else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "A")
+                {
+                    cantAceptado3++;
+                }
+
+                else if (por.Unidad_Portafolio == "UIII" && por.Estado_Portafolio == "R")
+                {
+                    cantRechazado3++;
+                }
+
+                if (por.Unidad_Portafolio == "UI")
+                {
+                    //idpruebas = p.Codigo_Portafolio;
+                    cantEstudianteRUI = Convert.ToInt32(por.Retirados_Portafolio);
+                    cantEstudianteABUI = Convert.ToInt32(por.Abandono_Portafolio);
+                    cantEstudianteAUI = Convert.ToInt32(por.Aprobados_Portafolio);
+                    cantEstudianteASUI = cantEstudianteMa - cantEstudianteABUI - cantEstudianteRUI;
+                    cantEstudianteDUI = cantEstudianteASUI - cantEstudianteAUI;
+
+                }
+                else if (por.Unidad_Portafolio == "UII")
+                {
+                    //idpruebas = p.Codigo_Portafolio;
+                    cantEstudianteRUII = Convert.ToInt32(por.Retirados_Portafolio);
+                    cantEstudianteABUII = Convert.ToInt32(por.Abandono_Portafolio);
+                    cantEstudianteAUII = Convert.ToInt32(por.Aprobados_Portafolio);
+                    cantEstudianteASUII = cantEstudianteMa - cantEstudianteABUII - cantEstudianteRUII;
+                    cantEstudianteDUII = cantEstudianteASUII - cantEstudianteAUII;
+
+                }
+
+                else if (por.Unidad_Portafolio == "UIII")
+                {
+                    //idpruebas = p.Codigo_Portafolio;
+                    cantEstudianteRUIII = Convert.ToInt32(por.Retirados_Portafolio);
+                    cantEstudianteABUIII = Convert.ToInt32(por.Abandono_Portafolio);
+                    cantEstudianteAUIII = Convert.ToInt32(por.Aprobados_Portafolio);
+                    cantEstudianteASUIII = cantEstudianteMa - cantEstudianteABUIII - cantEstudianteRUIII;
+                    cantEstudianteDUIII = cantEstudianteASUIII - cantEstudianteAUIII;
+
+                }
+
+            }
+        }
+
+
+    }
+}
+
+
+<div class="row clearfix">
+    <div class="col-md-12">
+        <div class="card-box">
+            <center><h4 class="card-title">Estado Informe Prueba de Entrada</h4></center>
+            <div id="container5"></div>
+            <script type="text/javascript">
             Highcharts.chart('container5', {
                 chart: {
                     type: 'column'
@@ -315,17 +350,17 @@
                     }
                 ]
             });
-                        </script>
-                    </div>
-                </div>
-            </div>
+            </script>
+        </div>
+    </div>
+</div>
 
-            <div class="row clearfix">
-                <div class="col-md-4">
-                    <div class="card-box">
-                        <center><h4 class="card-title">Estado Informe Unidad I</h4></center>
-                        <div id="container2"></div>
-                        <script type="text/javascript">
+<div class="row clearfix">
+    <div class="col-md-4">
+        <div class="card-box">
+            <center><h4 class="card-title">Estado Informe Unidad I</h4></center>
+            <div id="container2"></div>
+            <script type="text/javascript">
                     Highcharts.chart('container2', {
                         chart: {
                             type: 'column'
@@ -391,15 +426,15 @@
                             }
                         ]
                     });
-                        </script>
-                    </div>
-                </div>
+            </script>
+        </div>
+    </div>
 
-                <div class="col-md-4">
-                    <div class="card-box">
-                        <center><h4 class="card-title">Estado Informe Unidad II</h4></center>
-                        <div id="container3"></div>
-                        <script type="text/javascript">
+    <div class="col-md-4">
+        <div class="card-box">
+            <center><h4 class="card-title">Estado Informe Unidad II</h4></center>
+            <div id="container3"></div>
+            <script type="text/javascript">
                     Highcharts.chart('container3', {
                         chart: {
                             type: 'column'
@@ -465,14 +500,14 @@
                             }
                         ]
                     });
-                        </script>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-box">
-                        <center><h4 class="card-title">Estado Informe Unidad III</h4></center>
-                        <div id="container4"></div>
-                        <script type="text/javascript">
+            </script>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card-box">
+            <center><h4 class="card-title">Estado Informe Unidad III</h4></center>
+            <div id="container4"></div>
+            <script type="text/javascript">
                     Highcharts.chart('container4', {
                         chart: {
                             type: 'column'
@@ -538,17 +573,17 @@
                             }
                         ]
                     });
-                        </script>
-                    </div>
-                </div>
-            </div>
+            </script>
+        </div>
+    </div>
+</div>
 
-            <div class="clearfix">
-                <div class="col-md-12">
-                    <div class="card-box">
-                        <center><h4 class="card-title">Estado Informe Informe Final</h4></center>
-                        <div id="container6"></div>
-                        <script type="text/javascript">
+<div class="clearfix">
+    <div class="col-md-12">
+        <div class="card-box">
+            <center><h4 class="card-title">Estado Informe Informe Final</h4></center>
+            <div id="container6"></div>
+            <script type="text/javascript">
         Highcharts.chart('container6', {
             chart: {
                 type: 'column'
@@ -614,19 +649,19 @@
                 }
             ]
         });
-                        </script>
-                    </div>
-                </div>
-            </div>
+            </script>
+        </div>
+    </div>
+</div>
 
 
-            <div class="row clearfix">
-                <div class="col-md-4">
-                    <div class="card-box">
-                        <center><h4 class="card-title">Estado Estudiantes UI</h4></center>
-                        <div id="container7"></div>
+<div class="row clearfix">
+    <div class="col-md-4">
+        <div class="card-box">
+            <center><h4 class="card-title">Estado Estudiantes UI</h4></center>
+            <div id="container7"></div>
 
-                        <script type="text/javascript">
+            <script type="text/javascript">
                     Highcharts.chart('container7', {
                         chart: {
 
@@ -672,15 +707,15 @@
                             }],
                         }]
                     });
-                        </script>
-                    </div>
-                </div>
+            </script>
+        </div>
+    </div>
 
-                <div class="col-md-4">
-                    <div class="card-box">
-                        <center><h4 class="card-title">Estado Estudiantes UII</h4></center>
-                        <div id="container8"></div>
-                        <script type="text/javascript">
+    <div class="col-md-4">
+        <div class="card-box">
+            <center><h4 class="card-title">Estado Estudiantes UII</h4></center>
+            <div id="container8"></div>
+            <script type="text/javascript">
                     Highcharts.chart('container8', {
                         chart: {
 
@@ -726,15 +761,15 @@
                             }],
                         }]
                     });
-                        </script>
-                    </div>
-                </div>
+            </script>
+        </div>
+    </div>
 
-                <div class="col-md-4">
-                    <div class="card-box">
-                        <center><h4 class="card-title">Estado Estudiantes III</h4></center>
-                        <div id="container9"></div>
-                        <script type="text/javascript">
+    <div class="col-md-4">
+        <div class="card-box">
+            <center><h4 class="card-title">Estado Estudiantes III</h4></center>
+            <div id="container9"></div>
+            <script type="text/javascript">
                     Highcharts.chart('container9', {
                         chart: {
 
@@ -780,7 +815,95 @@
                             }],
                         }]
                     });
-                        </script>
-                    </div>
-                </div>
-            </div>
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix">
+    <div class="card-box">
+        <div id="container"></div>
+
+        @*<div id="button-bar">
+                <button id="large">Large</button>
+                <button id="small">Small</button>
+            </div>*@
+        <script type="text/javascript">
+        var chart = Highcharts.chart('container', {
+
+            chart: {
+                type: 'column'
+            },
+
+            title: {
+                text: 'Estado Prueba de Entrada por Cursos'
+            },
+
+            legend: {
+                align: 'right',
+                verticalAlign: 'middle',
+                layout: 'vertical'
+            },
+
+            xAxis: {
+                categories: [@Html.Raw((String)cadenaHighchart)],
+                labels: {
+                    x: -10
+                }
+            },
+
+            yAxis: {
+                allowDecimals: false,
+                title: {
+                    text: 'Porcentaje'
+                }
+            },
+
+            series: [@Html.Raw((String)name)
+
+            ],
+
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 500
+                    },
+                    chartOptions: {
+                        legend: {
+                            align: 'center',
+                            verticalAlign: 'bottom',
+                            layout: 'horizontal'
+                        },
+                        yAxis: {
+                            labels: {
+                                align: 'left',
+                                x: 0,
+                                y: -5
+                            },
+                            title: {
+                                text: null
+                            }
+                        },
+                        subtitle: {
+                            text: null
+                        },
+                        credits: {
+                            enabled: false
+                        }
+                    }
+                }]
+            }
+        });
+
+        $('#small').click(function () {
+            chart.setSize(400, 300);
+        });
+
+        $('#large').click(function () {
+            chart.setSize(600, 300);
+        });
+
+        </script>
+    </div>
+
+</div>
