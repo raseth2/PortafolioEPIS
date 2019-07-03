@@ -714,6 +714,7 @@
                                 </nav>
                             </div>
                         </div>
+                        <label>@usuario.Codigo_Docente + @Model.Codigo_DetalleCargaAcademica</label>
                         <div class="row">
 
                             <div class="col-sm-12 col-12 text-right m-b-20">
@@ -732,7 +733,7 @@
                                         <h4 class="modal-title">Capacidad del Curso</h4>
                                     </div>
 
-                                    @{Html.RenderAction("AgregarCapacidadCurso", "InformeFinalDocente", new { idInformeFinal = idpruebas, idPruebaDoc = usuario.Codigo_Docente }); }
+                                    @{Html.RenderAction("AgregarCapacidadCurso", "InformeFinalDocente", new { idInformeFinal = idpruebas, idPruebaDoc = Model.Codigo_DetalleCargaAcademica }); }
 
                                 </div>
                             </div>
@@ -740,7 +741,7 @@
 
 
 
-                        @{Html.RenderAction("ListarCapacidadCurso", "InformeFinalDocente", new { idInformeFinal = idpruebas, idPruebaDoc = usuario.Codigo_Docente }); }
+                        @{Html.RenderAction("ListarCapacidadCurso", "InformeFinalDocente", new { idInformeFinal = idpruebas, idPruebaDoc = Model.Codigo_DetalleCargaAcademica }); }
 
 
 
