@@ -72,121 +72,140 @@
     </tr>
 </table>
 
+<table class="table">
+    <tr>
+        <td>
+            <table>
+                <tr>
+                    <th width="23%" style="text-align:left;background-color:#FFF;">Semestre:</th>
+                    <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_Semestre.Nombre_Semestre" size="15" /></td>
+                    <th width="18%" style="text-align:right;background-color:#FFF;"></th>
+                </tr>
+            </table>
+            <strong>Resumen del Curso para la Unidad:</strong>
 
-<div id="lateral">
-    <table>
-        <tr>
-            <th width="23%" style="text-align:left">Semestre:</th>
-            <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_Semestre.Nombre_Semestre" size="15" /></td>
-            <th width="18%" style="text-align:right"></th>
-        </tr>
-    </table>
-    <strong>Resumen del Curso para la Unidad:</strong>
-
-    @foreach (var p in prueba)
-    {
-        if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
-        {
-
-
-            idpruebas = p.Codigo_InformeFinal;
-            detallecarga = p.Codigo_DetalleCargaAcademica;
-            porcentajesilabo = Convert.ToInt32(p.PorcentajeSilabo_InformeFinal);
-            practicascalificadas = Convert.ToInt32(p.PracticasCalificadas_InformeFinal);
-            laboratoriosrealizados = Convert.ToInt32(p.LaboratoriosRealizados_InformeFinal);
-            trabajosrealizados = Convert.ToInt32(p.TrabajosRealizados_InformeFinal);
-            //codigoportafo = p.Codigo_Portafolio;
-            estudiantesmatriculados = Convert.ToInt32(p.EstudiantesMatriculados_InformeFinal);
-            estudiantesretiro = Convert.ToInt32(p.EstudiantesRetiro_InformeFinal);
-            estudiantesabandono = Convert.ToInt32(p.EstudiantesAbandono_InformeFinal);
-            estudiantesasisten = Convert.ToInt32(p.EstudiantesAsisten_InformeFinal);
-            estudiantesaprobados = Convert.ToInt32(p.EstudiantesAprobados_InformeFinal);
-            estudiantesdesaprobados = Convert.ToInt32(p.EstudiantesDesaprobados_InformeFinal);
-            notamasalta = Convert.ToInt32(p.NotaAlta_InformeFinal);
-            notapromedio = Convert.ToInt32(p.NotaPromedio_InformeFinal);
-            notamasbaja = Convert.ToInt32(p.NotaBaja_InformeFinal);
+            @foreach (var p in prueba)
+            {
+                if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica)
+                {
 
 
-        }
-    }
-    <table border="1" class="table">
-        <tr>
-            <th>Estudiantes</th>
-            <th>Cantidad</th>
-            <th>Porcentaje</th>
-        </tr>
-        <tr>
-            <td>Porcentaje de cumplimiento del silabo </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@porcentajesilabo</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(porcentajesilabo) * 100) / Convert.ToDouble(100), 2)) %</td>
-        </tr>
-        <tr>
-            <td>Practicas calificadas realizadas </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@practicascalificadas</td>
-            <td style="text-align:center;">100 %</td>
-        </tr>
-        <tr>
-            <td>Experiencias de laboratorio realizadas  </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@laboratoriosrealizados</td>
-            <td style="text-align:center;">100%</td>
-        </tr>
-        <tr>
-            <td>Proyectos y/o trabajos de  realizados   </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@trabajosrealizados</td>
-            <td style="text-align:center;">100 %</td>
-        </tr>
-        <tr>
-            <td>Estudiantes matriculados</td>
-            <td style="text-align:center;background-color:#F2E2C4;">@Model.Matriculados_DetalleCargaAcademica</td>
-            <td style="text-align:center;">100 %</td>
-        </tr>
-        <tr>
-            <td>Estudiantes con retiro  </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesretiro</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesretiro) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
-        </tr>
-        <tr>
-            <td>Estudiantes en abandono  </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesabandono</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesabandono) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
-        </tr>
-        <tr>
-            <td>Estudiantes que asisten </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesasisten</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesasisten) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
-        </tr>
+                    idpruebas = p.Codigo_InformeFinal;
+                    detallecarga = p.Codigo_DetalleCargaAcademica;
+                    porcentajesilabo = Convert.ToInt32(p.PorcentajeSilabo_InformeFinal);
+                    practicascalificadas = Convert.ToInt32(p.PracticasCalificadas_InformeFinal);
+                    laboratoriosrealizados = Convert.ToInt32(p.LaboratoriosRealizados_InformeFinal);
+                    trabajosrealizados = Convert.ToInt32(p.TrabajosRealizados_InformeFinal);
+                    //codigoportafo = p.Codigo_Portafolio;
+                    estudiantesmatriculados = Convert.ToInt32(p.EstudiantesMatriculados_InformeFinal);
+                    estudiantesretiro = Convert.ToInt32(p.EstudiantesRetiro_InformeFinal);
+                    estudiantesabandono = Convert.ToInt32(p.EstudiantesAbandono_InformeFinal);
+                    estudiantesasisten = Convert.ToInt32(p.EstudiantesAsisten_InformeFinal);
+                    estudiantesaprobados = Convert.ToInt32(p.EstudiantesAprobados_InformeFinal);
+                    estudiantesdesaprobados = Convert.ToInt32(p.EstudiantesDesaprobados_InformeFinal);
+                    notamasalta = Convert.ToInt32(p.NotaAlta_InformeFinal);
+                    notapromedio = Convert.ToInt32(p.NotaPromedio_InformeFinal);
+                    notamasbaja = Convert.ToInt32(p.NotaBaja_InformeFinal);
 
-        <tr>
-            <td>Estudiantes aprobados </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesaprobados</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesaprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
-        </tr>
-        <tr>
-            <td>Estudiantes desaprobados </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@estudiantesdesaprobados</td>
-            <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesdesaprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
-        </tr>
-        <tr>
-            <td>Nota final mas alta  </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@notamasalta</td>
 
-        </tr>
-        <tr>
-            <td>Nota final promedio  </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@notapromedio</td>
+                }
+            }
+            <table border="1" class="table">
+                <tr>
+                    <th>Estudiantes</th>
+                    <th>Cantidad</th>
+                    <th>Porcentaje</th>
+                </tr>
+                <tr>
+                    <td>Porcentaje de cumplimiento del silabo </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@porcentajesilabo</td>
+                    <td style="text-align:center;">@(Math.Round((Convert.ToDouble(porcentajesilabo) * 100) / Convert.ToDouble(100), 2)) %</td>
+                </tr>
+                <tr>
+                    <td>Practicas calificadas realizadas </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@practicascalificadas</td>
+                    <td style="text-align:center;">100 %</td>
+                </tr>
+                <tr>
+                    <td>Experiencias de laboratorio realizadas  </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@laboratoriosrealizados</td>
+                    <td style="text-align:center;">100%</td>
+                </tr>
+                <tr>
+                    <td>Proyectos y/o trabajos de  realizados   </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@trabajosrealizados</td>
+                    <td style="text-align:center;">100 %</td>
+                </tr>
+                <tr>
+                    <td>Estudiantes matriculados</td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@Model.Matriculados_DetalleCargaAcademica</td>
+                    <td style="text-align:center;">100 %</td>
+                </tr>
+                <tr>
+                    <td>Estudiantes con retiro  </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@estudiantesretiro</td>
+                    <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesretiro) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+                </tr>
+                <tr>
+                    <td>Estudiantes en abandono  </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@estudiantesabandono</td>
+                    <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesabandono) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+                </tr>
+                <tr>
+                    <td>Estudiantes que asisten </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@estudiantesasisten</td>
+                    <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesasisten) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+                </tr>
 
-        </tr>
-        <tr>
-            <td>Nota final mas baja   </td>
-            <td style="text-align:center;background-color:#F2E2C4;">@notamasbaja</td>
+                <tr>
+                    <td>Estudiantes aprobados </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@estudiantesaprobados</td>
+                    <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesaprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+                </tr>
+                <tr>
+                    <td>Estudiantes desaprobados </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@estudiantesdesaprobados</td>
+                    <td style="text-align:center;">@(Math.Round((Convert.ToDouble(estudiantesdesaprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2)) %</td>
+                </tr>
+                <tr>
+                    <td>Nota final mas alta  </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@notamasalta</td>
 
-        </tr>
-    </table>
-</div>
+                </tr>
+                <tr>
+                    <td>Nota final promedio  </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@notapromedio</td>
 
-<div id="principal">
-    <p>Aquí ira el contenido principal a lado del contenido o menú lateral</p>
-</div>
+                </tr>
+                <tr>
+                    <td>Nota final mas baja   </td>
+                    <td style="text-align:center;background-color:#F2E2C4;">@notamasbaja</td>
+
+                </tr>
+            </table>
+        </td>
+        <td>
+            <img src="~/assets/Informes/final/estudiantes.png" style="min-width: 350px; height: 300px; max-width: 400px; margin: 0 auto" />
+        </td>
+
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <td>
+            <img src=" />
+            <img src="~/assets/Informes/final/situacion-general.png" style="min-width: 350px; height: 300px; max-width: 400px; margin: 0 auto" />
+        </td>
+
+        <td>
+            <img src="~/assets/Informes/final/rendimiento.png" style="min-width: 300px; height: 300px; max-width: 400px; margin: 0 auto" />
+        </td>
+
+    </tr>
+</table>
+
+
 
 <table class="table">
     <tr>

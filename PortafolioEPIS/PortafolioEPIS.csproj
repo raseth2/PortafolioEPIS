@@ -654,6 +654,9 @@
     <Content Include="assets\img\video-call.jpg" />
     <Content Include="assets\Informes\asistencia_estudiantes.png" />
     <Content Include="assets\Informes\conocimiento-habilidad.png" />
+    <Content Include="assets\Informes\final\estudiantes.png" />
+    <Content Include="assets\Informes\final\rendimiento.png" />
+    <Content Include="assets\Informes\final\situacion-general.png" />
     <Content Include="assets\Informes\logo_pdf.PNG" />
     <Content Include="assets\Informes\portafolio.css" />
     <Content Include="assets\Informes\prueba_entrada.css" />
@@ -1105,6 +1108,7 @@
     <Content Include="Areas\AreaDocente\Views\PortafolioU1Docente\ListaPDFPortafolioU1.cshtml" />
     <Content Include="Areas\AreaDocente\Views\PortafolioU2Docente\ListaPDFPortafolioU2.cshtml" />
     <Content Include="Areas\AreaDocente\Views\PortafolioU3Docente\ListaPDFPortafolioU3.cshtml" />
+    <Content Include="assets\Informes\final\Thumbs.db" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
