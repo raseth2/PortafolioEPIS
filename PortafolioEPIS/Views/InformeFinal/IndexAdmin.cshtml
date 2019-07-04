@@ -1,4 +1,5 @@
-﻿@model List<PortafolioEPIS.Models.Tbl_CargaAcademica>
+﻿
+@model List<PortafolioEPIS.Models.Tbl_CargaAcademica>
 
 @{
     ViewBag.Title = "Index";
@@ -38,7 +39,7 @@
                             num = num + 1;
                             <tr>
                                 <td>@num</td>
-                                <td><a href="~/PruebaEntrada/IndexLista/@p.Codigo_CargaAcademica">@p.Tbl_Semestre.Nombre_Semestre</a> </td>
+                                <td><a href="~/InformeFinal/IndexLista/@p.Codigo_CargaAcademica">@p.Tbl_Semestre.Nombre_Semestre</a> </td>
                                 <td>@p.Nombre_CargaAcademica</td>
                                 <td>@p.FechaInicio_CargaAcademica</td>
                                 <td>@p.FechaFin_CargaAcademica</td>

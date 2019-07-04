@@ -11,7 +11,7 @@
     PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
     List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica> detalleCargaAcademicas = new PortafolioEPIS.Models.Tbl_DetalleCargaAcademica().Listar();
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = new PortafolioEPIS.Models.Tbl_PruebaEntrada().Listar();
-
+    List<PortafolioEPIS.Models.Tbl_InformeFinal> informe = new PortafolioEPIS.Models.Tbl_InformeFinal().Listar();
 
 }
 
@@ -130,8 +130,14 @@
                             int cant_rechazado=0;
                             int cant_aceptado = 0;
                             int cant_noguardado = 0;
-                            int total_Portafolio= 0;
-                            
+                            int cant_guardado1 = 0;
+                            int cant_enviado1 = 0;
+                            int cant_rechazado1 = 0;
+                            int cant_aceptado1 = 0;
+                            int cant_noguardado1 = 0;
+                            int total_PruebaEntrada = 0;
+                            int total_InformeFinal = 0;
+
                         }
                         @foreach (var item in detalleCargaAcademicas)
                         {
@@ -143,7 +149,7 @@
                                     estadoss = q.Estado_PruebaEntrada;
 
                                 }
-                               
+
                             }
                             if (estadoss == "G")
                             {
@@ -170,19 +176,59 @@
                                 cant_noguardado++;
 
                             }
+
+                            string estadoinformefinal = null;
+                            foreach (var q in informe)
+                            {
+                                if (item.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                {
+                                    estadoinformefinal = q.Estado_InformeFinal;
+
+                                }
+
+                            }
+
+                            if (estadoinformefinal == "G")
+                            {
+                                cant_guardado1++;
+
+                            }
+                            if (estadoinformefinal == "E")
+                            {
+                                cant_enviado1++;
+
+                            }
+                            if (estadoinformefinal == "R")
+                            {
+                                cant_rechazado1++;
+
+                            }
+                            if (estadoinformefinal == "A")
+                            {
+                                cant_aceptado1++;
+
+                            }
+                            if (estadoinformefinal == null)
+                            {
+                                cant_noguardado1++;
+
+                            }
                         }
                         @{ 
-                            total_Portafolio = cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado;
+                            total_PruebaEntrada = cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado;
+                            total_InformeFinal= cant_aceptado1 + cant_enviado1 + cant_guardado1 + cant_noguardado1 + cant_rechazado1;
                         }
+
+
                         <li class="menu-title">Informes</li>
                         <li>
-                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">@total_Portafolio</span></a>
+                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">@total_PruebaEntrada</span></a>
                         </li>
                         <li>
                             <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Portafolio</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
                         </li>
                         <li>
-                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Final</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                            <a href="~/InformeFinal/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Final</span> <span class="badge badge-pill bg-primary float-right">@total_InformeFinal</span></a>
                         </li>
                     </ul>
                 </div>
@@ -232,8 +278,6 @@
     <script src="~/assets/HighCharts/modules/pattern-fill.js"></script>
     <script src="~/assets/HighCharts/modules/drilldown.js"></script>
     <script src="~/assets/HighCharts/modules/offline-exporting.js"></script>
-    <script src="~/assets/HighCharts/modules/sankey.js"></script>
-    <script src="~/assets/HighCharts/modules/organization.js"></script>
 
     <script>
         $(function (e) {

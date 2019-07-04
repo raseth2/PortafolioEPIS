@@ -80,7 +80,7 @@ namespace PortafolioEPIS.Controllers.Informes
 
            
                 
-                objPruebaEntrada.Estado_PruebaEntrada = estado;
+            objPruebaEntrada.Estado_PruebaEntrada = estado;
            
            
 

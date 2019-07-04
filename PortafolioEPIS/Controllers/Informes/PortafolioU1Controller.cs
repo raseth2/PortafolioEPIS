@@ -23,32 +23,39 @@ namespace PortafolioEPIS.Controllers.Informes
             return View();
         }
 
-
+        public ActionResult IndexLista(int id = 0)
+        {
+            ViewBag.id = id;
+            //ViewBag.prueba = objPruebaEntrada.Listar();
+            //ViewBag.carga = objCargaAcademica.Listar();
+            return View(objDetalleCargaAcademica.Listar());
+        }
         // Accion Agregar
         public ActionResult Agregar(int id)
         {
             ViewBag.prueba = objPortafolio.Listar();
+            ViewBag.material = objMaterial.Listar1();
             List<Tbl_Portafolio> listPortafolio = objPortafolio.Listar();
             int foerach = 0;
 
-                              
-                foreach (var listaportafolio in listPortafolio)
+
+            foreach (var listaportafolio in listPortafolio)
+            {
+                if (listaportafolio.Codigo_DetalleCargaAcademica == id)
                 {
-                    if (listaportafolio.Codigo_DetalleCargaAcademica == id)
-                    {
-                        ViewBag.ListarEvidencia = objMaterial.Listar(listaportafolio.Codigo_Portafolio); //obtener la lista deevidencias de un  portafolio
-                        foerach++;
-                    }
-                   
+                    ViewBag.ListarEvidencia = objMaterial.Listar(listaportafolio.Codigo_Portafolio); //obtener la lista deevidencias de un  portafolio
+                    foerach++;
                 }
+
+            }
 
             if (foerach == 0)
             {
                 ViewBag.ListarEvidencia = objMaterial.Listar(0); //obtener la lista deevidencias de un  portafolio
             }
-            
 
-           // ViewBag.ObtenerEvidencia = objMaterial.ObtenerEvidencia(id);//esto es en el caso de s¿que se agregue modificar
+
+            // ViewBag.ObtenerEvidencia = objMaterial.ObtenerEvidencia(id);//esto es en el caso de s¿que se agregue modificar
             return View(objDetalleCargaAcademica.Obtener(id));
         }
 
