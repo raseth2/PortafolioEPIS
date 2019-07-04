@@ -538,6 +538,7 @@
     <Content Include="assets\HighCharts\modules\oldie-polyfills.src.js" />
     <Content Include="assets\HighCharts\modules\oldie.js" />
     <Content Include="assets\HighCharts\modules\oldie.src.js" />
+    <Content Include="assets\HighCharts\modules\organization.js" />
     <Content Include="assets\HighCharts\modules\overlapping-datalabels.js" />
     <Content Include="assets\HighCharts\modules\overlapping-datalabels.src.js" />
     <Content Include="assets\HighCharts\modules\parallel-coordinates.js" />
@@ -1178,6 +1179,9 @@
     <Content Include="Views\Usuario\Seleccionar.cshtml" />
     <Content Include="Views\PruebaPDF\ListaPDFPruebaEntrada2.cshtml" />
     <Content Include="Views\PruebaEntrada\probando.cshtml" />
+    <Content Include="Views\InformeFinal\IndexAdmin.cshtml" />
+    <Content Include="Views\InformeFinal\IndexLista.cshtml" />
+    <Content Include="Views\PortafolioU1\IndexLista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,5 @@
 ﻿@{
+    List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica> detallecarga = new PortafolioEPIS.Models.Tbl_DetalleCargaAcademica().Listar();
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = new PortafolioEPIS.Models.Tbl_CargaAcademica().Listar();
     List<PortafolioEPIS.Models.Tbl_PlanEstudio> plan = new PortafolioEPIS.Models.Tbl_PlanEstudio().Listar();
     List<PortafolioEPIS.Models.Tbl_Docente> docente = new PortafolioEPIS.Models.Tbl_Docente().Listar();
@@ -9,7 +10,17 @@
     string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
     PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
 
+    int cont_carga = 0;
 }
+
+@foreach (var car in detallecarga)
+{
+    if (car.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+    {
+        cont_carga++;
+    }
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,23 +109,25 @@
                                 <a href="~/AreaDocente/Dashboard/Index"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                             </li>
                             <li>
-                                <a href="~/AreaDocente/MiCargaAcademica/VerDocente/@usuario.Tbl_Docente.Codigo_Docente"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right"></span></a>
+                                <a href="~/AreaDocente/MiCargaAcademica/VerDocente/@usuario.Tbl_Docente.Codigo_Docente"><i class="fa fa-cube"></i> <span>Carga Académica</span> <span class="badge badge-pill bg-primary float-right">@cont_carga</span></a>
                             </li>
                             <li>
 
-                                <a href="~/AreaDocente/MiPerfil/Index/@usuario.Tbl_Docente.Codigo_Docente"><i class="fa fa-user"></i> <span>Mi Perfil</span> <span class="badge badge-pill bg-primary float-right"></span></a>
+                                <a href="~/AreaDocente/MiPerfil/Index/@usuario.Tbl_Docente.Codigo_Docente"><i class="fa fa-user"></i> <span>Mi Perfil</span> </a>
+                            </li>                            
+                            <li>
+                                <a href="#"><i class="fa fa-folder"></i> <span>Mi Directorio</span> <span class="badge badge-pill bg-primary float-right">New</span></a>
                             </li>
-                            
                             @*<li class="menu-title">Informes</li>
-                            <li>
-                                <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
-                            </li>
-                            <li>
-                                <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Portafolio</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
-                            </li>
-                            <li>
-                                <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Final</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
-                            </li>*@
+        <li>
+            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+        </li>
+        <li>
+            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Portafolio</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+        </li>
+        <li>
+            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Final</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+        </li>*@
                         </ul>
                     </div>
                 </div>

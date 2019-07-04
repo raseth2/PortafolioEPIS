@@ -23,7 +23,13 @@ namespace PortafolioEPIS.Controllers.Informes
             return View();
         }
 
-
+        public ActionResult IndexLista(int id = 0)
+        {
+            ViewBag.id = id;
+            //ViewBag.prueba = objPruebaEntrada.Listar();
+            //ViewBag.carga = objCargaAcademica.Listar();
+            return View(objDetalleCargaAcademica.Listar());
+        }
         // Accion Agregar
         public ActionResult Agregar(int id)
         {
