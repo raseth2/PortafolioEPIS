@@ -1052,7 +1052,7 @@
 <div class="card-box ">
     <div class="row clearfix">
         <div class="col-md-12">
-            <center><h2 class="text-primary">RESUMEN GENEARAL DE INFORMES</h2></center>
+            <center><h2 class="text-primary">RESUMEN GENERAL DE INFORMES</h2></center>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS POR ESTADO</li>
@@ -1327,12 +1327,13 @@
         </div>
 
     </div>
+
     <div class="row clearfix">
         <div class="col-md-12">
             <div class="card-box">
-                <div id="container0f"></div>
+                <div id="containerin"></div>
                 <script type="text/javascript">
-                    Highcharts.chart('container0f', {
+                    Highcharts.chart('containerin', {
                         chart: {
                             type: 'bar'
                         },
@@ -1403,6 +1404,83 @@
                 </script>
             </div>
         </div>
-    </div>
-</div>
+        @*<div class="row clearfix">
+                <div class="col-md-6">
+                    <div class="card-box">
+                        <div id="container0f"></div>
+                        <script type="text/javascript">
+                            Highcharts.chart('container0f', {
+                                chart: {
+                                    type: 'column'
+                                },
+                                title: {
+                                    text: 'Informe Final'
+                                },
+                                xAxis: {
+                                    type: 'category'
+                                },
+                                yAxis: {
+                                    title: {
+                                        text: 'Cantidad total'
+                                    }
 
+                                },
+                                legend: {
+                                    enabled: false
+                                },
+                                ooltip: {
+                                    headerFormat: '<b>{point.x}</b><br/>',
+                                    pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                                }, plotOptions: {
+                                    column: {
+                                        stacking: 'normal',
+                                        dataLabels: {
+                                            enabled: true,
+                                        },
+                                        showInLegend: true,
+                                    }
+                                },
+
+                                series: [
+                                    {
+                                        name: "Estado",
+                                        colorByPoint: true,
+                                        data: [
+                                            {
+                                    name: 'No Generado',
+                                    color: '#8C8C8C',
+                                    y: @cant_noguardadoi,
+
+                                }, {
+                                    name: 'Guardado',
+                                        color: '#0597F2',
+                                    y: @cant_guardadoi,
+
+                                    },{
+                                    name: 'Enviado',
+                                        color: '#8416F2',
+                                    y: @cant_enviadoi,
+
+                                },{
+                                    name: 'Rechazado',
+                                        color: '#F20505',
+                                    y: @cant_rechazadoi,
+
+                                },{
+                                    name: 'Aceptado',
+                                        color: '#04D976',
+                                    y: @cant_aceptadoi,
+
+                                },
+
+                                        ]
+                                    }
+                                ]
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+
+</div>
