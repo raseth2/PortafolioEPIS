@@ -64,6 +64,23 @@ namespace PortafolioEPIS.Models
             return objTbl_Material;
         }
 
+
+        public List<Tbl_Material> Listar1()//Retorna una coleccion de registros
+        {
+            var objMaterial = new List<Tbl_Material>();
+            try
+            {
+                using (var db = new Modelo_Portafolio())
+                {
+                    objMaterial = db.Tbl_Material.Include("Tbl_Portafolio").ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objMaterial;
+        }
         //metodo obtener
         public Tbl_Material Obtener(int id)//retorna solo un objeto
         {
@@ -93,7 +110,7 @@ namespace PortafolioEPIS.Models
             {
                 using (var db = new Modelo_Portafolio())
                 {
-                    if (this.Codigo_Material > 0)
+                    if (this.Codigo_Material > 0 )
                     {
                         //si existe un valor mayor a 0 es porque existe un registro
                         db.Entry(this).State = EntityState.Modified;

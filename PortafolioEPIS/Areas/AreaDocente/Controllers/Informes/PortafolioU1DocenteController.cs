@@ -26,6 +26,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
         public ActionResult Agregar(int id)
         {
             ViewBag.prueba = objPortafolio.Listar();
+            ViewBag.material = objMaterial.Listar1();
             List<Tbl_Portafolio> listPortafolio = objPortafolio.Listar();
             int foerach = 0;
 
