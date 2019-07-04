@@ -13,8 +13,9 @@ namespace PortafolioEPIS.Controllers.Informes
         private Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
         private Tbl_Motivo objMotivo = new Tbl_Motivo();
         private Tbl_CapacidadesCurso objCapacidadesCurso = new Tbl_CapacidadesCurso();
-
+ 
         private Tbl_InformeFinal objInformeFinal = new Tbl_InformeFinal();
+        private Tbl_CargaAcademica objCargaAcademica = new Tbl_CargaAcademica();
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
         private Tbl_Portafolio objportafolio = new Tbl_Portafolio();
         //Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
@@ -22,6 +23,18 @@ namespace PortafolioEPIS.Controllers.Informes
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult IndexAdmin()
+        {
+            return View(objCargaAcademica.Listar());
+        }
+        public ActionResult IndexLista(int id = 0)
+        {
+            ViewBag.id = id;
+            ViewBag.informe = objInformeFinal.Listar();
+            ViewBag.carga = objCargaAcademica.Listar();
+            return View(objDetalleCargaAcademica.Listar());
         }
         // Metodo Agregar
         public ActionResult Agregar(int id)
@@ -144,6 +157,24 @@ namespace PortafolioEPIS.Controllers.Informes
 
         }
 
+        public ActionResult GuardarEstado(Tbl_InformeFinal objInformeFinal, int id = 0, int codigodetalle = 0, int evaluados = 0, string estado = null, int iddocente = 0)
+        {
+
+
+
+            objInformeFinal.Estado_InformeFinal = estado;
+
+
+
+            objInformeFinal.Codigo_InformeFinal= id;
+            objInformeFinal.Codigo_DetalleCargaAcademica = codigodetalle;
+            objInformeFinal.EstudiantesMatriculados_InformeFinal = evaluados;
+            objInformeFinal.Fecha_InformeFinal = DateTime.Now;
+            objInformeFinal.Guardar();
+
+            return Redirect("~/Docente/Ver/" + iddocente);
+
+        }
         ///////////////////////////////////////////////////////////////////////////////////////////////
         //Action Guardar
         public ActionResult GuardarMotivo(Tbl_Motivo objmotivoGuardar, int idPruebaDoc)
