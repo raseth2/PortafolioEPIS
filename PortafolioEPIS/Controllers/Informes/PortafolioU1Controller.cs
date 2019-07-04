@@ -57,7 +57,7 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             if (archivo != null)
             {
-
+                string i = Server.MapPath("");
                 archivo.SaveAs(Server.MapPath("~/Imagen/" + archivo.FileName));
                 objEvidencia.Archivo_Material = archivo.FileName;
                 objEvidencia.TipoArchivo_Material = Path.GetExtension(archivo.FileName);
