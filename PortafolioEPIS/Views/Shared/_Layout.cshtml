@@ -124,14 +124,14 @@
                                 <li><a href="~/Usuario/Index">Usuario</a></li>
                             </ul>
                         </li>
-                        @{ 
+                        @{
                             int cant_guardado = 0;
                             int cant_enviado = 0;
-                            int cant_rechazado=0;
+                            int cant_rechazado = 0;
                             int cant_aceptado = 0;
                             int cant_noguardado = 0;
-                            int total_Portafolio= 0;
-                            
+                            int total_Portafolio = 0;
+
                         }
                         @foreach (var item in detalleCargaAcademicas)
                         {
@@ -143,7 +143,7 @@
                                     estadoss = q.Estado_PruebaEntrada;
 
                                 }
-                               
+
                             }
                             if (estadoss == "G")
                             {
@@ -171,7 +171,7 @@
 
                             }
                         }
-                        @{ 
+                        @{
                             total_Portafolio = cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado;
                         }
                         <li class="menu-title">Informes</li>
@@ -183,6 +183,10 @@
                         </li>
                         <li>
                             <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Final</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                        </li>
+                        <li class="menu-title">Reportes</li>
+                        <li>
+                            <a href="~/PruebaPDF/Reporte"><i class="fa fa-folder-open"></i> <span>Docente y Cursos</span> <span class="badge badge-pill bg-primary float-right">@c</span></a>
                         </li>
                     </ul>
                 </div>
