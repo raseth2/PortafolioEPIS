@@ -34,9 +34,10 @@ namespace PortafolioEPIS.Controllers.Informes
         public ActionResult IndexLista(int id = 0)
         {
             ViewBag.id = id;
+            ViewBag.Tbl_CargaAcademica_id = objCargaAcademica.Obtener(id);
             ViewBag.informe = objInformeFinal.Listar();
             ViewBag.carga = objCargaAcademica.Listar();
-            return View(objDetalleCargaAcademica.Listar());
+            return View(objDetalleCargaAcademica.Listar2(id));
         }
         // Metodo Agregar
         public ActionResult Agregar(int id)
