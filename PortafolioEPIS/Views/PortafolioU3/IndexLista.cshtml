@@ -1,13 +1,11 @@
-﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
+﻿
+@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
 @{
 
- 
-    int id = 0;
-    string nombre_semestre = null;
-    PortafolioEPIS.Models.Tbl_CargaAcademica objCargaAcademica = ViewBag.Tbl_CargaAcademica_id;
 
-    List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = ViewBag.Prueba;
+    List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio1 = ViewBag.Portafolio1;
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = ViewBag.Carga;
+    PortafolioEPIS.Models.Tbl_CargaAcademica objCargaAcademica = ViewBag.Tbl_CargaAcademica_id;
     int idpruebas = 0;
     string estado = null;
     string unidad = "";
@@ -15,7 +13,8 @@
 }
 <div class="row">
     <div class="col-sm-12 col-12">
-        <h4 class="page-title">Lista de Informes de Prueba de entrada <strong>@objCargaAcademica.Tbl_Semestre.Nombre_Semestre</strong></h4>
+        <h3><strong> Semestre: @objCargaAcademica.Tbl_Semestre.Nombre_Semestre</strong></h3>
+        <h4 class="page-title">Lista de Informes de Portafolio Unidad III</h4>
     </div>
 </div>
 
@@ -63,21 +62,19 @@
                                         int cant_enviado = 0;
                                         int cant_rechazado = 0;
                                         int cant_aceptado = 0;
-                                        }
+                                    }
                                     @foreach (var p in Model)
                                     {
                                         string estadoss = null;
-                                        nombre_semestre = p.Tbl_Semestre.Nombre_Semestre;
-                                        id = p.Codigo_Semestre;
                                         int codigoPrueba = 0, evaluados = 0;
                                         num = num + 1;
-                                        foreach (var q in prueba)
+                                        foreach (var q in portafolio1)
                                         {
-                                            if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                            if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                             {
-                                                estadoss = q.Estado_PruebaEntrada;
-                                                codigoPrueba = q.Codigo_PruebaEntrada;
-                                                evaluados = q.Evaluados_PruebaEntrada;
+                                                estadoss = q.Estado_Portafolio;
+                                                codigoPrueba = q.Codigo_Portafolio;
+                                                //evaluados = q.Evaluados_PruebaEntrada;
                                             }
                                         }
                                         <tr>
@@ -166,7 +163,7 @@
 
 
                         <!--Resumen general de Semestre-->
-                        <br />                        
+                        <br />
                         <div class="card-box profile-header">
 
                             <div class="row clearfix">
@@ -204,7 +201,7 @@
                                                     <span class="title">Rechazado:</span>
                                                     <span class="text">@cant_rechazado</span>
                                                     <span class="title">Total:</span>
-                                                    <span class="text">@(cant_aceptado+cant_enviado+cant_guardado+cant_noguardado+cant_rechazado)</span>
+                                                    <span class="text">@(cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado)</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -255,7 +252,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -414,13 +411,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num1 = num1 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -599,7 +596,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -751,13 +748,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num2 = num2 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -936,7 +933,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -1088,13 +1085,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num3 = num3 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -1273,7 +1270,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -1425,13 +1422,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num4 = num4 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -1610,7 +1607,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -1762,13 +1759,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num5 = num5 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -1947,7 +1944,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -2099,13 +2096,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num6 = num6 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -2284,7 +2281,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -2436,13 +2433,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num7 = num7 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -2570,7 +2567,7 @@
                                                     <span class="title">Rechazado:</span>
                                                     <span class="text">@cant_rechazado7</span>
                                                     <span class="title">Total:</span>
-                                                    <span class="text">@(cant_aceptado7 + cant_enviado7 + cant_guardado7 + cant_noguardado7+ cant_rechazado7)</span>
+                                                    <span class="text">@(cant_aceptado7 + cant_enviado7 + cant_guardado7 + cant_noguardado7 + cant_rechazado7)</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -2621,7 +2618,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -2773,13 +2770,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num8 = num8 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -2958,7 +2955,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -3099,7 +3096,7 @@
                                     @{ int num9 = 0;
                                         int cant_noguardado9 = 0;
                                         int cant_guardado9 = 0;
-                                        int cant_enviado9= 0;
+                                        int cant_enviado9 = 0;
                                         int cant_rechazado9 = 0;
                                         int cant_aceptado9 = 0;
                                     }
@@ -3110,13 +3107,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num9 = num9 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -3295,7 +3292,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',
@@ -3447,13 +3444,13 @@
                                             string estadoss = null;
                                             int codigoPrueba = 0, evaluados = 0;
                                             num10 = num10 + 1;
-                                            foreach (var q in prueba)
+                                            foreach (var q in portafolio1)
                                             {
-                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
+                                                if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UIII")
                                                 {
-                                                    estadoss = q.Estado_PruebaEntrada;
-                                                    codigoPrueba = q.Codigo_PruebaEntrada;
-                                                    evaluados = q.Evaluados_PruebaEntrada;
+                                                    estadoss = q.Estado_Portafolio;
+                                                    codigoPrueba = q.Codigo_Portafolio;
+                                                    //evaluados = q.Evaluados_PruebaEntrada;
                                                 }
                                             }
                                             <tr>
@@ -3581,7 +3578,7 @@
                                                     <span class="title">Rechazado:</span>
                                                     <span class="text">@cant_rechazado10</span>
                                                     <span class="title">Total:</span>
-                                                    <span class="text">@(cant_aceptado10 + cant_enviado10+ cant_guardado10 + cant_noguardado10 + cant_rechazado10)</span>
+                                                    <span class="text">@(cant_aceptado10 + cant_enviado10 + cant_guardado10 + cant_noguardado10 + cant_rechazado10)</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -3632,7 +3629,7 @@
                                                         }
                                                     },
                                                     series: [{
-                                                        name: 'Prueba Entrada',
+                                                        name: 'Portafolio Unidad III',
                                                         colorByPoint: true,
                                                         data: [{
                                                             name: 'No Generado',

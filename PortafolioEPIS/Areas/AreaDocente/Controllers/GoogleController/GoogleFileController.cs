@@ -6,9 +6,12 @@ using System.Web.Mvc;
 using PortafolioEPIS.Models.GoogleModels;
 using PortafolioEPIS.Models;
 using System.IO;
+using PortafolioEPIS.Filters;
+
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers.GoogleController
 {
+    [Autenticado]
     public class GoogleFileController : Controller
     {
        private string UPT = "1e9reGcaJf68ZUplAFLbHARYv8MCG5eBL";

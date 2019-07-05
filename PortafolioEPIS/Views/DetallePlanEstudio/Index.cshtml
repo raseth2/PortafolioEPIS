@@ -54,9 +54,10 @@
                                         </thead>
                                         <tbody>
                                             @{ int num0 = 0;}
-                                            
+
                                             @foreach (var p in Model)
                                             {
+
                                                 num0 = num0 + 1;
 
                                                 if (p.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
@@ -93,8 +94,8 @@
                                             }
                                         </tbody>
                                     </table>
-                                </div>
-
+                                </div>                               
+                                
                                 <!--Resumen general de Semestre-->
                                 <br />
                                 @{
@@ -112,49 +113,53 @@
 
                                     foreach (var s in Model)
                                     {
-                                        if (s.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                        if (s.Codigo_PlanEstudio.Equals(Convert.ToInt32(ViewBag.id)))
                                         {
-                                            cantObligatorio++;
+                                            if (s.TipoCurso_DetallePlanEstudio.Equals("Obligatorio"))
+                                            {
+                                                cantObligatorio++;
 
-                                        }
-                                        else
-                                        {
-                                            cantElectivo++;
+                                            }
+                                            else
+                                            {
+                                                cantElectivo++;
+                                            }
+
+                                            switch (s.Ciclo_DetallePlanEstudio)
+                                            {
+                                                case "I":
+                                                    cicloI++;
+                                                    break;
+                                                case "II":
+                                                    cicloII++;
+                                                    break;
+                                                case "III":
+                                                    cicloIII++;
+                                                    break;
+                                                case "IV":
+                                                    cicloIV++;
+                                                    break;
+                                                case "V":
+                                                    cicloV++;
+                                                    break;
+                                                case "VI":
+                                                    cicloVI++;
+                                                    break;
+                                                case "VII":
+                                                    cicloVII++;
+                                                    break;
+                                                case "VIII":
+                                                    cicloVIII++;
+                                                    break;
+                                                case "IX":
+                                                    cicloIX++;
+                                                    break;
+                                                case "X":
+                                                    cicloX++;
+                                                    break;
+                                            }
                                         }
 
-                                        switch (s.Ciclo_DetallePlanEstudio)
-                                        {
-                                            case "I":
-                                                cicloI++;
-                                                break;
-                                            case "II":
-                                                cicloII++;
-                                                break;
-                                            case "III":
-                                                cicloIII++;
-                                                break;
-                                            case "IV":
-                                                cicloIV++;
-                                                break;
-                                            case "V":
-                                                cicloV++;
-                                                break;
-                                            case "VI":
-                                                cicloVI++;
-                                                break;
-                                            case "VII":
-                                                cicloVII++;
-                                                break;
-                                            case "VIII":
-                                                cicloVIII++;
-                                                break;
-                                            case "IX":
-                                                cicloIX++;
-                                                break;
-                                            case "X":
-                                                cicloX++;
-                                                break;
-                                        }
 
                                         //if (s.Ciclo_DetallePlanEstudio.Equals("I"))
                                         //{
@@ -164,7 +169,7 @@
 
                                     }
 
-                                    }
+                                }
 
 
                                 <div class="card-box profile-header">
@@ -202,23 +207,6 @@
                                                             </li>
                                                         </ul>
                                                     </div>
-
-                                                    @*<div class="col-md-6">
-                                                        <ul class="personal-info">
-                                                            <li>
-                                                                <span class="title">Cursos Ciclo I:</span>
-                                                                <span class="text">@cicloI</span>
-                                                            </li>
-                                                        </ul>
-                                                        <ul class="personal-info">
-                                                            <li>
-                                                                <span class="title">Cursos Ciclo II:</span>
-                                                                <span class="text">@cicloI</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>*@
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -496,16 +484,7 @@
                 </div>
             </div>
 
-            <div class="row clearfix">
-                <div class="col-md-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">GRAFICO - CANTIDAD DE REGISTROS</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-
+            
 
 
         </div>
