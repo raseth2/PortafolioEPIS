@@ -31,8 +31,9 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             ViewBag.id = id;
             ViewBag.portafolio1 = objPortafolio.Listar();
+            ViewBag.Tbl_CargaAcademica_id = objCargaAcademica.Obtener(id);
             ViewBag.carga = objCargaAcademica.Listar();
-            return View(objDetalleCargaAcademica.Listar());
+            return View(objDetalleCargaAcademica.Listar2(id));
         }
 
 
