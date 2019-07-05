@@ -124,10 +124,10 @@
                                 <li><a href="~/Usuario/Index">Usuario</a></li>
                             </ul>
                         </li>
-                        @{ 
+                        @{
                             int cant_guardado = 0;
                             int cant_enviado = 0;
-                            int cant_rechazado=0;
+                            int cant_rechazado = 0;
                             int cant_aceptado = 0;
                             int cant_noguardado = 0;
                             int cant_guardado1 = 0;
@@ -214,9 +214,9 @@
 
                             }
                         }
-                        @{ 
+                        @{
                             total_PruebaEntrada = cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado;
-                            total_InformeFinal= cant_aceptado1 + cant_enviado1 + cant_guardado1 + cant_noguardado1 + cant_rechazado1;
+                            total_InformeFinal = cant_aceptado1 + cant_enviado1 + cant_guardado1 + cant_noguardado1 + cant_rechazado1;
                         }
 
 
@@ -224,9 +224,17 @@
                         <li>
                             <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Prueba de Entrada</span> <span class="badge badge-pill bg-primary float-right">@total_PruebaEntrada</span></a>
                         </li>
-                        <li>
-                            <a href="~/PruebaEntrada/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Portafolio</span> <span class="badge badge-pill bg-primary float-right">0</span></a>
+                        <li class="sub-menu">
+                            <a href="#"><i class="fa fa-check-square-o"></i> <span>Informe Portafolio</span><span class="menu-arrow"></span></a>
+   
+                            <ul style="display: none;">
+                                <li><a href="~/PortafolioU1/IndexAdmin">Unidad I</a></li>
+                                <li><a href="~/PortafolioU2/IndexAdmin">Unidad II</a></li>
+                                <li><a href="~/PortafolioU3/IndexAdmin">Unidad III</a></li>
+    
+                            </ul>
                         </li>
+                      
                         <li>
                             <a href="~/InformeFinal/IndexAdmin"><i class="fa fa-check-square-o"></i> <span>Informe Final</span> <span class="badge badge-pill bg-primary float-right">@total_InformeFinal</span></a>
                         </li>

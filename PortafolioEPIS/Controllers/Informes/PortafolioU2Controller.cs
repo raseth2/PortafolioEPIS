@@ -13,6 +13,7 @@ namespace PortafolioEPIS.Controllers.Informes
     {
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
         private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
+        private Tbl_CargaAcademica objCargaAcademica = new Tbl_CargaAcademica();
         private Tbl_Material objMaterial = new Tbl_Material();
         private Tbl_PruebaEntrada objPruebaEntrada = new Tbl_PruebaEntrada();
         // Accion Listar
@@ -20,7 +21,17 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             return View();
         }
-
+        public ActionResult IndexAdmin()
+        {
+            return View(objCargaAcademica.Listar());
+        }
+        public ActionResult IndexLista(int id = 0)
+        {
+            ViewBag.id = id;
+            ViewBag.portafolio1 = objPortafolio.Listar();
+            ViewBag.carga = objCargaAcademica.Listar();
+            return View(objDetalleCargaAcademica.Listar());
+        }
 
         // Accion Agregar
         public ActionResult Agregar(int id)
