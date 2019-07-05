@@ -23,42 +23,43 @@
             @using (Html.BeginForm("Guardar", "DetalleCargaAcademica", FormMethod.Post, new { id = "needs-validation", @novalidate = "novalidate" }))
             {
                 @Html.HiddenFor(x => x.Codigo_DetalleCargaAcademica)
-                <div class="row clearfix">
-                    <div class="col-md-6">
-                        @Html.Label("Plan de Estudio")
-                        <div class="form-group">
-                            <select name="Codigo_PlanEstudio" class="form-control" id="validationCustom01" required="required">
-                                <option @(Model.Codigo_PlanEstudio.Equals("") ? "Selected" : "") value="">- Seleccione -</option>
+            <div class="row clearfix">
+                <div class="col-md-6">
+                    @Html.Label("Plan de Estudio")
+                    <div class="form-group">
+                        <select name="Codigo_PlanEstudio" class="form-control" id="validationCustom01" required="required">
+                            <option @(Model.Codigo_PlanEstudio.Equals("") ? "Selected" : "") value="">- Seleccione -</option>
 
-                                @foreach (var d in objPlanEstudio)
-                                {
-                                    <option @(Model.Codigo_PlanEstudio.Equals(d.Codigo_PlanEstudio) ? "Selected" : "") value="@d.Codigo_PlanEstudio">@d.Nombre_PlanEstudio</option>
-                                }
-                            </select>
-                            <div class="invalid-feedback">
-                                Seleccionar Plan de Estudio
-                            </div>
+                            @foreach (var d in objPlanEstudio)
+                            {
+
+                                <option @(Model.Codigo_PlanEstudio.Equals(d.Codigo_PlanEstudio) ? "Selected" : "") value="@d.Codigo_PlanEstudio">@d.Nombre_PlanEstudio</option>
+                            }
+                        </select>
+                        <div class="invalid-feedback">
+                            Seleccionar Plan de Estudio
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        @Html.Label("Carga Académica")
-                        <div class="form-group">
-                            <select name="Codigo_CargaAcademica" class="form-control" id="validationCustom02" required="required">
-                                @if (ObjCargaAcademica != null)
-                                {
-                                    <option @ObjCargaAcademica.Codigo_CargaAcademica Selected value="@ObjCargaAcademica.Codigo_CargaAcademica">@ObjCargaAcademica.Nombre_CargaAcademica</option>
-                                }
-                                else
-                                {
-                                    <option @Model.Codigo_CargaAcademica Selected value="@Model.Codigo_CargaAcademica">@Model.Tbl_CargaAcademica.Nombre_CargaAcademica</option>
-                                }
-                            </select>
-                            <div class="invalid-feedback">
-                                Seleccionar Carga Académica
-                            </div>
+                </div>                
+                <div class="col-md-6">
+                    @Html.Label("Carga Académica")
+                    <div class="form-group">
+                        <select name="Codigo_CargaAcademica" class="form-control" id="validationCustom02" required="required">
+                            @if (ObjCargaAcademica != null)
+                            {
+                                <option @ObjCargaAcademica.Codigo_CargaAcademica Selected value="@ObjCargaAcademica.Codigo_CargaAcademica">@ObjCargaAcademica.Nombre_CargaAcademica</option>
+                            }
+                            else
+                            {
+                                <option @Model.Codigo_CargaAcademica Selected value="@Model.Codigo_CargaAcademica">@Model.Tbl_CargaAcademica.Nombre_CargaAcademica</option>
+                            }
+                        </select>
+                        <div class="invalid-feedback">
+                            Seleccionar Carga Académica
                         </div>
                     </div>
                 </div>
+            </div>
                 <div class="row clearfix">
                     <div class="col-md-6">
                         @Html.Label("Asignatura")
