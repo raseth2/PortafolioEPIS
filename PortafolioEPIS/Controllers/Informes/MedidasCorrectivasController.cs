@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
+    [Autenticado]
     public class MedidasCorrectivasController : Controller
     {
         private Tbl_MedidasCorrectivas objlistaMedidasCorrectivas = new Tbl_MedidasCorrectivas();

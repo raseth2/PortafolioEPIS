@@ -5,9 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
+
 
 namespace PortafolioEPIS.Controllers.Informes
 {
+    [Autenticado]
     public class ConocimientoHabilidadController : Controller
     {
         private Tbl_ConocimientoHabilidad objConocimientoHabilidad = new Tbl_ConocimientoHabilidad();

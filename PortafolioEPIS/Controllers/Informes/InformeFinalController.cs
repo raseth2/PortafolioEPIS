@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using Rotativa;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
+    [Autenticado]
     public class InformeFinalController : Controller
     {
         private Tbl_Observaciones objObservaciones = new Tbl_Observaciones();

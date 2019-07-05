@@ -8,9 +8,11 @@ using System.Data.Entity;
 using System.IO;
 using Microsoft.Reporting.WebForms;
 using Rotativa;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers
 {
+    [Autenticado]
     public class DocenteController : Controller
     {
         //Instanciar la clase 
