@@ -47,8 +47,8 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.GoogleController
         public ActionResult CreateFolder(String FolderName, String IdCarpeta, string FolderId = null)
         {
             GoogleDriveFilesRepository.CreateFolder(FolderName,IdCarpeta);
-            ViewBag.folderId = FolderId;
-            return Redirect("GetGoogleDriveFiles?FolderId=" + FolderId);
+           
+            return Redirect("GetGoogleDriveFiles?FolderId=" + IdCarpeta);
         }
 
 
