@@ -6,9 +6,11 @@ using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using System.IO;
 using Rotativa;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
 {
+    [Autenticado]
     public class PortafolioU1DocenteController : Controller
     {
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();

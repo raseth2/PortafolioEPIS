@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
 {
+    [Autenticado]
     public class InformeFinalDocenteController : Controller
     {
         private Tbl_Observaciones objObservaciones = new Tbl_Observaciones();

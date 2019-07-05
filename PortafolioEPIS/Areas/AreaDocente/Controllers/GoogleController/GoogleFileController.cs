@@ -5,9 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models.GoogleModels;
 using System.IO;
+using PortafolioEPIS.Filters;
+
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers.GoogleController
 {
+    [Autenticado]
     public class GoogleFileController : Controller
     {
         [HttpGet]

@@ -4,9 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers
 {
+    [Autenticado]
+   
     public class ConocimientoHanilidadDocenteController : Controller
     {
         private Tbl_ConocimientoHabilidad objConocimientoHabilidad = new Tbl_ConocimientoHabilidad();
