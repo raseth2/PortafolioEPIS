@@ -1205,6 +1205,11 @@
     <Content Include="Views\InformeFinal\IndexAdmin.cshtml" />
     <Content Include="Views\InformeFinal\IndexLista.cshtml" />
     <Content Include="Views\PortafolioU1\IndexLista.cshtml" />
+    <Content Include="Views\PortafolioU1\IndexAdmin.cshtml" />
+    <Content Include="Views\PortafolioU2\IndexAdmin.cshtml" />
+    <Content Include="Views\PortafolioU2\IndexLista.cshtml" />
+    <Content Include="Views\PortafolioU3\IndexAdmin.cshtml" />
+    <Content Include="Views\PortafolioU3\IndexLista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

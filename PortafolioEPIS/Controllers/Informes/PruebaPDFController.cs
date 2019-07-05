@@ -6,9 +6,11 @@ using System.Web.Mvc;
 using jsreport.MVC;
 using jsreport.Types;
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
+    [Autenticado]
     public class PruebaPDFController : Controller
     {
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();

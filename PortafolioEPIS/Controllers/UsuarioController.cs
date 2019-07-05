@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers
 {
+    [Autenticado]
     public class UsuarioController : Controller
     {
         Tbl_Usuario objUsuario = new Tbl_Usuario();

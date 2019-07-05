@@ -6,14 +6,17 @@ using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using System.IO;
 using Rotativa;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
+    [Autenticado]
     public class PortafolioU1Controller : Controller
     {
 
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
         private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
+        private Tbl_CargaAcademica objCargaAcademica = new Tbl_CargaAcademica();
         private Tbl_Material objMaterial = new Tbl_Material();
         private Tbl_PruebaEntrada objPruebaEntrada = new Tbl_PruebaEntrada();
 
@@ -22,12 +25,15 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             return View();
         }
-
+        public ActionResult IndexAdmin()
+        {
+            return View(objCargaAcademica.Listar());
+        }
         public ActionResult IndexLista(int id = 0)
         {
             ViewBag.id = id;
-            //ViewBag.prueba = objPruebaEntrada.Listar();
-            //ViewBag.carga = objCargaAcademica.Listar();
+            ViewBag.portafolio1 = objPortafolio.Listar();
+            ViewBag.carga = objCargaAcademica.Listar();
             return View(objDetalleCargaAcademica.Listar());
         }
         // Accion Agregar

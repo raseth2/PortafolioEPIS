@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using PortafolioEPIS.Filters;
 using PortafolioEPIS.Models;
 
 namespace PortafolioEPIS.Controllers.Mantenimiento
 {
+    [Autenticado]
     public class CargoController : Controller
     {
         private Tbl_CargoDocente objCargo = new Tbl_CargoDocente();

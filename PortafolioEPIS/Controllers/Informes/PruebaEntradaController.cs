@@ -7,9 +7,11 @@ using jsreport.MVC;
 using jsreport.Types;
 using PortafolioEPIS.Models;
 using Rotativa;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
+    [Autenticado]
 
     public class PruebaEntradaController : Controller
     {

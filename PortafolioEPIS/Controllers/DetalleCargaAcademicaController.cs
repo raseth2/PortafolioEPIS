@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers
 {
+    [Autenticado]
     public class DetalleCargaAcademicaController : Controller
     {
 

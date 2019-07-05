@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using Rotativa;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Areas.AreaDocente.Controllers
 {
+    [Autenticado]
     public class PruebaEntradaDocenteController : Controller
     {
 

@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers
 {
+    [Autenticado]
     public class CargaAcademicaController : Controller
     {
         Tbl_CargaAcademica objCargaAcademica = new Tbl_CargaAcademica();

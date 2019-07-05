@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PortafolioEPIS.Models;
+using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Mantenimiento
 {
+    [Autenticado]
     public class SeccionController : Controller
     {
         private Tbl_Seccion objSeccion = new Tbl_Seccion();
