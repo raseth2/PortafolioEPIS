@@ -1,16 +1,30 @@
 ﻿@model PortafolioEPIS.Models.Tbl_Semestre
+
 @{
+    List<PortafolioEPIS.Models.Tbl_Semestre> semestre = ViewBag.Semestre;
     ViewBag.Title = "Agregar";
+    int contador = 0;
+    string nombresemestre = "";
 }
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title">Agregar / Editar Semestre</h4>
     </div>
 </div>
+@foreach (var q in semestre)
+{
+    if(q.Estado_Semestre==true)
+    {
+        contador = contador + 1;
+        nombresemestre = q.Nombre_Semestre;
+        @*<label>@contador @nombresemestre</label>*@
+    }
+}
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="card-title">Información Semestre</h4>
+
             @using (Html.BeginForm("Guardar", "Semestre", FormMethod.Post, new { @id = "needs-validation", @novalidate = "novalidate" }))
             {
             <div class="js-sweetalert">
@@ -36,17 +50,61 @@
                         </div>
                     </div>
                 </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        @Html.Label("Estado")
-                        <div class="form-group">
-                            Activo
-                            @Html.RadioButtonFor(x => x.Estado_Semestre, "True")
-                            Inactivo
-                            @Html.RadioButtonFor(x => x.Estado_Semestre, "False")
+                @if (contador > 0)
+                {
+                    if (Model.Estado_Semestre == true)
+                    {
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                @*<label style="color:red">No se puede tener dos semestres activos,Actuamente el semestre @nombresemestre esta activo</label>*@
+                                <br />
+                                @Html.Label("Estado")
+
+                                <div class="form-group">
+                                    Activo
+                                    @Html.RadioButtonFor(x => x.Estado_Semestre, "True")
+                                    Inactivo
+                                    @Html.RadioButtonFor(x => x.Estado_Semestre, "False")
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <label style="color:red">No se puede tener dos semestres activos,Actuamente el semestre @nombresemestre esta activo</label>
+                                <br />
+                                @Html.Label("Estado")
+
+                                <div class="form-group">
+                                    Activo
+                                    @Html.RadioButtonFor(x => x.Estado_Semestre, "True", new { disabled = "true" })
+                                    Inactivo
+                                    @Html.RadioButtonFor(x => x.Estado_Semestre, "False", new { disabled = "true" })
+                                </div>
+
+                            </div>
+                        </div>
+
+                    }
+                }
+                @if (contador == 0)
+                {
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            @Html.Label("Estado")
+                            <div class="form-group">
+                                Activo
+                                @Html.RadioButtonFor(x => x.Estado_Semestre, "True")
+                                Inactivo
+                                @Html.RadioButtonFor(x => x.Estado_Semestre, "False")
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                }
                 <div class="row clearfix">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -54,7 +112,7 @@
                                 <div class="col-sm-8 col-9 text-left">
                                     <div class="form-check form-check-inline">
                                         <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit" data-type="success"><i class="fa fa-check"></i> Guardar</button>
-                                        
+
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <a href="~/Semestre/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
@@ -65,7 +123,7 @@
                     </div>
                 </div>
             </div>
-                
+
             }
         </div>
     </div>
