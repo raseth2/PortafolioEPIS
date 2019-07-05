@@ -647,7 +647,7 @@
                                         }
                                     }
 
-                                    <label>@id1 ff @Nombrematerial1</label>
+                                    
                                     @using (Html.BeginForm("Evidencia", "PortafolioU1Docente", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                     {
                                         if (id1 > 0 && Nombrematerial1 == "Sílabo formato UPT (Impreso y Digital)" && tipomaterial1 == "DOCENTEUI")
@@ -659,8 +659,8 @@
                                             <input type="text" name="Archivo_Material" value="@archivo1" hidden />
 
                                             <td>1</td>
-                                            <td><input type="text" id="Nombre_Material" name="Nombre_Material" style="background:#ffffff" readonly class="form-control floating" value="Sílabo formato UPT (Impreso y Digital)"></td>
-                                            <td><input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material" value="@cantidad1"></td>
+                                            <td width="30%"><input type="text" id="Nombre_Material" name="Nombre_Material" style="background:#ffffff" readonly class="form-control floating" value="Sílabo formato UPT (Impreso y Digital)"></td>
+                                            <td width="3%"><input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material" value="@cantidad1"></td>
                                             <td>
                                                 @if (estado1 == "Impreso")
                                                 {
@@ -696,7 +696,7 @@
 
                                             </td>
 
-                                            <td>
+                                            <td width="15%">
                                                 <input type="file" class="form-control" id="archivo" name="archivo" src="~/Imagen/@archivo1">
                                                 <label>@archivo1</label>
                                             </td>
@@ -711,8 +711,8 @@
                                             <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
                                             <input type="text" name="Tipo_Material" value="DOCENTEUI" hidden />
                                             <td>1</td>
-                                            <td><input type="text" id="Nombre_Material" name="Nombre_Material" style="background:#ffffff" readonly class="form-control floating" value="Sílabo formato UPT (Impreso y Digital)"></td>
-                                            <td><input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material"></td>
+                                            <td width="30%"><input type="text" id="Nombre_Material" name="Nombre_Material" style="background:#ffffff" readonly class="form-control floating" value="Sílabo formato UPT (Impreso y Digital)"></td>
+                                            <td width="3%"><input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material"></td>
                                             <td>
                                                 <input id="Estado_Material" name="Estado_Material" type="radio" value="Impreso"><label>Impreso</label>
                                                 <br />
@@ -721,7 +721,7 @@
                                                 <input id="Estado_Material" name="Estado_Material" type="radio" value="Impreso y digital"><label>Digital e impreso</label>
                                             </td>
 
-                                            <td>
+                                            <td width="15%">
                                                 <input type="file" class="form-control" id="archivo" name="archivo" onchange="return validarExt()">
                                             </td>
                                             <td class="text-center"><input type="text" class="form-control" id="Descripcion_Material" name="Descripcion_Material"></td>
@@ -2144,8 +2144,8 @@
                                             <input type="text" name="Archivo_Material" value="@archivoE2" hidden />
 
                                             <td>2</td>
-                                            <td><input type="text" id="Nombre_Material" name="Nombre_Material" style="background:#ffffff" readonly class="form-control floating" value="@NombrematerialE2"></td>
-                                            <td><input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material" value="@cantidadE2"></td>
+                                            <td width="30%"><input type="text" id="Nombre_Material" name="Nombre_Material" style="background:#ffffff" readonly class="form-control floating" value="@NombrematerialE2"></td>
+                                            <td width="3%"><input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material" value="@cantidadE2"></td>
                                             <td>
                                                 @if (estadoE2 == "Impreso")
                                                 {
@@ -2181,7 +2181,7 @@
 
                                             </td>
 
-                                            <td>
+                                            <td width="15%">
                                                 <input type="file" class="form-control" id="archivo" name="archivo" src="~/Imagen/@archivoE2">
                                                 <label>@archivoE2</label>
                                             </td>
@@ -2196,8 +2196,8 @@
                                             <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
                                             <input type="text" name="Tipo_Material" value="ESTUDIANTEUI" hidden />
                                             <td>2</td>
-                                            <td><input type="text" id="Nombre_Material" name="Nombre_Material" style="background:#ffffff" readonly class="form-control floating" value="Original de exámenes de unidad, ordenado por notas de mayor a menor"></td>
-                                            <td><input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material"></td>
+                                            <td width="30%"><input type="text" id="Nombre_Material" name="Nombre_Material" style="background:#ffffff" readonly class="form-control floating" value="Original de exámenes de unidad, ordenado por notas de mayor a menor"></td>
+                                            <td width="3%"><input type="number" class="form-control" id="Cantidad_Material" name="Cantidad_Material"></td>
                                             <td>
                                                 <input id="Estado_Material" name="Estado_Material" type="radio" value="Impreso"><label>Impreso</label>
                                                 <br />
@@ -2206,7 +2206,7 @@
                                                 <input id="Estado_Material" name="Estado_Material" type="radio" value="Impreso y digital"><label>Digital e impreso</label>
                                             </td>
 
-                                            <td>
+                                            <td width="15%">
                                                 <input type="file" class="form-control" id="archivo" name="archivo" onchange="return validarExt()">
                                             </td>
                                             <td class="text-center"><input type="text" class="form-control" id="Descripcion_Material" name="Descripcion_Material"></td>
