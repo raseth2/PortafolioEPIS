@@ -17,6 +17,7 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
 
         public ActionResult Index()
         {
+            
             return View(objSemestre.Listar());
         }
 
@@ -30,6 +31,7 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
         // Accion Agregar
         public ActionResult Agregar(int id = 0)
         {
+            ViewBag.semestre = objSemestre.Listar();
             return View(id == 0 ? new Tbl_Semestre()//Agregar un nuevo objeto
                : objSemestre.Obtener(id));
         }
