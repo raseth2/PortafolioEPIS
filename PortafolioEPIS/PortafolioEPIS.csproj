@@ -1215,6 +1215,7 @@
     <Content Include="Views\PortafolioU2\IndexLista.cshtml" />
     <Content Include="Views\PortafolioU3\IndexAdmin.cshtml" />
     <Content Include="Views\PortafolioU3\IndexLista.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
