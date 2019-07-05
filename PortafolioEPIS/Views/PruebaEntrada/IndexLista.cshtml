@@ -1,6 +1,10 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
 @{
 
+ 
+    int id = 0;
+    string nombre_semestre = null;
+    PortafolioEPIS.Models.Tbl_CargaAcademica objCargaAcademica = ViewBag.Tbl_CargaAcademica_id;
 
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> prueba = ViewBag.Prueba;
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = ViewBag.Carga;
@@ -11,7 +15,7 @@
 }
 <div class="row">
     <div class="col-sm-12 col-12">
-        <h4 class="page-title">Lista de Informes de Prueba de entrada</h4>
+        <h4 class="page-title">Lista de Informes de Prueba de entrada <strong>@objCargaAcademica.Tbl_Semestre.Nombre_Semestre</strong></h4>
     </div>
 </div>
 
@@ -63,6 +67,8 @@
                                     @foreach (var p in Model)
                                     {
                                         string estadoss = null;
+                                        nombre_semestre = p.Tbl_Semestre.Nombre_Semestre;
+                                        id = p.Codigo_Semestre;
                                         int codigoPrueba = 0, evaluados = 0;
                                         num = num + 1;
                                         foreach (var q in prueba)
