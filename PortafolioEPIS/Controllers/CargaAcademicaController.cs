@@ -32,7 +32,7 @@ namespace PortafolioEPIS.Controllers
         public ActionResult Agregar(int id = 0)
         {
             ViewBag.Tbl_Semestre = objSemestre.Listar();
-
+            ViewBag.carga = objCargaAcademica.Listar();
             return View(id == 0 ? new Tbl_CargaAcademica()//Agregar un nuevo objeto
                : objCargaAcademica.Obtener(id));
         }
