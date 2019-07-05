@@ -4,6 +4,7 @@
 
     List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio1 = ViewBag.Portafolio1;
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = ViewBag.Carga;
+    PortafolioEPIS.Models.Tbl_CargaAcademica objCargaAcademica = ViewBag.Tbl_CargaAcademica_id;
     int idpruebas = 0;
     string estado = null;
     string unidad = "";
@@ -11,7 +12,8 @@
 }
 <div class="row">
     <div class="col-sm-12 col-12">
-        <h4 class="page-title">Lista de Informes de Portafolio  Unidad I</h4>
+        <h3><strong> Semestre: @objCargaAcademica.Tbl_Semestre.Nombre_Semestre</strong></h3>
+        <h4 class="page-title">Lista de Informes de Portafolio  Unidad I  </h4>
     </div>
 </div>
 
