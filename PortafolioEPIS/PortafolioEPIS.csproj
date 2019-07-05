@@ -65,6 +65,9 @@
     <Reference Include="Google.Apis.Core, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Core.1.40.2\lib\net45\Google.Apis.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis.Drive.v2, Version=1.40.2.1631, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v2.1.40.2.1631\lib\net45\Google.Apis.Drive.v2.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis.Drive.v3, Version=1.40.2.1631, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Drive.v3.1.40.2.1631\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
     </Reference>
@@ -871,6 +874,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Imagen\Captura.PNG" />
+    <Content Include="Imagen\carpeta.png" />
     <Content Include="Imagen\docente1.jpg" />
     <Content Include="Imagen\docente10.jpg" />
     <Content Include="Imagen\docente10.png" />
@@ -1133,6 +1137,7 @@
     <Content Include="assets\Informes\final\Thumbs.db" />
     <Content Include="Areas\AreaDocente\Views\GoogleFile\GetGoogleDriveFiles.cshtml" />
     <Content Include="Imagen\client_secret.json" />
+    <Content Include="Areas\AreaDocente\Views\GoogleFile\GetContainsInFolder.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
