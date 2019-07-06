@@ -1,7 +1,26 @@
 ﻿@model PortafolioEPIS.Models.Tbl_CargaAcademica
 @{
+
     List<PortafolioEPIS.Models.Tbl_Semestre> objSemestre = ViewBag.Tbl_Semestre;
+    List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = ViewBag.Carga;
+
     ViewBag.Title = "Agregar";
+    int contador = 0;
+    string nombrecarga = "";
+    string fechainicio = "";
+    string fechafin = "";
+}
+
+@foreach (var q in carga)
+{
+    if (q.Estado_CargaAcademica == true)
+    {
+        contador = contador + 1;
+        nombrecarga = q.Nombre_CargaAcademica;
+        fechainicio = Convert.ToString(q.FechaInicio_CargaAcademica);
+        fechafin = Convert.ToString(q.FechaFin_CargaAcademica);
+        @*<label>@contador @nombresemestre</label>*@
+    }
 }
 <div class="row">
     <div class="col-sm-12">
@@ -18,7 +37,7 @@
                 <div class="row clearfix">
                     <div class="col-md-4">
                         @Html.Label("Semestre")
-                        <select name="Codigo_Semestre" class="form-control"  id="validationCustom01" required="required">
+                        <select name="Codigo_Semestre" class="form-control" id="validationCustom01" required="required">
                             <option value=""> - Seleccione -</option>
                             @foreach (var e in objSemestre)
                             {
@@ -61,17 +80,52 @@
                                 Seleccionar Fecha Fin
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
-                <div class="row clearfix">
-                    <div class="col-md-12">
-                        @Html.Label("Estado")
-                        <div class="form-group">
-                            @Html.RadioButtonFor(x => x.Estado_CargaAcademica, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
-                            @Html.RadioButtonFor(x => x.Estado_CargaAcademica, false) Inactivo
+                if (contador > 0)
+                {
+                    if (Model.Estado_CargaAcademica == true)
+                    {
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                @Html.Label("Estado")
+                                <div class="form-group">
+                                    @Html.RadioButtonFor(x => x.Estado_CargaAcademica, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                                    @Html.RadioButtonFor(x => x.Estado_CargaAcademica, false) Inactivo
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <label style="color:red">No se puede tener muchas cargas academicas activas,Actuamente la carga @nombrecarga se encuentra  activo desde @fechainicio asta @fechafin </label>
+                                <br />
+                                @Html.Label("Estado")
+                                <div class="form-group">
+                                    @Html.RadioButtonFor(x => x.Estado_CargaAcademica, true, new { disabled = "true" }) Activo  <label>&nbsp &nbsp</label>
+                                    @Html.RadioButtonFor(x => x.Estado_CargaAcademica, false, new { disabled = "true" }) Inactivo
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+                if (contador == 0)
+                {
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                            @Html.Label("Estado")
+                            <div class="form-group">
+                                @Html.RadioButtonFor(x => x.Estado_CargaAcademica, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                                @Html.RadioButtonFor(x => x.Estado_CargaAcademica, false) Inactivo
+                            </div>
                         </div>
                     </div>
-                </div><div class="row clearfix">
+
+                }
+                <div class="row clearfix">
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="form-group row">
@@ -81,7 +135,7 @@
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
