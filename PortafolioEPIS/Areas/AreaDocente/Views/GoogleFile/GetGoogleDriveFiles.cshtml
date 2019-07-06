@@ -9,7 +9,7 @@
     ViewBag.Title = "Google Drive API v3 - ASP.NET MVC 5 [Everyday Be Coding]";
 }
 
-<h2 class="imagetable">@(usuario.Tbl_Docente.Apellidos_Docente + " " + usuario.Tbl_Docente.Nombres_Docente)</h2>
+<h2 class="imagetable">Mi Drive</h2>
 
 
 
@@ -26,8 +26,17 @@
         }
         if (ViewBag.folderId == item.Id)
         {
-            <label ><p><b>Carpeta:  @item.Name</b></p>  </label> 
-         
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">@(usuario.Tbl_Docente.Apellidos_Docente + " " + usuario.Tbl_Docente.Nombres_Docente) / @item.Name</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+
         }
 
     }
