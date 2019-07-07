@@ -183,19 +183,19 @@
 
                                             <input type="text" name="idprueba" id="idprueba" value="@idpruebas" class="form-control floating" hidden>
                                             @*<script type="text/javascript">
-                            function Habilitar() {
-                                var eva;
-                                eva = document.getElementById("evaluados").value;
-                                if (eva === "") {
+                                                    function Habilitar() {
+                                                        var eva;
+                                                        eva = document.getElementById("evaluados").value;
+                                                        if (eva === "") {
 
-                                    evaluados.disabled = false;
+                                                            evaluados.disabled = false;
 
-                                }
-                                else {
-                                    evaluados.disabled = true;
-                                }
-                            }
-                        </script>*@
+                                                        }
+                                                        else {
+                                                            evaluados.disabled = true;
+                                                        }
+                                                    }
+                                                </script>*@
                                             <label class="focus-label">Evaluados:<span class="text-danger">*</span></label>
                                             @if (evaluados == 0)
                                             {
@@ -214,7 +214,7 @@
                                     </div>
 
                                 </div>
-                             
+
                             }
 
                         </form>
@@ -239,7 +239,7 @@
                                     </nav>
                                 </div>
                             </div>
-                            <form method="post" action="" id="evaluados ">
+                            <form method="post" action="" id="evaluados" name="evaluados">
                                 <div class="row clearfix">
                                     <div class="col-md-6">
                                         <div class="form-group form-focus">
@@ -251,19 +251,19 @@
                                     <div class="col-md-2">
                                         <div class="form-group form-focus">
                                             <label class="focus-label">Deficiente:<span class="text-danger">*</span></label>
-                                            <input type="text" name="deficiente" id="deficiente" class="form-control floating">
+                                            <input type="text" onKeyUp="Suma()" name="deficiente" id="deficiente"  class="form-control floating">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group form-focus">
                                             <label class="focus-label">Suficiente:<span class="text-danger">*</span></label>
-                                            <input type="text" name="suficiente" id="suficiente" class="form-control floating">
+                                            <input type="text" onKeyUp="Suma()" name="suficiente" id="suficiente" value="0" class="form-control floating">
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group form-focus">
                                             <label class="focus-label">Bueno:<span class="text-danger">*</span></label>
-                                            <input type="text" name="bueno" id="bueno" class="form-control floating">
+                                            <input onblur="if (this.value == '') { this.value=='0'}"  value="0" type="text"style="background:#ffffff"  readonly onKeyUp="Suma()" name="bueno" id="bueno" class="form-control floating">
                                         </div>
                                     </div>
                                 </div>
@@ -330,6 +330,31 @@
         var bueno = document.getElementById("bueno").value;
         var idp = document.getElementById("idprueba").value;
         window.location.href = '@Url.Content("~/ConocimientoHanilidadDocente/Guardar/")' + "?nombre=" + nombre + "&deficiente=" + deficiente + "&suficiente=" + suficiente + "&idprueba=" + idp + "&bueno=" + bueno+ "&codigo=" + @Model.Codigo_DetalleCargaAcademica;
+    }
+
+</script>
+<script>
+    //Función que realiza la suma
+    function Suma() {
+
+        var ingreso1 = document.evaluados.deficiente.value;
+        var ingreso2 = document.evaluados.suficiente.value;
+        var ingreso3 = document.evaluados.bueno.value;
+
+        try {
+            ////Calculamos el número escrito:
+            ingreso1 = (isNaN(parseInt(ingreso1))) ? 0 : parseInt(ingreso1);
+            ingreso2 = (isNaN(parseInt(ingreso2))) ? 0 : parseInt(ingreso2);
+            //ingreso3 = (isNaN(parseInt(ingreso3))) ? 0 : parseInt(ingreso3);
+
+            // document.evaluados.suficiente.value = evaluados - parseInt(ingreso1);
+            
+
+            document.evaluados.bueno.value = (@evaluados - (parseInt(ingreso1) + parseInt(ingreso2)) < 0 ? 0 : @evaluados -(parseInt(ingreso1) + parseInt(ingreso2)));
+            //ingreso3 = isNaN(0);
+        }
+        //Si se produce un error no hacemos nada
+        catch (e) { }
     }
 
 </script>
