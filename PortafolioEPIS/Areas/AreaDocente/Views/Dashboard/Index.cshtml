@@ -99,6 +99,14 @@
     int cant_aceptadop1 = 0;
     string cursos_portafolio1 = "";
     string estado_portafolio1 = "";
+    int aprobados1 = 0;
+    int desaprobados1 = 0;
+    int aprobados2 = 0;
+    int desaprobados2 = 0;
+    int aprobados3 = 0;
+    int desaprobados3 = 0;
+    int asisten = 0;
+    int matriculados = 0;
 }
 @foreach (var item in detalle)
 {
@@ -116,6 +124,10 @@
             if (q.Unidad_Portafolio == "UI" && item.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
             {
                 estadossp1 = q.Estado_Portafolio;
+                aprobados1 = Convert.ToInt32(q.Aprobados_Portafolio);
+                matriculados = Convert.ToInt32(item.Matriculados_DetalleCargaAcademica);
+                asisten = Convert.ToInt32(matriculados - q.Retirados_Portafolio - q.Abandono_Portafolio);
+                desaprobados1 = asisten - aprobados1;
             }
         }
         if (estadossp1 == "G")
@@ -186,6 +198,10 @@
             if (q.Unidad_Portafolio == "UII" && item.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
             {
                 estadossp2 = q.Estado_Portafolio;
+                aprobados2 = Convert.ToInt32(q.Aprobados_Portafolio);
+                matriculados = Convert.ToInt32(item.Matriculados_DetalleCargaAcademica);
+                asisten = Convert.ToInt32(matriculados - q.Retirados_Portafolio - q.Abandono_Portafolio);
+                desaprobados2 = asisten - aprobados2;
             }
         }
         if (estadossp2 == "G")
@@ -256,6 +272,11 @@
             if (q.Unidad_Portafolio == "UIII" && item.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
             {
                 estadossp3 = q.Estado_Portafolio;
+                estadossp3 = q.Estado_Portafolio;
+                aprobados3 = Convert.ToInt32(q.Aprobados_Portafolio);
+                matriculados = Convert.ToInt32(item.Matriculados_DetalleCargaAcademica);
+                asisten = Convert.ToInt32(matriculados - q.Retirados_Portafolio - q.Abandono_Portafolio);
+                desaprobados3 = asisten - aprobados3;
             }
         }
         if (estadossp3 == "G")
@@ -1483,4 +1504,200 @@
             </div>*@
     </div>
 
+</div>
+
+<div class="card-box ">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <center><h2 class="text-primary">Rendimiento  Informe Portafolio Unidad I</h2></center>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - PORCENTAJE TOTAL RENDIMIENTO</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div id="rendimiento1" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+    <script type="text/javascript">
+        Highcharts.chart('rendimiento1', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Rendimiento'
+            },
+            xAxis: {
+                categories: ['Porcentaje']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Rendimiento'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                series:
+                {
+                    stacking: 'normal',
+                    dataLabels: {
+                        cursor: 'pointer',
+                        format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                        enabled: true,
+                        filter: {
+                            property: 'percentage',
+                            operator: '>',
+                            value: 2
+                        },
+                    }
+                }
+            },
+            series: [{
+                name: 'Aprobados',
+                color: '#009EFB',
+                data: [@aprobados1]
+            },
+            {
+                name: 'Desaprobados',
+                color: '#FF0000',
+                data: [@desaprobados1]
+            }]
+        });
+    </script>
+</div>
+
+
+<div class="card-box ">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <center><h2 class="text-primary">Rendimiento  Informe Portafolio Unidad II</h2></center>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - RESUMEN - PORCENTAJE TOTAL RENDIMIENTO</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div id="rendimiento2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+    <script type="text/javascript">
+        Highcharts.chart('rendimiento2', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Rendimiento'
+            },
+            xAxis: {
+                categories: ['Porcentaje']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Rendimiento'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                series:
+                {
+                    stacking: 'normal',
+                    dataLabels: {
+                        cursor: 'pointer',
+                        format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                        enabled: true,
+                        filter: {
+                            property: 'percentage',
+                            operator: '>',
+                            value: 2
+                        },
+                    }
+                }
+            },
+            series: [{
+                name: 'Aprobados',
+                color: '#009EFB',
+                data: [@aprobados2]
+            },
+            {
+                name: 'Desaprobados',
+                color: '#FF0000',
+                data: [@desaprobados2]
+            }]
+        });
+    </script>
+</div>
+
+<div class="card-box ">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <center><h2 class="text-primary">Rendimiento  Informe Portafolio Unidad III</h2></center>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">RESUMEN - RESUMEN - PORCENTAJE TOTAL RENDIMIENTO</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div id="rendimiento3" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+    <script type="text/javascript">
+        Highcharts.chart('rendimiento3', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Rendimiento'
+            },
+            xAxis: {
+                categories: ['Porcentaje']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Rendimiento'
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                series:
+                {
+                    stacking: 'normal',
+                    dataLabels: {
+                        cursor: 'pointer',
+                        format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                        enabled: true,
+                        filter: {
+                            property: 'percentage',
+                            operator: '>',
+                            value: 2
+                        },
+                    }
+                }
+            },
+            series: [{
+                name: 'Aprobados',
+                color: '#009EFB',
+                data: [@aprobados3]
+            },
+            {
+                name: 'Desaprobados',
+                color: '#FF0000',
+                data: [@desaprobados3]
+            }]
+        });
+    </script>
 </div>
