@@ -32,22 +32,20 @@ namespace PortafolioEPIS.Controllers.Informes
         private Tbl_CargaAcademica objCargaAcademica = new Tbl_CargaAcademica();
         private Tbl_Portafolio objPortafolio = new Tbl_Portafolio();
 
+        public ActionResult IndexAdmin()
+        {
+            return View(objCargaAcademica.Listar());
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public ActionResult IndexLista(int id = 0)
+        {
+            ViewBag.id = id;
+            ViewBag.Tbl_CargaAcademica_id = objCargaAcademica.Obtener(id);
+            ViewBag.portafolio1 = objPortafolio.Listar();
+            ViewBag.carga = objCargaAcademica.Listar();
+            ViewBag.listaDocente = objDocente.Listar();
+            return View(objDetalleCargaAcademica.Listar2(id));
+        }
 
 
         public ActionResult Index()

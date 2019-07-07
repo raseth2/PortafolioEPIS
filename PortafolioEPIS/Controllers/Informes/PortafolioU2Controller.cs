@@ -71,9 +71,9 @@ namespace PortafolioEPIS.Controllers.Informes
             {
 
                 archivo.SaveAs(Server.MapPath("~/Imagen/" + archivo.FileName));
-                objEvidencia.Archivo_Material = archivo.FileName;
-                objEvidencia.TipoArchivo_Material = Path.GetExtension(archivo.FileName);
-                objEvidencia.PesoArchivo_Material = Convert.ToString(Math.Round((Convert.ToDecimal(archivo.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+                objEvidencia.Archivo_Material1 = archivo.FileName;
+                objEvidencia.TipoArchivo_Material1 = Path.GetExtension(archivo.FileName);
+                objEvidencia.PesoArchivo_Material1 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo.ContentLength) / (1024 * 1024)), 2)) + " Mb";
             }
 
             objEvidencia.Guardar();
@@ -87,9 +87,9 @@ namespace PortafolioEPIS.Controllers.Informes
             {
 
                 archivo1.SaveAs(Server.MapPath("~/Imagen/" + archivo1.FileName));
-                objEvidencia.Archivo_Material = archivo1.FileName;
-                objEvidencia.TipoArchivo_Material = Path.GetExtension(archivo1.FileName);
-                objEvidencia.PesoArchivo_Material = Convert.ToString(Math.Round((Convert.ToDecimal(archivo1.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+                objEvidencia.Archivo_Material1 = archivo1.FileName;
+                objEvidencia.TipoArchivo_Material1 = Path.GetExtension(archivo1.FileName);
+                objEvidencia.PesoArchivo_Material1 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo1.ContentLength) / (1024 * 1024)), 2)) + " Mb";
             }
 
             objEvidencia.Guardar();

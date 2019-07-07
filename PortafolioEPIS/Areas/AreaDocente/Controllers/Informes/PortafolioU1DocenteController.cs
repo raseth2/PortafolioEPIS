@@ -60,9 +60,9 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
             {
 
                 archivo.SaveAs(Server.MapPath("~/Imagen/" + archivo.FileName));
-                objEvidencia.Archivo_Material = archivo.FileName;
-                objEvidencia.TipoArchivo_Material = Path.GetExtension(archivo.FileName);
-                objEvidencia.PesoArchivo_Material = Convert.ToString(Math.Round((Convert.ToDecimal(archivo.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+                objEvidencia.Archivo_Material1 = archivo.FileName;
+                objEvidencia.TipoArchivo_Material1 = Path.GetExtension(archivo.FileName);
+                objEvidencia.PesoArchivo_Material1 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo.ContentLength) / (1024 * 1024)), 2)) + " Mb";
             }
 
             objEvidencia.Guardar();
@@ -76,9 +76,9 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
             {
 
                 archivo1.SaveAs(Server.MapPath("~/Imagen/" + archivo1.FileName));
-                objEvidencia.Archivo_Material = archivo1.FileName;
-                objEvidencia.TipoArchivo_Material = Path.GetExtension(archivo1.FileName);
-                objEvidencia.PesoArchivo_Material = Convert.ToString(Math.Round((Convert.ToDecimal(archivo1.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+                objEvidencia.Archivo_Material1 = archivo1.FileName;
+                objEvidencia.TipoArchivo_Material1 = Path.GetExtension(archivo1.FileName);
+                objEvidencia.PesoArchivo_Material1 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo1.ContentLength) / (1024 * 1024)), 2)) + " Mb";
             }
 
             objEvidencia.Guardar();
@@ -112,11 +112,11 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
 
 
             objmaterial.Codigo_Portafolio = idprueba;
-            objmaterial.Nombre_Material = material;
-            objmaterial.Estado_Material = tipo;
+            objmaterial.Nombre_Material1 = material;
+            objmaterial.Estado_Material1 = tipo;
             //objmaterial.Archivo_Material = evidencia;
-            objmaterial.Cantidad_Material = cantidad;
-            objmaterial.Descripcion_Material = descripcion;
+            objmaterial.Cantidad_Material1 = cantidad;
+            objmaterial.Descripcion_Material1 = descripcion;
             objmaterial.Tipo_Material = "ESTUDIANTE";
 
             objmaterial.Guardar();
@@ -154,7 +154,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
                     string archivo = (evidenciae.FileName).ToLower();
 
                     evidenciae.SaveAs(Server.MapPath("~/Imagen/" + evidenciae.FileName));
-                    objmaterial.Archivo_Material = evidenciae.FileName;
+                    objmaterial.Archivo_Material1 = evidenciae.FileName;
                 }
 
                 objmaterial.Guardar();
