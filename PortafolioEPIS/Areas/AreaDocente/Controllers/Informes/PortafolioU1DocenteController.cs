@@ -54,7 +54,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
         }
 
         [HttpPost]
-        public ActionResult Evidencia(Tbl_Material objEvidencia, HttpPostedFileBase archivo, int Codigo_detalle_carga)
+        public ActionResult Evidencia(Tbl_Material objEvidencia, HttpPostedFileBase archivo, HttpPostedFileBase archivo1, int Codigo_detalle_carga)
         {
             if (archivo != null)
             {
@@ -63,6 +63,14 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
                 objEvidencia.Archivo_Material1 = archivo.FileName;
                 objEvidencia.TipoArchivo_Material1 = Path.GetExtension(archivo.FileName);
                 objEvidencia.PesoArchivo_Material1 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+            if (archivo1 != null)
+            {
+
+                archivo1.SaveAs(Server.MapPath("~/Imagen/" + archivo1.FileName));
+                objEvidencia.Archivo_Material2 = archivo1.FileName;
+                objEvidencia.TipoArchivo_Material2 = Path.GetExtension(archivo1.FileName);
+                objEvidencia.PesoArchivo_Material2 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo1.ContentLength) / (1024 * 1024)), 2)) + " Mb";
             }
 
             objEvidencia.Guardar();
