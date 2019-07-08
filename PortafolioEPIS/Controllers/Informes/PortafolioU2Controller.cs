@@ -10,7 +10,7 @@ using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
-    [Autenticado]
+    //[Autenticado]
     public class PortafolioU2Controller : Controller
     {
         private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();

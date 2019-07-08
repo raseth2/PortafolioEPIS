@@ -140,7 +140,7 @@
                                 </nav>
                             </div>
                         </div>
-                        <form method="post" action="" id="evaluados ">
+                        <form method="post" action="" id="evaluados " name="evaluados">
                             @foreach (var p in prueba)
                             {
                                 if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UII")
@@ -165,7 +165,7 @@
                                         <div class="form-group form-focus">
                                             <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
                                             <label class="focus-label">Retirados:<span class="text-danger">*</span></label>
-                                            <input type="text" name="retirados" id="retirados" class="form-control floating">
+                                            <input type="text" onKeyUp="Suma()" name="retirados" id="retirados" class="form-control floating">
                                         </div>
                                     </div>
 
@@ -173,14 +173,14 @@
                                         <div class="form-group form-focus">
                                             <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
                                             <label class="focus-label">Abandonos:<span class="text-danger">*</span></label>
-                                            <input type="text" name="abandonos" id="abandonos" class="form-control floating">
+                                            <input type="text" onKeyUp="Suma()" name="abandonos" id="abandonos" class="form-control floating">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group form-focus">
                                             <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
                                             <label class="focus-label">Aprobados:<span class="text-danger">*</span></label>
-                                            <input type="text" name="aprobados" id="aprobados" class="form-control floating">
+                                            <input onblur="if (this.value == '') { this.value=='0'}"  value="0" type="text"style="background:#ffffff" readonly onKeyUp="Suma()" name="aprobados" id="aprobados" class="form-control floating">
                                         </div>
                                     </div>
                                 </div>
@@ -2777,5 +2777,30 @@
 
 
     }
+</script>
+
+<script>
+    //Función que realiza la suma
+    function Suma() {
+
+        var ingreso1 = document.evaluados.retirados.value;
+        var ingreso2 = document.evaluados.abandonos.value;
+        var ingreso3 = document.evaluados.aprobados.value;
+
+        try {
+            ////Calculamos el número escrito:
+            //ingreso1 = (isNaN(parseInt(ingreso1))) ? 0 : parseInt(ingreso1);
+            //ingreso2 = (isNaN(parseInt(ingreso2))) ? 0 : parseInt(ingreso2);
+            //ingreso3 = (isNaN(parseInt(ingreso3))) ? 0 : parseInt(ingreso3);
+
+            // document.evaluados.suficiente.value = evaluados - parseInt(ingreso1);
+
+
+            document.evaluados.aprobados.value = (@Model.Matriculados_DetalleCargaAcademica - (parseInt(ingreso1) + parseInt(ingreso2)) < 0 ? 0 : @Model.Matriculados_DetalleCargaAcademica -(parseInt(ingreso1) + parseInt(ingreso2)));
+        }
+        //Si se produce un error no hacemos nada
+        catch (e) { }
+    }
+
 </script>
 

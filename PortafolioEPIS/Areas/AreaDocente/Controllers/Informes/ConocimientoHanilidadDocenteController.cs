@@ -31,13 +31,15 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers
         public ActionResult Guardar(Tbl_ConocimientoHabilidad objConocimientoHabilidad, int idprueba, string nombre, int deficiente, int suficiente, int bueno, int codigo)
         {
 
-
-            objConocimientoHabilidad.Codigo_PruebaEntrada = idprueba;
-            objConocimientoHabilidad.Nombre_ConocimientoHabilidad = nombre;
-            objConocimientoHabilidad.Deficiente_ConocimientoHabilidad = deficiente;
-            objConocimientoHabilidad.Suficiente_ConocimientoHabilidad = suficiente;
-            objConocimientoHabilidad.Bueno_ConocimientoHabilidad = bueno;
-            objConocimientoHabilidad.Guardar();
+            if (bueno > 0)
+            {
+                objConocimientoHabilidad.Codigo_PruebaEntrada = idprueba;
+                objConocimientoHabilidad.Nombre_ConocimientoHabilidad = nombre;
+                objConocimientoHabilidad.Deficiente_ConocimientoHabilidad = deficiente;
+                objConocimientoHabilidad.Suficiente_ConocimientoHabilidad = suficiente;
+                objConocimientoHabilidad.Bueno_ConocimientoHabilidad = bueno;
+                objConocimientoHabilidad.Guardar();
+            }
             return Redirect("~/AreaDocente/PruebaEntradaDocente/Agregar/" + codigo);
 
 
