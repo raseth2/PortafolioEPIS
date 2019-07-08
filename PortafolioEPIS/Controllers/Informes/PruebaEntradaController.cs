@@ -11,7 +11,7 @@ using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
-    [Autenticado]
+    //[Autenticado]
 
     public class PruebaEntradaController : Controller
     {

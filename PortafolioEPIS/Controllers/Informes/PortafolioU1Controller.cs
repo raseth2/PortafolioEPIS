@@ -10,7 +10,7 @@ using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
-    [Autenticado]
+    //[Autenticado]
     public class PortafolioU1Controller : Controller
     {
 

@@ -9,7 +9,7 @@ using PortafolioEPIS.Filters;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
-    [Autenticado]
+    //[Autenticado]
     public class InformeFinalController : Controller
     {
         private Tbl_Observaciones objObservaciones = new Tbl_Observaciones();
