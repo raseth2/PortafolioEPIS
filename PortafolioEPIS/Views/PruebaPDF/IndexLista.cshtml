@@ -1,17 +1,40 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
 
 @{
-
+    string nombre_carga = null;
     ViewBag.Title = "Reporte";
     List<PortafolioEPIS.Models.Tbl_Docente> listDocente = ViewBag.listaDocente;
     List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica> detalleCargaAcademicas = new PortafolioEPIS.Models.Tbl_DetalleCargaAcademica().Listar();
 }
 
+@{ 
+    foreach (var g in Model)
+    {
+        if (g.Tbl_CargaAcademica.Estado_CargaAcademica == true)
+        {
+            nombre_carga=g.Tbl_CargaAcademica.Nombre_CargaAcademica;
+        }
+    }
+}
+
+
+
+<div class="row">
+    <div class="col-sm-9 col-6">
+        <h4 class="page-title">Reporte de Carga Academica por Docente <strong style="color:royalblue"> </strong></h4>
+    </div>
+
+    <div class="col-sm-3 col-3 text-right m-b-20">
+        <div class="form-check form-check-inline">
+            <a href="~/PruebaEntrada/ExportaAPDF/" target="_blank" class="btn btn-success btn-rounded float-right"><i class="fa fa-print"></i> Imprimir</a>
+        </div>
+    </div>
+</div>
 <!--Resumen general de CARGA ACDEMICA-->
 <div class="card-box ">
     <div class="row clearfix">
         <div class="col-md-12">
-            <center><h3 class="text-primary">Reporte Detallada de Docente con su Carga Academica 2019-I</h3></center>
+            <center><h3 class="text-primary">Reporte Detallado de Docente con su  @nombre_carga</h3></center>
             <br />
         </div>
     </div>
@@ -48,8 +71,8 @@
                         @foreach (var p in Model)
                         {
                             <tr>
-                                @if (d.Codigo_Docente == p.Codigo_Docente)
-                                {
+                                @if (d.Codigo_Docente == p.Codigo_Docente && p.Tbl_CargaAcademica.Estado_CargaAcademica == true)
+                                {                                    
                                     num = num + 1;
                                     horast = horast + p.Tbl_DetallePlanEstudio.HorasTeoricas_DetallePlanEstudio;
                                     horasp = horasp + p.Tbl_DetallePlanEstudio.HorasPracticas_DetallePlanEstudio;
@@ -58,16 +81,16 @@
                                     total = total + (horasp + horast);
                                     totalHT = totalHT + horast;
                                     totalHP = totalHP + horasp;
-                                    
 
-                                        if (p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio == "Obligatorio")
-                                        {
-                                            creditosO = creditosO + p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
-                                        }
-                                        else if (p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio == "Electivo")
-                                        {
-                                            creditosE = creditosE + p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
-                                        }
+
+                                    if (p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio == "Obligatorio")
+                                    {
+                                        creditosO = creditosO + p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
+                                    }
+                                    else if (p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio == "Electivo")
+                                    {
+                                        creditosE = creditosE + p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
+                                    }
                                     <td>@(num == 1 ? (p.Tbl_Docente.Nombres_Docente + ", " + p.Tbl_Docente.Apellidos_Docente) : "")</td>
                                     <th>@num</th>
                                     <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
