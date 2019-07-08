@@ -124,6 +124,10 @@ namespace PortafolioEPIS.Controllers.Informes
 
 
         //parte guimer PDF
+        public ActionResult Print(int id, string nombreCurso)
+        {
+            return new ActionAsPdf("ListaPDFPruebaEntrada/" + id) { FileName = nombreCurso+".pdf" };
+        }
 
         // Metodo para Imprimir PDF Docente
         public ActionResult ListaPDFPruebaEntrada(int id)
