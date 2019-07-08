@@ -39,6 +39,23 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-box">
+                        <table>
+                            <tr>
+                                <td> <h4>Seleccionar Tipo de Estado: </h4> </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option value="">- Seleccionar -</option>
+                                        <option>Enviados</option>
+                                        <option>Aceptados</option>
+                                        <option>Rechazados</option>
+                                        <option>Todos</option>
+                                    </select>
+                                </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td> <a href="#" style='width:100px; height:35px' target="_blank" class="btn btn-success btn-rounded float-right"><i class="fa fa-print"></i> Imprimir</a> </td>
+                            </tr>
+                        </table>
                         <!--Contenido de tabla-->
                         <div class="table-responsive">
                             <table id="example" class="table table-hover">
@@ -63,7 +80,7 @@
                                         int cant_enviado = 0;
                                         int cant_rechazado = 0;
                                         int cant_aceptado = 0;
-                                        }
+                                    }
                                     @foreach (var p in Model)
                                     {
                                         string estadoss = null;
@@ -168,7 +185,7 @@
 
 
                         <!--Resumen general de Semestre-->
-                        <br />                        
+                        <br />
                         <div class="card-box profile-header">
 
                             <div class="row clearfix">
@@ -206,7 +223,7 @@
                                                     <span class="title">Rechazado:</span>
                                                     <span class="text">@cant_rechazado</span>
                                                     <span class="title">Total:</span>
-                                                    <span class="text">@(cant_aceptado+cant_enviado+cant_guardado+cant_noguardado+cant_rechazado)</span>
+                                                    <span class="text">@(cant_aceptado + cant_enviado + cant_guardado + cant_noguardado + cant_rechazado)</span>
                                                 </li>
                                             </ul>
                                         </div>
