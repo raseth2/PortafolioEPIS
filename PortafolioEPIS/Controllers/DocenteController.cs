@@ -10,6 +10,9 @@ using Microsoft.Reporting.WebForms;
 using Rotativa;
 using PortafolioEPIS.Filters;
 
+using System.Web.UI.WebControls;
+using System.Web.UI;
+
 namespace PortafolioEPIS.Controllers
 {
     [Autenticado]
@@ -184,7 +187,31 @@ namespace PortafolioEPIS.Controllers
             return new ActionAsPdf("ListaPDFDocente");
         }
 
-        
+        public ActionResult ExportaExcel()
+        {
+            var gv = new GridView();
+            gv.DataSource = objDocente.Listar();
+            gv.DataBind();
+
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=RegistroDocente.xls");
+            Response.ContentType = "application/ms-excel";
+
+            Response.Charset = "";
+            StringWriter objStringWriter = new StringWriter();
+            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+
+            gv.RenderControl(objHtmlTextWriter);
+
+            Response.Output.Write(objStringWriter.ToString());
+            Response.Flush();
+            Response.End();
+
+            return View("~/Docente");
+
+        }
+
 
     }
 }

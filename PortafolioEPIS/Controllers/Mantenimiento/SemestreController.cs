@@ -6,6 +6,10 @@ using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using PortafolioEPIS.Filters;
 
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
+
 namespace PortafolioEPIS.Controllers.Mantenimiento
 {
     [Autenticado]
@@ -58,6 +62,31 @@ namespace PortafolioEPIS.Controllers.Mantenimiento
             objSemestre.Codigo_Semestre = id;
             objSemestre.Eliminar();
             return Redirect("~/Semestre");
+        }
+
+        public ActionResult ExportaExcel()
+        {
+            var gv = new GridView();
+            gv.DataSource = objSemestre.Listar();
+            gv.DataBind();
+
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=RegistroSemestre.xls");
+            Response.ContentType = "application/ms-excel";
+
+            Response.Charset = "";
+            StringWriter objStringWriter = new StringWriter();
+            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+
+            gv.RenderControl(objHtmlTextWriter);
+
+            Response.Output.Write(objStringWriter.ToString());
+            Response.Flush();
+            Response.End();
+
+            return View("~/Semestre");
+
         }
     }
 }
