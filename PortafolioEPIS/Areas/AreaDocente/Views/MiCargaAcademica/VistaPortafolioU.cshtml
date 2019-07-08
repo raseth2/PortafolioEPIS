@@ -46,18 +46,18 @@
                                         <label>@idpruebas</label>
                                         <label>@estado</label>
                                         <label>@detalleplan</label>*@
-                                foreach (var p in Model)
+                            foreach (var p in Model)
 
+                            {
+
+                                if (p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)) && p.Tbl_Semestre.Estado_Semestre == true)
                                 {
 
-                                    if (p.Tbl_Docente.Codigo_Docente.Equals(Convert.ToInt32(ViewBag.id)))
+                                    if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
                                     {
-
-                                        if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
-                                        {
-                                            estado = q.Estado_Portafolio;
-                                            unidad = q.Unidad_Portafolio;
-                                            num = num + 1;
+                                        estado = q.Estado_Portafolio;
+                                        unidad = q.Unidad_Portafolio;
+                                        num = num + 1;
                             <tr>
                                 <td>@num</td>
                                 <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>

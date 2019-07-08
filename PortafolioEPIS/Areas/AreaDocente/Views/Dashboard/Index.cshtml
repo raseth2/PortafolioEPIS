@@ -28,23 +28,25 @@
     int cant_aceptado = 0;
     string cursos_pruebaentrada = "";
     string estado_pruebaentrada = "";
+    string nombreCarga_Academica = null;
 }
 @foreach (var item in detalle)
 {
-    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente  && item.Tbl_Semestre.Estado_Semestre==true)
     {
         string estadoNN = null;
         string cadena_estados = null;
         string color = null;
         string estadoss = null;
         string estadonombre = null;
-
+        nombreCarga_Academica = item.Tbl_CargaAcademica.Nombre_CargaAcademica;
 
         foreach (var q in prueba)
         {
             if (item.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica)
             {
                 estadoss = q.Estado_PruebaEntrada;
+
             }
         }
         if (estadoss == "G")
@@ -110,7 +112,7 @@
 }
 @foreach (var item in detalle)
 {
-    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente && item.Tbl_Semestre.Estado_Semestre == true)
     {
         string estadoNNp1 = null;
         string cadena_estadosp1 = null;
@@ -184,7 +186,7 @@
 }
 @foreach (var item in detalle)
 {
-    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente && item.Tbl_Semestre.Estado_Semestre == true)
     {
         string estadoNNp2 = null;
         string cadena_estadosp2 = null;
@@ -258,7 +260,7 @@
 }
 @foreach (var item in detalle)
 {
-    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente && item.Tbl_Semestre.Estado_Semestre == true)
     {
         string estadoNNp3 = null;
         string cadena_estadosp3 = null;
@@ -333,7 +335,7 @@
 }
 @foreach (var item in detalle)
 {
-    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente)
+    if (item.Codigo_Docente == usuario.Tbl_Docente.Codigo_Docente && item.Tbl_Semestre.Estado_Semestre == true)
     {
         string estadoNNi = null;
         string cadena_estadosi = null;
@@ -395,7 +397,7 @@
 <div class="card-box ">
     <div class="row clearfix">
         <div class="col-md-12">
-            <center><h2 class="text-primary">Información de Carga Académica 2019-I</h2></center>
+            <center><h2 class="text-primary">Información de @(nombreCarga_Academica == null ? "Carga Academica" : nombreCarga_Academica) </h2></center>
         </div>
     </div>
     <div class="row clearfix">
@@ -416,7 +418,7 @@
                 <tbody>
                     @foreach (var p in detalle)
                     {
-                        if (p.Codigo_Docente == usuario.Codigo_Docente)
+                        if (p.Codigo_Docente == usuario.Codigo_Docente && p.Tbl_Semestre.Estado_Semestre == true)
                         {
                             num = num + 1;
                             horast = horast + p.Tbl_DetallePlanEstudio.HorasTeoricas_DetallePlanEstudio;
