@@ -7,6 +7,10 @@ using System.Web.Mvc;
 using PortafolioEPIS.Models;
 using PortafolioEPIS.Filters;
 
+using System.Web.UI.WebControls;
+using System.Web.UI;
+using System.IO;
+
 namespace PortafolioEPIS.Controllers
 {
     [Autenticado]
@@ -78,6 +82,31 @@ namespace PortafolioEPIS.Controllers
             objUsuario.Codigo_Usuario = id;
             objUsuario.Eliminar();
             return Redirect("~/Usuario");
+        }
+
+        public ActionResult ExportaExcel()
+        {
+            var gv = new GridView();
+            gv.DataSource = objUsuario.Listar();
+            gv.DataBind();
+
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=RegistroUsuario.xls");
+            Response.ContentType = "application/ms-excel";
+
+            Response.Charset = "";
+            StringWriter objStringWriter = new StringWriter();
+            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+
+            gv.RenderControl(objHtmlTextWriter);
+
+            Response.Output.Write(objStringWriter.ToString());
+            Response.Flush();
+            Response.End();
+
+            return View("~/Usuario");
+
         }
     }
 }
