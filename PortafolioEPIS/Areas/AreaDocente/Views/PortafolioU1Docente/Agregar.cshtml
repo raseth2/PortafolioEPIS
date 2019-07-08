@@ -600,24 +600,289 @@
                                 </div>
                             </div>
                         }
-z
-
-                        @* <script>
-            var form2 = function () {
-                var idprueba = @idpruebas;
-                var combo1 = document.getElementById("materiald");
-                var seleccion1 = combo1.options[combo1.selectedIndex].text;
-                var combo2 = document.getElementById("tipod");
-                var seleccion2 = combo2.options[combo2.selectedIndex].text;
-                var evidenciad = document.getElementById("evidenciad").value;
-                var cantidad = document.getElementById("cantidad").value;
-                alert(seleccion1 + "\n" + seleccion2 + "\n" + evidenciad + "\n" + cantidad + "\n" + idprueba)
-                //window.location.href = '@Url.Content("~/PortafolioU1/Guardar/")' + "?idprueba=" + idprueba ;
-            }
-        </script>*@
 
 
-                    </div>
+                        @using (Html.BeginForm("Evidencia", "PortafolioU1Docente", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="table-responsive">
+
+                                <table id="example" class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Material Docente Entregado</th>
+                                            <th>Cantidad</th>
+                                            <th>Tipo Entrega</th>
+
+                                            <th>Evidencia</th>
+                                            <th class="text-right">Descripcion</th>
+                                        </tr>
+                                    </thead>
+                                    @{int con = 0; }
+                                    <tbody>
+
+                                        @{con = con + 1; }
+                                        <tr>
+                                            @{
+                                                int id1 = 0;
+                                                string Nombrematerial1 = "";
+                                                string tipomaterial1 = "";
+                                                string descripcion1 = "";
+                                                string archivo1 = "";
+                                                string estado1 = "";
+                                                int cantidad1 = 0;
+                                                int id2 = 0;
+                                                string Nombrematerial2 = "";
+                                                string tipomaterial2 = "";
+                                                string descripcion2 = "";
+                                                string archivo2 = "";
+                                                string estado2 = "";
+                                                int cantidad2 = 0;
+                                            }
+
+                                            @foreach (var p in prueba)
+                                            {
+                                                foreach (var item1 in material)
+                                                {
+
+                                                    if (item1.Codigo_Portafolio == p.Codigo_Portafolio && item1.Nombre_Material1 == "Sílabo formato UPT (Impreso y Digital)" && item1.Tipo_Material == "DOCENTEUI")
+                                                    {
+                                                        id1 = item1.Codigo_Material;
+                                                        Nombrematerial1 = item1.Nombre_Material1;
+                                                        tipomaterial1 = item1.Tipo_Material;
+                                                        descripcion1 = item1.Descripcion_Material1;
+                                                        archivo1 = item1.Archivo_Material1;
+                                                        estado1 = item1.Estado_Material1;
+                                                        cantidad1 = Convert.ToInt32(item1.Cantidad_Material1);
+
+                                                        id2 = item1.Codigo_Material;
+                                                        Nombrematerial2 = item1.Nombre_Material2;
+                                                        tipomaterial2 = item1.Tipo_Material;
+                                                        descripcion2 = item1.Descripcion_Material2;
+                                                        archivo2 = item1.Archivo_Material2;
+                                                        estado2 = item1.Estado_Material2;
+                                                        cantidad2 = Convert.ToInt32(item1.Cantidad_Material2);
+                                                    }
+                                                }
+                                            }
+
+                                            <label>@id1 ff @Nombrematerial1</label>
+                                        @if (id1 > 0 && Nombrematerial1 == "Sílabo formato UPT (Impreso y Digital)" && tipomaterial1 == "DOCENTEUI")
+                                                {
+                                                    <input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden />
+                                                    <input type="text" name="Codigo_Material" value="@id1" hidden />
+                                                    <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
+                                                    <input type="text" name="Tipo_Material" value="DOCENTEUI" hidden />
+                                                    <input type="text" name="Archivo_Material1" value="@archivo1" hidden />
+                                                    <input type="text" id="Nombre_Material1" name="Nombre_Material1" style="background:#ffffff" readonly class="form-control floating" value="Sílabo formato UPT (Impreso y Digital)" hidden>
+
+                                                    <td>1</td>
+                                                    <td>@Nombrematerial1</td>
+                                                    <td><input type="number" class="form-control" id="Cantidad_Material1" name="Cantidad_Material1" value="@cantidad1"></td>
+                                                    <td>
+                                                        <select class="form-control" id="Estado_Material1" name="Estado_Material1">
+                                                            @if (estado1 == "Digital")
+                                                            {
+                                                                <option value="">- Seleccionar -</option>
+                                                                <option selected>Digital</option>
+                                                                <option>Impreso</option>
+                                                                <option>Digital y Impreso</option>
+
+                                                            }
+                                                            @if (estado1 == "Impreso")
+                                                            {
+                                                                <option value="">- Seleccionar -</option>
+                                                                <option>Digital</option>
+                                                                <option selected>Impreso</option>
+                                                                <option>Digital y Impreso</option>
+
+                                                            }
+                                                            @if (estado1 == "Digital y Impreso")
+                                                            {
+                                                                <option value="">- Seleccionar -</option>
+                                                                <option>Digital</option>
+                                                                <option>Impreso</option>
+                                                                <option selected>Digital y Impreso</option>
+
+                                                            }
+
+                                                            @if (estado1 == null)
+                                                            {
+                                                                <option selected value="">- Seleccionar -</option>
+                                                                <option>Digital</option>
+                                                                <option>Impreso</option>
+                                                                <option>Digital y Impreso</option>
+
+                                                            }
+
+
+
+                                                        </select>
+
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="file" class="form-control" id="archivo" name="archivo" src="~/Imagen/@archivo1">
+                                                        <label>@archivo1</label>
+                                                    </td>
+                                                    <td class="text-center"><input type="text" class="form-control" id="Descripcion_Material1" name="Descripcion_Material1" value="@descripcion1"></td>
+
+
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden />
+                                                    <input type="text" name="Codigo_Material" value="0" hidden />
+                                                    <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
+                                                    <input type="text" name="Tipo_Material" value="DOCENTEUI" hidden />
+                                                    <input type="text" id="Nombre_Material1" name="Nombre_Material1" style="background:#ffffff" readonly class="form-control floating" value="Sílabo formato UPT (Impreso y Digital)" hidden>
+                                                    <td>1</td>
+                                                    <td><label>Sílabo formato UPT (Impreso y Digital)</label></td>
+                                                    <td><input type="number" class="form-control" id="Cantidad_Material1" name="Cantidad_Material1"></td>
+                                                    <td>
+                                                        <select class="form-control" id="Estado_Material1" name="Estado_Material1">
+                                                            <option value="">- Seleccionar -</option>
+                                                            <option>Digital</option>
+                                                            <option>Impreso</option>
+                                                            <option>Digital y Impreso</option>
+                                                        </select>
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="file" class="form-control" id="archivo" name="archivo" onchange="return validarExt()">
+                                                    </td>
+                                                    <td class="text-center"><input type="text" class="form-control" id="Descripcion_Material1" name="Descripcion_Material1"></td>
+
+                                                }
+
+
+                                            
+                                        </tr>
+                                        <tr>
+                                       
+
+                   
+
+                                           
+                                            
+                                                @if (id2 > 0 && Nombrematerial2 == "Sílabo formato ICACIT (Impreso y Digital)" && tipomaterial2 == "DOCENTEUI")
+                                                {
+                                                    <input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden />
+                                                    <input type="text" name="Codigo_Material" value="@id2" hidden />
+                                                    <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
+                                                    <input type="text" name="Tipo_Material" value="DOCENTEUI" hidden />
+                                                    <input type="text" name="Archivo_Material2" value="@archivo2" hidden />
+                                                    <input type="text" id="Nombre_Material2" name="Nombre_Material2" style="background:#ffffff" readonly class="form-control floating" value="Sílabo formato ICACIT (Impreso y Digital)" hidden>
+
+                                                    <td>2</td>
+                                                    <td>@Nombrematerial2</td>
+                                                    <td><input type="number" class="form-control" id="Cantidad_Material2" name="Cantidad_Material2" value="@cantidad2"></td>
+                                                    <td>
+                                                        <select class="form-control" id="Estado_Material2" name="Estado_Material2">
+                                                            @if (estado2 == "Digital")
+                                                            {
+                                                                <option value="">- Seleccionar -</option>
+                                                                <option selected>Digital</option>
+                                                                <option>Impreso</option>
+                                                                <option>Digital y Impreso</option>
+
+                                                            }
+                                                            @if (estado2 == "Impreso")
+                                                            {
+                                                                <option value="">- Seleccionar -</option>
+                                                                <option>Digital</option>
+                                                                <option selected>Impreso</option>
+                                                                <option>Digital y Impreso</option>
+
+                                                            }
+                                                            @if (estado2 == "Digital y Impreso")
+                                                            {
+                                                                <option value="">- Seleccionar -</option>
+                                                                <option>Digital</option>
+                                                                <option>Impreso</option>
+                                                                <option selected>Digital y Impreso</option>
+
+                                                            }
+
+                                                            @if (estado2 == null)
+                                                            {
+                                                                <option selected value="">- Seleccionar -</option>
+                                                                <option>Digital</option>
+                                                                <option>Impreso</option>
+                                                                <option>Digital y Impreso</option>
+
+                                                            }
+
+
+
+                                                        </select>
+
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="file" class="form-control" id="archivo1" name="archivo1" src="~/Imagen/@archivo2">
+                                                        <label>@archivo2</label>
+                                                    </td>
+                                                    <td class="text-center"><input type="text" class="form-control" id="Descripcion_Material2" name="Descripcion_Material2" value="@descripcion2"></td>
+
+
+                                                }
+                                                else
+                                                {
+                                                    <input type="text" name="Codigo_Portafolio" value="@idpruebas" hidden />
+                                                    <input type="text" name="Codigo_Material" value="0" hidden />
+                                                    <input type="text" name="Codigo_detalle_carga" value="@Model.Codigo_DetalleCargaAcademica" hidden />
+                                                    <input type="text" name="Tipo_Material" value="DOCENTEUI" hidden />
+                                                    <input type="text" id="Nombre_Material2" name="Nombre_Material2" style="background:#ffffff" readonly class="form-control floating" value="Sílabo formato ICACIT (Impreso y Digital)" hidden>
+                                                    <td>2</td>
+                                                    <td><label>Sílabo formato ICACIT (Impreso y Digital)</label></td>
+                                                    <td><input type="number" class="form-control" id="Cantidad_Material2" name="Cantidad_Material2"></td>
+                                                    <td>
+                                                        <select class="form-control" id="Estado_Material2" name="Estado_Material2">
+                                                            <option value="">- Seleccionar -</option>
+                                                            <option>Digital</option>
+                                                            <option>Impreso</option>
+                                                            <option>Digital y Impreso</option>
+                                                        </select>
+                                                    </td>
+
+                                                    <td>
+                                                        <input type="file" class="form-control" id="archivo1" name="archivo1" onchange="return validarExt()">
+                                                    </td>
+                                                    <td class="text-center"><input type="text" class="form-control" id="Descripcion_Material2" name="Descripcion_Material2"></td>
+
+                                                }
+
+
+                                            
+                                        </tr>
+
+
+
+
+                                    </tbody>
+                                </table>
+                                <td> <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button></td>
+                            </div>
+                                                }
+
+
+                            @* <script>
+                var form2 = function () {
+                    var idprueba = @idpruebas;
+                    var combo1 = document.getElementById("materiald");
+                    var seleccion1 = combo1.options[combo1.selectedIndex].text;
+                    var combo2 = document.getElementById("tipod");
+                    var seleccion2 = combo2.options[combo2.selectedIndex].text;
+                    var evidenciad = document.getElementById("evidenciad").value;
+                    var cantidad = document.getElementById("cantidad").value;
+                    alert(seleccion1 + "\n" + seleccion2 + "\n" + evidenciad + "\n" + cantidad + "\n" + idprueba)
+                    //window.location.href = '@Url.Content("~/PortafolioU1/Guardar/")' + "?idprueba=" + idprueba ;
+                }
+            </script>*@
+
+
+                        </div>
                 </div>
             </div>
         </div>
