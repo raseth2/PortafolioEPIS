@@ -184,7 +184,7 @@
                                         <div class="form-group form-focus">
                                             <input type="text" name="idprueba" id="idprueba" value="0" class="form-control floating" hidden>
                                             <label class="focus-label">Aprobados:<span class="text-danger">*</span></label>
-                                            <input type="text"  readonly onKeyUp="Suma()" name="aprobados" id="aprobados" class="form-control floating">
+                                            <input onblur="if (this.value == '') { this.value=='0'}"  value="0" type="text"style="background:#ffffff" readonly onKeyUp="Suma()" name="aprobados" id="aprobados" class="form-control floating">
                                         </div>
                                     </div>
                                 </div>
