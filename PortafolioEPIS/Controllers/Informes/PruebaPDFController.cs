@@ -87,7 +87,7 @@ namespace PortafolioEPIS.Controllers.Informes
         
         public ActionResult ExportaAPDFDocenteCursos(int id)
         {
-            return new ActionAsPdf("ListaPDFDocenteCursos");
+            return new ActionAsPdf("ListaPDFDocenteCursos/"+id);
         }
     }
 }
