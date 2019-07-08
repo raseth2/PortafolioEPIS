@@ -14,7 +14,9 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.GoogleController
     [Autenticado]
     public class GoogleFileController : Controller
     {
-       private string UPT = "1e9reGcaJf68ZUplAFLbHARYv8MCG5eBL";
+        private Tbl_DetalleCargaAcademica objDetalleCargaAcademica = new Tbl_DetalleCargaAcademica();
+        public GoogleDriveFilesRepository objGoogle = new GoogleDriveFilesRepository();
+        private string UPT = "1e9reGcaJf68ZUplAFLbHARYv8MCG5eBL";
         PortafolioEPIS.Models.Tbl_Usuario usuario = new PortafolioEPIS.Models.Tbl_Usuario().Obtener(PortafolioEPIS.Models.SessionHelper.GetUser());
         [HttpGet]
         public ActionResult GetGoogleDriveFiles(string FolderId, string NameCarpeta)
@@ -31,10 +33,32 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.GoogleController
         [HttpGet]
         public ActionResult GetContainsInFolder(string FolderId)
         {
-          if(FolderId == null) { 
-              
-                CreateFolder(usuario.Tbl_Docente.Apellidos_Docente + " " + usuario.Tbl_Docente.Nombres_Docente, UPT);
-                FolderId = "1KqzKLCRTPaJWup1mLM496YYsqitaGcRp"; 
+          if(FolderId == null) {
+
+                GoogleDriveFilesRepository.CreateFolder(usuario.Tbl_Docente.Apellidos_Docente + " " + usuario.Tbl_Docente.Nombres_Docente, UPT);
+                FolderId = "1KqzKLCRTPaJWup1mLM496YYsqitaGcRp";
+
+                //List<Tbl_DetalleCargaAcademica> detallecargaA = objDetalleCargaAcademica.Listar();
+            
+                //List<GoogleDriveFilesRepository> drives = objGoogle.GetContainsInFolder(FolderId);
+               
+
+                //foreach (var d in drives)
+                //{
+                //    string idfol = UPT;
+                //    if (d.Name== usuario.Tbl_Docente.Apellidos_Docente + " " + usuario.Tbl_Docente.Nombres_Docente)
+                //    {
+                //        foreach (var detalle in detallecargaA)
+                //        {
+                //            if (detalle.Tbl_Docente.Codigo_Docente == usuario.Codigo_Docente)
+                //            {
+                //                string nombreCurso = detalle.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio + " " + detalle.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio;
+                //                GoogleDriveFilesRepository.CreateFolder(nombreCurso, idfol);
+                //            }
+                //        }
+                       
+                //    }
+                //}
 
 
             }

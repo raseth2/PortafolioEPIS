@@ -1138,6 +1138,7 @@
     <Content Include="Areas\AreaDocente\Views\GoogleFile\GetGoogleDriveFiles.cshtml" />
     <Content Include="Imagen\client_secret.json" />
     <Content Include="Areas\AreaDocente\Views\GoogleFile\GetContainsInFolder.cshtml" />
+    <Content Include="Areas\AreaDocente\Views\MiPerfil\Ayuda.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1218,6 +1219,7 @@
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\PruebaPDF\IndexAdmin.cshtml" />
     <Content Include="Views\PruebaPDF\IndexLista.cshtml" />
+    <Content Include="Views\PruebaPDF\ListaPDFDocenteCursos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

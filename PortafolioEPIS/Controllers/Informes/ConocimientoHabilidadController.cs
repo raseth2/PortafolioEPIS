@@ -42,7 +42,7 @@ namespace PortafolioEPIS.Controllers.Informes
                 objConocimientoHabilidad.Bueno_ConocimientoHabilidad = bueno;
                 objConocimientoHabilidad.Guardar();
             }
-                return Redirect("~/PruebaEntrada/Agregar/" + codigo);
+                return Redirect("~/AreaDocente/PruebaEntradaDocente/Agregar/" + codigo);
            
 
         }
@@ -50,7 +50,7 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             objConocimientoHabilidad.Codigo_ConocimientoHabilidad = id;
             objConocimientoHabilidad.Eliminar();
-            return Redirect("~/PruebaEntrada/Agregar/" + cid);
+            return Redirect("~/AreaDocente/PruebaEntradaDocente/Agregar/" + cid);
 
         }
     }

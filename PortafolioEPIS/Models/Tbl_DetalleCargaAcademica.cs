@@ -65,6 +65,7 @@ namespace PortafolioEPIS.Models
 
         //Metodo Listar
         public List<Tbl_DetalleCargaAcademica> Listar()
+
         {
             var objDetalleCargaAcademica = new List<Tbl_DetalleCargaAcademica>();
             try

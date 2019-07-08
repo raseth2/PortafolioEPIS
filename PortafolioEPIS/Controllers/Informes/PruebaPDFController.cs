@@ -7,6 +7,7 @@ using jsreport.MVC;
 using jsreport.Types;
 using PortafolioEPIS.Models;
 using PortafolioEPIS.Filters;
+using Rotativa;
 
 namespace PortafolioEPIS.Controllers.Informes
 {
@@ -54,69 +55,6 @@ namespace PortafolioEPIS.Controllers.Informes
         }
 
         
-        [EnableJsReport()]
-        public ActionResult Invoice()
-        {
-            HttpContext.JsReportFeature().Recipe(Recipe.ChromePdf);
-
-            return View(InvoiceModel.Example());
-        }
-
-        [EnableJsReport()]
-        public ActionResult InvoiceDownload()
-        {
-            HttpContext.JsReportFeature().Recipe(Recipe.ChromePdf)
-                .OnAfterRender((r) => HttpContext.Response.Headers["Content-Disposition"] = "attachment; filename=\"myReport.pdf\"");
-
-            return View("Invoice", InvoiceModel.Example());
-        }
-
-        [EnableJsReport()]
-        public ActionResult InvoiceWithHeader()
-        {
-            HttpContext.JsReportFeature()
-                .Recipe(Recipe.ChromePdf)
-                .Configure((r) => r.Template.Chrome = new Chrome
-                {
-                    HeaderTemplate = this.RenderViewToString("Header", new { }),
-                    DisplayHeaderFooter = true,
-                    MarginTop = "2cm",
-                    MarginLeft = "1cm",
-                    MarginBottom = "2cm",
-                    FooterTemplate = " "
-                });
-
-            return View("Invoice", InvoiceModel.Example());
-        }
-
-        [EnableJsReport()]
-        public ActionResult Items()
-        {
-            HttpContext.JsReportFeature()
-                .Recipe(Recipe.HtmlToXlsx);
-
-            return View(InvoiceModel.Example());
-        }
-
-        [EnableJsReport()]
-        public ActionResult ItemsExcelOnline()
-        {
-            HttpContext.JsReportFeature()
-                .Configure(req => req.Options.Preview = true)
-                .Recipe(Recipe.HtmlToXlsx);
-
-            return View("Items", InvoiceModel.Example());
-        }
-
-        [EnableJsReport()]
-        public ActionResult InvoiceDebugLogs()
-        {
-            HttpContext.JsReportFeature()
-                .DebugLogsToResponse()
-                .Recipe(Recipe.ChromePdf);
-
-            return View("Invoice", InvoiceModel.Example());
-        }
 
         public ActionResult Reporte()
         {
@@ -135,6 +73,21 @@ namespace PortafolioEPIS.Controllers.Informes
             return View(InvoiceModel.Example());
         }
 
+        // Metodo para Imprimir PDF Carga Academica de Docentes y Cursos
 
+        public ActionResult ListaPDFDocenteCursos(int id = 0)
+        {
+            ViewBag.id = id;
+            ViewBag.Tbl_CargaAcademica_id = objCargaAcademica.Obtener(id);
+            ViewBag.portafolio1 = objPortafolio.Listar();
+            ViewBag.carga = objCargaAcademica.Listar();
+            ViewBag.listaDocente = objDocente.Listar();
+            return View(objDetalleCargaAcademica.Listar2(id));
+        }
+        
+        public ActionResult ExportaAPDFDocenteCursos(int id)
+        {
+            return new ActionAsPdf("ListaPDFDocenteCursos/"+id);
+        }
     }
 }

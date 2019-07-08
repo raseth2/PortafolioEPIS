@@ -1,0 +1,176 @@
+﻿<link href="~/assets/Informes/prueba_entrada.css" rel="stylesheet" />
+@{
+    Layout = null;
+}
+@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
+
+@{
+    string nombre_carga = null;
+    int codigo_carga = 0;
+    ViewBag.Title = "Reporte";
+    List<PortafolioEPIS.Models.Tbl_Docente> listDocente = ViewBag.listaDocente;
+    List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica> detalleCargaAcademicas = new PortafolioEPIS.Models.Tbl_DetalleCargaAcademica().Listar();
+}
+
+@{
+    foreach (var g in Model)
+    {
+        if (g.Tbl_CargaAcademica.Estado_CargaAcademica == true)
+        {
+            codigo_carga = g.Tbl_Semestre.Codigo_Semestre;
+            nombre_carga = g.Tbl_CargaAcademica.Nombre_CargaAcademica;
+        }
+    }
+}
+
+
+
+<!--Resumen general de CARGA ACDEMICA-->
+<div class="card-box ">
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <br />
+            <center><h2 class="text-primary">Reporte Detallado de Docente con su  @nombre_carga</h2></center>
+            <br />
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12">
+            @{int total = 0;
+                int totalHT = 0;
+                int totalHP = 0;
+                int creditosO = 0;
+                int creditosE = 0;
+                int numv = 0;}
+            
+
+
+                <table border="1" class="table">
+                    
+                        <tr>
+                            <th>Docente</th>
+                            <th>#</th>
+                            <th>Código</th>
+                            <th>Asignatura</th>
+                            <th>HT</th>
+                            <th>HP</th>
+                            <th>TH</th>
+                            <th>Créditos</th>
+                            <th>Pre-Req.</th>
+                        </tr>
+                    
+                    <tbody>
+                        @foreach (var d in listDocente)
+                        {
+
+                            int num = 0, horas = 0, creditos = 0, horasp = 0, horast = 0;
+                            
+                            foreach (var p in Model)
+                            {
+                                <tr>
+                                    @if (d.Codigo_Docente == p.Codigo_Docente && p.Tbl_CargaAcademica.Estado_CargaAcademica == true)
+                                    {
+                                        num = num + 1;
+                                        horast = horast + p.Tbl_DetallePlanEstudio.HorasTeoricas_DetallePlanEstudio;
+                                        horasp = horasp + p.Tbl_DetallePlanEstudio.HorasPracticas_DetallePlanEstudio;
+                                        horas = horas + p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio;
+                                        creditos = creditos + p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
+                                        total = total + (horasp + horast);
+                                        totalHT = totalHT + horast;
+                                        totalHP = totalHP + horasp;
+
+
+                                        if (p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio == "Obligatorio")
+                                        {
+                                            creditosO = creditosO + p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
+                                        }
+                                        else if (p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio == "Electivo")
+                                        {
+                                            creditosE = creditosE + p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio;
+                                        }
+                                        <td>@(num == 1 ? (p.Tbl_Docente.Nombres_Docente + ", " + p.Tbl_Docente.Apellidos_Docente) : "")</td>
+                                        <th>@num</th>
+                                        <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
+                                        <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
+                                        <td style="text-align:center">@p.Tbl_DetallePlanEstudio.HorasTeoricas_DetallePlanEstudio</td>
+                                        <td style="text-align:center">@p.Tbl_DetallePlanEstudio.HorasPracticas_DetallePlanEstudio</td>
+                                        <td style="text-align:center">@p.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio</td>
+                                        <td style="text-align:center">@p.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</td>
+                                        <td style="text-align:center">@p.Tbl_DetallePlanEstudio.PreRequisito_DetallePlanEstudio</td>
+
+                                    }
+                                </tr>
+                            }
+                            <tr>
+                                <th colspan=4 bgcolor="#D9E2FF" style="text-align:right"><strong>TOTAL:</strong></th>
+                                <td style="text-align:center" bgcolor="#D9E2FF">@horast</td>
+                                <td style="text-align:center" bgcolor="#D9E2FF">@horasp</td>
+                                <th style="text-align:center" bgcolor="#D9E2FF"><strong>@horas</strong></th>
+                                <th style="text-align:center" bgcolor="#D9E2FF"><strong>@creditos</strong></th>
+                                <th bgcolor="#D9E2FF"></th>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="card-box ">
+    <div class="row clearfix">
+        <div class="col-md-6">
+            <center><h3 class="text-primary">Resumen de Créditos</h3></center>
+            <br />
+            <table border="1" class="table">
+                <tr>
+                    <th>TIPO CRÉDITO</th>
+                    <th>CANTIDAD</th>
+                </tr>
+                <tr>
+                    <td>Obligatorios</td>
+                    <td>@creditosO</td>
+                </tr>
+                <tr>
+                    <td>Electivos</td>
+                    <td>@creditosE</td>
+                </tr>
+                <tr>
+                    <td>Practicas Pre-Profesionales</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Extracurriculares</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <th bgcolor="#D9E2FF">TOTAL</th>
+                    <th bgcolor="#D9E2FF">@(creditosO + creditosE + 5)</th>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <center><h3 class="text-primary">Resumen de Horas</h3></center>
+            <br />
+            <table border="1" class="table">
+                <tr>
+                    <th>TIPO HORA</th>
+                    <th>CANTIDAD</th>
+                </tr>
+                <tr>
+                    <td>Horas Teóricas</td>
+                    <td>@totalHT</td>
+                </tr>
+                <tr>
+                    <td>Horas Prácticas</td>
+                    <td>@totalHP</td>
+                </tr>
+                <tr>
+                    <th bgcolor="#D9E2FF">Total Horas</th>
+                    <th bgcolor="#D9E2FF">@total</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

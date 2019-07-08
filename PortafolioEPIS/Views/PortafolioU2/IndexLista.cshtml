@@ -37,6 +37,23 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-box">
+                        <table>
+                            <tr>
+                                <td> <h4>Seleccionar Tipo de Estado: </h4> </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option value="">- Seleccionar -</option>
+                                        <option>Enviados</option>
+                                        <option>Aceptados</option>
+                                        <option>Rechazados</option>
+                                        <option>Todos</option>
+                                    </select>
+                                </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td> <a href="#" style='width:100px; height:35px' target="_blank" class="btn btn-success btn-rounded float-right"><i class="fa fa-print"></i> Imprimir</a> </td>
+                            </tr>
+                        </table>
                         <!--Contenido de tabla-->
                         <div class="table-responsive">
                             <table id="example" class="table table-hover">
@@ -69,7 +86,7 @@
                                         num = num + 1;
                                         foreach (var q in portafolio1)
                                         {
-                                            if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio=="UII")
+                                            if (p.Codigo_DetalleCargaAcademica == q.Codigo_DetalleCargaAcademica && q.Unidad_Portafolio == "UII")
                                             {
                                                 estadoss = q.Estado_Portafolio;
                                                 codigoPrueba = q.Codigo_Portafolio;
