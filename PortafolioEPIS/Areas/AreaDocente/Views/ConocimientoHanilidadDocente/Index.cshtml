@@ -11,6 +11,7 @@
                         <th rowspan="2">#</th>
                         <th rowspan="2">Nombre</th>
                         <th class="text-center" colspan="7">Numero de estudiantes por rango de nota (Nivel alcanzado en %)</th>
+                        <th width="2%" rowspan="2" class="text-center">I</th>
                         <th rowspan="2" class="text-right">Acción</th>
                     </tr>
                     <tr>
@@ -19,8 +20,7 @@
                         <th class="text-center">Suficiente</th>
                         <th class="text-center">%</th>
                         <th class="text-center">Bueno</th>
-                        <th class="text-center">%</th>
-                        <th class="text-center">Indicador</th>
+                        <th class="text-center">%</th>                        
                         <th class="text-center">Total</th>
 
                     </tr>
@@ -29,37 +29,37 @@
 
                 <tbody>
                     @{ int num = 0;
-                        int totald = 0;
-                        int totals = 0;
-                        int totalb = 0;
+                        double totald = 0;
+                        double totals = 0;
+                        double totalb = 0;
                         string nombre = "";
-                        int d = 0;
-                        int s = 0;
-                        int b = 0;
+                        double d = 0;
+                        double s = 0;
+                        double b = 0;
                         string nombre1 = "";
-                        int d1 = 0;
-                        int s1 = 0;
-                        int b1 = 0;
+                        double d1 = 0;
+                        double s1 = 0;
+                        double b1 = 0;
                         string nombre2 = "";
-                        int d2 = 0;
-                        int s2 = 0;
-                        int b2 = 0;
+                        double d2 = 0;
+                        double s2 = 0;
+                        double b2 = 0;
                         string nombre3 = "";
-                        int d3 = 0;
-                        int s3 = 0;
-                        int b3 = 0;
+                        double d3 = 0;
+                        double s3 = 0;
+                        double b3 = 0;
                         string nombre4 = "";
-                        int d4 = 0;
-                        int s4 = 0;
-                        int b4 = 0;
+                        double d4 = 0;
+                        double s4 = 0;
+                        double b4 = 0;
                         double porcentaje = 100;
                         double deficiente = 0;
                         double suficiente = 0;
                         double bueno = 0;
                         double total = 0;
 
-                      
-                        
+
+
                     }
                     @foreach (var p in Model)
                     {
@@ -79,14 +79,14 @@
                             <tr>
                                 <td>@num</td>
                                 <td>@p.Nombre_ConocimientoHabilidad</td>
-                                <td class="text-center">@p.Deficiente_ConocimientoHabilidad</td>
+                                <td style="background-color:#F2E2C4" class="text-center">@p.Deficiente_ConocimientoHabilidad</td>
                                 <td class="text-center">@deficiente</td>
-                                <td class="text-center">@p.Suficiente_ConocimientoHabilidad</td>
+                                <td style="background-color:#F2E2C4" class="text-center">@p.Suficiente_ConocimientoHabilidad</td>
                                 <td class="text-center">@suficiente</td>
-                                <td class="text-center">@p.Bueno_ConocimientoHabilidad</td>
+                                <td style="background-color:#F2E2C4" class="text-center">@p.Bueno_ConocimientoHabilidad</td>
                                 <td class="text-center">@bueno</td>
-                                <td class="text-center" bgcolor="#43FF52">@total</td>
-                                <td class="text-center" bgcolor="#@(suma > p.Deficiente_ConocimientoHabilidad? "55E90A":"FF0000")">Indicador</td>    
+                                <th class="text-center">@total %</th>
+                                <td class="text-center" bgcolor="@(suma > p.Deficiente_ConocimientoHabilidad? "green":"red")"></td>    
                                 <td class="text-right">
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
@@ -148,13 +148,36 @@
         </div>
     </div>
 </div>
+<style>
+    .circuloV {
+        width: 15px;
+        height: 15px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;        
+        background: green;
+    }
+    .circuloN {
+        width: 15px;
+        height: 15px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        background: orange;
+    }
+    .circuloR {
+        width: 15px;
+        height: 15px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        background: red;
+    }
+</style>
 <div class="row clearfix">
     <div class="col-md-12">
         <div class="float-right">
             <ul class="chat-user-total">
-                <li><button class="btn btn btn-success btn-rounded"></button> Capacidad alcanzada</li>
-                <li><button class="btn btn btn-warning btn-rounded"></button> No requiere accion de mejora</li>
-                <li><button class="btn btn btn-danger btn-rounded"></button> Requiere accion de mejora</li>
+                <li><button class="circuloV" > </button> Capacidad alcanzada</li>
+                <li><button class="circuloN"></button> No requiere accion de mejora</li>
+                <li><button class="circuloR"></button> Requiere accion de mejora</li>
             </ul>
         </div>
     </div>
