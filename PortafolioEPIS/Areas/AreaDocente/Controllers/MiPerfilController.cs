@@ -29,7 +29,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers
         // GET: AreaDocente/MiPerfil
         public ActionResult Ayuda()
         {
-            return View();
+            return View(objDocente.Listar2());
         }
     }
 }
