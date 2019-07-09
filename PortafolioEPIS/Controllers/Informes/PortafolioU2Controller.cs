@@ -173,7 +173,7 @@ namespace PortafolioEPIS.Controllers.Informes
         }
         public ActionResult Print(int id, string nombreCurso)
         {
-            return new ActionAsPdf("ListaPDFPortafolioU2/" + id) { FileName = nombreCurso + "_PortafolioU1.pdf" };
+            return new ActionAsPdf("ListaPDFPortafolioU2/" + id) { FileName = nombreCurso + "_PortafolioU2.pdf" };
         }
         public ActionResult ExportaAPDF(int id)
         {
