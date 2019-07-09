@@ -151,11 +151,13 @@
 
             if (p.Codigo_PruebaEntrada == Convert.ToInt32(idpruebaEntrada))
             {
+                int suma = 0;
                 num = num + 1;
                 deficiente = Math.Round(((p.Deficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
                 suficiente = Math.Round(((p.Suficiente_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
                 bueno = Math.Round(((p.Bueno_ConocimientoHabilidad * porcentaje) / p.Tbl_PruebaEntrada.Evaluados_PruebaEntrada), 2);
                 total = Math.Round((deficiente + suficiente + bueno), 1);
+                suma = (p.Suficiente_ConocimientoHabilidad + p.Bueno_ConocimientoHabilidad);
                 <tr>
                     <td style="text-align:center;">@num</td>
                     <td style="background-color:#F2E2C4;">@p.Nombre_ConocimientoHabilidad</td>
@@ -166,7 +168,7 @@
                     <td style="background-color:#F2E2C4;text-align:center;">@p.Bueno_ConocimientoHabilidad</td>
                     <td style="text-align:center;">@bueno</td>
                     <td style="text-align:center;" bgcolor="#43FF52">@total</td>
-                    <td style="text-align:center;"> </td>
+                    <td class="text-center" bgcolor="@(suma > p.Deficiente_ConocimientoHabilidad? "green":"red")"></td>
 
                     @{totald = totald + p.Deficiente_ConocimientoHabilidad;}
                     @{totals = totals + p.Suficiente_ConocimientoHabilidad;}
