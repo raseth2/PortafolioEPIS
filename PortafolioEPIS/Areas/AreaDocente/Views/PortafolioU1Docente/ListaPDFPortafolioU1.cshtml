@@ -139,19 +139,19 @@
                     <th>Evidencia</th>
                 </tr>
             </thead>
-            @{int con = 0; }
+            
             <tbody>
                 @foreach (var list in listaMaterial)
                 {
                     if (list.Tipo_Material == "DOCENTEUI" && list.Codigo_Portafolio == idCodigoPortafolio)
                     {
-                        con = con + 1;
+                        
                         <tr>
-                            <td>@con</td>
-                            <td>@list.Nombre_Material</td>
-                            <td>@list.Estado_Material</td>
-                            <td>@list.Cantidad_Material</td>
-                            <td>@list.Archivo_Material</td>
+                            <td>1</td>
+                            <td>@list.Nombre_Material1</td>
+                            <td>@list.Estado_Material1</td>
+                            <td>@list.Cantidad_Material1</td>
+                            <td>@list.Archivo_Material1</td>
                         </tr>
                     }
                 }
@@ -178,20 +178,19 @@
                     <th>Cantidad</th>
                     <th>Evidencia</th>
                 </tr>
-            </thead>
-            @{ int con1 = 0;}
+            </thead>            
             <tbody>
                 @foreach (var list1 in listaMaterial)
                 {
                     if (list1.Tipo_Material == "ESTUDIANTEUI" && list1.Codigo_Portafolio == idCodigoPortafolio)
                     {
-                        con1 = con1 + 1;
+                        
                         <tr>
-                            <td>@con1</td>
-                            <td>@list1.Nombre_Material</td>
-                            <td>@list1.Estado_Material</td>
-                            <td>@list1.Cantidad_Material</td>
-                            <td>@list1.Archivo_Material</td>
+                            <td>1</td>
+                            <td>@list1.Nombre_Material1</td>
+                            <td>@list1.Estado_Material1</td>
+                            <td>@list1.Cantidad_Material1</td>
+                            <td>@list1.Archivo_Material1</td>
                         </tr>
                     }
                 }

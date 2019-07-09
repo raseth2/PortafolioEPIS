@@ -122,7 +122,22 @@ namespace PortafolioEPIS.Controllers.Informes
             return View(objDetalleCargaAcademica.Obtener(id));
         }
 
+        
+        public ActionResult PrintFilter(string tipo)
+        {
+            List<Tbl_DetalleCargaAcademica> listacarga = objDetalleCargaAcademica.Listar();
 
+            foreach (var l in listacarga)
+            {
+               
+                Print(l.Codigo_DetalleCargaAcademica, l.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio);
+               
+
+            }
+            //ActionAsPdf dowload = new ActionAsPdf();
+
+            return Redirect("~/PruebaEntrada/IndexLista/8");
+        }
         //parte guimer PDF
         public ActionResult Print(int id, string nombreCurso)
         {

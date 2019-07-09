@@ -39,23 +39,27 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-box">
-                        <table>
-                            <tr>
-                                <td> <h4>Seleccionar Tipo de Estado: </h4> </td>
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                <td>
-                                    <select class="form-control">
-                                        <option value="">- Seleccionar -</option>
-                                        <option>Enviados</option>
-                                        <option>Aceptados</option>
-                                        <option>Rechazados</option>
-                                        <option>Todos</option>
-                                    </select>
-                                </td>
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                <td> <a href="#" style='width:100px; height:35px' target="_blank" class="btn btn-success btn-rounded float-right"><i class="fa fa-print"></i> Imprimir</a> </td>
-                            </tr>
-                        </table>
+                        @using (Html.BeginForm("PrintFilter", "PruebaEntrada", FormMethod.Post))
+                        {
+                            <table>
+                                <tr>
+                                    <td> <h4>Seleccionar Tipo de Estado: </h4> </td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select name="tipo" class="form-control">
+                                            <option value="">- Seleccionar -</option>
+                                            <option value="Enviados" >Enviados</option>
+                                            <option value="Aceptados">Aceptados</option>
+                                            <option value="Rechazado">Rechazados</option>
+                                            <option value="Todos">Todos</option>
+                                        </select>
+                                    </td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+                                    <td><button  style='width:100px; height:35px' target="_blank" class="btn btn-success btn-rounded float-right" type="submit"><i class="fa fa-print"></i> Imprimir</button></td>
+                                </tr>
+                            </table>
+                         }
                         <!--Contenido de tabla-->
                         <div class="table-responsive">
                             <table id="example" class="table table-hover">
@@ -75,11 +79,11 @@
                                 <tbody>
 
                                     @{ int num = 0;
-                                        int cant_noguardado = 0;
-                                        int cant_guardado = 0;
-                                        int cant_enviado = 0;
-                                        int cant_rechazado = 0;
-                                        int cant_aceptado = 0;
+                                    int cant_noguardado = 0;
+                                    int cant_guardado = 0;
+                                    int cant_enviado = 0;
+                                    int cant_rechazado = 0;
+                                    int cant_aceptado = 0;
                                     }
                                     @foreach (var p in Model)
                                     {
