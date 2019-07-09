@@ -95,7 +95,7 @@
                                         }
                                         <tr>
                                             <td>@num</td>
-                                            <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                            <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                             <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                             <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                             <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -109,8 +109,8 @@
                                                     <div class="dropdown dropdown-action">
                                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                            <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                            <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -123,10 +123,10 @@
                                                     <div class="dropdown dropdown-action">
                                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                           <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                             <a class="dropdown-item" href="~/InformeFinal/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                             <a class="dropdown-item" href="~/InformeFinal/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                            <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -139,8 +139,8 @@
                                                     <div class="dropdown dropdown-action">
                                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                           <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                            <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -153,8 +153,8 @@
                                                     <div class="dropdown dropdown-action">
                                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                         <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                            <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                           <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                            <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -438,7 +438,7 @@
                                             }
                                             <tr>
                                                 <td>@num1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -452,8 +452,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -466,10 +466,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/InformeFinal/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/InformeFinal/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -482,8 +482,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -496,8 +496,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -775,7 +775,7 @@
                                             }
                                             <tr>
                                                 <td>@num2</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -789,8 +789,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -803,10 +803,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/InformeFinal/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/InformeFinal/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -819,8 +819,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -833,8 +833,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1112,7 +1112,7 @@
                                             }
                                             <tr>
                                                 <td>@num3</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -1126,8 +1126,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1140,10 +1140,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1156,8 +1156,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1170,8 +1170,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1449,7 +1449,7 @@
                                             }
                                             <tr>
                                                 <td>@num4</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -1463,8 +1463,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1477,10 +1477,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1493,8 +1493,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1507,8 +1507,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1786,7 +1786,7 @@
                                             }
                                             <tr>
                                                 <td>@num1</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -1800,8 +1800,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1814,10 +1814,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1830,8 +1830,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -1844,8 +1844,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2123,7 +2123,7 @@
                                             }
                                             <tr>
                                                 <td>@num6</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -2137,8 +2137,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2151,10 +2151,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2167,8 +2167,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2181,8 +2181,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2460,7 +2460,7 @@
                                             }
                                             <tr>
                                                 <td>@num7</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -2474,8 +2474,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2488,10 +2488,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2504,8 +2504,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2518,8 +2518,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2797,7 +2797,7 @@
                                             }
                                             <tr>
                                                 <td>@num8</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -2811,8 +2811,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2825,10 +2825,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2841,8 +2841,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -2855,8 +2855,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -3134,7 +3134,7 @@
                                             }
                                             <tr>
                                                 <td>@num9</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -3148,8 +3148,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -3162,10 +3162,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -3178,8 +3178,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -3192,8 +3192,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -3471,7 +3471,7 @@
                                             }
                                             <tr>
                                                 <td>@num10</td>
-                                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
@@ -3485,8 +3485,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -3499,10 +3499,10 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=A&iddocente=@ViewBag.id"><i class="fa fa-check m-r-5"></i> Aceptar</a>
                                                                 <a class="dropdown-item" href="~/PruebaEntrada/GuardarEstado/?id=@codigoPrueba&codigodetalle=@p.Codigo_DetalleCargaAcademica&evaluados=@evaluados&estado=R&iddocente=@ViewBag.id"><i class="fa fa-close m-r-5"></i> Rechazar</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -3515,8 +3515,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -3529,8 +3529,8 @@
                                                         <div class="dropdown dropdown-action">
                                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-eye m-r-5"></i> Ver</a>
-                                                                <a class="dropdown-item" href="#"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
+                                                               <a class="dropdown-item" href="~/InformeFinal/ExportaAPDF/@p.Codigo_DetalleCargaAcademica"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                                                <a class="dropdown-item" href="~/InformeFinal/Print/?id=@p.Codigo_DetalleCargaAcademica&nombreCurso=@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio"><i class="fa fa-cloud-download m-r-5"></i> Descargar</a>
                                                             </div>
                                                         </div>
                                                     </td>
