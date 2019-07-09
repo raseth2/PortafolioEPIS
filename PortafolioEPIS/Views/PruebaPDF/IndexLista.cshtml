@@ -73,7 +73,7 @@
                         @foreach (var p in Model)
                         {
                             <tr>
-                                @if (d.Codigo_Docente == p.Codigo_Docente && p.Tbl_CargaAcademica.Estado_CargaAcademica == true)
+                                @if (d.Codigo_Docente == p.Codigo_Docente @*&& p.Tbl_CargaAcademica.Estado_CargaAcademica == true*@)
                                 {
                                     num = num + 1;
                                     horast = horast + p.Tbl_DetallePlanEstudio.HorasTeoricas_DetallePlanEstudio;
