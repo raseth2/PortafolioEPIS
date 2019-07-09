@@ -287,9 +287,10 @@ namespace PortafolioEPIS.Controllers.Informes
             return View(objDetalleCargaAcademica.Obtener(id));
         }
 
+
         public ActionResult Print(int id, string nombreCurso)
         {
-            return new ActionAsPdf("ListaPDFInformeFinal/" + id) { FileName = nombreCurso + ".pdf" };
+            return new ActionAsPdf("ListaPDFInformeFinal/" + id) { FileName = nombreCurso + "_InformeFinal.pdf" };
         }
         public ActionResult ExportaAPDF(int id)
         {
