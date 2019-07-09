@@ -53,7 +53,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
         }
 
         [HttpPost]
-        public ActionResult Evidencia(Tbl_Material objEvidencia, HttpPostedFileBase archivo, int Codigo_detalle_carga)
+        public ActionResult Evidenciass(Tbl_Material objEvidencia, HttpPostedFileBase archivo, int Codigo_detalle_carga)
         {
             if (archivo != null)
             {
