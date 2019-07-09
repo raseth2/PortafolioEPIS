@@ -679,6 +679,8 @@
     <Content Include="assets\img\video-call.jpg" />
     <Content Include="assets\Informes\asistencia_estudiantes.png" />
     <Content Include="assets\Informes\conocimiento-habilidad.png" />
+    <Content Include="assets\Informes\conocimiento-habilidad2.png" />
+    <Content Include="assets\Informes\final\conocimiento-habilidad2.png" />
     <Content Include="assets\Informes\final\estudiantes.png" />
     <Content Include="assets\Informes\final\rendimiento.png" />
     <Content Include="assets\Informes\final\situacion-general.png" />
