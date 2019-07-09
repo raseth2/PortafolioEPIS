@@ -8,201 +8,322 @@
     int idCodigoPortafolio = 0;
     int evaluados = 0;
 }
-<div style="background-color:white">
 
+<meta name="viewport" content="width=device-width" />
+<title>Lista PDF PortafolioU1</title>
+<link href="~/assets/Informes/portafolio.css" rel="stylesheet" />
 
+<table>
+    <tr>
+        <td rowspan="2"><img src="~/assets/Informes/logo_pdf.PNG" width="220" height="60" /></td>
+    </tr>
+</table>
+<span><h2><strong><u>MATERIALES A CONSIGNAR PARA EL PORTAFOLIO</u></strong></h2></span>
+<span><h2><strong><u>I UNIDAD</u></strong></h2></span>
 
-    <meta name="viewport" content="width=device-width" />
-    <title>Lista PDF PortafolioU1</title>
-
-
-    <table>
-        <tr>
-            <td rowspan="2"><img src="~/assets/PortalWeb/epis123.jpg" width="60" height="60" /></td>
-            <td rowspan="2"> &nbsp;&nbsp;</td>
-            <td> FACULTAD DE INGENIERIA</td>
-        </tr>
-        <tr>
-            <td> Escuela Profesional de Ingenieria de Sistemas</td>
-        </tr>
-    </table>
-
-    <h2 class="text-center"><strong>Informe Portafolio Unidad I</strong></h2>
-    <div class="table-responsive">
-        <div class="row clearfix">
-            <div class="col-md-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page"><strong>INFORMACION DE CURSO</strong></li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <table border="1" class="table">
-            <tr>
-                <th colspan="2">Codigo</th>
-                <th colspan="8">Nombre</th>
-            </tr>
-            <tr>
-                <td colspan="2">@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
-                <td colspan="8">@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
-            </tr>
-            <tr>
-                <th>Sección</th>
-                <td>@Model.Tbl_Seccion.Nombre_Seccion</td>
-                <th>Ciclo</th>
-                <td>@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio</td>
-                <th>Horas</th>
-                <td>@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio</td>
-                <th>Créditos</th>
-                <td>@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio</td>
-                <th>Tipo Curso</th>
-                <td>@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
-            </tr>
-        </table>
-        <div class="row clearfix">
-            <div class="col-md-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page"><strong>INFORMACION DEL DOCENTE</strong></li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <table border="1" class="table">
-            <tr>
-                <th colspan="2">Codigo</th>
-                <th colspan="8">Nombre</th>
-            </tr>
-            <tr>
-                <td colspan="2">@Model.Tbl_Docente.Codigo_Docenteepis</td>
-                <td colspan="8">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</td>
-            </tr>
-            <tr>
-                <th colspan="2">Email</th>
-                <td colspan="4">@Model.Tbl_Docente.Correo_Docente</td>
-                <th colspan="2">Celular</th>
-                <td colspan="2">@Model.Tbl_Docente.TelefonoCelular_Docente</td>
-
-            </tr>
-        </table>
-
-        <div class="row clearfix">
-            <div class="col-md-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page"><strong>NUMERO DE ESTUDIANTES</strong></li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <table border="1" class="table">
-            <tr>
-                <th colspan="3">Matriculados</th>
-                <th colspan="3">Retirados</th>
-                <th colspan="3">Abandonos</th>
-                <th colspan="3">Aprobados</th>
-
-            </tr>
-            <tr>
-                <td colspan="3" class="text-center">@Model.Matriculados_DetalleCargaAcademica</td>
+<table>
+    <tr>
+        <th width="19%" style="text-align:left">Codigo del Curso:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio" size="15" /></td>
+        <th width="18%" style="text-align:right">Seccion:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_Seccion.Nombre_Seccion" size="15" /></td>
+        <th width="18%" style="text-align:right">Ciclo:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#FFF; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.Ciclo_DetallePlanEstudio" size="15" /></td>
+    </tr>
+    <tr>
+        <th width="19%" style="text-align:left">Nombre del Curso:</th>
+        <td colspan="5"><input type="text" style=" background-color:#FFF; border: 1px solid #000; width:100%;" value="@Model.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio" /></td>
+    </tr>
+    <tr>
+        <th width="19%" style="text-align:left">Horas:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#FFF; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.TotalHoras_DetallePlanEstudio" size="15" /></td>
+        <th width="18%" style="text-align:right">Créditos:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#FFF; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.TotalCreditos_DetallePlanEstudio" size="15" /></td>
+        <th width="18%" style="text-align:right">Tipo Curso:</th>
+        <td width="15%"><input type="text" style="text-align:center; background-color:#FFF; border: 1px solid #000" value="@Model.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio" size="15" /></td>
+    </tr>
+    <tr>
+        <th width="19%" style="text-align:left">Docente:</th>
+        <td colspan="5"><input type="text" style=" background-color:#FFF; border: 1px solid #000; width:100%;" value="@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente" /></td>
+    </tr>
+</table>
+<table class="table">
+    <tr>
+        <td>
+            <div id="lateral">
+                <table>
+                    <tr>
+                        <th width="23%" style="text-align:left;background-color:#FFF;">Semestre:</th>
+                        <td width="15%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@Model.Tbl_Semestre.Nombre_Semestre" size="15" /></td>
+                        <th width="18%" style="text-align:right;background-color:#FFF;"></th>
+                    </tr>
+                </table>
+                <strong>Resumen del Curso para la Unidad:</strong>
+                @{
+                    int retirados = 0;
+                    int abandono = 0;
+                    int aprobados = 0;
+                    int asisten = 0;
+                    asisten = (Model.Matriculados_DetalleCargaAcademica - @retirados - @abandono);
+                }
                 @foreach (var p in Portafolio)
                 {
                     if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UI")
                     {
                         idCodigoPortafolio = p.Codigo_Portafolio;
-                        <td colspan="3" class="text-center">@Convert.ToString(p.Retirados_Portafolio)</td>
-                        <td colspan="3" class="text-center">@Convert.ToString(p.Abandono_Portafolio)</td>
-                        <td colspan="3" class="text-center">@Convert.ToString(p.Aprobados_Portafolio)</td>
+                        retirados = int.Parse((p.Retirados_Portafolio).ToString());
+                        abandono = int.Parse((p.Abandono_Portafolio).ToString());
+                        aprobados = int.Parse((p.Aprobados_Portafolio).ToString());
                     }
                 }
-            </tr>
-        </table>
-    </div>
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>MATERIAL QUE EL DOCENTE PREPARA Y ENTREGA A LOS ESTUDIANTES</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <div class="table-responsive">
-        <table id="example" class="table table-hover">
-            <thead>
+                <table border="1" class="table">
+                    <tr>
+                        <th>Estudiantes</th>
+                        <th>Cantidad</th>
+                        <th>Porcentaje</th>
+                    </tr>
+                    <tr>
+                        <td>Matriculados</td>
+                        <td style="text-align:center;background-color:#F2E2C4;">@Model.Matriculados_DetalleCargaAcademica</td>
+                        <td style="text-align:center;">100%</td>
+                    </tr>
+
+                    <tr>
+                        <td>Retirados</td>
+                        <td style="text-align:center;background-color:#F2E2C4;">@retirados</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(retirados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                    <tr>
+                        <td>Abandono</td>
+                        <td style="text-align:center;background-color:#F2E2C4;">@abandono</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(abandono) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                    <tr>
+                        <td>Asisten</td>
+                        <td style="text-align:center;">@asisten</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(asisten) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                    <tr>
+                        <td>Aprobados</td>
+                        <td style="text-align:center;background-color:#F2E2C4;">@aprobados</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(aprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                    <tr>
+                        <td>Desaprobados</td>
+                        <td style="text-align:center;">@(asisten - aprobados)</td>
+                        <td style="text-align:center;">@(Math.Round((Convert.ToDouble(asisten - aprobados) * 100) / Convert.ToDouble(Model.Matriculados_DetalleCargaAcademica), 2))</td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+        <td>
+            <div id="principal">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <img src="~/assets/Informes/asistencia_estudiantes.png" style="min-width: 200px; height: 300px; max-width: 400px; margin: 0 auto" />
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <td>
+            <img src="~/assets/Informes/situacion-general.png" style="min-width: 350px; height: 250px; max-width: 400px; margin: 0 auto" />
+        </td>
+
+        <td>
+            <img src="~/assets/Informes/rendimiento.png" style="min-width: 300px; height: 250px; max-width: 400px; margin: 0 auto" />
+        </td>
+
+    </tr>
+</table>
+
+
+
+
+
+<table class="table2">
+    <tr>
+        <td><strong>I. Material que el docente prepara y entrega a los estudiantes durante la ejecución de los cursos:</strong></td>
+    </tr>
+    <tr>
+        <td><p>El material deberá estar asociado a los resultados del aprendizaje definidos en la planificación del curso</p></td>
+    </tr>
+    <tr>
+        <td><p><font color="red">(Marcar con un X en las columnas <b>Digital</b> y/o <b>Impreso</b> siempre y cuando tenga evidencia)</font></p></td>
+    </tr>
+</table>
+<table class="table" border="1">    
+        <tr>
+            <th width="5%">#</th>
+            <th width="50%">Material Docente Entregado</th>
+            <th width="15%">Tipo</th>
+            <th width="15%">Cantidad</th>
+            <th width="20%">Evidencia</th>
+        </tr>
+        @foreach (var list in listaMaterial)
+        {
+            if (list.Tipo_Material == "DOCENTEUI" && list.Codigo_Portafolio == idCodigoPortafolio)
+            {                
                 <tr>
-                    <th>#</th>
-                    <th>Material Docente Entregado</th>
-                    <th>Tipo Entraga</th>
-                    <th>Cantidad</th>
-                    <th>Evidencia</th>
+                    <td>1</td>
+                    <td>@list.Nombre_Material1</td>
+                    <td style="text-align:center;">@list.Estado_Material1</td>
+                    <td style="text-align:center;">@list.Cantidad_Material1</td>
+                    <td>@list.Archivo_Material1</td>
                 </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var list in listaMaterial)
-                {
-                    if (list.Tipo_Material == "DOCENTEUI" && list.Codigo_Portafolio == idCodigoPortafolio)
-                    {
-
-                        <tr>
-                            <td>1</td>
-                            <td>@list.Nombre_Material1</td>
-                            <td>@list.Estado_Material1</td>
-                            <td>@list.Cantidad_Material1</td>
-                            <td>@list.Archivo_Material1</td>
-                        </tr>
-                    }
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <div class="row clearfix">
-        <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page"><strong>MATERIAL GENERADO POR EL ESTUDIANTE</strong></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <div class="table-responsive">
-        <table id="example2" class="table table-hover">
-            <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Material Docente Entregado</th>
-                    <th>Tipo Entraga</th>
-                    <th>Cantidad</th>
-                    <th>Evidencia</th>
+                    <td>2</td>
+                    <td>@list.Nombre_Material2</td>
+                    <td style="text-align:center;">@list.Estado_Material2</td>
+                    <td style="text-align:center;">@list.Cantidad_Material2</td>
+                    <td>@list.Archivo_Material2</td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var list1 in listaMaterial)
-                {
-                    if (list1.Tipo_Material == "ESTUDIANTEUI" && list1.Codigo_Portafolio == idCodigoPortafolio)
-                    {
+                <tr>
+                    <td>3</td>
+                    <td>@list.Nombre_Material3</td>
+                    <td style="text-align:center;">@list.Estado_Material3</td>
+                    <td style="text-align:center;">@list.Cantidad_Material3</td>
+                    <td>@list.Archivo_Material3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>@list.Nombre_Material4</td>
+                    <td style="text-align:center;">@list.Estado_Material4</td>
+                    <td style="text-align:center;">@list.Cantidad_Material4</td>
+                    <td>@list.Archivo_Material4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>@list.Nombre_Material5</td>
+                    <td style="text-align:center;">@list.Estado_Material5</td>
+                    <td style="text-align:center;">@list.Cantidad_Material5</td>
+                    <td>@list.Archivo_Material5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>@list.Nombre_Material6</td>
+                    <td style="text-align:center;">@list.Estado_Material6</td>
+                    <td style="text-align:center;">@list.Cantidad_Material6</td>
+                    <td>@list.Archivo_Material6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>@list.Nombre_Material7</td>
+                    <td style="text-align:center;">@list.Estado_Material7</td>
+                    <td style="text-align:center;">@list.Cantidad_Material7</td>
+                    <td>@list.Archivo_Material7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>@list.Nombre_Material8</td>
+                    <td style="text-align:center;">@list.Estado_Material8</td>
+                    <td style="text-align:center;">@list.Cantidad_Material8</td>
+                    <td>@list.Archivo_Material8</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>@list.Nombre_Material9</td>
+                    <td style="text-align:center;">@list.Estado_Material9</td>
+                    <td style="text-align:center;">@list.Cantidad_Material9</td>
+                    <td>@list.Archivo_Material9</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>@list.Nombre_Material10</td>
+                    <td style="text-align:center;">@list.Estado_Material10</td>
+                    <td style="text-align:center;">@list.Cantidad_Material10</td>
+                    <td>@list.Archivo_Material10</td>
+                </tr>
+            }
+        }    
+</table>
+<br />
+<table class="table2">
+    <tr>
+        <td><strong>II. Material generado por el estudiante en el transcurso del semestre: </strong></td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                El material deberá estar asociado a los resultados del aprendizaje definidos en la planificacion del curso.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><font color="red">(Marcar con un X en las columnas <b>Digital</b> y/o <b>Impreso</b> siempre y cuando tenga evidencia)</font></p></td>
+    </tr>
+</table>
+<table class="table" border="1">
+    <tr>
+        <th width="5%">#</th>
+        <th width="50%">Material Docente Entregado</th>
+        <th width="15%">Tipo</th>
+        <th width="15%">Cantidad</th>
+        <th width="20%">Evidencia</th>
+    </tr>    
+    
+        @foreach (var list1 in listaMaterial)
+        {
+            if (list1.Tipo_Material == "ESTUDIANTEUI" && list1.Codigo_Portafolio == idCodigoPortafolio)
+            {
+                
+                <tr>
+                    <td>1</td>
+                    <td>@list1.Nombre_Material1</td>
+                    <td style="text-align:center;">@list1.Estado_Material1</td>
+                    <td style="text-align:center;">@list1.Cantidad_Material1</td>
+                    <td>@list1.Archivo_Material1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>@list1.Nombre_Material2</td>
+                    <td style="text-align:center;">@list1.Estado_Material2</td>
+                    <td style="text-align:center;">@list1.Cantidad_Material2</td>
+                    <td>@list1.Archivo_Material2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>@list1.Nombre_Material3</td>
+                    <td style="text-align:center;">@list1.Estado_Material3</td>
+                    <td style="text-align:center;">@list1.Cantidad_Material3</td>
+                    <td>@list1.Archivo_Material3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>@list1.Nombre_Material4</td>
+                    <td style="text-align:center;">@list1.Estado_Material4</td>
+                    <td style="text-align:center;">@list1.Cantidad_Material4</td>
+                    <td>@list1.Archivo_Material4</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>@list1.Nombre_Material5</td>
+                    <td style="text-align:center;">@list1.Estado_Material5</td>
+                    <td style="text-align:center;">@list1.Cantidad_Material5</td>
+                    <td>@list1.Archivo_Material5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>@list1.Nombre_Material6</td>
+                    <td style="text-align:center;">@list1.Estado_Material6</td>
+                    <td style="text-align:center;">@list1.Cantidad_Material6</td>
+                    <td>@list1.Archivo_Material6</td>
+                </tr>
+            }
+        }
+    
+</table>
 
-                        <tr>
-                            <td>1</td>
-                            <td>@list1.Nombre_Material1</td>
-                            <td>@list1.Estado_Material1</td>
-                            <td>@list1.Cantidad_Material1</td>
-                            <td>@list1.Archivo_Material1</td>
-                        </tr>
-                    }
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <p> Fecha: @DateTime.Parse((DateTime.Now).ToString()).ToShortDateString()</p>
-    <br /><br />
+<p> Fecha: @DateTime.Parse((DateTime.Now).ToString()).ToShortDateString()</p>
+<br /><br />
 
 
-    <p class="text-center">------------------------------------</p>
-    <p class="text-center">@Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</p>
-</div>
-
+<center><p>___________________________________</p></center>
+<center><p> @Model.Tbl_Docente.Nombres_Docente , @Model.Tbl_Docente.Apellidos_Docente</p></center>
