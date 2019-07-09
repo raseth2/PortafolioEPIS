@@ -171,6 +171,10 @@ namespace PortafolioEPIS.Controllers.Informes
             //ViewBag.ListaTbl_MedidasCorrectivas = ObjMedidadasCorrectivas.Listar();
             return View(objDetalleCargaAcademica.Obtener(id));
         }
+        public ActionResult Print(int id, string nombreCurso)
+        {
+            return new ActionAsPdf("ListaPDFPortafolioU3/" + id) { FileName = nombreCurso + ".pdf" };
+        }
         public ActionResult ExportaAPDF(int id)
         {
             return new ActionAsPdf("ListaPDFPortafolioU3/" + id);
