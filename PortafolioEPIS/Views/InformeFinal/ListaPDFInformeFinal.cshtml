@@ -1,38 +1,40 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
 @{
-    /**/
+                /**/
 
-    Layout = null;
-    List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
-    List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = ViewBag.Portafolio;
-    List<PortafolioEPIS.Models.Tbl_CapacidadesCurso> CapacidadesCurso = ViewBag.CapacidadesCurso;
-    List<PortafolioEPIS.Models.Tbl_Observaciones> observaciones = ViewBag.ListarObservaciones;
+                /**/
+
+                Layout = null;
+                List<PortafolioEPIS.Models.Tbl_InformeFinal> prueba = ViewBag.Prueba;
+                List<PortafolioEPIS.Models.Tbl_Portafolio> portafolio = ViewBag.Portafolio;
+                List<PortafolioEPIS.Models.Tbl_CapacidadesCurso> CapacidadesCurso = ViewBag.CapacidadesCurso;
+                List<PortafolioEPIS.Models.Tbl_Observaciones> observaciones = ViewBag.ListarObservaciones;
 
 
-    ViewBag.Title = "ListaPDFInformeFinal";
-    int idpruebas = 0;
-    int codigoportafolio = 0;
+                ViewBag.Title = "ListaPDFInformeFinal";
+                int idpruebas = 0;
+                int codigoportafolio = 0;
 
-    ///tabla portafolio
-    int retirados = 0;
-    int abandonos = 0;
-    int aprobados = 0;
-    //tabla informefinal
-    int detallecarga = 0;
-    int porcentajesilabo = 0;
-    int practicascalificadas = 0;
-    int laboratoriosrealizados = 0;
-    int trabajosrealizados = 0;
-    int codigoportafo = 0;
-    int estudiantesmatriculados = 0;
-    int estudiantesretiro = 0;
-    int estudiantesabandono = 0;
-    int estudiantesasisten = 0;
-    int estudiantesaprobados = 0;
-    int estudiantesdesaprobados = 0;
-    int notamasalta = 0;
-    int notapromedio = 0;
-    int notamasbaja = 0;
+                ///tabla portafolio
+                int retirados = 0;
+                int abandonos = 0;
+                int aprobados = 0;
+                //tabla informefinal
+                int detallecarga = 0;
+                int porcentajesilabo = 0;
+                int practicascalificadas = 0;
+                int laboratoriosrealizados = 0;
+                int trabajosrealizados = 0;
+                int codigoportafo = 0;
+                int estudiantesmatriculados = 0;
+                int estudiantesretiro = 0;
+                int estudiantesabandono = 0;
+                int estudiantesasisten = 0;
+                int estudiantesaprobados = 0;
+                int estudiantesdesaprobados = 0;
+                int notamasalta = 0;
+                int notapromedio = 0;
+                int notamasbaja = 0;
 }
 
 <link href="~/assets/Informes/portafolio.css" rel="stylesheet" />
@@ -194,7 +196,7 @@
 <table class="table">
     <tr>
         <td>
-            <img src=" />
+            <img src="  />
             <img src="~/assets/Informes/final/situacion-general.png" style="min-width: 350px; height: 300px; max-width: 400px; margin: 0 auto" />
         </td>
 
@@ -261,18 +263,22 @@
         @{ int conteo = 0;}
         @foreach (var capacidad in CapacidadesCurso)
         {
+            if (idpruebas == capacidad.Codigo_InformeFinal)
+            {
+                conteo = conteo + 1;
+                <tr>
+                    <td>@conteo</td>
+                    <td>@capacidad.Descripcion_CapacidadesCurso</td>
+                    <td class="text-center">@(capacidad.Nada_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(capacidad.Poco_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(capacidad.Aceptable_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(capacidad.Bien_CapacidadesCurso == 1 ? "X" : "")</td>
+                    <td class="text-center">@(capacidad.MuyBien_CapacidadesCurso == 1 ? "X" : "")</td>
 
-            conteo = conteo + 1;
-            <tr>
-                <td>@conteo</td>
-                <td>@capacidad.Descripcion_CapacidadesCurso</td>
-                <td class="text-center">@(capacidad.Nada_CapacidadesCurso == 1 ? "X" : "")</td>
-                <td class="text-center">@(capacidad.Poco_CapacidadesCurso == 1 ? "X" : "")</td>
-                <td class="text-center">@(capacidad.Aceptable_CapacidadesCurso == 1 ? "X" : "")</td>
-                <td class="text-center">@(capacidad.Bien_CapacidadesCurso == 1 ? "X" : "")</td>
-                <td class="text-center">@(capacidad.MuyBien_CapacidadesCurso == 1 ? "X" : "")</td>
+                </tr>
+            }
 
-            </tr>
+
         }
 
     </tbody>
@@ -281,115 +287,120 @@
 
 @foreach (var ob in observaciones)
 {
-    <table>
-        <tr>
-            <td><strong>OBSERVACIONES</strong></td>
-        </tr>
-        <tr>
-            <td>
-                <b>1.    De los estudiantes.</b> Nivel académico, conocimientos previos, interés en el curso, estilos de
-                aprendizaje.
-            </td>
-        </tr>
-        <tr>
-            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Estudiantes_Observaciones</textarea></td>
-        </tr>
+    if (idpruebas == ob.Codigo_InformeFinal)
+    {
+<table>
+    <tr>
+        <td><strong>OBSERVACIONES</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <b>1.    De los estudiantes.</b> Nivel académico, conocimientos previos, interés en el curso, estilos de
+            aprendizaje.
+        </td>
+    </tr>
+    <tr>
+        <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Estudiantes_Observaciones</textarea></td>
+    </tr>
 
-        <tr>
-            <td>
-                <b>2.    Asistencia y puntualidad de los estudiantes.</b>
-            </td>
-        </tr>
-        <tr>
-            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.AsistenciaPuntualidad_Observaciones</textarea></td>
-        </tr>
-        <tr>
-            <td>
-                <b>3.    Del sílabo.</b>  Qué temas del sílabo no se han completado? Considera todos los temas adecuados?
-                Qué temas requieren más tiempo de dedicación?
-            </td>
-        </tr>
-        <tr>
-            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Silabo_Observaciones</textarea></td>
-        </tr>
-        <tr>
-            <td>
-                <b>4.  Uso del Aula Virtual.</b>   Información colocada, uso de foros, chat  y cantidad de visitas estudiantiles.
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <table class="table">
-                    <tr>
-                        <td width="25%">Material del curso </td>
-                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.MaterialCurso_Observaciones == true ? "X" : "")" size="5" /></td>
-                        <td width="2%"> </td>
-                        <td width="25%">Cuestionarios </td>
-                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Cuestionarios_Observaciones == true ? "X" : "")" size="5" /></td>
-                        <td width="2%"> </td>
-                        <td width="25%">Tareas Encargadas </td>
-                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.TareasEncargadas_Observaciones == true ? "X" : "")" size="5" /></td>
-                    </tr>
-                    <tr>
-                        <td width="25%">Foros  </td>
-                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Foros_Observaciones == true ? "X" : "")" size="5" /></td>
-                        <td width="2%"> </td>
-                        <td width="25%">Examenes virtuales  </td>
-                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.ExamenesVirtuales_Observaciones == true ? "X" : "")" size="5" /></td>
-                        <td width="2%"> </td>
-                        <td width="25%">Slideshow </td>
-                        <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Slideshow_Observaciones == true ? "X" : "")" size="5" /></td>
-                    </tr>
+    <tr>
+        <td>
+            <b>2.    Asistencia y puntualidad de los estudiantes.</b>
+        </td>
+    </tr>
+    <tr>
+        <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.AsistenciaPuntualidad_Observaciones</textarea></td>
+    </tr>
+    <tr>
+        <td>
+            <b>3.    Del sílabo.</b>  Qué temas del sílabo no se han completado? Considera todos los temas adecuados?
+            Qué temas requieren más tiempo de dedicación?
+        </td>
+    </tr>
+    <tr>
+        <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Silabo_Observaciones</textarea></td>
+    </tr>
+    <tr>
+        <td>
+            <b>4.  Uso del Aula Virtual.</b>   Información colocada, uso de foros, chat  y cantidad de visitas estudiantiles.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="table">
+                <tr>
+                    <td width="25%">Material del curso </td>
+                    <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.MaterialCurso_Observaciones == true ? "X" : "")" size="5" /></td>
+                    <td width="2%"> </td>
+                    <td width="25%">Cuestionarios </td>
+                    <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Cuestionarios_Observaciones == true ? "X" : "")" size="5" /></td>
+                    <td width="2%"> </td>
+                    <td width="25%">Tareas Encargadas </td>
+                    <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.TareasEncargadas_Observaciones == true ? "X" : "")" size="5" /></td>
+                </tr>
+                <tr>
+                    <td width="25%">Foros  </td>
+                    <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Foros_Observaciones == true ? "X" : "")" size="5" /></td>
+                    <td width="2%"> </td>
+                    <td width="25%">Examenes virtuales  </td>
+                    <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.ExamenesVirtuales_Observaciones == true ? "X" : "")" size="5" /></td>
+                    <td width="2%"> </td>
+                    <td width="25%">Slideshow </td>
+                    <td width="7%"><input type="text" style="text-align:center; background-color:#F2E2C4; border: 1px solid #000" value="@(ob.Slideshow_Observaciones == true ? "X" : "")" size="5" /></td>
+                </tr>
 
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>5.  Administrativas.</b>   Disponibilidad de recursos en aulas y laboratorios.
-            </td>
-        </tr>
-        <tr>
-            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Administrativas_Observaciones</textarea></td>
-        </tr>
-        <tr>
-            <td>
-                <b>6. Sílabo por competencias.</b>   Qué actividades realizó usted para la evaluación del cumplimiento de las
-                competencias  de su curso,  por los estudiantes? Podría presentar una propuesta de evaluación de las
-                competencias de su curso?
-            </td>
-        </tr>
-        <tr>
-            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.SilaboCompetencias_Observaciones</textarea></td>
-        </tr>
-        <tr>
-            <td>
-                <b>7. Mejora continua.</b>  Qué actividades de mejora continua ha realizado en el curso en este ciclo y cuales
-                propone para el siguiente, para mejorar el rendimiento académico del estudiante..
-            </td>
-        </tr>
-        <tr>
-            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.MejoraContinua_Observaciones.</textarea></td>
-        </tr>
-        <tr>
-            <td>
-                <b>8. Actualización docente.</b>  Ha seguido usted algún curso de actualización profesional o docente en los
-                últimos dos años. Indique tema del curso y duración.
-            </td>
-        </tr>
-        <tr>
-            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.ActualizacionDocente_Observaciones</textarea></td>
-        <tr>
-            <td>
-                <b>9. Comentarios y Recomendaciones.</b>  Serán útiles para mejorar el Plan de Estudios y los servicios que
-                brindan la Escuela, la Facultad y la Universidad
-            </td>
-        </tr>
-        <tr>
-            <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.ComentariosRecomendaciones_Observaciones</textarea></td>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>5.  Administrativas.</b>   Disponibilidad de recursos en aulas y laboratorios.
+        </td>
+    </tr>
+    <tr>
+        <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.Administrativas_Observaciones</textarea></td>
+    </tr>
+    <tr>
+        <td>
+            <b>6. Sílabo por competencias.</b>   Qué actividades realizó usted para la evaluación del cumplimiento de las
+            competencias  de su curso,  por los estudiantes? Podría presentar una propuesta de evaluación de las
+            competencias de su curso?
+        </td>
+    </tr>
+    <tr>
+        <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.SilaboCompetencias_Observaciones</textarea></td>
+    </tr>
+    <tr>
+        <td>
+            <b>7. Mejora continua.</b>  Qué actividades de mejora continua ha realizado en el curso en este ciclo y cuales
+            propone para el siguiente, para mejorar el rendimiento académico del estudiante..
+        </td>
+    </tr>
+    <tr>
+        <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.MejoraContinua_Observaciones.</textarea></td>
+    </tr>
+    <tr>
+        <td>
+            <b>8. Actualización docente.</b>  Ha seguido usted algún curso de actualización profesional o docente en los
+            últimos dos años. Indique tema del curso y duración.
+        </td>
+    </tr>
+    <tr>
+        <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.ActualizacionDocente_Observaciones</textarea></td>
+    <tr>
+        <td>
+            <b>9. Comentarios y Recomendaciones.</b>  Serán útiles para mejorar el Plan de Estudios y los servicios que
+            brindan la Escuela, la Facultad y la Universidad
+        </td>
+    </tr>
+    <tr>
+        <td><textarea style="background-color:#F2E2C4;" name="textarea" rows="3" cols="110">@ob.ComentariosRecomendaciones_Observaciones</textarea></td>
 
-        </tr>
-    </table>
+    </tr>
+</table>
+
+    }
+
 
 }
 
