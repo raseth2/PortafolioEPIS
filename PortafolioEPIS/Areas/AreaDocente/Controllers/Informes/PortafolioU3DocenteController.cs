@@ -53,22 +53,6 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
         }
 
         [HttpPost]
-        public ActionResult Evidenciass(Tbl_Material objEvidencia, HttpPostedFileBase archivo, int Codigo_detalle_carga)
-        {
-            if (archivo != null)
-            {
-
-                archivo.SaveAs(Server.MapPath("~/Imagen/" + archivo.FileName));
-                objEvidencia.Archivo_Material1 = archivo.FileName;
-                objEvidencia.TipoArchivo_Material1 = Path.GetExtension(archivo.FileName);
-                objEvidencia.PesoArchivo_Material1 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo.ContentLength) / (1024 * 1024)), 2)) + " Mb";
-            }
-
-            objEvidencia.Guardar();
-            return Redirect("~/AreaDocente/PortafolioU3Docente/Agregar/" + Codigo_detalle_carga);
-        }
-
-        [HttpPost]
         public ActionResult Evidencia(Tbl_Material objEvidencia, HttpPostedFileBase archivo, HttpPostedFileBase archivo1, HttpPostedFileBase archivo3, HttpPostedFileBase archivo4, HttpPostedFileBase archivo5, HttpPostedFileBase archivo6, HttpPostedFileBase archivo7, HttpPostedFileBase archivo8, HttpPostedFileBase archivo9, HttpPostedFileBase archivo10, int Codigo_detalle_carga)
         {
             if (archivo != null)
