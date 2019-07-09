@@ -169,6 +169,7 @@
     </tr>
     @foreach (var list in listaMaterial)
     {
+        var num = list.Archivo_Material1;
         if (list.Tipo_Material == "DOCENTEUIII" && list.Codigo_Portafolio == idCodigoPortafolio)
         {
             <tr>

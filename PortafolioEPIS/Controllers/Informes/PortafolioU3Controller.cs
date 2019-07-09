@@ -147,24 +147,7 @@ namespace PortafolioEPIS.Controllers.Informes
         {
             ViewBag.prueba = objPruebaEntrada.Listar();
             ViewBag.Portafolio = objPortafolio.Listar();
-
-            int foerach = 0;
-            List<Tbl_Portafolio> listPortafolio = objPortafolio.Listar();
-
-            foreach (var listaportafolio in listPortafolio)
-            {
-                if (listaportafolio.Codigo_DetalleCargaAcademica == id)
-                {
-                    ViewBag.ListarEvidencia = objMaterial.Listar(listaportafolio.Codigo_Portafolio); //obtener la lista deevidencias de un  portafolio
-                    foerach++;
-                }
-
-            }
-
-            if (foerach == 0)
-            {
-                ViewBag.ListarEvidencia = objMaterial.Listar(0); //obtener la lista deevidencias de un  portafolio
-            }
+            ViewBag.ListarEvidencia = objMaterial.Listar1();
 
             //ViewBag.prueba = objPruebaEntrada.Listar();
             //ViewBag.conocimientoHabilidad = ObjConocimientoHabilidad.Listar();
