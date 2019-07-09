@@ -53,7 +53,8 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
         }
 
         [HttpPost]
-        public ActionResult Evidencia(Tbl_Material objEvidencia, HttpPostedFileBase archivo, int Codigo_detalle_carga)
+      
+        public ActionResult Evidencia(Tbl_Material objEvidencia, HttpPostedFileBase archivo, HttpPostedFileBase archivo1, HttpPostedFileBase archivo3, HttpPostedFileBase archivo4, HttpPostedFileBase archivo5, HttpPostedFileBase archivo6, HttpPostedFileBase archivo7, HttpPostedFileBase archivo8, HttpPostedFileBase archivo9, HttpPostedFileBase archivo10, int Codigo_detalle_carga)
         {
             if (archivo != null)
             {
@@ -63,7 +64,83 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
                 objEvidencia.TipoArchivo_Material1 = Path.GetExtension(archivo.FileName);
                 objEvidencia.PesoArchivo_Material1 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo.ContentLength) / (1024 * 1024)), 2)) + " Mb";
             }
+            if (archivo1 != null)
+            {
 
+                archivo1.SaveAs(Server.MapPath("~/Imagen/" + archivo1.FileName));
+                objEvidencia.Archivo_Material2 = archivo1.FileName;
+                objEvidencia.TipoArchivo_Material2 = Path.GetExtension(archivo1.FileName);
+                objEvidencia.PesoArchivo_Material2 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo1.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+            if (archivo3 != null)
+            {
+
+                archivo3.SaveAs(Server.MapPath("~/Imagen/" + archivo3.FileName));
+                objEvidencia.Archivo_Material3 = archivo3.FileName;
+                objEvidencia.TipoArchivo_Material3 = Path.GetExtension(archivo3.FileName);
+                objEvidencia.PesoArchivo_Material3 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo3.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+
+            if (archivo4 != null)
+            {
+
+                archivo4.SaveAs(Server.MapPath("~/Imagen/" + archivo4.FileName));
+                objEvidencia.Archivo_Material4 = archivo4.FileName;
+                objEvidencia.TipoArchivo_Material4 = Path.GetExtension(archivo4.FileName);
+                objEvidencia.PesoArchivo_Material4 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo4.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+
+            if (archivo5 != null)
+            {
+
+                archivo5.SaveAs(Server.MapPath("~/Imagen/" + archivo5.FileName));
+                objEvidencia.Archivo_Material5 = archivo5.FileName;
+                objEvidencia.TipoArchivo_Material5 = Path.GetExtension(archivo5.FileName);
+                objEvidencia.PesoArchivo_Material5 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo5.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+
+            if (archivo6 != null)
+            {
+
+                archivo6.SaveAs(Server.MapPath("~/Imagen/" + archivo6.FileName));
+                objEvidencia.Archivo_Material6 = archivo6.FileName;
+                objEvidencia.TipoArchivo_Material6 = Path.GetExtension(archivo6.FileName);
+                objEvidencia.PesoArchivo_Material6 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo6.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+
+            if (archivo7 != null)
+            {
+
+                archivo7.SaveAs(Server.MapPath("~/Imagen/" + archivo7.FileName));
+                objEvidencia.Archivo_Material7 = archivo7.FileName;
+                objEvidencia.TipoArchivo_Material7 = Path.GetExtension(archivo7.FileName);
+                objEvidencia.PesoArchivo_Material7 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo7.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+
+            if (archivo8 != null)
+            {
+
+                archivo8.SaveAs(Server.MapPath("~/Imagen/" + archivo8.FileName));
+                objEvidencia.Archivo_Material8 = archivo8.FileName;
+                objEvidencia.TipoArchivo_Material8 = Path.GetExtension(archivo8.FileName);
+                objEvidencia.PesoArchivo_Material8 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo8.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+            if (archivo9 != null)
+            {
+
+                archivo9.SaveAs(Server.MapPath("~/Imagen/" + archivo9.FileName));
+                objEvidencia.Archivo_Material9 = archivo9.FileName;
+                objEvidencia.TipoArchivo_Material9 = Path.GetExtension(archivo9.FileName);
+                objEvidencia.PesoArchivo_Material9 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo9.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
+            if (archivo10 != null)
+            {
+
+                archivo10.SaveAs(Server.MapPath("~/Imagen/" + archivo10.FileName));
+                objEvidencia.Archivo_Material10 = archivo10.FileName;
+                objEvidencia.TipoArchivo_Material10 = Path.GetExtension(archivo10.FileName);
+                objEvidencia.PesoArchivo_Material10 = Convert.ToString(Math.Round((Convert.ToDecimal(archivo10.ContentLength) / (1024 * 1024)), 2)) + " Mb";
+            }
             objEvidencia.Guardar();
             return Redirect("~/AreaDocente/PortafolioU2Docente/Agregar/" + Codigo_detalle_carga);
         }
