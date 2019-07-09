@@ -1,7 +1,7 @@
 ﻿@model PortafolioEPIS.Models.Tbl_DetalleCargaAcademica
 @{
     Layout = null;
-    ViewBag.Title = "ListaPDFPortafolioU1";
+    ViewBag.Title = "ListaPDFPortafolioU2";
     List<PortafolioEPIS.Models.Tbl_PruebaEntrada> pruebaEntrada = ViewBag.Prueba;
     List<PortafolioEPIS.Models.Tbl_Portafolio> Portafolio = ViewBag.Portafolio;
     List<PortafolioEPIS.Models.Tbl_Material> listaMaterial = ViewBag.ListarEvidencia;
@@ -68,7 +68,7 @@
                 }
                 @foreach (var p in Portafolio)
                 {
-                    if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UI")
+                    if (p.Codigo_DetalleCargaAcademica == Model.Codigo_DetalleCargaAcademica && p.Unidad_Portafolio == "UII")
                     {
                         idCodigoPortafolio = p.Codigo_Portafolio;
                         retirados = int.Parse((p.Retirados_Portafolio).ToString());
@@ -134,15 +134,19 @@
 <table class="table">
     <tr>
         <td>
-            <img src="~/assets/Informes/situacion-general.png" style="min-width: 350px; height: 300px; max-width: 400px; margin: 0 auto" />
+            <img src="~/assets/Informes/situacion-general.png" style="min-width: 350px; height: 250px; max-width: 400px; margin: 0 auto" />
         </td>
 
         <td>
-            <img src="~/assets/Informes/rendimiento.png" style="min-width: 300px; height: 300px; max-width: 400px; margin: 0 auto" />
+            <img src="~/assets/Informes/rendimiento.png" style="min-width: 300px; height: 250px; max-width: 400px; margin: 0 auto" />
         </td>
 
     </tr>
 </table>
+
+
+
+
 
 <table class="table2">
     <tr>
@@ -156,32 +160,89 @@
     </tr>
 </table>
 <table class="table" border="1">
-    <thead>
-        <tr>
-            <th width="5%">#</th>
-            <th width="50%">Material Docente Entregado</th>
-            <th width="15%">Digital</th>
-            <th width="15%">Impreso</th>
-            <th width="15%">Cantidad</th>
-        </tr>
-    </thead>
-    @{int con = 0; }
-    <tbody>
-        @foreach (var list in listaMaterial)
+    <tr>
+        <th width="5%">#</th>
+        <th width="50%">Material Docente Entregado</th>
+        <th width="15%">Tipo</th>
+        <th width="15%">Cantidad</th>
+        <th width="20%">Evidencia</th>
+    </tr>
+    @foreach (var list in listaMaterial)
+    {
+        if (list.Tipo_Material == "DOCENTEUII" && list.Codigo_Portafolio == idCodigoPortafolio)
         {
-            if (list.Tipo_Material == "DOCENTEUII" && list.Codigo_Portafolio == idCodigoPortafolio)
-            {
-                con = con + 1;
-                <tr>
-                    <td>@con</td>
-                    <td>@list.Nombre_Material</td>
-                    <td>@list.Estado_Material</td>
-                    <td>@list.Cantidad_Material</td>
-                    <td>@list.Archivo_Material</td>
-                </tr>
-            }
+            <tr>
+                <td>1</td>
+                <td>@list.Nombre_Material1</td>
+                <td style="text-align:center;">@list.Estado_Material1</td>
+                <td style="text-align:center;">@list.Cantidad_Material1</td>
+                <td>@list.Archivo_Material1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>@list.Nombre_Material2</td>
+                <td style="text-align:center;">@list.Estado_Material2</td>
+                <td style="text-align:center;">@list.Cantidad_Material2</td>
+                <td>@list.Archivo_Material2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>@list.Nombre_Material3</td>
+                <td style="text-align:center;">@list.Estado_Material3</td>
+                <td style="text-align:center;">@list.Cantidad_Material3</td>
+                <td>@list.Archivo_Material3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>@list.Nombre_Material4</td>
+                <td style="text-align:center;">@list.Estado_Material4</td>
+                <td style="text-align:center;">@list.Cantidad_Material4</td>
+                <td>@list.Archivo_Material4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>@list.Nombre_Material5</td>
+                <td style="text-align:center;">@list.Estado_Material5</td>
+                <td style="text-align:center;">@list.Cantidad_Material5</td>
+                <td>@list.Archivo_Material5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>@list.Nombre_Material6</td>
+                <td style="text-align:center;">@list.Estado_Material6</td>
+                <td style="text-align:center;">@list.Cantidad_Material6</td>
+                <td>@list.Archivo_Material6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>@list.Nombre_Material7</td>
+                <td style="text-align:center;">@list.Estado_Material7</td>
+                <td style="text-align:center;">@list.Cantidad_Material7</td>
+                <td>@list.Archivo_Material7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>@list.Nombre_Material8</td>
+                <td style="text-align:center;">@list.Estado_Material8</td>
+                <td style="text-align:center;">@list.Cantidad_Material8</td>
+                <td>@list.Archivo_Material8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>@list.Nombre_Material9</td>
+                <td style="text-align:center;">@list.Estado_Material9</td>
+                <td style="text-align:center;">@list.Cantidad_Material9</td>
+                <td>@list.Archivo_Material9</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>@list.Nombre_Material10</td>
+                <td style="text-align:center;">@list.Estado_Material10</td>
+                <td style="text-align:center;">@list.Cantidad_Material10</td>
+                <td>@list.Archivo_Material10</td>
+            </tr>
         }
-    </tbody>
+    }
 </table>
 <br />
 <table class="table2">
@@ -200,34 +261,64 @@
     </tr>
 </table>
 <table class="table" border="1">
-    <thead>
+    <tr>
+        <th width="5%">#</th>
+        <th width="50%">Material Docente Entregado</th>
+        <th width="15%">Tipo</th>
+        <th width="15%">Cantidad</th>
+        <th width="20%">Evidencia</th>
+    </tr>
 
-
-        <tr>
-            <th width="5%">#</th>
-            <th width="50%">Material Docente Entregado</th>
-            <th width="15%">Digital</th>
-            <th width="15%">Impreso</th>
-            <th width="15%">Cantidad</th>
-        </tr>
-    </thead>
-    @{ int con1 = 0;}
-    <tbody>
-        @foreach (var list1 in listaMaterial)
+    @foreach (var list1 in listaMaterial)
+    {
+        if (list1.Tipo_Material == "ESTUDIANTEUII" && list1.Codigo_Portafolio == idCodigoPortafolio)
         {
-            if (list1.Tipo_Material == "ESTUDIANTEUII" && list1.Codigo_Portafolio == idCodigoPortafolio)
-            {
-                con1 = con1 + 1;
-                <tr>
-                    <td>@con1</td>
-                    <td>@list1.Nombre_Material</td>
-                    <td>@list1.Estado_Material</td>
-                    <td>@list1.Cantidad_Material</td>
-                    <td>@list1.Archivo_Material</td>
-                </tr>
-            }
+
+            <tr>
+                <td>1</td>
+                <td>@list1.Nombre_Material1</td>
+                <td style="text-align:center;">@list1.Estado_Material1</td>
+                <td style="text-align:center;">@list1.Cantidad_Material1</td>
+                <td>@list1.Archivo_Material1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>@list1.Nombre_Material2</td>
+                <td style="text-align:center;">@list1.Estado_Material2</td>
+                <td style="text-align:center;">@list1.Cantidad_Material2</td>
+                <td>@list1.Archivo_Material2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>@list1.Nombre_Material3</td>
+                <td style="text-align:center;">@list1.Estado_Material3</td>
+                <td style="text-align:center;">@list1.Cantidad_Material3</td>
+                <td>@list1.Archivo_Material3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>@list1.Nombre_Material4</td>
+                <td style="text-align:center;">@list1.Estado_Material4</td>
+                <td style="text-align:center;">@list1.Cantidad_Material4</td>
+                <td>@list1.Archivo_Material4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>@list1.Nombre_Material5</td>
+                <td style="text-align:center;">@list1.Estado_Material5</td>
+                <td style="text-align:center;">@list1.Cantidad_Material5</td>
+                <td>@list1.Archivo_Material5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>@list1.Nombre_Material6</td>
+                <td style="text-align:center;">@list1.Estado_Material6</td>
+                <td style="text-align:center;">@list1.Cantidad_Material6</td>
+                <td>@list1.Archivo_Material6</td>
+            </tr>
         }
-    </tbody>
+    }
+
 </table>
 
 <p> Fecha: @DateTime.Parse((DateTime.Now).ToString()).ToShortDateString()</p>

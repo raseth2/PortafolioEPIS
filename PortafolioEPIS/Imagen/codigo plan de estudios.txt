@@ -1,0 +1,365 @@
+docente
+[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha Nacimiento")]
+        public DateTime? FechaNac_Docente { get; set; }
+
+carga academica
+[DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha Inicio")]
+        public DateTime? FechaInicio_CargaAcademica { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha Fin")]
+        public DateTime? FechaFin_CargaAcademica { get; set; }
+
+
+MODELO
+ [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha Inicio")]
+        public DateTime? FechaInicio_PlanEstudio { get; set; }
+        
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Fecha Fin")]
+        public DateTime? FechaFin_PlanEstudio { get; set; }
+
+
+
+
+VISTA INDEX
+
+@model List<PortafolioEPIS.Models.Tbl_PlanEstudio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Lista de Plan de Estudios</h4>
+    </div>
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <div class="form-check form-check-inline">
+            <a href="~/PlanEstudio/Agregar" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Nuevo Registro</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <div class="table-responsive">
+                <table id="example" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Semestre</th>
+                            <th>Nombre</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-right">Accción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int num = 0;}
+                        @foreach (var p in Model)
+                        {
+                            num = num + 1;
+                        <tr>
+                            <td>@num</td>
+                            <td>@p.Tbl_Semestre.Nombre_Semestre</td>
+                            <td><a href="~/DetallePlanEstudio/Index/@p.Codigo_PlanEstudio">@p.Nombre_PlanEstudio</a></td>
+                            <td>@DateTime.Parse((p.FechaInicio_PlanEstudio).ToString()).ToShortDateString()</td>
+                            <td>@DateTime.Parse((p.FechaFin_PlanEstudio).ToString()).ToShortDateString()</td>
+                            @if (p.Estado_PlanEstudio == true)
+                            {
+                                <td><span class="custom-badge status-green">Activo</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="custom-badge status-red">Inactivo</span></td>
+                            }
+
+                            <td class="text-right">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="~/PlanEstudio/Ver/@p.Codigo_PlanEstudio"><i class="fa fa-eye m-r-5"></i> Ver</a>
+                                        <a class="dropdown-item" href="~/PlanEstudio/Agregar/@p.Codigo_PlanEstudio"><i class="fa fa-pencil m-r-5"></i> Editar</a>
+                                        <a class="dropdown-item" href="~/PlanEstudio/Eliminar/@p.Codigo_PlanEstudio" onclick="return confirm('¿Esta Seguro de Eliminar.........?');"><i class="fa fa-trash-o m-r-5"></i> Eliminar</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+VISTA AGREGAR
+
+@model PortafolioEPIS.Models.Tbl_PlanEstudio
+@{
+    List<PortafolioEPIS.Models.Tbl_Semestre> objSemestre = ViewBag.Tbl_Semestre;
+    ViewBag.Title = "Agregar";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">Agregar / Editar Plan de Estudio</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card-box">
+            <h4 class="card-title">Información Plan de Estudio</h4>
+            @using (Html.BeginForm("Guardar", "PlanEstudio", FormMethod.Post, new { id = "needs-validation", @novalidate = "novalidate" }))
+            {
+                @Html.HiddenFor(x => x.Codigo_PlanEstudio)
+                <div class="row clearfix">
+                    <div class="col-md-4">
+                        @Html.Label("Semestre")
+                        <select name="Codigo_Semestre" class="form-control" id="validationCustom01" required="required">
+
+                            @foreach (var e in objSemestre)
+                            {
+                                if (e.Estado_Semestre == true)
+                                {
+                                    <option @(Model.Codigo_Semestre.Equals(e.Codigo_Semestre) ? "selected" : "") value="@e.Codigo_Semestre">@e.Nombre_Semestre</option>
+                                }
+                            }
+                        </select>
+                        <div class="invalid-feedback">
+                            Seleccionar Semestre
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        @Html.Label("Nombre Plan de Estudio")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.Nombre_PlanEstudio, new { @class = "form-control", id = "validationCustom02", required = "required", pattern = "[A-Za-z]*{3,50}" })
+                            <div class="invalid-feedback">
+                                Ingrese un Nombre de Plan de Estudios
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-md-6">
+                        @Html.Label("Fecha Inicio")
+                        <div class="form-group">
+                            @Html.EditorFor(x => x.FechaInicio_PlanEstudio, new { htmlAttributes = new { @class = "form-control date", id = "validationCustom03", required = "required"} })
+                            <div class="invalid-feedback">
+                                Seleccionar Fecha Inicio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        @Html.Label("Fecha Fin")
+                        <div class="form-group">
+                            @Html.EditorFor(x => x.FechaFin_PlanEstudio, new { htmlAttributes = new { @class = "form-control", id = "validationCustom04", required = "required" } })                            
+                            <div class="invalid-feedback">
+                                Seleccionar Fecha Fin
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row clearfix">
+                    <div class="col-md-6">
+                        @Html.Label("Total Créditos Extracurriculares")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.TotalCreditosExtracurriculares_PlanEstudio, new { @class = "form-control", id = "validationCustom05", required = "required", pattern = "[0-9]{1,1}" })
+                            <div class="invalid-feedback">
+                                Ingresa Cantidad
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        @Html.Label("Total Créditos Práticas")
+                        <div class="form-group">
+                            @Html.TextBoxFor(x => x.TotalCreditosPracticas_PlanEstudio, new { @class = "form-control", id = "validationCustom05", required = "required", pattern = "[0-9]{1,1}" })
+                            <div class="invalid-feedback">
+                                Ingresa Cantidad
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        @Html.Label("Estado")
+                        <div class="form-group">
+                            @Html.RadioButtonFor(x => x.Estado_PlanEstudio, true, new { @checked = true }) Activo  <label>&nbsp &nbsp</label>
+                            @Html.RadioButtonFor(x => x.Estado_PlanEstudio, false) Inactivo
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="form-group row">
+                                <div class="col-sm-8 col-9 text-left">
+                                    <div class="form-check form-check-inline">
+                                        <a href="~/PlanEstudio/Index" class="btn btn btn-outline-primary btn-rounded" style='width:100px; height:35px'><i class="fa fa-close"></i>  Cancelar</a>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <button class="btn btn-primary btn-rounded" style='width:100px; height:35px' type="submit"><i class="fa fa-check"></i> Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            var form = document.getElementById('needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>
+
+
+
+VISTA VER
+@model PortafolioEPIS.Models.Tbl_PlanEstudio
+@{
+    ViewBag.Title = "Ver";
+    List<PortafolioEPIS.Models.Tbl_DetallePlanEstudio> detalleplanestudio = ViewBag.DetallePlanEstudio;
+    int obligatorios = 0;
+    int electivos = 0;
+    int creditosobligatorios = 0;
+    int creditoselectivos = 0;
+}
+<div class="row">
+    <div class="col-sm-7 col-6">
+        <h4 class="page-title">Detalle Plan de Estudio</h4>
+    </div>
+    <div class="col-sm-5 col-6 text-right m-b-30">
+        <a href="~/PlanEstudio/Agregar" class="btn btn-primary btn-rounded"><i class="fa fa-edit"></i> Editar Plan Estudio</a>
+    </div>
+</div>
+<div class="card-box profile-header">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="profile-view">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="profile-info-left">
+                            <ul class="personal-info">
+                                <li>
+                                    <span class="title">Semestre:</span>
+                                    <span class="title">@Model.Tbl_Semestre.Nombre_Semestre</span>
+                                </li>
+                                <li>
+                                    <span class="title">Nombre:</span>
+                                    <span class="text">@Model.Nombre_PlanEstudio</span>
+                                </li>
+                                <li>
+                                    <span class="title">Fecha Inicio:</span>
+                                    <span class="text">@DateTime.Parse((Model.FechaInicio_PlanEstudio).ToString()).ToShortDateString()</span>
+                                </li>
+                                <li>
+                                    <span class="title">Fecha Fin:</span>
+                                    <span class="text">@DateTime.Parse((Model.FechaFin_PlanEstudio).ToString()).ToShortDateString()</span>
+                                </li>
+                                @foreach (var p in detalleplanestudio)
+                                {
+                                    if (p.Codigo_PlanEstudio == Model.Codigo_PlanEstudio)
+                                    {
+                                        if(p.TipoCurso_DetallePlanEstudio=="Obligatorio")
+                                        {
+                                            creditosobligatorios = creditosobligatorios + p.TotalCreditos_DetallePlanEstudio;
+                                            obligatorios = obligatorios + 1;
+                                        }
+                                        if (p.TipoCurso_DetallePlanEstudio == "Electivo")
+                                        {
+                                            creditoselectivos = creditoselectivos + p.TotalCreditos_DetallePlanEstudio;
+                                            electivos = electivos + 1;
+                                        }
+
+
+
+
+                                    }
+                                }
+                              
+                                <li>
+                                    <span class="title">Cursos Obligatorios:</span>
+                                    <span class="text">@obligatorios</span>
+                                </li>
+                                <li>
+                                    <span class="title">Cursos Electivos:</span>
+                                    <span class="text">@electivos</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="personal-info">
+                            <li>
+                                <span class="title">Créditos Obligatorios:</span>
+                                <span class="text">@creditosobligatorios</span>
+                            </li>
+                            <li>
+                                <span class="title">Créditos Electivos:</span>
+                                <span class="text">@creditoselectivos</span>
+                            </li>
+                            <li>
+                                <span class="title">Créditos Extra:</span>
+                                <span class="text">@Model.TotalCreditosExtracurriculares_PlanEstudio</span>
+                            </li>
+                            <li>
+                                <span class="title">Créditos Práticas:</span>
+                                <span class="text">@Model.TotalCreditosPracticas_PlanEstudio</span>
+                            </li>
+
+                            <li>
+                                <span class="title">Estado:</span>
+                                @if (Model.Estado_PlanEstudio == true)
+                                {
+                                    <span class="text">Activo</span>
+                                }
+                                else
+                                {
+                                    <span class="text">Inactivo</span>
+                                }
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
