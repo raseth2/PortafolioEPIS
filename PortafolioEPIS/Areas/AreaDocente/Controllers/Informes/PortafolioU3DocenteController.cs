@@ -55,6 +55,7 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
         [HttpPost]
         public ActionResult Evidencia(Tbl_Material objEvidencia, HttpPostedFileBase archivo, HttpPostedFileBase archivo1, HttpPostedFileBase archivo3, HttpPostedFileBase archivo4, HttpPostedFileBase archivo5, HttpPostedFileBase archivo6, HttpPostedFileBase archivo7, HttpPostedFileBase archivo8, HttpPostedFileBase archivo9, HttpPostedFileBase archivo10, int Codigo_detalle_carga)
         {
+
             if (archivo != null)
             {
 
