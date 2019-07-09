@@ -33,17 +33,7 @@
                         <tbody>
                             @{ int num = 0;}
                             @foreach (var q in prueba)
-                            {
-                                @*<label> cad @q.Codigo_DetalleCargaAcademica o</label>
-                                    if (q.Codigo_DetalleCargaAcademica == Convert.ToInt32(ViewBag.id))
-                                    {
-                                        idpruebas = q.Codigo_PruebaEntrada;
-                                        estado = q.Estado_PruebaEntrada;
-                                        detalleplan = q.Codigo_DetalleCargaAcademica;
-
-                                        <label>@idpruebas</label>
-                                        <label>@estado</label>
-                                        <label>@detalleplan</label>*@
+                            {                                
                                 foreach (var p in Model)
 
                                 {
@@ -57,7 +47,7 @@
                                             num = num + 1;
                             <tr>
                                 <td>@num</td>
-                                <td><a href="~/DetalleCargaAcademica/Ver/@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio">@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</a></td>
+                                <td>@p.Tbl_DetallePlanEstudio.CodigoCurso_DetallePlanEstudio</td>
                                 <td>@p.Tbl_DetallePlanEstudio.Asignatura_DetallePlanEstudio</td>
                                 <td>@p.Tbl_Docente.Nombres_Docente @p.Tbl_Docente.Apellidos_Docente</td>
                                 <td>@p.Tbl_DetallePlanEstudio.TipoCurso_DetallePlanEstudio</td>
