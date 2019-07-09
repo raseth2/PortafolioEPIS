@@ -1,6 +1,9 @@
 ﻿@model List<PortafolioEPIS.Models.Tbl_DetalleCargaAcademica>
 @{
 
+    int id = 0;
+    string nombre_semestre = null;
+    PortafolioEPIS.Models.Tbl_CargaAcademica objCargaAcademica = ViewBag.Tbl_CargaAcademica_id;
 
     List<PortafolioEPIS.Models.Tbl_InformeFinal> informe = ViewBag.Informe;
     List<PortafolioEPIS.Models.Tbl_CargaAcademica> carga = ViewBag.Carga;
@@ -11,7 +14,7 @@
 }
 <div class="row">
     <div class="col-sm-12 col-12">
-        <h4 class="page-title">Lista de Informe Final</h4>
+        <h4 class="page-title">Lista de Informe Final  <strong> Semestre: @objCargaAcademica.Tbl_Semestre.Nombre_Semestre</strong></h4>
     </div>
 </div>
 <div class="profile-tabs">
