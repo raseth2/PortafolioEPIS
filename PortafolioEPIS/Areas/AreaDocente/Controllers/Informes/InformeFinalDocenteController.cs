@@ -109,10 +109,11 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
         {
             return View(objInformeFinal.Obtener(id));
         }
-        public ActionResult AgregarObservaciones(int idInformeFinal = 0, int idPruebaDoc = 0)
+        public ActionResult AgregarObservaciones(int idInformeFinal = 0, int idPruebaDoc = 0, int codDetalle=0)
         {
             ViewBag.idInformeFinal = idInformeFinal;
             ViewBag.idPruebaDoc = idPruebaDoc;
+            ViewBag.codDetalle = codDetalle;
 
             //ViewBag.ListaTbl_MedidasCorrectivas = objlistaMedidasCorrectivas.Listar();
             return View(
@@ -123,10 +124,10 @@ namespace PortafolioEPIS.Areas.AreaDocente.Controllers.Informes
 
 
         //Action Guardar
-        public ActionResult GuardarObservaciones(Tbl_Observaciones ObjObservaciones, int idPruebaDoc)
+        public ActionResult GuardarObservaciones(Tbl_Observaciones ObjObservaciones, int idPruebaDoc, int codDetalle)
         {
             ObjObservaciones.Guardar();
-            return Redirect("~/AreaDocente/InformeFinalDocente/Agregar/" + idPruebaDoc);
+            return Redirect("~/AreaDocente/InformeFinalDocente/Agregar/" + codDetalle);
         }
 
 
