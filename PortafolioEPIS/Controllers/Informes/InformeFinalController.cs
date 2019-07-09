@@ -160,24 +160,25 @@ namespace PortafolioEPIS.Controllers.Informes
 
         }
 
-        public ActionResult GuardarEstado(Tbl_InformeFinal objInformeFinal, int id = 0, int codigodetalle = 0, int evaluados = 0, string estado = null, int iddocente = 0)
-        {
+        //public ActionResult GuardarEstado(Tbl_InformeFinal objInformeFinal, int id = 0, int codigodetalle = 0, int evaluados = 0, string estado = null, int iddocente = 0)
+        //{
 
 
 
-            objInformeFinal.Estado_InformeFinal = estado;
+        //    objInformeFinal.Estado_InformeFinal = estado;
 
 
 
-            objInformeFinal.Codigo_InformeFinal= id;
-            objInformeFinal.Codigo_DetalleCargaAcademica = codigodetalle;
-            objInformeFinal.EstudiantesMatriculados_InformeFinal = evaluados;
-            objInformeFinal.Fecha_InformeFinal = DateTime.Now;
-            objInformeFinal.Guardar();
+        //    objInformeFinal.Codigo_InformeFinal= id;
+        //    objInformeFinal.Codigo_DetalleCargaAcademica = codigodetalle;
+        //    objInformeFinal.EstudiantesMatriculados_InformeFinal = evaluados;
+        //    objInformeFinal.Fecha_InformeFinal = DateTime.Now;
+        //    objInformeFinal.Guardar();
 
-            return Redirect("~/Docente/Ver/" + iddocente);
+        //    return Redirect("~/Docente/Ver/" + iddocente);
 
-        }
+        //}
+        
         ///////////////////////////////////////////////////////////////////////////////////////////////
         //Action Guardar
         public ActionResult GuardarMotivo(Tbl_Motivo objmotivoGuardar, int idPruebaDoc)
